@@ -27,4 +27,9 @@
 纯静态,无构建步骤。GitHub Pages 直接由根目录 `index.html` 提供;`.nojekyll` 关闭 Jekyll 处理以正常服务 `assets/`、`data/`。
 
 排行榜数据契约:`leaderboard.json` = `{ generated_at, deadline, final_unlocked, dev:[...], final:[...] }`,
-每行 `{ token_suffix, t1/t2/t3:{pass, success_rate}, t4:{success_rate, submitted_at}|null }`。
+每行 `{ token_suffix, t1/t2/t3:{pass, success_rate}, progress:{track, success_rate}|null, t4:{success_rate, submitted_at}|null }`。
+
+**主榜次序由后端给定**:`dev` / `final` 数组已按规则排好,前端按 **JSON 原顺序**渲染(不前端重排)。
+次序 = 有 T4 成绩者在前(`t4.success_rate` 降序),其后是无 T4 者按答题进度
+(passed-T3 > passed-T2 > passed-T1 > none,同档以该档 SR 降序);`progress.track` = 最高达标档,
+主榜列对无 T4 队伍显示「Tn 达标 · SR 0.xx」而非空白 / 零分。

@@ -1,8 +1,13 @@
 // troncamp · hanging_mug 排行榜渲染(匿名 token 榜)。
-// 主榜 = T4 纯成功率降序;T1-T3 显示达标门(绿勾/未达标圈/未提交点)。
-// 匿名:只显示 token 尾号(token_suffix),永不显示队名。
+// 主榜次序由后端给定:JSON 已排好,前端按 JSON 原顺序渲染,不再前端重排。
+//   后端次序 = 有 T4 成绩者在前(T4 SR 降序),其后是无 T4 者按答题进度
+//   (passed-T3 > passed-T2 > passed-T1 > none,同档以该档 SR 降序)。
+// 主榜列:有 T4 显分数;无 T4 显答题进度(最高达标档 + SR)。
+// T1-T3 仍显达标门(绿勾/未达标圈/未提交点)。匿名:只显示 token 尾号,永不显示队名。
 // 契约:leaderboard.json { generated_at, deadline, final_unlocked, dev:[...], final:[...] }
-//   每行 { token_suffix, t1/t2/t3:{pass,success_rate}, t4:{success_rate,submitted_at}|null }
+//   每行 { token_suffix, t1/t2/t3:{pass,success_rate},
+//          progress:{track:"T3"|"T2"|"T1"|null, success_rate}|null,
+//          t4:{success_rate,submitted_at}|null }
 (function () {
   'use strict';
 
@@ -25,17 +30,26 @@
     return '<span class="gate gate-miss" title="未达标' + sr + '">○</span>';
   }
 
-  // T4 主榜分数 = 纯成功率(×100 一位小数)+ 进度条。
-  function t4cell(t4) {
-    if (!t4 || t4.success_rate == null) {
-      return '<td class="c-score"><span class="dimcell">未上场</span></td>';
+  // 主榜列:有 T4 → 成功率(×100 一位小数)+ 进度条;
+  // 无 T4 → 答题进度(最高达标档 + 该档 SR),按后端给定次序排在 T4 队伍之后。
+  function scoreCell(r) {
+    var t4 = r.t4;
+    if (t4 && t4.success_rate != null) {
+      var pct = t4.success_rate * 100;
+      var w = Math.max(2, Math.min(100, pct));
+      var sub = t4.submitted_at ? '<span class="scoresub">' + esc(t4.submitted_at) + '</span>' : '';
+      return '<td class="c-score"><div class="scorewrap">' +
+        '<span class="scorenum">' + pct.toFixed(1) + '</span>' + sub +
+        '<span class="scorebar"><i style="width:' + w + '%"></i></span></div></td>';
     }
-    var pct = t4.success_rate * 100;
-    var w = Math.max(2, Math.min(100, pct));
-    var sub = t4.submitted_at ? '<span class="scoresub">' + esc(t4.submitted_at) + '</span>' : '';
-    return '<td class="c-score"><div class="scorewrap">' +
-      '<span class="scorenum">' + pct.toFixed(1) + '</span>' + sub +
-      '<span class="scorebar"><i style="width:' + w + '%"></i></span></div></td>';
+    // 无 T4:显示答题进度。progress.track = 最高达标档;无任何达标显「报名中」。
+    var p = r.progress;
+    if (p && p.track) {
+      var sr = (p.success_rate != null) ? ' · SR ' + p.success_rate.toFixed(2) : '';
+      return '<td class="c-score"><span class="progress" title="尚未进入 T4 主榜">' +
+        esc(p.track) + ' 达标' + sr + '</span></td>';
+    }
+    return '<td class="c-score"><span class="dimcell">报名中</span></td>';
   }
 
   function rowHtml(r, i) {
@@ -47,18 +61,8 @@
       '<td class="c-gate">' + gate(r.t1) + '</td>' +
       '<td class="c-gate">' + gate(r.t2) + '</td>' +
       '<td class="c-gate">' + gate(r.t3) + '</td>' +
-      t4cell(r.t4) +
+      scoreCell(r) +
       '</tr>';
-  }
-
-  // 主榜排序:有 T4 成绩的按成功率降序在前;无 T4 的按 token 尾号稳定排后。
-  function sortRows(rows) {
-    return rows.slice().sort(function (a, b) {
-      var sa = (a.t4 && a.t4.success_rate != null) ? a.t4.success_rate : -1;
-      var sb = (b.t4 && b.t4.success_rate != null) ? b.t4.success_rate : -1;
-      if (sb !== sa) return sb - sa;
-      return String(a.token_suffix || '').localeCompare(String(b.token_suffix || ''));
-    });
   }
 
   var countdownTimer = null;
@@ -108,7 +112,8 @@
     }
     if (locked) locked.hidden = true;
 
-    rows = sortRows(rows || []);
+    // 后端已排好序;按 JSON 原顺序渲染,不前端重排。
+    rows = rows || [];
     if (!rows.length) {
       if (table) table.hidden = true;
       if (empty) empty.hidden = false;

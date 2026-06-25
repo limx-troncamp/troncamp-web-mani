@@ -1,5 +1,5 @@
 {
-  "_comment": "占位示例榜单。主办方 boardpub 发布真实 leaderboard.json 覆盖本文件。匿名:每行只含 token 尾 6 位 + 各档分数。主榜按 T4 纯成功率(success_rate)降序;T1-T3 显示达标门(pass)。",
+  "_comment": "占位示例榜单。主办方后端发布真实 leaderboard.json 覆盖本文件。匿名:每行只含 token 尾 6 位。主榜次序由后端给定、前端按 JSON 原顺序渲染:有 T4 成绩者在前(T4 success_rate 降序),其后是无 T4 者按答题进度(passed-T3 > passed-T2 > passed-T1 > none,同档以该档 SR 降序);progress.track = 最高达标档。",
   "generated_at": "2026-06-25 12:00:00 (UTC+8)",
   "deadline": null,
   "final_unlocked": false,
@@ -9,6 +9,7 @@
       "t1": { "pass": true,  "success_rate": 0.41 },
       "t2": { "pass": true,  "success_rate": 0.58 },
       "t3": { "pass": true,  "success_rate": 0.63 },
+      "progress": { "track": "T3", "success_rate": 0.63 },
       "t4": { "success_rate": 0.512, "submitted_at": "2026-06-24 21:10" }
     },
     {
@@ -16,13 +17,23 @@
       "t1": { "pass": true,  "success_rate": 0.38 },
       "t2": { "pass": true,  "success_rate": 0.55 },
       "t3": { "pass": true,  "success_rate": 0.60 },
+      "progress": { "track": "T3", "success_rate": 0.60 },
       "t4": { "success_rate": 0.474, "submitted_at": "2026-06-24 19:42" }
+    },
+    {
+      "token_suffix": "mN3xKp",
+      "t1": { "pass": true,  "success_rate": 0.39 },
+      "t2": { "pass": true,  "success_rate": 0.56 },
+      "t3": { "pass": true,  "success_rate": 0.61 },
+      "progress": { "track": "T3", "success_rate": 0.61 },
+      "t4": null
     },
     {
       "token_suffix": "Wp7vXa",
       "t1": { "pass": true,  "success_rate": 0.36 },
       "t2": { "pass": true,  "success_rate": 0.52 },
       "t3": { "pass": false, "success_rate": 0.44 },
+      "progress": { "track": "T2", "success_rate": 0.52 },
       "t4": null
     },
     {
@@ -30,6 +41,7 @@
       "t1": { "pass": true,  "success_rate": 0.33 },
       "t2": { "pass": false, "success_rate": 0.40 },
       "t3": null,
+      "progress": { "track": "T1", "success_rate": 0.33 },
       "t4": null
     },
     {
@@ -37,6 +49,7 @@
       "t1": { "pass": false, "success_rate": 0.21 },
       "t2": null,
       "t3": null,
+      "progress": { "track": null, "success_rate": null },
       "t4": null
     }
   ],

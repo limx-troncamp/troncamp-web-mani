@@ -210,6 +210,7 @@ table.board tbody tr.top3 .c-rank { color: #a05a2c; font-weight: 700; }
 .scorebar { display: block; width: 100%; height: 4px; background: var(--line-soft); border-radius: 2px; overflow: hidden; }
 .scorebar i { display: block; height: 100%; background: var(--accent); }
 .dimcell { color: var(--dim); }
+.progress { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); }
 
 .locked, #empty { text-align: center; color: var(--dim); padding: 3rem 0; font-size: 1.1rem; letter-spacing: 0.06em; }
 .locked .big { display: block; color: var(--accent); font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 0.8rem; letter-spacing: 0.15em; }
