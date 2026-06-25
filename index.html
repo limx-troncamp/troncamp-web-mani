@@ -4,150 +4,213 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>troncamp · hanging_mug 鲁棒泛化 VLA 黑客松</title>
-<meta name="description" content="双臂 Tron2 机器人挂杯子任务的线上 VLA 黑客松:用 3 路图像 π0.5(LoRA)在域随机化下做鲁棒泛化,从弱随机化跑通到全域 OOD。给定数据 → 训练 → 本地自评 → 提交。">
+<meta name="description" content="双臂机器人挂杯子任务的线上 VLA 黑客松:3 路图像 π0.5(LoRA),竞争轴为域随机化下的鲁棒泛化。T1–T4 顺序解锁,主榜按成功率排名。">
 <link rel="stylesheet" href="./style.css">
+<script src="./config.js"></script>
+<script src="./board.js" defer></script>
 </head>
 <body>
 
 <nav class="nav">
   <div class="wrap">
-    <a href="./index.html" class="brand">tron<span class="accent">camp</span> · hanging_mug</a>
+    <a href="#top" class="brand">tron<span class="accent">camp</span> · hanging_mug</a>
     <span class="nav-links">
-      <a href="./index.html" class="active">题面</a>
-      <a href="./tracks.html">赛制 T1–T4</a>
-      <a href="./flow.html">流程</a>
-      <a href="./leaderboard.html">榜单</a>
+      <a href="#task">题面</a>
+      <a href="#tracks">赛制</a>
+      <a href="#eval">评测</a>
+      <a href="#flow">流程</a>
+      <a href="#board">榜单</a>
       <a href="https://github.com/limx-troncamp/troncamp" class="cta" target="_blank" rel="noopener">Starter ↗</a>
     </span>
   </div>
 </nav>
 
 <!-- ───────── 页头 ───────── -->
-<header class="hero">
-  <div class="wrap">
+<header class="hero" id="top">
+  <div class="wrap reveal">
     <span class="tag">Robust Generalization VLA · 双臂挂杯子 · 线上黑客松</span>
-    <h1>双臂 Tron2 把杯子<span class="accent">挂上架</span><br>比的是域随机化下的鲁棒泛化</h1>
+    <h1>双臂机器人把杯子<span class="accent">挂上架</span></h1>
     <p class="lead">
-      单任务 <b>hanging_mug</b>(RoboTwin 官方语义):左臂从桌面抓起杯子、调整朝向、放到正中,
-      右臂再抓取并把它挂到金属杯架的挂杆上。统一用 <b>π0.5</b> 三路图像策略 LoRA 微调,
-      竞争轴是<b>对域随机化的鲁棒泛化</b>——从弱随机化一路爬到全域 OOD。
+      单任务 hanging_mug:左臂抓杯、放到正中,右臂取杯并挂上杯架挂杆。统一用 3 路图像 π0.5 做 LoRA 微调,
+      比的是策略在<b>域随机化</b>下的鲁棒泛化——从弱随机化通关到全域 OOD。
     </p>
-    <p class="hero-meta">单任务 hanging_mug · 单模型 π0.5(3 路图像 + LoRA)· 单仿真栈 RoboTwin · T1–T4 顺序解锁 · 主榜只排 T4 纯成功率 · 自动评测 · 匿名 token 榜</p>
+    <p class="hero-meta">单任务 hanging_mug · 单模型 π0.5(3 路图像 + LoRA)· T1–T4 顺序解锁 · 主榜按成功率排名 · 匿名 token 榜</p>
     <div class="hero-actions">
-      <a href="./tracks.html" class="btn primary">查看赛制 T1–T4</a>
-      <a href="./flow.html" class="btn">参赛流程</a>
-      <a href="./leaderboard.html" class="btn">排行榜</a>
+      <a href="#tracks" class="btn primary">赛制 T1–T4</a>
+      <a href="#flow" class="btn">参赛流程</a>
+      <a href="#board" class="btn">排行榜</a>
     </div>
   </div>
 </header>
 
-<!-- ───────── 01 任务 ───────── -->
+<!-- ───────── 01 题面 ───────── -->
 <section id="task">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="sec-head">
-      <span class="sec-num">01 / 任务</span>
-      <h2>hanging_mug:双臂协作把杯子挂上架</h2>
+      <span class="sec-num">01 / 题面</span>
+      <h2>任务与模型</h2>
     </div>
     <div class="prose">
       <p>
-        舞台是一张桌子:桌面上放着一只<b>杯子</b>和一个带挂杆的<b>金属杯架</b>。
-        一台双臂 <b>Tron2</b> 人形机器人完成一整套灵巧操作:
-      </p>
-      <ul>
-        <li><b>左臂</b>:从桌面抓起杯子,调整朝向,放到桌面正中,完成左右臂之间的递交位姿。</li>
-        <li><b>右臂</b>:抓取居中的杯子,移动到杯架上方,把杯子<b>挂到挂杆</b>上并稳定释放。</li>
-      </ul>
-      <p>
-        这是 RoboTwin 原生 <code>hanging_mug</code> 的官方语义(左抓右挂)。任务对双臂配合、抓取朝向、
-        以及挂杆对位的精度都有要求,是典型的双臂灵巧操作。
+        桌面上有一只<b>杯子</b>和一个带挂杆的<b>金属杯架</b>。双臂机器人完成:
+        <b>左臂</b>从桌面抓起杯子、调整朝向、放到正中;<b>右臂</b>取杯,移到杯架上方,把杯子挂到挂杆并稳定释放。
       </p>
     </div>
 
-    <!-- 关键帧 filmstrip -->
     <div class="filmstrip">
-      <figure>
-        <img src="./assets/hanging_mug_seed0_kf0.png" alt="hanging_mug 关键帧 0:初始,杯子与杯架在桌面">
-        <figcaption><span class="kf-no">①</span> 初始:杯子(左)、杯架(右)在桌面</figcaption>
-      </figure>
-      <figure>
-        <img src="./assets/hanging_mug_seed0_kf1.png" alt="hanging_mug 关键帧 1:左臂下探接近杯子">
-        <figcaption><span class="kf-no">②</span> 左臂下探接近杯子</figcaption>
-      </figure>
-      <figure>
-        <img src="./assets/hanging_mug_seed0_kf2.png" alt="hanging_mug 关键帧 2:左臂抓起杯子">
-        <figcaption><span class="kf-no">③</span> 左臂抓起、调整朝向</figcaption>
-      </figure>
-      <figure>
-        <img src="./assets/hanging_mug_seed0_kf3.png" alt="hanging_mug 关键帧 3:杯子放到桌面正中">
-        <figcaption><span class="kf-no">④</span> 杯子放到正中,准备递交</figcaption>
-      </figure>
-      <figure>
-        <img src="./assets/hanging_mug_seed0_kf4.png" alt="hanging_mug 关键帧 4:右臂抓取居中的杯子">
-        <figcaption><span class="kf-no">⑤</span> 右臂抓取居中的杯子</figcaption>
-      </figure>
-      <figure>
-        <img src="./assets/hanging_mug_seed0_kf5.png" alt="hanging_mug 关键帧 5:右臂把杯子挂向杯架">
-        <figcaption><span class="kf-no">⑥</span> 右臂把杯子挂向杯架挂杆</figcaption>
-      </figure>
+      <figure><img src="./assets/hanging_mug_seed0_kf0.png" alt="初始:杯子与杯架在桌面"><figcaption><span class="kf-no">①</span> 初始</figcaption></figure>
+      <figure><img src="./assets/hanging_mug_seed0_kf1.png" alt="左臂下探接近杯子"><figcaption><span class="kf-no">②</span> 左臂接近</figcaption></figure>
+      <figure><img src="./assets/hanging_mug_seed0_kf2.png" alt="左臂抓起杯子"><figcaption><span class="kf-no">③</span> 抓起调整</figcaption></figure>
+      <figure><img src="./assets/hanging_mug_seed0_kf3.png" alt="杯子放到正中"><figcaption><span class="kf-no">④</span> 放到正中</figcaption></figure>
+      <figure><img src="./assets/hanging_mug_seed0_kf4.png" alt="右臂抓取居中的杯子"><figcaption><span class="kf-no">⑤</span> 右臂取杯</figcaption></figure>
+      <figure><img src="./assets/hanging_mug_seed0_kf5.png" alt="右臂把杯子挂向杯架"><figcaption><span class="kf-no">⑥</span> 挂上挂杆</figcaption></figure>
     </div>
-    <p class="note" style="margin-top:0.2rem">
-      上图为 <code>hanging_mug</code> 单个 seed 的六帧全景示意(看得见整机器人 + 桌面 + 杯/架)。任务示意图仅用于说明语义,实际评测在带域随机化的场景下逐 seed 跑。
-    </p>
+
+    <table class="dtable" style="margin-top:1.4rem">
+      <thead><tr><th style="width:9rem">项</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td><b>策略</b></td><td>π0.5,3 路图像输入:head(俯瞰)+ left-wrist(抓取近景)+ right-wrist(挂杆对位)+ 状态 + 语言指令;LoRA 微调(<code>ema_decay=None</code>,消费级 24G 可塞)。</td></tr>
+        <tr><td><b>竞争轴</b></td><td>对<b>域随机化</b>的鲁棒泛化,逐档加码;主榜只看成功率。</td></tr>
+        <tr><td><b>数据</b></td><td>主办方专家采的一份 raw bag 全卷共用下发;T1 处理该数据,T2 起可换随机化 / 换 seed 补采增强。</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<!-- ───────── 02 模型 ───────── -->
-<section id="model">
-  <div class="wrap">
+<!-- ───────── 02 赛制 ───────── -->
+<section id="tracks">
+  <div class="wrap reveal">
     <div class="sec-head">
-      <span class="sec-num">02 / 模型</span>
-      <h2>3 路图像 π0.5,LoRA 微调</h2>
-      <p>全卷统一单模型、单仿真栈,比的是鲁棒泛化的算法,而非模型大小或任务选择。</p>
+      <span class="sec-num">02 / 赛制</span>
+      <h2>T1–T4 四档,顺序解锁</h2>
+      <p>同一任务的四个放开层级,每档多放开一类可改项。前档达标才能交后档;各档各交各的模型、各自评测。主榜只排 T4。</p>
     </div>
-    <div class="two-col">
-      <div class="colcard">
-        <span class="ctag">Policy</span>
-        <h3>π0.5(3 路图像)</h3>
-        <p>策略输入三路相机图像加上机器人状态与语言指令:</p>
-        <ul>
-          <li><b>head</b> 头部相机(俯瞰桌面全局)</li>
-          <li><b>left-wrist</b> 左腕相机(抓取杯子近景)</li>
-          <li><b>right-wrist</b> 右腕相机(挂杆对位近景)</li>
-        </ul>
-        <p style="margin-top:0.6rem">输出双臂关节动作;从 <code>gs://</code> 拉 π0.5 base ckpt,<b>LoRA 微调</b>(<code>ema_decay=None</code>,消费级 24G 显存即可塞下)。</p>
-      </div>
-      <div class="colcard">
-        <span class="ctag">Competition Axis</span>
-        <h3>鲁棒泛化(域随机化)</h3>
-        <p>竞争轴是策略对<b>域随机化</b>的鲁棒泛化能力,基于 RoboTwin 原生的 <code>task_config</code> 旋钮逐档加码:</p>
-        <ul>
-          <li><b>弱随机化</b>(T1–T3 评测):桌高随机 + 轻度光照,介于 demo_clean 与 demo_randomized 之间。</li>
-          <li><b>全域 OOD</b>(T4 评测):随机背景 + 杂乱桌面 + 桌高 ±3cm + 强光照随机 + <b>unseen 纹理 / 语言指令</b>全开。</li>
-        </ul>
-        <p style="margin-top:0.6rem">越往后,场景越偏离训练分布,只有真正学到鲁棒表征的策略才稳得住。</p>
-      </div>
-    </div>
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th style="width:4rem">档</th>
+          <th style="width:6.5rem">名称</th>
+          <th>选手能改</th>
+          <th style="width:5.5rem">提交物</th>
+          <th style="width:11rem">计分</th>
+          <th style="width:5.5rem">评测</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="lvl">T1</td><td>入门通关</td><td>处理给定数据,跑通 3 路图像 π0.5 LoRA</td><td>仅权重</td><td>分级 SR ≥ 低阈值 → 满分</td><td>弱随机化</td></tr>
+        <tr><td class="lvl">T2</td><td>数据增强</td><td>图像级增强 + 用专家脚本补采更多数据</td><td>权重 + 代码</td><td>分级 SR ≥ 高阈值(须过 T1)</td><td>弱随机化</td></tr>
+        <tr><td class="lvl">T3</td><td>网络结构</td><td>改 π0.5 结构(LoRA 位置 / rank、冻结策略、域不变层、action expert 容量;不换模型)</td><td>权重 + 代码</td><td>分级 SR ≥ 阈值(须过 T2)</td><td>弱随机化</td></tr>
+        <tr><td class="lvl">T4</td><td>硬核主榜</td><td>前三档招式叠加,冲最高分</td><td>权重 + 代码</td><td><b>纯成功率降序(主榜)</b>(须过 T3)</td><td><b>全域 OOD</b></td></tr>
+      </tbody>
+    </table>
+
+    <div class="formula" style="margin-top:1.2rem">T1–T3 计分 = <span class="accent">min(SR / 阈值, 1)</span><span class="dim">　达标即满分</span></div>
+    <div class="formula">主榜(T4)= <span class="accent">成功率</span> 降序<span class="dim">　纯 SR,无其它分量</span></div>
+    <p class="note">分级成功率逐 episode 取 <code>{1 / 0.5 / 0}</code> 后取均值;EVAL_REPEATS 取均值(默认 5)。所有阈值由主办方赛前实测标定。</p>
   </div>
 </section>
 
-<!-- ───────── 03 主线 ───────── -->
-<section id="line">
-  <div class="wrap">
+<!-- ───────── 03 评测 ───────── -->
+<section id="eval">
+  <div class="wrap reveal">
     <div class="sec-head">
-      <span class="sec-num">03 / 参赛主线</span>
-      <h2>给定数据 → 训练 → 本地自评 / 看 rollout → 提交</h2>
-      <p>clone 一个公开自包含仓,一键装环境,其余全是干净的「数据 → 训练 → 评测 → 上榜」流程。</p>
+      <span class="sec-num">03 / 评测</span>
+      <h2>弱随机化 vs 全域 OOD</h2>
+      <p>评测难度逐档加码;T1–T3 在弱随机化下,T4 在全域 OOD 下。</p>
     </div>
-    <div class="flow">
-      <div class="step"><span class="sn"></span><div><h4>clone 公开仓 + 一键装环境</h4><p>clone <code>limx-troncamp/troncamp</code>,跑 <code>setup/install.sh</code> 装好 RoboTwin(curobo / sapien / mplib)+ π0.5(uv / JAX)双环境,<code>env_check.py</code> 自检。</p></div></div>
-      <div class="step"><span class="sn"></span><div><h4>拿给定数据</h4><p>主办方用专家脚本采好一份 raw bag <b>全卷共用下发</b>;T1 直接处理这份数据,后续档可在此基础上做增强 / 补采。</p></div></div>
-      <div class="step"><span class="sn"></span><div><h4>训练 3 路图像 π0.5(LoRA)</h4><p><code>starter/train.py</code> 跑基线 config,把数据转成 3 相机 LeRobot 格式后 LoRA 微调出能挂杯子的模型。</p></div></div>
-      <div class="step"><span class="sn"></span><div><h4>本地自评 / 看 rollout 视频</h4><p><code>starter/eval_local.py</code> 在公开 dev 种子上本地出分(= 主办方评测同一套 harness,只换种子);<code>starter/watch_rollout.py</code> 渲一段近景 rollout 视频核查行为。</p></div></div>
-      <div class="step"><span class="sn"></span><div><h4>提交,自动评测上榜</h4><p><code>submit/submit.py</code> 带 token 按 track 提交 ckpt(+ policy 代码);主办方在私有 final 种子上权威评测,匿名 token 榜出名次。</p></div></div>
+    <table class="dtable">
+      <thead><tr><th style="width:9rem">维度</th><th>弱随机化(T1–T3)</th><th>全域 OOD(T4)</th></tr></thead>
+      <tbody>
+        <tr><td><b>桌高</b></td><td>随机</td><td>±3cm 量级随机</td></tr>
+        <tr><td><b>光照</b></td><td>轻度随机</td><td>强随机</td></tr>
+        <tr><td><b>背景</b></td><td>固定</td><td>随机背景</td></tr>
+        <tr><td><b>桌面</b></td><td>干净</td><td>杂乱(干扰物)</td></tr>
+        <tr><td><b>纹理 / 指令</b></td><td>seen</td><td>unseen(未见纹理 / 语言指令)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ───────── 04 流程 ───────── -->
+<section id="flow">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">04 / 流程</span>
+      <h2>从 clone 到上榜</h2>
+      <p>clone 公开仓,一键装环境;本地自评跑的就是主办方评测的同一套 harness,只换种子。</p>
     </div>
-    <p class="note">
-      <b>评测逻辑公私共用一份</b>:你本地自评跑的就是主办方评测的同一套 <code>run_eval.py</code>,只是把公开的 dev 种子换成私有的 final 种子。本地 dev 分可作自测参考。
-    </p>
+
+    <figure class="fig">
+      <img src="./assets/flow.svg" alt="troncamp 提交与评测流程:本地 clone → 训练 → 自评 → 提交 → 评测 → 上榜">
+      <figcaption>端到端数据流:本地 clone / 训练 / 自评 → submit.py 带 token 提交 → 后端闸门 + 队列 → 评测 worker(进程隔离 + 沙箱,final 种子)→ GitHub Pages 匿名榜;看榜改进重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
+    </figure>
+
+    <h3 style="margin-top:1.6rem;font-size:1.1rem;font-weight:700">本地自评</h3>
+    <div class="code"><span class="c"># 在公开 dev 种子上本地出分(= 主办方评测同一套 run_eval,只换种子)</span>
+python starter/eval_local.py <span class="a">--ckpt</span> ./ckpt.pt <span class="a">--track</span> T1
+<span class="c"># 跑策略 + 渲近景 rollout 视频(桌/杯/架/手清晰,核查行为)</span>
+python starter/watch_rollout.py <span class="a">--ckpt</span> ./ckpt.pt <span class="a">--seed</span> 0 <span class="a">--out</span> rollout.mp4</div>
+
+    <h3 style="margin-top:1.4rem;font-size:1.1rem;font-weight:700">提交</h3>
+    <div class="code"><span class="c"># T1:只交权重</span>
+python submit/submit.py <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt-file</span> ./t1.pt
+<span class="c"># T2 / T3 / T4:权重 + policy 代码(CLI 自动打包,自动算 SHA256)</span>
+python submit/submit.py <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> ./mycode <span class="a">--ckpt-file</span> ./t4.pt</div>
+
+    <table class="dtable" style="margin-top:1.2rem">
+      <thead><tr><th style="width:8rem">机制</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td><b>token 鉴权</b></td><td>提交带 token,后端校验 + per-token 每日限额(<code>DAILY_LIMIT</code>)。无报名、无队名。</td></tr>
+        <tr><td><b>顺序解锁</b></td><td>过 T1 才能交 T2,依此类推到 T4。</td></tr>
+        <tr><td><b>dev / final</b></td><td>dev 公开(自评 / live 榜);final 私有(赛末权威排名,解锁前显示「赛末公布」)。</td></tr>
+        <tr><td><b>安全</b></td><td>解包做 zip-slip / symlink 防护;ckpt 备案 SHA256;推理期只用白名单观测,读不到私有 seed。</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:1.4rem;font-size:1.1rem;font-weight:700">最终交付物</h3>
+    <table class="dtable">
+      <tbody>
+        <tr><td class="lvl" style="width:10rem">开源代码 + 文档</td><td>完整代码(含采集脚本)开源到 GitHub,附技术设计文档,须可复现。</td></tr>
+        <tr><td class="lvl">演示视频</td><td>≤ 3 分钟,屏幕录制 + 画中画(摄像头):本人出镜讲解,现场 Demo 运行。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ───────── 05 榜单 ───────── -->
+<section id="board">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">05 / 榜单</span>
+      <h2>排行榜(Dev · 匿名)</h2>
+      <p>匿名榜:每 token 取最佳分,只显示 token 尾 6 位。T1–T3 显示达标门(✓ 达标 / ○ 未达标 / · 未提交);主榜按 T4 成功率降序。每 60s 刷新。</p>
+    </div>
+
+    <div class="tabs">
+      <a href="#board" class="on">DEV(公开)</a>
+      <a href="./final.html">FINAL(赛末公布)</a>
+    </div>
+
+    <div class="board-head">
+      <span class="upd" id="updated">加载中…</span>
+      <span class="spacer"></span>
+      <span id="countdown" style="font-family:var(--mono);font-size:0.85rem;color:var(--dim)"></span>
+    </div>
+
+    <table id="board-table" class="board" hidden>
+      <thead>
+        <tr>
+          <th class="c-rank">#</th>
+          <th class="c-token" style="text-align:left">Token <span class="th-sub">尾 6 位</span></th>
+          <th class="c-gate">T1 <span class="th-sub">达标</span></th>
+          <th class="c-gate">T2 <span class="th-sub">达标</span></th>
+          <th class="c-gate">T3 <span class="th-sub">达标</span></th>
+          <th class="c-score">T4 成功率 <span class="th-sub">主榜 · 纯 SR 降序</span></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p id="empty" hidden>暂无成绩</p>
   </div>
 </section>
 
@@ -157,24 +220,20 @@
     <div class="foot-grid">
       <div class="foot-col">
         <h5>赛事</h5>
-        <a href="./index.html">任务题面</a>
-        <a href="./tracks.html">赛制 T1–T4</a>
-        <a href="./flow.html">参赛流程</a>
-        <a href="./leaderboard.html">排行榜</a>
+        <a href="#task">题面</a>
+        <a href="#tracks">赛制 T1–T4</a>
+        <a href="#eval">评测</a>
+        <a href="#flow">流程</a>
+        <a href="#board">榜单</a>
       </div>
       <div class="foot-col">
         <h5>参赛资源</h5>
         <a href="https://github.com/limx-troncamp/troncamp" target="_blank" rel="noopener">官方 Starter 仓库 ↗</a>
-        <a href="./flow.html#submit">提交方式</a>
-        <a href="./flow.html#video">演示视频要求</a>
-      </div>
-      <div class="foot-col">
-        <h5>平台</h5>
-        <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics ↗</a>
-        <a href="./tracks.html#eval">评测难度档</a>
+        <a href="#flow">提交方式</a>
+        <a href="./final.html">FINAL 榜</a>
       </div>
     </div>
-    <p class="foot-note">troncamp · hanging_mug 鲁棒泛化 VLA 黑客松 · 单任务 hanging_mug + 单模型 π0.5(3 路图像 LoRA)+ 单仿真栈 RoboTwin。本站为赛事官网,量化成绩由评测集群自动产出。</p>
+    <p class="foot-note">troncamp · hanging_mug 鲁棒泛化 VLA 黑客松 · 单任务 hanging_mug + 单模型 π0.5(3 路图像 LoRA)。量化成绩由评测集群自动产出。</p>
   </div>
 </footer>
 

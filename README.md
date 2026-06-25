@@ -1,26 +1,26 @@
 # troncamp-web
 
-`limx-troncamp/troncamp` · **hanging_mug 鲁棒泛化 VLA 黑客松** 官网(静态站,GitHub Pages)。
+**hanging_mug 鲁棒泛化 VLA 黑客松** 官网(单页静态站,GitHub Pages)。
 
-双臂 Tron2 机器人把杯子挂上架(RoboTwin 官方语义:左臂抓杯 → 放中间 → 右臂抓 → 挂上架);
-统一用 3 路图像 π0.5(LoRA)做策略,竞争轴是**对域随机化的鲁棒泛化**——从弱随机化跑通到全域 OOD。
+双臂机器人把杯子挂上架(左臂抓杯 → 放中间 → 右臂取杯 → 挂上挂杆);
+统一用 3 路图像 π0.5(LoRA)做策略,竞争轴是**对域随机化的鲁棒泛化**——从弱随机化通关到全域 OOD。
 
 ## 页面
 
+单页 + 一个锁定的 Final 榜:
+
 | 文件 | 内容 |
 |---|---|
-| `index.html` | 题面:任务说明 + 关键帧 filmstrip + 3 路图像 π0.5 + 参赛主线 |
-| `tracks.html` | 赛制 T1–T4(四个放开层级)+ 计分口径 + 弱随机化/全域 OOD 评测档 + 数据政策 |
-| `flow.html` | 参赛流程:clone → 装环境 → 数据 → 训练 → 自评/看 rollout → 提交 + 演示视频要求 |
-| `leaderboard.html` | 匿名排行榜(Dev):只显示 token 尾号,主榜按 T4 纯成功率降序 |
+| `index.html` | 单页,顶部 sticky nav 锚点跳转:题面(filmstrip)/ 赛制 T1–T4 / 评测档 / 流程(含流程图)/ 榜单(Dev) |
 | `final.html` | Final 榜:赛末公布(解锁前显示「赛末公布」) |
 
 ## 资源
 
-- `style.css` — 朴素商务风(白底、表格为主、可离线/打印)。
+- `style.css` — 朴素商务风(白底、表格为主、可离线/打印);区块进场用纯 CSS `animation-timeline: view()` 轻量淡入,尊重 `prefers-reduced-motion`。
 - `board.js` / `config.js` — 排行榜渲染(读 `data/leaderboard.json`,60s 刷新)。
-- `data/leaderboard.json` — **占位示例**,主办方 boardpub 发布真实榜单覆盖。
-- `assets/hanging_mug_seed0_kf*.png` — 任务关键帧示意图(全景:整机器人 + 桌面 + 杯/架)。
+- `data/leaderboard.json` — **占位示例**,主办方发布真实榜单覆盖。
+- `assets/hanging_mug_seed0_kf*.png` — 任务关键帧示意图(6 帧 filmstrip)。
+- `assets/flow.svg` — 提交与评测流程图(本地 clone → 训练 → 自评 → 提交 → 评测 → 上榜)。
 
 ## 部署
 
