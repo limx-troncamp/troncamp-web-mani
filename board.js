@@ -1,9 +1,11 @@
-// troncamp · hanging_mug 排行榜渲染(匿名 token 榜)。
-// 主榜次序由后端给定:JSON 已排好,前端按 JSON 原顺序渲染,不再前端重排。
-//   后端次序 = 有 T4 成绩者在前(T4 SR 降序),其后是无 T4 者按答题进度
-//   (passed-T3 > passed-T2 > passed-T1 > none,同档以该档 SR 降序)。
-// 主榜列:有 T4 显分数;无 T4 显答题进度(最高达标档 + SR)。
-// T1-T3 仍显达标门(绿勾/未达标圈/未提交点)。匿名:只显示 token 尾号,永不显示队名。
+// troncamp LeaderBoard 表格渲染。沿用 TronCamp-Board 原版视觉结构与类名
+// (.c-rank/.c-team/.c-gate/.c-t3/.t3wrap/.t3num/.t3sub/.t3bar/.gate-*/.top*),
+// 仅替换为 troncamp 榜单逻辑:
+//   · 匿名:c-team 列显示 token 尾号(token_suffix),永不显示队名。
+//   · 主榜次序由后端给定:JSON 已排好,前端按 JSON 原顺序渲染,不前端重排。
+//     后端次序 = 有 T4 成绩者在前(T4 SR 降序),其后无 T4 者按答题进度
+//     (passed-T3 > passed-T2 > passed-T1 > none,同档以该档 SR 降序)。
+//   · 分数列(.c-t3):有 T4 显纯成功率(无擦/力分量);无 T4 显答题进度。
 // 契约:leaderboard.json { generated_at, deadline, final_unlocked, dev:[...], final:[...] }
 //   每行 { token_suffix, t1/t2/t3:{pass,success_rate},
 //          progress:{track:"T3"|"T2"|"T1"|null, success_rate}|null,
@@ -14,7 +16,7 @@
   var cfg = window.BOARD_CONFIG || {};
   var URL = cfg.BOARD_DATA_URL || './data/leaderboard.json';
   var REFRESH = (cfg.REFRESH_SECONDS || 60) * 1000;
-  var BOARD = 'dev';
+  var BOARD = 'dev';  // 实际值在 DOMContentLoaded 时从 <body data-board> 读取
 
   function esc(s) {
     var d = document.createElement('div');
@@ -22,7 +24,7 @@
     return d.innerHTML;
   }
 
-  // 达标门:达标=绿勾,未达标=空圈(hover 看 SR),未提交=点。
+  // T1/T2/T3 达标门:达标=绿勾,未达标=空圈(hover 看成功率),未提交=点。
   function gate(g) {
     if (!g) return '<span class="gate gate-none" title="未提交">·</span>';
     if (g.pass) return '<span class="gate gate-ok" title="已达标">✓</span>';
@@ -30,34 +32,33 @@
     return '<span class="gate gate-miss" title="未达标' + sr + '">○</span>';
   }
 
-  // 主榜列:有 T4 → 成功率(×100 一位小数)+ 进度条;
-  // 无 T4 → 答题进度(最高达标档 + 该档 SR),按后端给定次序排在 T4 队伍之后。
+  // 分数列(沿用原版 .c-t3/.t3wrap/.t3num/.t3bar):
+  //   有 T4 → 纯成功率(×100 一位小数)+ 进度条 + 提交时间;
+  //   无 T4 → 答题进度(最高达标档 + 该档 SR);无任何达标 → 报名中。
   function scoreCell(r) {
     var t4 = r.t4;
     if (t4 && t4.success_rate != null) {
-      var pct = t4.success_rate * 100;
-      var w = Math.max(2, Math.min(100, pct));
-      var sub = t4.submitted_at ? '<span class="scoresub">' + esc(t4.submitted_at) + '</span>' : '';
-      return '<td class="c-score"><div class="scorewrap">' +
-        '<span class="scorenum">' + pct.toFixed(1) + '</span>' + sub +
-        '<span class="scorebar"><i style="width:' + w + '%"></i></span></div></td>';
+      var w = Math.max(2, Math.min(100, t4.success_rate * 100));
+      var sub = t4.submitted_at ? '<span class="t3sub">' + esc(t4.submitted_at) + '</span>' : '';
+      return '<td class="c-t3"><div class="t3wrap">' +
+        '<span class="t3num">' + (t4.success_rate * 100).toFixed(1) + '</span>' + sub +
+        '<span class="t3bar"><i style="width:' + w + '%"></i></span></div></td>';
     }
-    // 无 T4:显示答题进度。progress.track = 最高达标档;无任何达标显「报名中」。
     var p = r.progress;
     if (p && p.track) {
       var sr = (p.success_rate != null) ? ' · SR ' + p.success_rate.toFixed(2) : '';
-      return '<td class="c-score"><span class="progress" title="尚未进入 T4 主榜">' +
+      return '<td class="c-t3"><span class="progresscell" title="尚未进入 T4 主榜">' +
         esc(p.track) + ' 达标' + sr + '</span></td>';
     }
-    return '<td class="c-score"><span class="dimcell">报名中</span></td>';
+    return '<td class="c-t3"><span class="dimcell">报名中</span></td>';
   }
 
   function rowHtml(r, i) {
-    var rank = i + 1;
-    var cls = rank <= 3 ? ' top' + rank : '';
+    var rank = i + 1;  // 后端已排序;名次按 JSON 原顺序
+    var cls = rank <= 3 ? ' top top' + rank : '';
     return '<tr class="brow' + cls + '">' +
       '<td class="c-rank">' + rank + '</td>' +
-      '<td class="c-token"><span class="tprefix">…</span>' + esc(r.token_suffix || '------') + '</td>' +
+      '<td class="c-team"><span class="tprefix">…</span>' + esc(r.token_suffix || '------') + '</td>' +
       '<td class="c-gate">' + gate(r.t1) + '</td>' +
       '<td class="c-gate">' + gate(r.t2) + '</td>' +
       '<td class="c-gate">' + gate(r.t3) + '</td>' +
@@ -74,7 +75,11 @@
     var end = new Date(deadline).getTime();
     function tick() {
       var ms = end - Date.now();
-      if (ms <= 0) { el.textContent = '已截止 · 榜单已冻结'; return; }
+      if (ms <= 0) {
+        el.textContent = '已截止 · 榜单已冻结为最终成绩';
+        el.classList.add('over');
+        return;
+      }
       var s = Math.floor(ms / 1000);
       var d = Math.floor(s / 86400);
       var pad = function (n) { return String(n).padStart(2, '0'); };
@@ -96,9 +101,9 @@
     var table = document.getElementById('board-table');
     var empty = document.getElementById('empty');
 
+    // final 在 final_unlocked 前显示「赛末公布」
     var rows;
     if (BOARD === 'final') {
-      // final 在 final_unlocked 前显示「赛末公布」
       if (data.final_unlocked && (data.final || []).length) {
         rows = data.final;
       } else {

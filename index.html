@@ -50,7 +50,7 @@
       <span class="sec-num">01 / 题面</span>
       <h2>任务与模型</h2>
     </div>
-    <div class="prose">
+    <div class="ov-prose">
       <p>
         桌面上有一只<b>杯子</b>和一个带挂杆的<b>金属杯架</b>。双臂机器人完成:
         <b>左臂</b>从桌面抓起杯子、调整朝向、放到正中;<b>右臂</b>取杯,移到杯架上方,把杯子挂到挂杆并稳定释放。
@@ -140,7 +140,7 @@
       <p>clone 公开仓,一键装环境;本地自评跑的就是主办方评测的同一套 harness,只换种子。</p>
     </div>
 
-    <figure class="fig">
+    <figure class="fig-wide" style="margin-top:1.6rem">
       <img src="./assets/flow.svg" alt="troncamp 提交与评测流程:本地 clone → 训练 → 自评 → 提交 → 评测 → 上榜">
       <figcaption>端到端数据流:本地 clone / 训练 / 自评 → submit.py 带 token 提交 → 后端闸门 + 队列 → 评测 worker(进程隔离 + 沙箱,final 种子)→ GitHub Pages 匿名榜;看榜改进重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
     </figure>
@@ -197,15 +197,15 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
       <span id="countdown" style="font-family:var(--mono);font-size:0.85rem;color:var(--dim)"></span>
     </div>
 
-    <table id="board-table" class="board" hidden>
+    <table id="board-table" class="board board-strip" hidden>
       <thead>
-        <tr>
+        <tr class="grp">
           <th class="c-rank">#</th>
-          <th class="c-token" style="text-align:left">Token <span class="th-sub">尾 6 位</span></th>
+          <th class="c-team">Token <span class="th-sub">尾 6 位</span></th>
           <th class="c-gate">T1 <span class="th-sub">达标</span></th>
           <th class="c-gate">T2 <span class="th-sub">达标</span></th>
           <th class="c-gate">T3 <span class="th-sub">达标</span></th>
-          <th class="c-score">T4 成功率 / 进度 <span class="th-sub">主榜 · T4 SR 在前,无 T4 按进度</span></th>
+          <th class="c-t3">T4 成功率 / 进度 <span class="th-sub">主榜 · T4 SR 在前,无 T4 按进度</span></th>
         </tr>
       </thead>
       <tbody></tbody>
