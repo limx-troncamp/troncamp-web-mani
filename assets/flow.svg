@@ -28,8 +28,8 @@
   <text x="275" y="81" text-anchor="middle" class="s">raw bag · 全卷共用</text>
 
   <rect class="node" x="388" y="42" width="138" height="52" rx="7"/>
-  <text x="457" y="60" text-anchor="middle" class="t" font-size="12.5">训练 π0.5</text>
-  <text x="457" y="78" text-anchor="middle" class="s">3 路图像 · LoRA</text>
+  <text x="457" y="60" text-anchor="middle" class="t" font-size="12.5">训练 ACT</text>
+  <text x="457" y="78" text-anchor="middle" class="s">单卡 · ~80M</text>
 
   <rect class="key" x="570" y="42" width="150" height="52" rx="7"/>
   <text x="645" y="60" text-anchor="middle" class="t" font-size="12.5">本地自评</text>
@@ -69,7 +69,7 @@
   <path d="M729,204 V236 H468 V254" class="ln" marker-end="url(#ah)"/>
 
   <!-- ③ 评测 -->
-  <text x="24" y="252" class="band">③ 评测 · 进程隔离 + 沙箱(GPU · final 种子)</text>
+  <text x="24" y="252" class="band">③ 评测 · in-process(进程隔离 + 沙箱 · final 种子)</text>
   <rect x="120" y="260" width="720" height="86" rx="9" fill="#0e1219" stroke="#1d2530" stroke-width="1.2"/>
   <text x="136" y="280" class="s" fill="#38e1d4" font-size="11">评测 worker</text>
   <rect class="node" x="136" y="290" width="150" height="44" rx="6"/>
@@ -77,11 +77,11 @@
   <text x="211" y="324" text-anchor="middle" class="s">SHA256 校验</text>
 
   <rect class="node" x="306" y="290" width="166" height="44" rx="6"/>
-  <text x="389" y="308" text-anchor="middle" class="t" font-size="12">policy server</text>
-  <text x="389" y="324" text-anchor="middle" class="s">π0.5 · 选手代码</text>
+  <text x="389" y="308" text-anchor="middle" class="t" font-size="12">加载 ACT</text>
+  <text x="389" y="324" text-anchor="middle" class="s">torch · in-process</text>
 
   <rect class="node" x="492" y="290" width="166" height="44" rx="6"/>
-  <text x="575" y="308" text-anchor="middle" class="t" font-size="12">sim rollout</text>
+  <text x="575" y="308" text-anchor="middle" class="t" font-size="12">同进程 rollout</text>
   <text x="575" y="324" text-anchor="middle" class="s">逐 seed · 取均值</text>
 
   <rect class="node" x="678" y="290" width="146" height="44" rx="6"/>

@@ -1,5 +1,5 @@
-/* TronCamp VLA Hackathon — 官网 + 排行榜
-   暗色科幻控制台风:近黑底 + 单一青色强调 + 等宽数据字 + 细网格/扫描线。
+/* troncamp · stack_blocks_three 鲁棒泛化机器人操作黑客松 — 官网 + 排行榜
+   暗色科幻控制台风:近黑底 + 单一青色(teal)强调 + 等宽数据字 + 细网格/扫描线。
    零构建,原生 HTML/CSS/JS。 */
 
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap');
@@ -317,6 +317,16 @@ footer { border-top: 1px solid var(--line); padding: 3rem 0; color: var(--dim); 
 .submit-cta-note { color: var(--muted); font-size: 0.9rem; max-width: 36rem; line-height: 1.55; }
 
 /* ════════ troncamp 增补(沿用原版色板,只补原版没有的少量类) ════════ */
+
+/* 任务演示帧占位(stack_blocks_three rollout 渲染后替换为 filmstrip) */
+.placeholder-fig {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.7rem;
+  margin: 1.6rem 0 0; padding: 3.2rem 1.2rem; text-align: center;
+  border: 1px dashed var(--accent-dim); border-radius: 6px; background: var(--panel-2);
+  background-image: repeating-linear-gradient(45deg, rgba(56,225,212,0.04) 0 10px, transparent 10px 20px);
+}
+.placeholder-fig .ph-icon { font-size: 1.8rem; color: var(--accent-dim); line-height: 1; }
+.placeholder-fig .ph-text { font-family: var(--mono); font-size: 0.86rem; color: var(--muted); letter-spacing: 0.02em; }
 
 /* 关键帧 filmstrip(任务示意图) */
 .filmstrip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin: 1.6rem 0 0; }

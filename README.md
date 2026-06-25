@@ -1,9 +1,9 @@
 # troncamp-web
 
-**hanging_mug 鲁棒泛化 VLA 黑客松** 官网(单页静态站,GitHub Pages)。
+**stack_blocks_three 鲁棒泛化机器人操作黑客松** 官网(单页静态站,GitHub Pages)。
 
-双臂机器人把杯子挂上架(左臂抓杯 → 放中间 → 右臂取杯 → 挂上挂杆);
-统一用 3 路图像 π0.5(LoRA)做策略,竞争轴是**对域随机化的鲁棒泛化**——从弱随机化通关到全域 OOD。
+双臂机器人把红 / 绿 / 蓝三个方块移到桌面中央堆叠(蓝叠绿上、绿叠红上);
+单卡训 ACT(Action Chunking Transformer,~80M)做策略,竞争轴是**对域随机化的鲁棒泛化**——从弱随机化通关到全域 OOD。
 
 ## 页面
 
@@ -11,16 +11,16 @@
 
 | 文件 | 内容 |
 |---|---|
-| `index.html` | 单页,顶部 sticky nav 锚点跳转:题面(filmstrip)/ 赛制 T1–T4 / 评测档 / 流程(含流程图)/ 榜单(Dev) |
+| `index.html` | 单页,顶部 sticky nav 锚点跳转:题面 / 赛制 T1–T4 / 评测档 / 流程(含流程图)/ 榜单(Dev) |
 | `final.html` | Final 榜:赛末公布(解锁前显示「赛末公布」) |
 
 ## 资源
 
-- `style.css` — 朴素商务风(白底、表格为主、可离线/打印);区块进场用纯 CSS `animation-timeline: view()` 轻量淡入,尊重 `prefers-reduced-motion`。
+- `style.css` — 深色控制台风(#07090d + teal #38e1d4 + Chakra Petch);区块进场用纯 CSS `animation-timeline: view()` 轻量淡入,尊重 `prefers-reduced-motion`。
 - `board.js` / `config.js` — 排行榜渲染(读 `data/leaderboard.json`,60s 刷新)。
 - `data/leaderboard.json` — **占位示例**,主办方发布真实榜单覆盖。
-- `assets/hanging_mug_seed0_kf*.png` — 任务关键帧示意图(6 帧 filmstrip)。
-- `assets/flow.svg` — 提交与评测流程图(本地 clone → 训练 → 自评 → 提交 → 评测 → 上榜)。
+- 任务演示帧 — stack_blocks_three 专家 rollout 渲染后补(题面当前为占位块)。
+- `assets/flow.svg` — 提交与评测流程图(本地 clone → 训练 → 自评 → 提交 → in-process 评测 → 上榜)。
 
 ## 部署
 

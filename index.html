@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>troncamp · hanging_mug 鲁棒泛化 VLA 黑客松</title>
-<meta name="description" content="双臂机器人挂杯子任务的线上 VLA 黑客松:3 路图像 π0.5(LoRA),竞争轴为域随机化下的鲁棒泛化。T1–T4 顺序解锁,主榜按成功率排名。">
+<title>troncamp · stack_blocks_three 鲁棒泛化机器人操作黑客松</title>
+<meta name="description" content="双臂叠 3 个方块任务的线上鲁棒泛化机器人操作黑客松:单卡训 ACT(Action Chunking Transformer),竞争轴为域随机化下的鲁棒泛化。T1–T4 顺序解锁,主榜按成功率排名。">
 <link rel="stylesheet" href="./style.css">
 <script src="./config.js"></script>
 <script src="./board.js" defer></script>
@@ -13,7 +13,7 @@
 
 <nav class="nav">
   <div class="wrap">
-    <a href="#top" class="brand">tron<span class="accent">camp</span> · hanging_mug</a>
+    <a href="#top" class="brand">tron<span class="accent">camp</span> · 叠方块</a>
     <span class="nav-links">
       <a href="#task">题面</a>
       <a href="#tracks">赛制</a>
@@ -28,13 +28,13 @@
 <!-- ───────── 页头 ───────── -->
 <header class="hero" id="top">
   <div class="wrap reveal">
-    <span class="tag">Robust Generalization VLA · 双臂挂杯子 · 线上黑客松</span>
-    <h1>双臂机器人把杯子<span class="accent">挂上架</span></h1>
+    <span class="tag">Robust Generalization Manipulation · 双臂叠方块 · 线上黑客松</span>
+    <h1>双臂机器人把三个方块<span class="accent">叠起来</span></h1>
     <p class="lead">
-      单任务 hanging_mug:左臂抓杯、放到正中,右臂取杯并挂上杯架挂杆。统一用 3 路图像 π0.5 做 LoRA 微调,
-      比的是策略在<b>域随机化</b>下的鲁棒泛化——从弱随机化通关到全域 OOD。
+      单任务 stack_blocks_three:把红、绿、蓝三个方块移到桌面中央堆叠——蓝叠绿上、绿叠红上。
+      单张 4090 上训 <b>ACT</b>(Action Chunking Transformer),比的是策略在<b>域随机化</b>下的鲁棒泛化——从弱随机化通关到全域 OOD。
     </p>
-    <p class="hero-meta">单任务 hanging_mug · 单模型 π0.5(3 路图像 + LoRA)· T1–T4 顺序解锁 · 主榜按成功率排名 · 匿名 token 榜</p>
+    <p class="hero-meta">单任务 stack_blocks_three · 单模型 ACT(~80M · 单卡可训)· T1–T4 顺序解锁 · 主榜按成功率排名 · 匿名 token 榜</p>
     <div class="hero-actions">
       <a href="#tracks" class="btn primary">赛制 T1–T4</a>
       <a href="#flow" class="btn">参赛流程</a>
@@ -52,26 +52,22 @@
     </div>
     <div class="ov-prose">
       <p>
-        桌面上有一只<b>杯子</b>和一个带挂杆的<b>金属杯架</b>。双臂机器人完成:
-        <b>左臂</b>从桌面抓起杯子、调整朝向、放到正中;<b>右臂</b>取杯,移到杯架上方,把杯子挂到挂杆并稳定释放。
+        桌面上散放着<b>红、绿、蓝</b>三个方块。双臂机器人把它们<b>移到桌面中央并堆叠</b>:
+        先<b>红</b>块居中,再把<b>绿</b>块叠到红块上,最后把<b>蓝</b>块叠到绿块上——堆成稳定的三层塔。
       </p>
     </div>
 
-    <div class="filmstrip">
-      <figure><img src="./assets/hanging_mug_seed0_kf0.png" alt="初始:杯子与杯架在桌面"><figcaption><span class="kf-no">①</span> 初始</figcaption></figure>
-      <figure><img src="./assets/hanging_mug_seed0_kf1.png" alt="左臂下探接近杯子"><figcaption><span class="kf-no">②</span> 左臂接近</figcaption></figure>
-      <figure><img src="./assets/hanging_mug_seed0_kf2.png" alt="左臂抓起杯子"><figcaption><span class="kf-no">③</span> 抓起调整</figcaption></figure>
-      <figure><img src="./assets/hanging_mug_seed0_kf3.png" alt="杯子放到正中"><figcaption><span class="kf-no">④</span> 放到正中</figcaption></figure>
-      <figure><img src="./assets/hanging_mug_seed0_kf4.png" alt="右臂抓取居中的杯子"><figcaption><span class="kf-no">⑤</span> 右臂取杯</figcaption></figure>
-      <figure><img src="./assets/hanging_mug_seed0_kf5.png" alt="右臂把杯子挂向杯架"><figcaption><span class="kf-no">⑥</span> 挂上挂杆</figcaption></figure>
+    <div class="placeholder-fig">
+      <span class="ph-icon">▦</span>
+      <span class="ph-text">任务演示帧 · 待 stack_blocks_three 专家 rollout 渲染后补</span>
     </div>
 
     <table class="dtable" style="margin-top:1.4rem">
       <thead><tr><th style="width:9rem">项</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td><b>策略</b></td><td>π0.5,3 路图像输入:head(俯瞰)+ left-wrist(抓取近景)+ right-wrist(挂杆对位)+ 状态 + 语言指令;LoRA 微调(<code>ema_decay=None</code>,消费级 24G 可塞)。</td></tr>
+        <tr><td><b>模型</b></td><td><b>ACT</b>(Action Chunking Transformer,~80M,PyTorch,RoboTwin 原生动作分块策略)。单张 4090 级显卡 <b>&lt;1h 量级</b>可训完一轮,选手可日迭代。</td></tr>
         <tr><td><b>竞争轴</b></td><td>对<b>域随机化</b>的鲁棒泛化,逐档加码;主榜只看成功率。</td></tr>
-        <tr><td><b>数据</b></td><td>主办方专家采的一份 raw bag 全卷共用下发;T1 处理该数据,T2 起可换随机化 / 换 seed 补采增强。</td></tr>
+        <tr><td><b>数据</b></td><td>主办方采的一份成功专家轨迹 raw bag 全卷共用下发;T1 处理该数据,T2 起可换随机化 / 换 seed 补采增强。</td></tr>
       </tbody>
     </table>
   </div>
@@ -97,9 +93,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td class="lvl">T1</td><td>入门通关</td><td>处理给定数据,跑通 3 路图像 π0.5 LoRA</td><td>仅权重</td><td>分级 SR ≥ 低阈值 → 满分</td><td>弱随机化</td></tr>
-        <tr><td class="lvl">T2</td><td>数据增强</td><td>图像级增强 + 用专家脚本补采更多数据</td><td>权重 + 代码</td><td>分级 SR ≥ 高阈值(须过 T1)</td><td>弱随机化</td></tr>
-        <tr><td class="lvl">T3</td><td>网络结构</td><td>改 π0.5 结构(LoRA 位置 / rank、冻结策略、域不变层、action expert 容量;不换模型)</td><td>权重 + 代码</td><td>分级 SR ≥ 阈值(须过 T2)</td><td>弱随机化</td></tr>
+        <tr><td class="lvl">T1</td><td>入门通关</td><td>用给定 config + 数据训通 ACT</td><td>仅权重</td><td>分级 SR ≥ 低阈值 → 满分</td><td>弱随机化</td></tr>
+        <tr><td class="lvl">T2</td><td>数据增强</td><td>图像级增强 + 用专家脚本换随机化 / 补采更多数据</td><td>权重 + 代码</td><td>分级 SR ≥ 高阈值(须过 T1)</td><td>弱随机化</td></tr>
+        <tr><td class="lvl">T3</td><td>结构 / 超参</td><td>改 ACT 结构与超参:chunk size、hidden dim、enc / dec 层数、KL 权重、backbone、temporal ensemble</td><td>权重 + 代码</td><td>分级 SR ≥ 阈值(须过 T2)</td><td>弱随机化</td></tr>
         <tr><td class="lvl">T4</td><td>硬核主榜</td><td>前三档招式叠加,冲最高分</td><td>权重 + 代码</td><td><b>纯成功率降序(主榜)</b>(须过 T3)</td><td><b>全域 OOD</b></td></tr>
       </tbody>
     </table>
@@ -137,18 +133,18 @@
     <div class="sec-head">
       <span class="sec-num">04 / 流程</span>
       <h2>从 clone 到上榜</h2>
-      <p>clone 公开仓,一键装环境;本地自评跑的就是主办方评测的同一套 harness,只换种子。</p>
+      <p>clone 公开仓,一键装环境;本地自评跑的就是主办方评测的同一套 harness,只换种子。评测为 <b>in-process</b>:加载 ACT 权重(torch)→ 同进程内跑 rollout → <code>check_success</code> → SR。</p>
     </div>
 
     <figure class="fig-wide" style="margin-top:1.6rem">
       <img src="./assets/flow.svg" alt="troncamp 提交与评测流程:本地 clone → 训练 → 自评 → 提交 → 评测 → 上榜">
-      <figcaption>端到端数据流:本地 clone / 训练 / 自评 → submit.py 带 token 提交 → 后端闸门 + 队列 → 评测 worker(进程隔离 + 沙箱,final 种子)→ GitHub Pages 匿名榜;看榜改进重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
+      <figcaption>端到端数据流:本地 clone / 训练 / 自评 → submit.py 带 token 提交 → 后端闸门 + 队列 → 评测 worker(in-process rollout · 进程隔离 + 沙箱,final 种子)→ GitHub Pages 匿名榜;看榜改进重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
     </figure>
 
     <h3 style="margin-top:1.6rem;font-size:1.1rem;font-weight:700">本地自评</h3>
     <div class="code"><span class="c"># 在公开 dev 种子上本地出分(= 主办方评测同一套 run_eval,只换种子)</span>
 python starter/eval_local.py <span class="a">--ckpt</span> ./ckpt.pt <span class="a">--track</span> T1
-<span class="c"># 跑策略 + 渲近景 rollout 视频(桌/杯/架/手清晰,核查行为)</span>
+<span class="c"># 跑策略 + 渲 rollout 视频(三方块抓放堆叠清晰可见,核查行为)</span>
 python starter/watch_rollout.py <span class="a">--ckpt</span> ./ckpt.pt <span class="a">--seed</span> 0 <span class="a">--out</span> rollout.mp4</div>
 
     <h3 style="margin-top:1.4rem;font-size:1.1rem;font-weight:700">提交</h3>
@@ -238,7 +234,7 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
         <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics ↗</a>
       </div>
     </div>
-    <p class="foot-note">troncamp · hanging_mug 鲁棒泛化 VLA 黑客松 · 单任务 hanging_mug + 单模型 π0.5(3 路图像 LoRA)。量化成绩由评测集群自动产出。<br>评测平台基于 <a href="https://github.com/RoboTwin-Platform/RoboTwin" target="_blank" rel="noopener">RoboTwin 2.0</a> 双臂操作仿真基准构建;机器人 Tron2 与策略模型由 <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics</a> 提供。</p>
+    <p class="foot-note">troncamp · stack_blocks_three 鲁棒泛化机器人操作黑客松 · 单任务 stack_blocks_three + 单模型 ACT(单卡可训)。量化成绩由评测集群自动产出。<br>评测平台基于 <a href="https://github.com/RoboTwin-Platform/RoboTwin" target="_blank" rel="noopener">RoboTwin 2.0</a> 双臂操作仿真基准构建;机器人 Tron2 由 <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics</a> 提供。</p>
   </div>
 </footer>
 
