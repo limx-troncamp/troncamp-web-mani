@@ -33,7 +33,7 @@
   }
 
   // 分数列(沿用原版 .c-t3/.t3wrap/.t3num/.t3bar):
-  //   有 T4 → 分级分 graded(∈[0,1],三位小数)+ 进度条 + 提交时间;
+  //   有 T4 → 分级分 graded(∈[0,1])按百分制显示(×100 一位小数)+ 进度条 + 提交时间;
   //   无 T4 → 答题进度(最高达标档 + 该档 SR);无任何达标 → 报名中。
   function scoreCell(r) {
     var t4 = r.t4;
@@ -41,7 +41,7 @@
       var w = Math.max(2, Math.min(100, t4.graded * 100));
       var sub = t4.submitted_at ? '<span class="t3sub">' + esc(t4.submitted_at) + '</span>' : '';
       return '<td class="c-t3"><div class="t3wrap">' +
-        '<span class="t3num">' + t4.graded.toFixed(3) + '</span>' + sub +
+        '<span class="t3num">' + (t4.graded * 100).toFixed(1) + '</span>' + sub +
         '<span class="t3bar"><i style="width:' + w + '%"></i></span></div></td>';
     }
     var p = r.progress;
