@@ -50,27 +50,49 @@
     <div class="sec-head">
       <span class="sec-num">01 / 题面</span>
       <h2>四个任务与模型</h2>
-      <p>四个<b>不同</b>的 Tron2 双臂任务,难度递增、全程 easy 环境;每段为专家一次成功操作的真实回放(Tron2 头部视角)。</p>
+      <p>四个<b>不同</b>的 Tron2 双臂任务,难度递增、全程 easy 环境;每段为专家一次成功操作的真实回放,<b>头部视角 + 正面视角双机位</b>(同一次操作、逐帧对齐)。</p>
     </div>
 
     <div class="video-grid">
       <figure class="vfig">
-        <video src="./assets/videos/adjust_bottle.mp4" muted loop playsinline controls preload="metadata"></video>
-        <figcaption><b>T1 · adjust_bottle</b> 单臂抓取把瓶子调正放好(极易,入门门)。</figcaption>
+        <div class="vpair">
+          <video src="./assets/videos/adjust_bottle.mp4" muted loop playsinline autoplay preload="metadata"></video>
+          <video src="./assets/videos/adjust_bottle_cam2.mp4" muted loop playsinline autoplay preload="metadata"></video>
+        </div>
+        <figcaption><b>T1 · adjust_bottle</b> 单臂抓取把瓶子调正放好(极易,入门门)。<span class="vviews">左 头部视角 · 右 正面视角</span></figcaption>
       </figure>
       <figure class="vfig">
-        <video src="./assets/videos/lift_pot.mp4" muted loop playsinline controls preload="metadata"></video>
-        <figcaption><b>T2 · lift_pot</b> 双臂协同把锅举起。</figcaption>
+        <div class="vpair">
+          <video src="./assets/videos/lift_pot.mp4" muted loop playsinline autoplay preload="metadata"></video>
+          <video src="./assets/videos/lift_pot_cam2.mp4" muted loop playsinline autoplay preload="metadata"></video>
+        </div>
+        <figcaption><b>T2 · lift_pot</b> 双臂协同把锅举起。<span class="vviews">左 头部视角 · 右 正面视角</span></figcaption>
       </figure>
       <figure class="vfig">
-        <video src="./assets/videos/stack_bowls_two.mp4" muted loop playsinline controls preload="metadata"></video>
-        <figcaption><b>T3 · stack_bowls_two</b> 双臂把一个碗叠到另一个上。</figcaption>
+        <div class="vpair">
+          <video src="./assets/videos/stack_bowls_two.mp4" muted loop playsinline autoplay preload="metadata"></video>
+          <video src="./assets/videos/stack_bowls_two_cam2.mp4" muted loop playsinline autoplay preload="metadata"></video>
+        </div>
+        <figcaption><b>T3 · stack_bowls_two</b> 双臂把一个碗叠到另一个上。<span class="vviews">左 头部视角 · 右 正面视角</span></figcaption>
       </figure>
       <figure class="vfig">
-        <video src="./assets/videos/stack_bowls_three.mp4" muted loop playsinline controls preload="metadata"></video>
-        <figcaption><b>T4 · stack_bowls_three</b> 双臂叠三个碗(主榜任务)。</figcaption>
+        <div class="vpair">
+          <video src="./assets/videos/stack_bowls_three.mp4" muted loop playsinline autoplay preload="metadata"></video>
+          <video src="./assets/videos/stack_bowls_three_cam2.mp4" muted loop playsinline autoplay preload="metadata"></video>
+        </div>
+        <figcaption><b>T4 · stack_bowls_three</b> 双臂叠三个碗(主榜任务)。<span class="vviews">左 头部视角 · 右 正面视角</span></figcaption>
       </figure>
     </div>
+    <script>
+      // 双机位逐帧对齐:把 cam2(右)锁到 head(左)的播放时间,漂移 >0.15s 即校正。
+      document.querySelectorAll('.vpair').forEach(function (p) {
+        var v = p.querySelectorAll('video');
+        if (v.length !== 2) return;
+        v[0].addEventListener('timeupdate', function () {
+          if (Math.abs(v[1].currentTime - v[0].currentTime) > 0.15) v[1].currentTime = v[0].currentTime;
+        });
+      });
+    </script>
 
     <table class="dtable" style="margin-top:1.4rem">
       <thead><tr><th style="width:9rem">项</th><th>说明</th></tr></thead>

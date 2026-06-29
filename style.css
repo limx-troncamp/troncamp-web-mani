@@ -307,8 +307,11 @@ footer { border-top: 1px solid var(--line); padding: 3rem 0; color: var(--dim); 
 .video-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 1.5rem 0 0; }
 .vfig { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--panel); }
 .vfig video { display: block; width: 100%; background: #07090d; }
+.vpair { display: flex; gap: 2px; background: #07090d; }
+.vpair video { width: 50%; display: block; background: #07090d; }
 .vfig figcaption { padding: 0.8rem 1.05rem; font-size: 0.86rem; color: var(--muted); border-top: 1px solid var(--line-soft); line-height: 1.6; }
 .vfig figcaption b { color: var(--text); }
+.vviews { display: block; margin-top: 0.3rem; font-size: 0.76rem; opacity: 0.7; }
 @media (min-width: 920px) { .video-grid.cols2 { grid-template-columns: 1fr 1fr; } }
 
 /* ── #submit 网页提交 CTA(2026-06-15) ── */
