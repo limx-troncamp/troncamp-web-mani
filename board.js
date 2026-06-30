@@ -61,7 +61,7 @@
     var cls = rank <= 3 ? ' top top' + rank : '';
     return '<tr class="brow' + cls + '">' +
       '<td class="c-rank">' + rank + '</td>' +
-      '<td class="c-team"><span class="tprefix">…</span>' + esc(r.token_suffix || '------') + '</td>' +
+      '<td class="c-team"><span class="tprefix">…</span>' + esc(r.token_suffix || r.team || '------') + '</td>' +
       '<td class="c-gate">' + gate(r.t1) + '</td>' +
       '<td class="c-gate">' + gate(r.t2) + '</td>' +
       '<td class="c-gate">' + gate(r.t3) + '</td>' +
