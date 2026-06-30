@@ -31,11 +31,9 @@
     <span class="tag">ACT 四任务套餐 · Tron2 双臂 · 线上黑客松</span>
     <h1>四个双臂操作任务,<span class="accent">层层闯关</span></h1>
     <p class="lead">
-      Tron2 双臂机器人,四个难度递增的操作任务:调正瓶子 → 举锅 → 叠两个碗 → 叠三个碗。
-      单张 4090 上训 <b>ACT</b>(Action Chunking Transformer),每爬一档只多扛一项工程技能——
-      工具链 → 数据工程 → 训练工程 → 网络与闭环。
+      Tron2 双臂机器人,四个难度递增的操作任务:调正瓶子 → 举锅 → 叠两个碗 → 叠三个碗;单张 4090 即可训 <b>ACT</b>。
     </p>
-    <p class="hero-meta">单模型 ACT(~80M · 单卡可训)· T1–T4 顺序解锁 · 只有 T4 计分 · 匿名 token 榜</p>
+    <p class="hero-meta">单模型 ACT(~80M)· T1–T4 顺序解锁 · 只有 T4 计分 · 匿名 token 榜</p>
     <div class="hero-actions">
       <a href="#tracks" class="btn primary">赛制 T1–T4</a>
       <a href="#flow" class="btn">参赛流程</a>
@@ -103,7 +101,7 @@
       <thead><tr><th style="width:9rem">项</th><th>说明</th></tr></thead>
       <tbody>
         <tr><td><b>模型</b></td><td><b>ACT</b>(Action Chunking Transformer,~80M,PyTorch,RoboTwin 原生动作分块策略)。单张 4090 级显卡 <b>&lt;1h 量级</b>可训完一轮,选手可日迭代。</td></tr>
-        <tr><td><b>难度轴</b></td><td>任务本身难度递增(瓶 → 锅 → 2 碗 → 3 碗,Aloha 参考 SR 97 / 88 / 82 / 48);每个门再给一份"卡在阈值线下方"的次优起点物料(混质量数据池 / 欠调 config)逼出该门技能。全程 <b>easy</b> 环境、单 embodiment Tron2。</td></tr>
+        <tr><td><b>难度轴</b></td><td>任务难度递增(瓶 → 锅 → 2 碗 → 3 碗;Aloha 参考 SR 97 / 88 / 82 / 48)。每个门另给一份次优起点数据(混质量池 / 欠调 config),对应其考察的工程技能。全程 <b>easy</b>、单 embodiment Tron2。</td></tr>
         <tr><td><b>数据</b></td><td><b>主办方下发</b> ACT-ready 处理好的数据(process_data 产),选手<b>不自采</b>;T2 给更大的混质量池(数据工程在其上做),T3/T4 给干净集。</td></tr>
       </tbody>
     </table>
@@ -132,7 +130,7 @@
         <tr><td class="lvl">T1</td><td>adjust_bottle<br><span class="th-sub">单臂抓取,极易</span></td><td>工具链入门:给处理好数据 + turnkey config 跑通 ACT</td><td>仅权重</td><td>分级 SR ≥ τ₁(松)→ 解锁</td></tr>
         <tr><td class="lvl">T2</td><td>lift_pot<br><span class="th-sub">双臂举锅</span></td><td>数据工程:在混质量大池上做筛选 / 配比 / load 时增广</td><td>权重 + 代码</td><td>分级 SR ≥ τ₂(须过 T1)</td></tr>
         <tr><td class="lvl">T3</td><td>stack_bowls_two<br><span class="th-sub">双臂叠 2 碗</span></td><td>训练工程:在故意欠调的 config 上调 LR / 步数 / chunk / temporal-agg</td><td>权重 + 代码</td><td>分级 SR ≥ τ₃(须过 T2)</td></tr>
-        <tr><td class="lvl">T4</td><td>stack_bowls_three<br><span class="th-sub">双臂叠 3 碗 · 主榜</span></td><td>网络 / 闭环全开(架构改造 + 推理时闭环,<b>不含 DAgger 自采</b>)</td><td>权重 + 代码</td><td><b>T4 得分 /100 降序(主榜)</b>(须过 T3)</td></tr>
+        <tr><td class="lvl">T4</td><td>stack_bowls_three<br><span class="th-sub">双臂叠 3 碗 · 主榜</span></td><td>网络 / 闭环全开:架构改造 + 推理时闭环(<b>不自采新数据</b>)</td><td>权重 + 代码</td><td><b>T4 得分 /100 降序(主榜)</b>(须过 T3)</td></tr>
       </tbody>
     </table>
 
@@ -147,7 +145,7 @@
   <div class="wrap reveal">
     <div class="sec-head">
       <span class="sec-num">03 / 评测</span>
-      <h2>主榜命根子:T4 得分</h2>
+      <h2>主榜计分:T4 得分</h2>
       <p>只有 T4 计分,用<b>末态分层得分</b>而非二值成功率——三个碗叠到第几层都有分,区分度比"成/败"更细。</p>
     </div>
     <table class="dtable">
