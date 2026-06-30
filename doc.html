@@ -68,8 +68,8 @@ cd detr &amp;&amp; pip install -e . &amp;&amp; cd ..</div>
       <p><b>T1 用主办方下发的成品数据,跳过本步</b>;<b>T2–T4 选手自采</b> —— 用下发的可改专家在 Tron2 上跑 RoboTwin 采集,只留成功 episode。专家 = <code>external/robotwin_local/envs/&lt;task_name&gt;.py</code> 的 <code>play_once()</code>,可直接改进。采集集数 / 域随机化 / 场景在 <code>task_config</code> 里调。</p>
     </div>
     <div class="code"><span class="c"># 先 bash setup/install.sh(解析路径占位,curobo 规划器才能起)</span>
-<span class="c"># bash collect.sh &lt;task_name&gt; &lt;task_config&gt;  —— 打 Tron2 自碰撞 patch 后采集</span>
-bash collect.sh lift_pot lift_pot_clean
+<span class="c"># bash collect_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;gpu_id&gt;  —— 打 Tron2 自碰撞 patch 后采集</span>
+bash collect_data.sh lift_pot lift_pot_clean 0
 <span class="c"># 采完用 process_data 转 ACT 16-D 格式(见下节)</span></div>
     <p class="note">想采更多 / 更优数据 → 改 <code>task_config</code> 的集数与域随机化,或直接改进 <code>envs/&lt;task&gt;.py</code> 的专家。改动随提交的代码包生效。</p>
   </div>
@@ -81,7 +81,7 @@ bash collect.sh lift_pot lift_pot_clean
     <div class="sec-head">
       <span class="sec-num">03 / 数据处理</span>
       <h2>数据处理 process_data</h2>
-      <p>把 RoboTwin 采集的轨迹转成 ACT 训练格式,产物落在 <code>processed_data/sim-&lt;task&gt;-&lt;config&gt;-&lt;num&gt;/</code>。<b>T1 下发的成品数据已 process_data 好、直接训练</b>;<b>T2–T4 自采(上一步)后用本步转 16-D 格式</b>再训练。</p>
+      <p>把 RoboTwin 采集的轨迹转成 ACT 训练格式,产物落在 <code>processed_data/sim-&lt;task&gt;/&lt;config&gt;-&lt;num&gt;/</code>(RoboTwin 官方两级目录约定)。<b>T1 下发的成品数据已 process_data 好、直接训练</b>;<b>T2–T4 自采(上一步)后用本步转 16-D 格式</b>再训练。</p>
     </div>
     <div class="code"><span class="c"># bash process_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;expert_data_num&gt;</span>
 bash process_data.sh adjust_bottle adjust_bottle_200ep 200</div>
