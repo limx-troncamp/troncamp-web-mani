@@ -199,11 +199,11 @@
 
     <p style="margin-top:1.6rem;color:var(--muted)">数据来源:<b>T1 主办方下发处理好的数据;T2–T4 选手用下发的可改专家 + 采集管线自采</b>。安装 / 自采 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交用 <code>submit.py</code>(唯一通道,带 token):</p>
     <div class="code"><span class="c"># T1:只交权重(turnkey 题,评测机跑官方 config)</span>
-python submit/submit.py <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt-dir</span> ./ckpt/T1
-<span class="c"># T2 / T3 / T4:权重 + 整库代码包</span>
-python submit/submit.py <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> . <span class="a">--ckpt-dir</span> ./ckpt/T2
-python submit/submit.py <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> . <span class="a">--ckpt-dir</span> ./ckpt/T3
-python submit/submit.py <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> . <span class="a">--ckpt-dir</span> ./ckpt/T4</div>
+python submit/submit.py <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/&lt;config&gt;-&lt;num&gt;
+<span class="c"># T2 / T3 / T4:权重 + 代码包。--code-dir 指含 policy/ 的 RoboTwin 根(评测遮蔽 &lt;root&gt;/policy;自动只打 policy/,~2MB)</span>
+python submit/submit.py <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-lift_pot/&lt;config&gt;-&lt;num&gt;
+python submit/submit.py <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_two/&lt;config&gt;-&lt;num&gt;
+python submit/submit.py <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_three/&lt;config&gt;-&lt;num&gt;</div>
 
     <table class="dtable" style="margin-top:1.2rem">
       <thead><tr><th style="width:8rem">机制</th><th>说明</th></tr></thead>
