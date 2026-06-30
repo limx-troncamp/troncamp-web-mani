@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>troncamp · ACT 四任务套餐 · 双臂操作黑客松</title>
-<meta name="description" content="Tron2 双臂机器人四任务套餐线上黑客松:单卡训 ACT(Action Chunking Transformer),四个难度递增的操作任务 adjust_bottle / lift_pot / stack_bowls_two / stack_bowls_three,每门主攻一项工程技能。T1–T4 顺序解锁,只有 T4 计分(末态分级分),主榜按分级分降序排名。">
+<meta name="description" content="Tron2 双臂机器人四任务套餐线上黑客松:单卡训 ACT(Action Chunking Transformer),四个难度递增的操作任务 adjust_bottle / lift_pot / stack_bowls_two / stack_bowls_three,每门主攻一项工程技能。T1–T4 顺序解锁,只有 T4 计分(末态得分 /100),主榜按 T4 得分降序排名。">
 <link rel="stylesheet" href="./style.css">
 <script src="./config.js"></script>
 <script src="./board.js" defer></script>
@@ -35,7 +35,7 @@
       单张 4090 上训 <b>ACT</b>(Action Chunking Transformer),每爬一档只多扛一项工程技能——
       工具链 → 数据工程 → 训练工程 → 网络与闭环。
     </p>
-    <p class="hero-meta">四任务 adjust_bottle · lift_pot · stack_bowls_two · stack_bowls_three · 单模型 ACT(~80M · 单卡可训)· T1–T4 顺序解锁 · 只有 T4 计分(分级分主榜)· 匿名 token 榜</p>
+    <p class="hero-meta">单模型 ACT(~80M · 单卡可训)· T1–T4 顺序解锁 · 只有 T4 计分 · 匿名 token 榜</p>
     <div class="hero-actions">
       <a href="#tracks" class="btn primary">赛制 T1–T4</a>
       <a href="#flow" class="btn">参赛流程</a>
@@ -132,12 +132,12 @@
         <tr><td class="lvl">T1</td><td>adjust_bottle<br><span class="th-sub">单臂抓取,极易</span></td><td>工具链入门:给处理好数据 + turnkey config 跑通 ACT</td><td>仅权重</td><td>分级 SR ≥ τ₁(松)→ 解锁</td></tr>
         <tr><td class="lvl">T2</td><td>lift_pot<br><span class="th-sub">双臂举锅</span></td><td>数据工程:在混质量大池上做筛选 / 配比 / load 时增广</td><td>权重 + 代码</td><td>分级 SR ≥ τ₂(须过 T1)</td></tr>
         <tr><td class="lvl">T3</td><td>stack_bowls_two<br><span class="th-sub">双臂叠 2 碗</span></td><td>训练工程:在故意欠调的 config 上调 LR / 步数 / chunk / temporal-agg</td><td>权重 + 代码</td><td>分级 SR ≥ τ₃(须过 T2)</td></tr>
-        <tr><td class="lvl">T4</td><td>stack_bowls_three<br><span class="th-sub">双臂叠 3 碗 · 主榜</span></td><td>网络 / 闭环全开(架构改造 + 推理时闭环,<b>不含 DAgger 自采</b>)</td><td>权重 + 代码</td><td><b>分级分(graded)降序排名(主榜)</b>(须过 T3)</td></tr>
+        <tr><td class="lvl">T4</td><td>stack_bowls_three<br><span class="th-sub">双臂叠 3 碗 · 主榜</span></td><td>网络 / 闭环全开(架构改造 + 推理时闭环,<b>不含 DAgger 自采</b>)</td><td>权重 + 代码</td><td><b>T4 得分 /100 降序(主榜)</b>(须过 T3)</td></tr>
       </tbody>
     </table>
 
     <div class="formula" style="margin-top:1.2rem">T1–T3 门 = <span class="accent">分级 SR ≥ τ</span><span class="dim">　达标即解锁,本身不计分</span></div>
-    <div class="formula">主榜(T4)= <span class="accent">分级分 graded</span> 降序<span class="dim">　末态 /3,无成功率/力质量/其它分量</span></div>
+    <div class="formula">主榜(T4)= <span class="accent">T4 得分 /100</span> 降序<span class="dim">　末态三层各 1/3、叠满 100(不平均),无其它分量</span></div>
     <p class="note">阈值 τ₁/τ₂/τ₃ 由主办方赛前实测四任务 easy 基线后标定(T1≤T2≤T3),不写死单点值;EVAL_REPEATS 取均值消 ACT 采样噪声(默认 5)。</p>
   </div>
 </section>
@@ -147,19 +147,19 @@
   <div class="wrap reveal">
     <div class="sec-head">
       <span class="sec-num">03 / 评测</span>
-      <h2>主榜命根子:T4 分级分</h2>
-      <p>只有 T4 计分,用<b>末态分级分</b>而非二值成功率——三个碗叠到第几层都有分,区分度比"成/败"更细。</p>
+      <h2>主榜命根子:T4 得分</h2>
+      <p>只有 T4 计分,用<b>末态分层得分</b>而非二值成功率——三个碗叠到第几层都有分,区分度比"成/败"更细。</p>
     </div>
     <table class="dtable">
-      <thead><tr><th style="width:7rem">分级分 /3</th><th>判据</th></tr></thead>
+      <thead><tr><th style="width:7rem">T4 得分 /100</th><th>判据</th></tr></thead>
       <tbody>
-        <tr><td class="lvl">1(满分)</td><td>三个碗全部叠好,且每层都落在锚点 <b>C = [0, −0.1]</b> 的 xy ±4cm 内 —— 等价于二值成功。</td></tr>
-        <tr><td class="lvl">⅔</td><td>叠到第二层(两个碗稳定就位)。</td></tr>
-        <tr><td class="lvl">⅓</td><td>叠到第一层(第一个碗就位)。</td></tr>
+        <tr><td class="lvl">100(满分)</td><td>三个碗全部叠好,每层都落在锚点 <b>C = [0, −0.1]</b> 的 xy ±4cm 内。</td></tr>
+        <tr><td class="lvl">66.7</td><td>叠到第二层(两个碗稳定就位)。</td></tr>
+        <tr><td class="lvl">33.3</td><td>叠到第一层(第一个碗就位)。</td></tr>
         <tr><td class="lvl">0</td><td>未完成第一层。</td></tr>
       </tbody>
     </table>
-    <p class="note" style="margin-top:1rem">队伍 T4 分 = 私有 100 个 seed episode 的<b>末态分级分均值</b>。分级分在 <b>episode 末态单独算一次</b>(不写进逐步调用的 check_success),由评测内核 <code>graded_score</code> 从仿真末态位姿重算,选手自报无效。</p>
+    <p class="note" style="margin-top:1rem">三层各占 <b>1/3</b>、逐层相加,叠满 = 100(<b>不做平均</b>)。队伍 T4 分 = 私有 100 个 seed episode 的得分均值,在 <b>episode 末态单独算一次</b>(不写进逐步调用的 check_success),由评测内核从末态位姿重算,选手自报无效。</p>
 
     <div class="sec-head" style="margin-top:2rem;margin-bottom:0.6rem">
       <h2 style="font-size:1.2rem">评测机制</h2>
@@ -181,7 +181,7 @@
     <div class="sec-head">
       <span class="sec-num">04 / 流程</span>
       <h2>从 clone 到上榜</h2>
-      <p>clone 公开仓,一键装环境;本地自评跑的就是主办方评测的同一套 harness,只换种子。评测为 <b>in-process</b>:加载 ACT 权重(torch)→ 同进程内跑 rollout → 末态算分(T4 分级分 / T1–T3 分级 SR)。</p>
+      <p>clone 公开仓,一键装环境;本地自评跑的就是主办方评测的同一套 harness,只换种子(评测细节见上节)。</p>
     </div>
 
     <figure class="fig-wide" style="margin-top:1.6rem">
@@ -196,9 +196,13 @@ python starter/eval_local.py <span class="a">--ckpt-dir</span> ./ckpt <span clas
 python starter/watch_rollout.py <span class="a">--ckpt-dir</span> ./ckpt <span class="a">--seed</span> 0 <span class="a">--out</span> rollout.mp4</div>
 
     <h3 style="margin-top:1.4rem;font-size:1.1rem;font-weight:700">提交</h3>
-    <div class="code"><span class="c"># T1:只交权重(ACT ckpt 目录:policy_last.ckpt + dataset_stats.pkl)</span>
+    <div class="code"><span class="c"># T1:只交权重</span>
 python submit/submit.py <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt-dir</span> ./ckpt
-<span class="c"># T2 / T3 / T4:权重 + 整库代码(CLI 自动打包,自动算 SHA256)</span>
+<span class="c"># T2:权重 + 代码</span>
+python submit/submit.py <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> ./mycode <span class="a">--ckpt-dir</span> ./ckpt
+<span class="c"># T3:权重 + 代码</span>
+python submit/submit.py <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> ./mycode <span class="a">--ckpt-dir</span> ./ckpt
+<span class="c"># T4:权重 + 代码(主榜)</span>
 python submit/submit.py <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> ./mycode <span class="a">--ckpt-dir</span> ./ckpt</div>
 
     <table class="dtable" style="margin-top:1.2rem">
@@ -227,7 +231,7 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
     <div class="sec-head">
       <span class="sec-num">05 / 榜单</span>
       <h2>排行榜(Dev · 匿名)</h2>
-      <p>匿名榜:每 token 取最佳分,只显示 token 尾 6 位。T1–T3 显示达标门(✓ 达标 / ○ 未达标 / · 未提交)。主榜次序:有 T4 成绩者在前(分级分降序),其后是无 T4 者按答题进度(过 T3 &gt; 过 T2 &gt; 过 T1)。每 60s 刷新。</p>
+      <p>匿名榜:每 token 取最佳分,只显示 token 尾 6 位。T1–T3 显示达标门(✓ 达标 / ○ 未达标 / · 未提交)。主榜次序:有 T4 成绩者在前(T4 得分降序),其后无 T4 者按答题进度(过 T3 &gt; 过 T2 &gt; 过 T1)。每 60s 刷新。</p>
     </div>
 
     <div class="tabs">
@@ -249,7 +253,7 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
           <th class="c-gate">T1 <span class="th-sub">达标</span></th>
           <th class="c-gate">T2 <span class="th-sub">达标</span></th>
           <th class="c-gate">T3 <span class="th-sub">达标</span></th>
-          <th class="c-t3">T4 分级分 / 进度 <span class="th-sub">主榜 · 有 T4 按 graded 降序,无 T4 按进度</span></th>
+          <th class="c-t3">T4 得分 /100 <span class="th-sub">主榜 · 按 T4 得分降序,无 T4 列进度</span></th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -282,7 +286,7 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
         <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics ↗</a>
       </div>
     </div>
-    <p class="foot-note">troncamp · ACT 四任务套餐双臂操作黑客松 · 四任务(adjust_bottle / lift_pot / stack_bowls_two / stack_bowls_three)+ 单模型 ACT(单卡可训),只有 T4 计分。量化成绩由评测集群自动产出。<br>评测平台基于 <a href="https://github.com/RoboTwin-Platform/RoboTwin" target="_blank" rel="noopener">RoboTwin 2.0</a> 双臂操作仿真基准构建;机器人 Tron2 由 <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics</a> 提供。</p>
+    <p class="foot-note">troncamp · ACT 四任务套餐双臂操作黑客松 · 单模型 ACT 单卡可训,只有 T4 计分。量化成绩由评测集群自动产出。<br>评测平台基于 <a href="https://github.com/RoboTwin-Platform/RoboTwin" target="_blank" rel="noopener">RoboTwin 2.0</a> 双臂操作仿真基准构建;机器人 Tron2 由 <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics</a> 提供。</p>
   </div>
 </footer>
 
