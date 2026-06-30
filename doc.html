@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TronCamp 参赛文档 · 从 clone 到上榜</title>
-<meta name="description" content="TronCamp 线上黑客松参赛文档:环境安装、主办方下发数据、用 RoboTwin train.sh 训练 ACT、本地自评、submit.py 提交,以及常见问题。命令均为选手包真实入口,复制即用。">
+<title>ACT 使用文档 · TronCamp</title>
+<meta name="description" content="TronCamp 选手包内 ACT(Action Chunking Transformer)的代码使用文档:安装、数据处理 process_data.sh、训练 train.sh、评测与部署 eval.sh、配置文件。沿用 RoboTwin 第一方 policy/ACT 脚本,命令复制即用。">
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -15,11 +15,10 @@
     <span class="nav-links">
       <a href="./index.html">主页</a>
       <a href="#install">安装</a>
-      <a href="#data">数据</a>
+      <a href="#process">数据处理</a>
       <a href="#train">训练</a>
       <a href="#eval">评测</a>
-      <a href="#submit">提交</a>
-      <a href="#faq">FAQ</a>
+      <a href="#config">配置</a>
       <a href="https://github.com/limx-troncamp/troncamp-mani" class="cta" target="_blank" rel="noopener">Starter ↗</a>
     </span>
   </div>
@@ -28,16 +27,17 @@
 <!-- ───────── 页头 ───────── -->
 <header class="hero" id="top">
   <div class="wrap reveal">
-    <span class="tag">参赛文档 · 从 clone 到上榜</span>
-    <h1>参赛<span class="accent">文档</span></h1>
+    <span class="tag">ACT 使用文档 · 代码工作流</span>
+    <h1>ACT 使用<span class="accent">文档</span></h1>
     <p class="lead lead-wide">
-      完整实操指南:装环境 → 下载主办方数据 → 训练 ACT → 本地自评 → 提交上榜。命令均为 RoboTwin / 选手包真实入口,复制即用。单张 4090 级显卡即可全流程跑通。
+      选手包内 ACT(Action Chunking Transformer)的代码使用参考:<b>数据处理 → 训练 → 评测 / 部署 → 配置</b>。沿用 RoboTwin 第一方 <code>policy/ACT</code> 脚本,命令复制即用,单卡可跑。本页只覆盖 ACT;参赛规则见<a href="./index.html#flow">主页</a>。
     </p>
     <div class="hero-actions">
-      <a href="#install" class="btn primary">开始安装</a>
-      <a href="./index.html#flow" class="btn">参赛流程</a>
+      <a href="#install" class="btn primary">从安装开始</a>
+      <a href="https://robotwin-platform.github.io/doc/usage/ACT.html" class="btn" target="_blank" rel="noopener">RoboTwin 原文 ↗</a>
       <a href="./index.html#board" class="btn">排行榜</a>
     </div>
+    <p class="note" style="margin-top:1rem">下文命令均在 ACT 训练栈目录执行:<code>cd external/robotwin_local/policy/ACT</code>。任务参数三元组 <code>&lt;task_name&gt; &lt;task_config&gt; &lt;expert_data_num&gt;</code> 拼成数据键 <code>sim-&lt;task_name&gt;-&lt;task_config&gt;-&lt;expert_data_num&gt;</code>(见 <a href="#config">§05 配置</a>)。</p>
   </div>
 </header>
 
@@ -46,34 +46,34 @@
   <div class="wrap reveal">
     <div class="sec-head">
       <span class="sec-num">01 / 安装</span>
-      <h2>环境安装</h2>
-      <p>clone 选手包(含 Tron2 本体 + RoboTwin runtime + ACT 训练栈 + 评测内核),一键脚本装好 conda 环境与全部仿真依赖。后续所有命令在选手包根目录执行。</p>
+      <h2>安装</h2>
+      <p>选手包根目录一键脚本会创建 conda 环境并装好 ACT 全部依赖。若要单独装 ACT 子依赖(脚本已包含),命令如下。</p>
     </div>
-    <div class="code"><span class="c"># 1. clone 选手包</span>
-git clone https://github.com/limx-troncamp/troncamp-mani
-cd troncamp-mani
-<span class="c"># 2. 一键装环境:创建 conda 环境 + RoboTwin / SAPIEN / Curobo 依赖(按需配代理)</span>
+    <div class="code"><span class="c"># 选手包一键装环境(推荐):conda 环境 + RoboTwin / SAPIEN / Curobo + ACT 依赖</span>
 bash setup/install.sh</div>
+    <div class="code" style="margin-top:0.8rem"><span class="c"># 或:单独装 ACT 子依赖(在 policy/ACT 目录)</span>
+cd external/robotwin_local/policy/ACT
+pip install pyquaternion pyyaml rospkg pexpect mujoco==2.3.7 dm_control==1.0.14 opencv-python matplotlib einops packaging h5py ipython
+cd detr &amp;&amp; pip install -e . &amp;&amp; cd ..</div>
   </div>
 </section>
 
-<!-- ───────── 02 数据 ───────── -->
-<section id="data">
+<!-- ───────── 02 数据处理 ───────── -->
+<section id="process">
   <div class="wrap reveal">
     <div class="sec-head">
-      <span class="sec-num">02 / 数据</span>
-      <h2>数据(主办方下发)</h2>
-      <p>四题的 ACT-ready 数据由主办方处理好、随赛下发,选手<b>不自采</b>。下载后解压到 ACT 训练栈的 <code>processed_data/</code> 下,目录名即 <code>SIM_TASK_CONFIGS.json</code> 里的任务键。</p>
+      <span class="sec-num">02 / 数据处理</span>
+      <h2>数据处理 process_data</h2>
+      <p>把 RoboTwin 采集的轨迹转成 ACT 训练格式,产物落在 <code>processed_data/sim-&lt;task&gt;-&lt;config&gt;-&lt;num&gt;/</code>。<b>主办方下发的数据已是 process_data 处理好的成品,直接训练即可</b> —— 本步是数据处理的代码入口,自行处理新数据时才需要跑。</p>
     </div>
-    <div class="code"><span class="c"># 数据放置路径(&lt;任务键&gt; = 下表"任务键"列)</span>
-external/robotwin_local/policy/ACT/processed_data/&lt;任务键&gt;/</div>
+    <div class="code"><span class="c"># bash process_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;expert_data_num&gt;</span>
+bash process_data.sh adjust_bottle adjust_bottle_200ep 200</div>
     <table class="dtable" style="margin-top:1.2rem">
-      <thead><tr><th style="width:4rem">题号</th><th>任务键</th><th>说明</th></tr></thead>
+      <thead><tr><th style="width:11rem">参数</th><th>含义</th></tr></thead>
       <tbody>
-        <tr><td class="lvl">T1</td><td><code>sim-adjust_bottle-adjust_bottle_200ep-200</code></td><td>干净集,跑通官方 config 即可</td></tr>
-        <tr><td class="lvl">T2</td><td><code>sim-lift_pot-lift_pot_mixed300-300</code></td><td><b>混质量大池</b> —— 数据工程:筛选 / 配比 / load 时增广</td></tr>
-        <tr><td class="lvl">T3</td><td><code>sim-stack_bowls_two-stack_bowls_two_200ep-200</code></td><td>干净集 + 故意欠调的 config —— 训练工程</td></tr>
-        <tr><td class="lvl">T4</td><td><code>sim-stack_bowls_three-stack_bowls_three_200ep-200</code></td><td>干净集,主榜任务</td></tr>
+        <tr><td><code>task_name</code></td><td>任务名,如 <code>adjust_bottle</code> / <code>lift_pot</code> / <code>stack_bowls_two</code> / <code>stack_bowls_three</code></td></tr>
+        <tr><td><code>task_config</code></td><td>配置名(数据采集设定),如 <code>adjust_bottle_200ep</code></td></tr>
+        <tr><td><code>expert_data_num</code></td><td>用于训练的专家轨迹数,如 <code>200</code></td></tr>
       </tbody>
     </table>
   </div>
@@ -84,16 +84,14 @@ external/robotwin_local/policy/ACT/processed_data/&lt;任务键&gt;/</div>
   <div class="wrap reveal">
     <div class="sec-head">
       <span class="sec-num">03 / 训练</span>
-      <h2>训练 ACT</h2>
-      <p>ACT 训练沿用 RoboTwin 第一方脚本 <code>train.sh</code>,参数顺序 <code>&lt;任务&gt; &lt;配置&gt; &lt;集数&gt; &lt;seed&gt; &lt;GPU&gt;</code>。脚本内部已设好 ACT 标准超参(kl_weight 10 / chunk_size 50 / hidden_dim 512 / lr 1e-5 / state_dim 16),单卡可训。</p>
+      <h2>训练 train</h2>
+      <p>训练脚本 <code>train.sh</code> 内部已设好 ACT 标准超参(kl_weight 10 / chunk_size 50 / hidden_dim 512 / dim_feedforward 3200 / batch_size 8 / lr 1e-5 / state_dim 16),默认 <b>6000 步</b>,单卡可训。ckpt 落在 <code>act_ckpt/act-&lt;task_name&gt;/&lt;task_config&gt;-&lt;expert_data_num&gt;/</code>。</p>
     </div>
-    <div class="code"><span class="c"># 进入 ACT 训练栈</span>
-cd external/robotwin_local/policy/ACT
-<span class="c"># bash train.sh &lt;任务&gt; &lt;配置&gt; &lt;集数&gt; &lt;seed&gt; &lt;GPU&gt;  —— 以 T1 为例,用 GPU 0</span>
+    <div class="code"><span class="c"># bash train.sh &lt;task_name&gt; &lt;task_config&gt; &lt;expert_data_num&gt; &lt;seed&gt; &lt;gpu_id&gt;</span>
 bash train.sh adjust_bottle adjust_bottle_200ep 200 0 0
 <span class="c"># 产出 ckpt → act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200/</span></div>
     <table class="dtable" style="margin-top:1.2rem">
-      <thead><tr><th style="width:4rem">题号</th><th>训练命令(在 policy/ACT 目录下)</th></tr></thead>
+      <thead><tr><th style="width:4rem">题号</th><th>训练命令</th></tr></thead>
       <tbody>
         <tr><td class="lvl">T1</td><td><code>bash train.sh adjust_bottle adjust_bottle_200ep 200 0 0</code></td></tr>
         <tr><td class="lvl">T2</td><td><code>bash train.sh lift_pot lift_pot_mixed300 300 0 0</code></td></tr>
@@ -101,68 +99,71 @@ bash train.sh adjust_bottle adjust_bottle_200ep 200 0 0
         <tr><td class="lvl">T4</td><td><code>bash train.sh stack_bowls_three stack_bowls_three_200ep 200 0 0</code></td></tr>
       </tbody>
     </table>
-    <p class="note">T2 / T3 / T4 的工程发挥(数据筛选、调参、改网络 / 闭环)在选手包代码里改;随提交的代码包会在评测进程内 <b>shadow</b> 官方 ACT,真实生效。</p>
+    <table class="dtable" style="margin-top:0.8rem">
+      <thead><tr><th style="width:11rem">参数</th><th>含义</th></tr></thead>
+      <tbody>
+        <tr><td><code>seed</code></td><td>随机种子,如 <code>0</code></td></tr>
+        <tr><td><code>gpu_id</code></td><td>GPU 设备号,如 <code>0</code>(脚本内 <code>export CUDA_VISIBLE_DEVICES</code>)</td></tr>
+      </tbody>
+    </table>
+    <p class="note">需改步数 / 超参时直接编辑 <code>train.sh</code> 或底层 <code>imitate_episodes.py</code> 的参数;T2/T3/T4 的工程改动随提交的代码包在评测进程内生效。</p>
   </div>
 </section>
 
-<!-- ───────── 04 评测 ───────── -->
+<!-- ───────── 04 评测与部署 ───────── -->
 <section id="eval">
   <div class="wrap reveal">
     <div class="sec-head">
       <span class="sec-num">04 / 评测</span>
-      <h2>本地自评</h2>
-      <p>本地自评跑的就是主办方评测的同一套 harness,只换种子 —— <b>本地分 = dev 榜分</b>。公开 seed 随包下发,本地不限次。<code>--ckpt-dir</code> 指向训练产出的 ckpt 目录。</p>
+      <h2>评测与部署 eval</h2>
+      <p>评测脚本 <code>eval.sh</code> 加载 <code>deploy_policy.yml</code> 配置(<code>temporal_agg=true</code> 推理时闭环),跑 sim rollout,结果(含视频)落在工程根的 <code>eval_result/</code>。<code>ckpt_setting</code> 选 <code>act_ckpt</code> 下的 ckpt 目录,可与评测环境 <code>task_config</code> 不同(跨设定泛化测试)。</p>
     </div>
-    <div class="code"><span class="c"># 公开 seed 上本地出分(--ckpt-dir = 上一步 act_ckpt 下对应目录)</span>
-python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200
-<span class="c"># 跑策略 + 渲染 rollout 视频,核查操作行为</span>
-python starter/watch_rollout.py <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200 <span class="a">--seed</span> 0 <span class="a">--out</span> rollout.mp4</div>
-  </div>
-</section>
-
-<!-- ───────── 05 提交 ───────── -->
-<section id="submit">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <span class="sec-num">05 / 提交</span>
-      <h2>提交</h2>
-      <p><code>submit.py</code> 是唯一提交通道,带 token。<b>T1 只交权重</b>(turnkey 题,评测机跑官方 config);<b>T2 / T3 / T4 交权重 + 整库代码包</b>(<code>--code-dir .</code>),你的数据 IO / 网络 / 闭环改动随代码包生效。<code>--ckpt-dir</code> 指向对应题训练产出的 ckpt 目录。</p>
-    </div>
-    <div class="code"><span class="c"># T1:只交权重</span>
-python submit/submit.py <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt-dir</span> &lt;T1 ckpt 目录&gt;
-<span class="c"># T2 / T3 / T4:权重 + 整库代码包</span>
-python submit/submit.py <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> . <span class="a">--ckpt-dir</span> &lt;T2 ckpt 目录&gt;
-python submit/submit.py <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> . <span class="a">--ckpt-dir</span> &lt;T3 ckpt 目录&gt;
-python submit/submit.py <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> . <span class="a">--ckpt-dir</span> &lt;T4 ckpt 目录&gt;</div>
+    <div class="code"><span class="c"># bash eval.sh &lt;task_name&gt; &lt;task_config&gt; &lt;ckpt_setting&gt; &lt;expert_data_num&gt; &lt;seed&gt; &lt;gpu_id&gt;</span>
+<span class="c"># 同设定评测(评测环境 = 训练设定)</span>
+bash eval.sh adjust_bottle adjust_bottle_200ep adjust_bottle_200ep 200 0 0
+<span class="c"># 跨设定评测(评测环境 ≠ 训练设定,测泛化)</span>
+bash eval.sh adjust_bottle adjust_bottle_dr adjust_bottle_200ep 200 0 0</div>
     <table class="dtable" style="margin-top:1.2rem">
-      <thead><tr><th style="width:8rem">机制</th><th>说明</th></tr></thead>
+      <thead><tr><th style="width:11rem">参数</th><th>含义</th></tr></thead>
       <tbody>
-        <tr><td><b>token 鉴权</b></td><td>提交带 token,后端校验;<b>每日 3 次</b>正式提交(本地自测不限次)。无报名、无队名。</td></tr>
-        <tr><td><b>顺序解锁</b></td><td>过 T1 才能交 T2,依此类推到 T4;T1 / T2 / T3 过了即锁定。</td></tr>
-        <tr><td><b>评分</b></td><td>主榜 = T4 得分 /100 降序;T1–T3 为达标门(SR ≥ τ),pass/fail 不计分。</td></tr>
-        <tr><td><b>安全</b></td><td>解包做 zip-slip / symlink 防护;ckpt 备案 SHA256;评测子进程降权 + 沙箱无网络出口,选手代码读不到私有 seed。</td></tr>
+        <tr><td><code>task_config</code></td><td>评测环境的配置(测哪种设定)</td></tr>
+        <tr><td><code>ckpt_setting</code></td><td>ckpt 的来源设定(选 <code>act_ckpt/act-&lt;task&gt;/&lt;ckpt_setting&gt;-&lt;num&gt;/</code>)</td></tr>
+        <tr><td>结果</td><td>视频 + 指标 → 工程根 <code>eval_result/</code></td></tr>
       </tbody>
     </table>
+    <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">本地自评(榜单同套内核)</h3>
+    <p>比赛自测用选手包的 <code>starter/eval_local.py</code> 包装:跑的就是 dev 榜同一套 harness、只换种子,<b>本地分 = dev 榜分</b>。</p>
+    <div class="code"><span class="c"># --ckpt-dir 指向训练产出的 act_ckpt 目录</span>
+python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200</div>
   </div>
 </section>
 
-<!-- ───────── 06 FAQ ───────── -->
-<section id="faq">
+<!-- ───────── 05 配置 ───────── -->
+<section id="config">
   <div class="wrap reveal">
     <div class="sec-head">
-      <span class="sec-num">06 / FAQ</span>
-      <h2>常见问题</h2>
+      <span class="sec-num">05 / 配置</span>
+      <h2>配置文件与任务键</h2>
+      <p><code>SIM_TASK_CONFIGS.json</code> 定义每个数据键(<code>dataset_dir</code> / <code>num_episodes</code> / <code>episode_len</code> / <code>camera_names</code>);训练 / 评测的 <code>--task_name</code> 即此处的键。<code>deploy_policy.yml</code> 为评测推理配置(<code>temporal_agg</code> 等)。</p>
     </div>
-    <table class="dtable">
+    <table class="dtable" style="margin-top:1.2rem">
+      <thead><tr><th style="width:4rem">题号</th><th>数据键(task_name)</th><th>train.sh 三元组</th></tr></thead>
       <tbody>
-        <tr><td class="lvl" style="width:13rem">要几张卡?</td><td>单张 4090 级显卡即可训练与本地评测。</td></tr>
-        <tr><td class="lvl">能自己采数据吗?</td><td>不能。四题数据均由主办方下发,选手不自采。T2 的"数据工程"是在下发的混质量池上做筛选 / 配比 / 增广。</td></tr>
-        <tr><td class="lvl">本地分和榜单分一致吗?</td><td>一致。本地自评 = 主办方评测同一套 harness,只换种子;公开 seed 本地分 = dev 榜分。私有 100 seed 只在评测机、与公开互不重叠。</td></tr>
-        <tr><td class="lvl">T1 为什么不交代码?</td><td>T1 是 turnkey 保底题,跑通官方 config 即可,评测机强制用官方 ACT 跑;T2 / T3 / T4 才交代码包。</td></tr>
-        <tr><td class="lvl">每天能提交几次?</td><td>正式提交每队每日 3 次;本地自测不限次。</td></tr>
-        <tr><td class="lvl">最终要交什么?</td><td>赛末提交开源代码包 + ≤3 分钟讲解 / 演示视频(屏幕录制 + 画中画出镜)。总评 = 线上排行榜 70% + 完赛材料 30%。</td></tr>
+        <tr><td class="lvl">T1</td><td><code>sim-adjust_bottle-adjust_bottle_200ep-200</code></td><td>adjust_bottle&nbsp;adjust_bottle_200ep&nbsp;200</td></tr>
+        <tr><td class="lvl">T2</td><td><code>sim-lift_pot-lift_pot_mixed300-300</code></td><td>lift_pot&nbsp;lift_pot_mixed300&nbsp;300</td></tr>
+        <tr><td class="lvl">T3</td><td><code>sim-stack_bowls_two-stack_bowls_two_200ep-200</code></td><td>stack_bowls_two&nbsp;stack_bowls_two_200ep&nbsp;200</td></tr>
+        <tr><td class="lvl">T4</td><td><code>sim-stack_bowls_three-stack_bowls_three_200ep-200</code></td><td>stack_bowls_three&nbsp;stack_bowls_three_200ep&nbsp;200</td></tr>
       </tbody>
     </table>
+
+    <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">policy/ACT 关键文件</h3>
+    <div class="code">policy/ACT/
+├── process_data.sh / process_data.py   <span class="c"># 数据 → ACT 格式</span>
+├── train.sh / imitate_episodes.py      <span class="c"># 训练入口</span>
+├── eval.sh / deploy_policy.py          <span class="c"># 评测 / 部署</span>
+├── act_policy.py                       <span class="c"># ACT 模型(detr backbone)</span>
+├── SIM_TASK_CONFIGS.json               <span class="c"># 任务键定义</span>
+└── deploy_policy.yml                   <span class="c"># 评测推理配置</span></div>
   </div>
 </section>
 
@@ -171,11 +172,12 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-col">
-        <h5>文档</h5>
-        <a href="#install">环境安装</a>
-        <a href="#data">数据</a>
-        <a href="#train">训练 ACT</a>
-        <a href="#submit">提交</a>
+        <h5>ACT 文档</h5>
+        <a href="#install">安装</a>
+        <a href="#process">数据处理</a>
+        <a href="#train">训练</a>
+        <a href="#eval">评测</a>
+        <a href="#config">配置</a>
       </div>
       <div class="foot-col">
         <h5>赛事</h5>
@@ -186,12 +188,12 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
       </div>
       <div class="foot-col">
         <h5>平台与致谢</h5>
-        <a href="https://github.com/limx-troncamp/troncamp-mani" target="_blank" rel="noopener">官方 Starter 仓库 ↗</a>
-        <a href="https://github.com/RoboTwin-Platform/RoboTwin" target="_blank" rel="noopener">RoboTwin 2.0 仿真基准 ↗</a>
+        <a href="https://robotwin-platform.github.io/doc/usage/ACT.html" target="_blank" rel="noopener">RoboTwin ACT 文档 ↗</a>
+        <a href="https://github.com/RoboTwin-Platform/RoboTwin" target="_blank" rel="noopener">RoboTwin 2.0 ↗</a>
         <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics ↗</a>
       </div>
     </div>
-    <p class="foot-note">TronCamp 线上黑客松 · Tron2 双臂操作赛道 · 单模型 ACT 单卡可训,只有 T4 计分。<br>评测平台基于 <a href="https://github.com/RoboTwin-Platform/RoboTwin" target="_blank" rel="noopener">RoboTwin 2.0</a> 双臂操作仿真基准构建;机器人 Tron2 由 <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics</a> 提供。</p>
+    <p class="foot-note">TronCamp 线上黑客松 · Tron2 双臂操作赛道 · 单模型 ACT 单卡可训。本页为 ACT 代码使用文档,结构参照 <a href="https://robotwin-platform.github.io/doc/usage/ACT.html" target="_blank" rel="noopener">RoboTwin ACT Usage</a>。<br>评测平台基于 <a href="https://github.com/RoboTwin-Platform/RoboTwin" target="_blank" rel="noopener">RoboTwin 2.0</a> 构建;机器人 Tron2 由 <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics</a> 提供。</p>
   </div>
 </footer>
 

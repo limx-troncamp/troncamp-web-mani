@@ -20,7 +20,7 @@
       <a href="#eval">评测</a>
       <a href="#flow">参赛流程</a>
       <a href="#board">排行榜</a>
-      <a href="./doc.html">参赛文档 ↗</a>
+      <a href="./doc.html">ACT 文档 ↗</a>
       <a href="https://github.com/limx-troncamp/troncamp-mani" class="cta" target="_blank" rel="noopener">Starter ↗</a>
     </span>
   </div>
@@ -36,7 +36,7 @@
     </p>
     <div class="hero-actions">
       <a href="#tracks" class="btn primary">赛制 T1–T4</a>
-      <a href="./doc.html" class="btn">参赛文档</a>
+      <a href="./doc.html" class="btn">ACT 文档</a>
       <a href="#flow" class="btn">参赛流程</a>
       <a href="#board" class="btn">排行榜</a>
     </div>
@@ -197,7 +197,13 @@
       <figcaption>本地 clone → 用给定数据训练 ACT → 公开种子自评 → submit.py 带 token 提交 → 官方私有种子评测 → 匿名榜上榜;看榜改进、重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
     </figure>
 
-    <p style="margin-top:1.6rem;color:var(--muted)">数据由主办方下发(选手<b>不自采</b>:T2 混质量大池供数据工程,T3 / T4 干净集)。完整实操命令 —— 装环境、训练 ACT、本地自评、提交 —— 见 <a href="./doc.html"><b>参赛文档 →</b></a>。下面是提交与评测的关键机制。</p>
+    <p style="margin-top:1.6rem;color:var(--muted)">数据由主办方下发(选手<b>不自采</b>:T2 混质量大池供数据工程,T3 / T4 干净集)。安装 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>ACT 使用文档 →</b></a>。提交用 <code>submit.py</code>(唯一通道,带 token):</p>
+    <div class="code"><span class="c"># T1:只交权重(turnkey 题,评测机跑官方 config)</span>
+python submit/submit.py <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt-dir</span> ./ckpt/T1
+<span class="c"># T2 / T3 / T4:权重 + 整库代码包</span>
+python submit/submit.py <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> . <span class="a">--ckpt-dir</span> ./ckpt/T2
+python submit/submit.py <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> . <span class="a">--ckpt-dir</span> ./ckpt/T3
+python submit/submit.py <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> . <span class="a">--ckpt-dir</span> ./ckpt/T4</div>
 
     <table class="dtable" style="margin-top:1.2rem">
       <thead><tr><th style="width:8rem">机制</th><th>说明</th></tr></thead>
