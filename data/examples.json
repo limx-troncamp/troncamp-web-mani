@@ -1,0 +1,119 @@
+[
+  {
+    "token_suffix": "ROqRA",
+    "t1": {
+      "pass": true,
+      "success_rate": 0.41
+    },
+    "t2": {
+      "pass": true,
+      "success_rate": 0.58
+    },
+    "t3": {
+      "pass": true,
+      "success_rate": 0.63
+    },
+    "progress": {
+      "track": "T3",
+      "success_rate": 0.63
+    },
+    "t4": {
+      "submitted_at": "2026-06-24 21:10",
+      "graded": 0.512
+    }
+  },
+  {
+    "token_suffix": "8kLm2Q",
+    "t1": {
+      "pass": true,
+      "success_rate": 0.38
+    },
+    "t2": {
+      "pass": true,
+      "success_rate": 0.55
+    },
+    "t3": {
+      "pass": true,
+      "success_rate": 0.6
+    },
+    "progress": {
+      "track": "T3",
+      "success_rate": 0.6
+    },
+    "t4": {
+      "submitted_at": "2026-06-24 19:42",
+      "graded": 0.474
+    }
+  },
+  {
+    "token_suffix": "mN3xKp",
+    "t1": {
+      "pass": true,
+      "success_rate": 0.39
+    },
+    "t2": {
+      "pass": true,
+      "success_rate": 0.56
+    },
+    "t3": {
+      "pass": true,
+      "success_rate": 0.61
+    },
+    "progress": {
+      "track": "T3",
+      "success_rate": 0.61
+    },
+    "t4": null
+  },
+  {
+    "token_suffix": "Wp7vXa",
+    "t1": {
+      "pass": true,
+      "success_rate": 0.36
+    },
+    "t2": {
+      "pass": true,
+      "success_rate": 0.52
+    },
+    "t3": {
+      "pass": false,
+      "success_rate": 0.44
+    },
+    "progress": {
+      "track": "T2",
+      "success_rate": 0.52
+    },
+    "t4": null
+  },
+  {
+    "token_suffix": "qZ0Nde",
+    "t1": {
+      "pass": true,
+      "success_rate": 0.33
+    },
+    "t2": {
+      "pass": false,
+      "success_rate": 0.4
+    },
+    "t3": null,
+    "progress": {
+      "track": "T1",
+      "success_rate": 0.33
+    },
+    "t4": null
+  },
+  {
+    "token_suffix": "Jb4tYc",
+    "t1": {
+      "pass": false,
+      "success_rate": 0.21
+    },
+    "t2": null,
+    "t3": null,
+    "progress": {
+      "track": null,
+      "success_rate": null
+    },
+    "t4": null
+  }
+]
