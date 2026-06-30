@@ -18,8 +18,9 @@
       <a href="#task">题面</a>
       <a href="#tracks">赛制</a>
       <a href="#eval">评测</a>
-      <a href="#flow">流程</a>
-      <a href="#board">榜单</a>
+      <a href="#flow">参赛流程</a>
+      <a href="#board">排行榜</a>
+      <a href="./doc.html">参赛文档 ↗</a>
       <a href="https://github.com/limx-troncamp/troncamp-mani" class="cta" target="_blank" rel="noopener">Starter ↗</a>
     </span>
   </div>
@@ -35,6 +36,7 @@
     </p>
     <div class="hero-actions">
       <a href="#tracks" class="btn primary">赛制 T1–T4</a>
+      <a href="./doc.html" class="btn">参赛文档</a>
       <a href="#flow" class="btn">参赛流程</a>
       <a href="#board" class="btn">排行榜</a>
     </div>
@@ -195,35 +197,7 @@
       <figcaption>本地 clone → 用给定数据训练 ACT → 公开种子自评 → submit.py 带 token 提交 → 官方私有种子评测 → 匿名榜上榜;看榜改进、重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
     </figure>
 
-    <h3 style="margin-top:1.6rem;font-size:1.1rem;font-weight:700">环境安装</h3>
-    <div class="code"><span class="c"># clone 选手包(Tron2 本体 + RoboTwin runtime + ACT + 给定数据接口)</span>
-git clone https://github.com/limx-troncamp/troncamp-mani
-cd troncamp-mani
-<span class="c"># 一键装环境:conda env + RoboTwin / SAPIEN / Curobo 依赖</span>
-bash install.sh</div>
-
-    <h3 style="margin-top:1.4rem;font-size:1.1rem;font-weight:700">数据(主办方下发)</h3>
-    <p style="color:var(--muted)">四题的 ACT-ready 数据由主办方处理好、随包下发,选手<b>不自采</b>,解压即用:T2 为混质量大池(数据工程在其上做),T3 / T4 为干净集。</p>
-
-    <h3 style="margin-top:1.4rem;font-size:1.1rem;font-weight:700">训练 ACT</h3>
-    <div class="code"><span class="c"># 用给定数据训练单卡 ACT(单张 4090 级显卡 &lt;1h 量级一轮,可日迭代)</span>
-python starter/train_act.py <span class="a">--track</span> T1 <span class="a">--data</span> ./data <span class="a">--out</span> ./ckpt</div>
-
-    <h3 style="margin-top:1.4rem;font-size:1.1rem;font-weight:700">本地自评</h3>
-    <div class="code"><span class="c"># 在公开 seed 上本地出分(= 主办方评测同一套内核,只换种子)</span>
-python starter/eval_local.py <span class="a">--ckpt-dir</span> ./ckpt <span class="a">--track</span> T1
-<span class="c"># 跑策略 + 渲 rollout 视频(操作过程清晰可见,核查行为)</span>
-python starter/watch_rollout.py <span class="a">--ckpt-dir</span> ./ckpt <span class="a">--seed</span> 0 <span class="a">--out</span> rollout.mp4</div>
-
-    <h3 style="margin-top:1.4rem;font-size:1.1rem;font-weight:700">提交</h3>
-    <div class="code"><span class="c"># T1:只交权重</span>
-python submit/submit.py <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt-dir</span> ./ckpt
-<span class="c"># T2:权重 + 代码</span>
-python submit/submit.py <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> ./mycode <span class="a">--ckpt-dir</span> ./ckpt
-<span class="c"># T3:权重 + 代码</span>
-python submit/submit.py <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> ./mycode <span class="a">--ckpt-dir</span> ./ckpt
-<span class="c"># T4:权重 + 代码(主榜)</span>
-python submit/submit.py <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> ./mycode <span class="a">--ckpt-dir</span> ./ckpt</div>
+    <p style="margin-top:1.6rem;color:var(--muted)">数据由主办方下发(选手<b>不自采</b>:T2 混质量大池供数据工程,T3 / T4 干净集)。完整实操命令 —— 装环境、训练 ACT、本地自评、提交 —— 见 <a href="./doc.html"><b>参赛文档 →</b></a>。下面是提交与评测的关键机制。</p>
 
     <table class="dtable" style="margin-top:1.2rem">
       <thead><tr><th style="width:8rem">机制</th><th>说明</th></tr></thead>
