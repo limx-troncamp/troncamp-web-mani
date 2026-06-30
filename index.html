@@ -186,7 +186,7 @@
 
     <figure class="fig-wide" style="margin-top:1.6rem">
       <img src="./assets/flow.svg" alt="troncamp 提交与评测流程:本地 clone → 训练 → 自评 → 提交 → 评测 → 上榜">
-      <figcaption>端到端数据流:本地 clone / 训练 / 自评 → submit.py 带 token 提交 → 后端闸门 + 队列 → 评测 worker(进程内 ACT rollout · 降权 + 沙箱,私有种子)→ GitHub Pages 匿名榜;看榜改进重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
+      <figcaption>本地 clone → 用给定数据训练 ACT → 公开种子自评 → submit.py 带 token 提交 → 官方私有种子评测 → 匿名榜上榜;看榜改进、重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
     </figure>
 
     <h3 style="margin-top:1.6rem;font-size:1.1rem;font-weight:700">本地自评</h3>

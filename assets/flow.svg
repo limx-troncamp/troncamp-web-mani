@@ -1,114 +1,55 @@
-<svg viewBox="0 0 960 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="troncamp 提交与评测流程:本地 clone 到上榜的端到端数据流" font-family="'PingFang SC','Microsoft YaHei',system-ui,sans-serif" style="width:100%;height:auto;background:#0b0e14;border-radius:6px">
+<svg viewBox="0 0 960 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="参赛流程:clone → 训练 → 本地自评 → 提交 → 官方评测 → 上榜,看榜改进重新提交" font-family="'PingFang SC','Microsoft YaHei',system-ui,sans-serif" style="width:100%;height:auto;background:#0b0e14;border-radius:6px">
   <defs>
     <marker id="ah" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="#38e1d4"/></marker>
     <marker id="ahd" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="#5d6878"/></marker>
     <style>
       .t{fill:#dfe7f1;font-size:13px;font-weight:700}
-      .s{fill:#8a98ac;font-size:10px;font-family:ui-monospace,'JetBrains Mono',Consolas,monospace}
-      .c{fill:#5d6878;font-size:9.5px;font-family:ui-monospace,'JetBrains Mono',Consolas,monospace}
-      .band{fill:#38e1d4;font-size:11px;font-weight:700;letter-spacing:.02em}
+      .s{fill:#8a98ac;font-size:10px}
+      .c{fill:#8a98ac;font-size:10.5px}
       .node{fill:#10141c;stroke:#1d2530;stroke-width:1.2}
-      .key{fill:#0e1a1d;stroke:#1d7d77;stroke-width:1.3}
-      .ln{stroke:#38e1d4;stroke-width:1.6;fill:none}
+      .key{fill:#0e1a1d;stroke:#1d7d77;stroke-width:1.4}
+      .ln{stroke:#38e1d4;stroke-width:1.7;fill:none}
     </style>
   </defs>
 
-  <!-- 反馈环(虚线):榜单 → 选手,看榜改进重新提交 -->
-  <path d="M824,365 H930 V18 H10 V60 H22" fill="none" stroke="#5d6878" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#ahd)"/>
-  <text x="500" y="13" text-anchor="middle" class="c" fill="#8a98ac">看榜 · 改进 · 重新提交(T1 → T2 → T3 → T4 顺序解锁,过即锁定)</text>
+  <!-- 反馈环(虚线):看榜改进重新提交 -->
+  <path d="M865,66 V36 H95 V62" class="ln" stroke="#5d6878" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#ahd)"/>
+  <text x="480" y="26" text-anchor="middle" class="c">看榜改进 · 重新提交(T1 → T2 → T3 → T4 顺序解锁,过即锁)</text>
 
-  <!-- ① 本地:clone → 训练 -->
-  <text x="24" y="34" class="band">① 本地 · 公开仓自评同一套 harness</text>
-  <rect class="node" x="24" y="42" width="138" height="52" rx="7"/>
-  <text x="93" y="64" text-anchor="middle" class="t">clone + 装环境</text>
-  <text x="93" y="81" text-anchor="middle" class="s">setup/install.sh</text>
+  <!-- ① clone -->
+  <rect class="node" x="30" y="66" width="130" height="58" rx="8"/>
+  <text x="95" y="100" text-anchor="middle" class="t">clone + 装环境</text>
+  <text x="95" y="117" text-anchor="middle" class="s">一键 setup</text>
 
-  <rect class="node" x="206" y="42" width="138" height="52" rx="7"/>
-  <text x="275" y="64" text-anchor="middle" class="t">给定数据</text>
-  <text x="275" y="81" text-anchor="middle" class="s">raw bag · 全卷共用</text>
+  <!-- ② 训练 -->
+  <rect class="node" x="184" y="66" width="130" height="58" rx="8"/>
+  <text x="249" y="100" text-anchor="middle" class="t">训练 ACT</text>
+  <text x="249" y="117" text-anchor="middle" class="s">用给定数据 · 单卡</text>
 
-  <rect class="node" x="388" y="42" width="138" height="52" rx="7"/>
-  <text x="457" y="60" text-anchor="middle" class="t" font-size="12.5">训练 ACT</text>
-  <text x="457" y="78" text-anchor="middle" class="s">单卡 · ~80M</text>
+  <!-- ③ 本地自评 -->
+  <rect class="node" x="338" y="66" width="130" height="58" rx="8"/>
+  <text x="403" y="100" text-anchor="middle" class="t">本地自评</text>
+  <text x="403" y="117" text-anchor="middle" class="s">公开种子自测</text>
 
-  <rect class="key" x="570" y="42" width="150" height="52" rx="7"/>
-  <text x="645" y="60" text-anchor="middle" class="t" font-size="12.5">本地自评</text>
-  <text x="645" y="78" text-anchor="middle" class="s">eval_local · dev 种子</text>
+  <!-- ④ 提交 -->
+  <rect class="key" x="492" y="66" width="130" height="58" rx="8"/>
+  <text x="557" y="100" text-anchor="middle" class="t">提交</text>
+  <text x="557" y="117" text-anchor="middle" class="s">submit.py · 带 token</text>
 
-  <rect class="node" x="764" y="42" width="148" height="52" rx="7"/>
-  <text x="838" y="60" text-anchor="middle" class="t" font-size="12.5">看 rollout</text>
-  <text x="838" y="78" text-anchor="middle" class="s">watch_rollout</text>
+  <!-- ⑤ 官方评测 -->
+  <rect class="node" x="646" y="66" width="130" height="58" rx="8"/>
+  <text x="711" y="100" text-anchor="middle" class="t">官方评测</text>
+  <text x="711" y="117" text-anchor="middle" class="s">私有种子打分</text>
 
-  <line class="ln" x1="162" y1="68" x2="200" y2="68" marker-end="url(#ah)"/>
-  <line class="ln" x1="344" y1="68" x2="382" y2="68" marker-end="url(#ah)"/>
-  <line class="ln" x1="526" y1="68" x2="564" y2="68" marker-end="url(#ah)"/>
-  <line class="ln" x1="720" y1="68" x2="758" y2="68" marker-end="url(#ah)"/>
+  <!-- ⑥ 上榜 -->
+  <rect class="key" x="800" y="66" width="130" height="58" rx="8"/>
+  <text x="865" y="100" text-anchor="middle" class="t" fill="#38e1d4">上榜</text>
+  <text x="865" y="117" text-anchor="middle" class="s">匿名榜</text>
 
-  <!-- 自评 → 提交 -->
-  <path d="M645,94 V128 H468 V146" class="ln" marker-end="url(#ah)"/>
-
-  <!-- ② 提交 → 后端 -->
-  <text x="24" y="144" class="band">② 提交 · submit.py 唯一通道(带 token)</text>
-  <rect class="key" x="120" y="152" width="180" height="52" rx="7"/>
-  <text x="210" y="174" text-anchor="middle" class="s" fill="#38e1d4" font-size="11">submit/submit.py</text>
-  <text x="210" y="191" text-anchor="middle" class="s">--track · --code-dir</text>
-
-  <rect class="node" x="372" y="152" width="190" height="52" rx="7"/>
-  <text x="467" y="174" text-anchor="middle" class="t" font-size="12.5">后端 API</text>
-  <text x="467" y="191" text-anchor="middle" class="s">token 校验 · 每日限额</text>
-
-  <rect class="node" x="634" y="152" width="190" height="52" rx="7"/>
-  <text x="729" y="174" text-anchor="middle" class="t">提交队列</text>
-  <text x="729" y="191" text-anchor="middle" class="s">SQLite · queued</text>
-
-  <line class="ln" x1="300" y1="178" x2="366" y2="178" marker-end="url(#ah)"/>
-  <line class="ln" x1="562" y1="178" x2="628" y2="178" marker-end="url(#ah)"/>
-  <text x="467" y="222" text-anchor="middle" class="c">闸门:未过前置题 403 · T1/T2/T3 过即锁 409 · 超日限 429</text>
-
-  <!-- 队列 → 评测 -->
-  <path d="M729,204 V236 H468 V254" class="ln" marker-end="url(#ah)"/>
-
-  <!-- ③ 评测 -->
-  <text x="24" y="252" class="band">③ 评测 · in-process(进程隔离 + 沙箱 · final 种子)</text>
-  <rect x="120" y="260" width="720" height="86" rx="9" fill="#0e1219" stroke="#1d2530" stroke-width="1.2"/>
-  <text x="136" y="280" class="s" fill="#38e1d4" font-size="11">评测 worker</text>
-  <rect class="node" x="136" y="290" width="150" height="44" rx="6"/>
-  <text x="211" y="308" text-anchor="middle" class="t" font-size="12">下载 ckpt</text>
-  <text x="211" y="324" text-anchor="middle" class="s">SHA256 校验</text>
-
-  <rect class="node" x="306" y="290" width="166" height="44" rx="6"/>
-  <text x="389" y="308" text-anchor="middle" class="t" font-size="12">加载 ACT</text>
-  <text x="389" y="324" text-anchor="middle" class="s">torch · in-process</text>
-
-  <rect class="node" x="492" y="290" width="166" height="44" rx="6"/>
-  <text x="575" y="308" text-anchor="middle" class="t" font-size="12">同进程 rollout</text>
-  <text x="575" y="324" text-anchor="middle" class="s">逐 seed · 取均值</text>
-
-  <rect class="node" x="678" y="290" width="146" height="44" rx="6"/>
-  <text x="751" y="308" text-anchor="middle" class="t" font-size="12">打分</text>
-  <text x="751" y="324" text-anchor="middle" class="s">成功率 SR</text>
-
-  <line class="ln" x1="286" y1="312" x2="300" y2="312" marker-end="url(#ah)"/>
-  <line class="ln" x1="472" y1="312" x2="486" y2="312" marker-end="url(#ah)"/>
-  <line class="ln" x1="658" y1="312" x2="672" y2="312" marker-end="url(#ah)"/>
-
-  <!-- 评测 → 上榜 -->
-  <path d="M751,346 V366 H730 V366" class="ln" marker-end="url(#ah)"/>
-
-  <!-- ④ 上榜 -->
-  <text x="24" y="384" class="band">④ 上榜 · GitHub Pages</text>
-  <rect class="node" x="150" y="392" width="160" height="50" rx="7"/>
-  <text x="230" y="414" text-anchor="middle" class="t">scores DB</text>
-  <text x="230" y="431" text-anchor="middle" class="s">每 token 取最佳</text>
-
-  <rect class="node" x="382" y="392" width="180" height="50" rx="7"/>
-  <text x="472" y="414" text-anchor="middle" class="t">board JSON</text>
-  <text x="472" y="431" text-anchor="middle" class="s">匿名 · 按题导榜</text>
-
-  <rect class="key" x="634" y="392" width="190" height="50" rx="7"/>
-  <text x="729" y="414" text-anchor="middle" class="t" fill="#38e1d4">GitHub Pages 榜单</text>
-  <text x="729" y="431" text-anchor="middle" class="s">token 尾号 · 60s 刷新</text>
-
-  <line class="ln" x1="310" y1="417" x2="376" y2="417" marker-end="url(#ah)"/>
-  <line class="ln" x1="562" y1="417" x2="628" y2="417" marker-end="url(#ah)"/>
+  <!-- 箭头 -->
+  <line class="ln" x1="162" y1="95" x2="182" y2="95" marker-end="url(#ah)"/>
+  <line class="ln" x1="316" y1="95" x2="336" y2="95" marker-end="url(#ah)"/>
+  <line class="ln" x1="470" y1="95" x2="490" y2="95" marker-end="url(#ah)"/>
+  <line class="ln" x1="624" y1="95" x2="644" y2="95" marker-end="url(#ah)"/>
+  <line class="ln" x1="778" y1="95" x2="798" y2="95" marker-end="url(#ah)"/>
 </svg>

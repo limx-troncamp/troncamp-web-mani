@@ -46,9 +46,12 @@
     }
     var p = r.progress;
     if (p && p.track) {
-      var sr = (p.success_rate != null) ? ' · SR ' + p.success_rate.toFixed(2) : '';
-      return '<td class="c-t3"><span class="progresscell" title="尚未进入 T4 主榜">' +
-        esc(p.track) + ' 达标' + sr + '</span></td>';
+      var psr = (p.success_rate != null) ? p.success_rate : 0;
+      var pw = Math.max(2, Math.min(100, psr * 100));
+      var ptxt = esc(p.track) + ' 达标' + (p.success_rate != null ? ' · SR ' + p.success_rate.toFixed(2) : '');
+      return '<td class="c-t3"><div class="t3wrap" title="尚未进入 T4 主榜">' +
+        '<span class="t3num">' + ptxt + '</span>' +
+        '<span class="t3bar"><i style="width:' + pw + '%"></i></span></div></td>';
     }
     return '<td class="c-t3"><span class="dimcell">报名中</span></td>';
   }
