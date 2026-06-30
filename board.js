@@ -34,8 +34,7 @@
 
   // 分数列(沿用原版 .c-t3/.t3wrap/.t3num/.t3bar):
   //   有 T4 → T4 得分 = graded×100(三层各 1/3 相加、叠满 100)+ 色带 + 提交时间;
-  //   无 T4 → 仅标"未进主榜"。T4 得分必须先顺序过 T1/T2/T3(见左侧门列),
-  //           故无 T4 成绩者此列绝不渲染任何像分数的数字(进度看门列 SR)。
+  //   无 T4 → 留空(T4 得分须先顺序过 T1/T2/T3,进度见左侧门列;此列绝不出现像分数的数字)。
   function scoreCell(r) {
     var t4 = r.t4;
     if (t4 && t4.graded != null) {
@@ -45,9 +44,7 @@
         '<span class="t3num">' + (t4.graded * 100).toFixed(1) + '</span>' + sub +
         '<span class="t3bar"><i style="width:' + w + '%"></i></span></div></td>';
     }
-    var p = r.progress;
-    var tip = (p && p.track) ? ' title="最高过 ' + esc(p.track) + ' · 未进 T4 主榜"' : '';
-    return '<td class="c-t3"><span class="dimcell"' + tip + '>未进主榜</span></td>';
+    return '<td class="c-t3"></td>';
   }
 
   function rowHtml(r, i) {
