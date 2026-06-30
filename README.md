@@ -1,35 +1,37 @@
 # troncamp-web
 
-**stack_blocks_three 鲁棒泛化机器人操作黑客松** 官网(单页静态站,GitHub Pages)。
+**TronCamp ACT 四任务套餐黑客松** 官网(单页静态站,GitHub Pages)。
 
-双臂机器人把红 / 绿 / 蓝三个方块移到桌面中央堆叠(蓝叠绿上、绿叠红上);
-单卡训 ACT(Action Chunking Transformer,~80M)做策略,竞争轴是**对域随机化的鲁棒泛化**——从弱随机化通关到全域 OOD。
+Tron2 双臂机器人 + RoboTwin 仿真,单卡训 ACT(Action Chunking Transformer,~80M)完成四个难度递增的操作任务:
+T1 `adjust_bottle` / T2 `lift_pot` / T3 `stack_bowls_two` / T4 `stack_bowls_three`。
+赛制是**累进自由度阶梯**:T1 直接跑官方流程 → T2 自采专家数据 → T3 自采 + 自写 config → T4 全放开。
+T1–T4 **顺序解锁,只有 T4 计分**(末态 graded /100,三碗各 1/3),主榜按 T4 得分降序;线上榜占总评 70%。
 
 ## 页面
 
-单页 + 一个锁定的 Final 榜:
-
 | 文件 | 内容 |
 |---|---|
-| `index.html` | 单页,顶部 sticky nav 锚点跳转:题面 / 赛制 T1–T4 / 评测档 / 流程(含流程图)/ 榜单(Dev) |
-| `final.html` | Final 榜:赛末公布(解锁前显示「赛末公布」) |
+| `index.html` | 单页,顶部 sticky nav 锚点:题面 / 赛制 T1–T4(自由度阶梯)/ 评测 / 流程(含流程图)/ 榜单 |
+| `doc.html` | 参赛文档:ACT 代码使用(数据采集 / 训练 / 自评 / 提交),参照 RoboTwin 官方 usage |
 
 ## 资源
 
-- `style.css` — 深色控制台风(#07090d + teal #38e1d4 + Chakra Petch);区块进场用纯 CSS `animation-timeline: view()` 轻量淡入,尊重 `prefers-reduced-motion`。
+- `style.css` — 深色控制台风;区块淡入用纯 CSS,尊重 `prefers-reduced-motion`。
 - `board.js` / `config.js` — 排行榜渲染(读 `data/leaderboard.json`,60s 刷新)。
-- `data/leaderboard.json` — **占位示例**,主办方发布真实榜单覆盖。
-- 任务演示帧 — stack_blocks_three 专家 rollout 渲染后补(题面当前为占位块)。
-- `assets/flow.svg` — 提交与评测流程图(本地 clone → 训练 → 自评 → 提交 → in-process 评测 → 上榜)。
+- `data/leaderboard.json` — **占位示例**,主办方后端发布真实榜单覆盖。
+- `data/examples.json` — 6 条占位示例(持续同步时与后端真实榜合并)。
+- `tools/board_sync.py` — 合并器(后端真实榜 + 占位示例 → 正确榜序)。
+- `tools/board_sync_push.sh` — 持续同步 cron 推送脚本(评测机定时合并 + push)。
+- `assets/flow.svg` — 提交与评测流程图(本地 clone → 采集 → 训练 → 自评 → 提交 → 进程内评测 → 上榜)。
 
 ## 部署
 
-纯静态,无构建步骤。GitHub Pages 直接由根目录 `index.html` 提供;`.nojekyll` 关闭 Jekyll 处理以正常服务 `assets/`、`data/`。
+纯静态,无构建。GitHub Pages 由根目录 `index.html` 提供;`.nojekyll` 关闭 Jekyll 处理以正常服务 `assets/`、`data/`。
 
 排行榜数据契约:`leaderboard.json` = `{ generated_at, deadline, final_unlocked, dev:[...], final:[...] }`,
-每行 `{ token_suffix, t1/t2/t3:{pass, success_rate}, progress:{track, success_rate}|null, t4:{success_rate, submitted_at}|null }`。
+每行 `{ token_suffix|team, t1/t2/t3:{pass, success_rate}, progress:{track, success_rate}|null, t4:{graded, submitted_at}|null }`。
 
-**主榜次序由后端给定**:`dev` / `final` 数组已按规则排好,前端按 **JSON 原顺序**渲染(不前端重排)。
-次序 = 有 T4 成绩者在前(`t4.success_rate` 降序),其后是无 T4 者按答题进度
-(passed-T3 > passed-T2 > passed-T1 > none,同档以该档 SR 降序);`progress.track` = 最高达标档,
-主榜列对无 T4 队伍显示「Tn 达标 · SR 0.xx」而非空白 / 零分。
+**主榜次序由后端给定**,前端按 **JSON 原顺序**渲染(不前端重排):
+有 T4 成绩者在前(`t4.graded` 降序),其后无 T4 者按答题进度(passed-T3 > passed-T2 > passed-T1 > none,同档以该档 SR 降序);
+`progress.track` = 最高达标档。**T4 得分必须先顺序过 T1/T2/T3;无 T4 成绩者主榜列留空**(不渲染像分数的数字)。
+门列三态:**✓ 达标 / ○ 未达标(hover 看 SR)/ · 未提交**。
