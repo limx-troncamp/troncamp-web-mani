@@ -1,0 +1,24 @@
+TronCamp competition website (troncamp-web)
+Copyright 2026 LimX Dynamics
+
+Licensed under the Apache License, Version 2.0 (see the LICENSE file).
+
+This repository is a static website (HTML/CSS/JS). It does NOT vendor any
+third-party source code. For attribution completeness:
+
+- Web fonts are loaded at runtime from Google Fonts (https://fonts.googleapis.com).
+  The fonts are served by Google and are not redistributed in this repository;
+  the Google Fonts collection is generally licensed under the SIL Open Font
+  License (OFL). See https://fonts.google.com/attribution.
+
+- The demonstration videos under assets/videos/ are rendered from the RoboTwin 2.0
+  simulation running the LimX Tron2 robot. RoboTwin 2.0 is MIT-licensed
+  (Copyright (c) 2025 Tianxing Chen; https://github.com/RoboTwin-Platform/RoboTwin);
+  the Tron2 robot model is proprietary to LimX Dynamics. The rendered videos are
+  (c) 2026 LimX Dynamics.
+
+- The leaderboard data under data/ (leaderboard.json, examples.json) is placeholder
+  / sample content; live results are published by the organizers' backend.
+
+This NOTICE file is provided for informational purposes and does not modify the
+Apache License 2.0.

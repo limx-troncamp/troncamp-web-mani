@@ -2,3 +2,17 @@
 *.log
 .DS_Store
 .playwright-mcp/
+AGENTS.md
+CLAUDE.md
+.claude/
+
+# 密钥 / 凭据 绝不入库
+.env
+*.env
+secrets.env
+.netrc
+*.pem
+*.key
+*.token
+id_rsa*
+id_ed25519*
