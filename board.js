@@ -27,9 +27,11 @@
   // T1/T2/T3 达标门:达标=绿勾,未达标=空圈(hover 看成功率),未提交=点。
   function gate(g) {
     if (!g) return '<span class="gate gate-none" title="未提交">·</span>';
-    if (g.pass) return '<span class="gate gate-ok" title="已达标">✓</span>';
-    var sr = (g.success_rate != null) ? ' ' + Math.round(g.success_rate * 100) + '%' : '';
-    return '<span class="gate gate-miss" title="未达标' + sr + '">○</span>';
+    // T1-T3:门图标 + 灰色 SR 小字(该题成功率×100)
+    var sr = (g.success_rate != null)
+      ? '<span class="gate-sr">' + Math.round(g.success_rate * 100) + '</span>' : '';
+    if (g.pass) return '<span class="gate gate-ok" title="已达标">✓</span>' + sr;
+    return '<span class="gate gate-miss" title="未达标">○</span>' + sr;
   }
 
   // 分数列(沿用原版 .c-t3/.t3wrap/.t3num/.t3bar):

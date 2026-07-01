@@ -261,6 +261,7 @@ table.board-strip td.c-team { text-align: left; padding-left: 1.1rem; font-famil
 .gate-ok { color: #46d98a; text-shadow: 0 0 10px rgba(70, 217, 138, 0.5); }
 .gate-miss { color: var(--dim); font-size: 0.98rem; }
 .gate-none { color: var(--line); }
+.gate-sr { color: var(--dim); font-size: 0.72rem; font-weight: 600; margin-left: 0.28rem; font-variant-numeric: tabular-nums; vertical-align: 1px; }
 .c-t3 { border-left: 1px solid var(--line); min-width: 9.5rem; }
 .t3wrap { display: inline-flex; flex-direction: column; align-items: center; gap: 0.2rem; min-width: 7rem; }
 .t3num { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--accent); line-height: 1; }
