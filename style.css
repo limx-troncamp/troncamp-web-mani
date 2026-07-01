@@ -64,6 +64,7 @@ a:hover { text-decoration: underline; }
 .brand {
   font-family: var(--display); font-weight: 700; font-size: 1.05rem;
   letter-spacing: 0.04em; white-space: nowrap;
+  color: var(--text);   /* TRONCamp 白;仅 .accent(Mani) 用主视觉蓝绿 */
 }
 .brand .accent { color: var(--accent); }
 .nav-links { display: flex; gap: 1.35rem; margin-left: auto; flex-wrap: wrap; }

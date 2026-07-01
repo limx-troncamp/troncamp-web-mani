@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TronCamp 线上黑客松 · Tron2 双臂操作赛道</title>
-<meta name="description" content="TronCamp 线上赛操作赛道:使用 Tron2 双臂机器人,基于 RoboTwin 仿真完成四个难度递增的操作任务 adjust_bottle / lift_pot / stack_bowls_two / stack_bowls_three;单卡训 ACT(Action Chunking Transformer),每门主攻一项工程技能。T1–T4 顺序解锁,只有 T4 计分(末态得分 /100),主榜按 T4 得分降序排名。">
+<title>TRONCamp · Mani — 基于 Tron2 的双臂协同精确操作</title>
+<meta name="description" content="TronCamp 线上赛操作赛道:使用 Tron2 双臂机器人,基于 RoboTwin 仿真完成四个难度递增的操作任务 adjust_bottle / grab_roller / stack_bowls_two / stack_bowls_three;单卡训 ACT(Action Chunking Transformer),每门主攻一项工程技能。T1–T4 顺序解锁,只有 T4 计分(末态得分 /100),主榜按 T4 得分降序排名。">
 <link rel="stylesheet" href="./style.css">
 <script src="./config.js"></script>
 <script src="./board.js" defer></script>
@@ -13,7 +13,7 @@
 
 <nav class="nav">
   <div class="wrap">
-    <a href="#top" class="brand">Tron<span class="accent">Camp</span> · Mani</a>
+    <a href="#top" class="brand">TRONCamp · <span class="accent">Mani</span></a>
     <span class="nav-links">
       <a href="#task">题面</a>
       <a href="#tracks">赛制</a>
@@ -30,9 +30,9 @@
 <header class="hero" id="top">
   <div class="wrap reveal">
     <span class="tag">Tron2 双臂 · 多任务操作 · 层层闯关</span>
-    <h1>TronCamp<span class="accent">线上黑客松</span></h1>
+    <h1>基于 Tron2 的<span class="accent">双臂协同精确操作</span></h1>
     <p class="lead lead-wide">
-      TronCamp 线上赛操作赛道:使用 Tron2 双臂机器人,基于 RoboTwin 仿真完成四个难度递增的操作任务。
+      TRONCamp 线上赛操作赛道:使用 Tron2 双臂机器人,基于 RoboTwin 仿真完成四个难度递增的精确操作任务。
     </p>
     <div class="hero-actions">
       <a href="#tracks" class="btn primary">赛制 T1–T4</a>
@@ -40,8 +40,25 @@
       <a href="#flow" class="btn">参赛流程</a>
       <a href="#board" class="btn">排行榜</a>
     </div>
+    <div class="countdown" style="margin-top:1.6rem;font-size:1.05rem;color:var(--muted)">
+      距提交截止(北京时间 7 月 15 日 24:00)&nbsp; <b id="cdTime" class="accent" style="font-variant-numeric:tabular-nums">—</b>
+    </div>
   </div>
 </header>
+<script>
+(function(){
+  var deadline = new Date('2026-07-16T00:00:00+08:00').getTime();
+  function tick(){
+    var el = document.getElementById('cdTime'); if(!el) return;
+    var d = deadline - Date.now();
+    if(d <= 0){ el.textContent = '已截止'; return; }
+    var day=Math.floor(d/864e5), h=Math.floor(d%864e5/36e5), m=Math.floor(d%36e5/6e4), s=Math.floor(d%6e4/1e3);
+    el.textContent = day+' 天 '+h+' 时 '+m+' 分 '+s+' 秒';
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
 
 <!-- ───────── 01 题面 ───────── -->
 <section id="task">
@@ -62,10 +79,10 @@
       </figure>
       <figure class="vfig">
         <div class="vpair">
-          <video src="./assets/videos/lift_pot.mp4" muted loop playsinline controls preload="metadata"></video>
-          <video src="./assets/videos/lift_pot_cam2.mp4" muted loop playsinline preload="metadata"></video>
+          <video src="./assets/videos/grab_roller.mp4" muted loop playsinline controls preload="metadata"></video>
+          <video src="./assets/videos/grab_roller_cam2.mp4" muted loop playsinline preload="metadata"></video>
         </div>
-        <figcaption><b>T2 · lift_pot</b> 双臂协同把锅举起。<span class="vviews">左 头部视角 · 右 正面视角</span></figcaption>
+        <figcaption><b>T2 · grab_roller</b> 双臂抓起擀面杖举高。<span class="vviews">左 头部视角 · 右 正面视角</span></figcaption>
       </figure>
       <figure class="vfig">
         <div class="vpair">
@@ -129,7 +146,7 @@
       </thead>
       <tbody>
         <tr><td class="lvl">T1</td><td>adjust_bottle<br><span class="th-sub">单臂抓取,极易</span></td><td>工具链入门:给处理好数据 + config 跑通 ACT(不自采)</td><td>仅权重</td><td>分级 SR ≥ τ₁(松)→ 解锁</td></tr>
-        <tr><td class="lvl">T2</td><td>lift_pot<br><span class="th-sub">双臂举锅</span></td><td><b>数据采集</b>:用可改专家自采(采集量 / 域随机化 / 场景选择 / 改进专家)</td><td>权重 + 代码</td><td>分级 SR ≥ τ₂(须过 T1)</td></tr>
+        <tr><td class="lvl">T2</td><td>grab_roller<br><span class="th-sub">双臂抓擀面杖</span></td><td><b>数据采集</b>:用可改专家自采(采集量 / 域随机化 / 场景选择 / 改进专家)</td><td>权重 + 代码</td><td>分级 SR ≥ τ₂(须过 T1)</td></tr>
         <tr><td class="lvl">T3</td><td>stack_bowls_two<br><span class="th-sub">双臂叠 2 碗</span></td><td><b>训练配置</b>:自采数据 + 自己写训练 config(LR / 步数 / chunk / temporal-agg)</td><td>权重 + 代码</td><td>分级 SR ≥ τ₃(须过 T2)</td></tr>
         <tr><td class="lvl">T4</td><td>stack_bowls_three<br><span class="th-sub">双臂叠 3 碗 · 主榜</span></td><td><b>全放开</b>:数据自采 / 网络改造 / 推理闭环任意发挥,训更好的策略</td><td>权重 + 代码</td><td><b>T4 得分，满分100</b>(须过 T3)</td></tr>
       </tbody>
@@ -153,7 +170,7 @@
       <thead><tr><th style="width:9rem">总评构成</th><th style="width:5rem">占比</th><th>说明</th></tr></thead>
       <tbody>
         <tr><td><b>线上排行榜</b></td><td><b>70%</b></td><td>自动评测:主榜按 <b>T4 得分 /100</b> 降序;T1–T3 为顺序解锁门(pass/fail),达标才能刷 T4,本身不计分。</td></tr>
-        <tr><td><b>完赛材料</b></td><td><b>30%</b></td><td>赛末提交 <b>开源代码包 + ≤3 分钟讲解 / 演示视频</b>,由评委评审(评分细则赛前公布)。</td></tr>
+        <tr><td><b>完赛材料</b></td><td><b>30%</b></td><td>赛末提交 <b>开源代码包 + ≤3 分钟讲解 / 演示视频</b>,由评委评审。</td></tr>
       </tbody>
     </table>
 
@@ -199,11 +216,12 @@
 
     <p style="margin-top:1.6rem;color:var(--muted)">数据来源:<b>T1 主办方下发处理好的数据;T2–T4 选手用下发的可改专家 + 采集管线自采</b>。安装 / 自采 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交用 <code>submit.py</code>(唯一通道,带 token):</p>
     <div class="code"><span class="c"># T1:只交权重(turnkey 题,评测机跑官方 config)</span>
-python submit/submit.py <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/&lt;config&gt;-&lt;num&gt;
+python submit/submit.py <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
 <span class="c"># T2 / T3 / T4:权重 + 代码包。--code-dir 指含 policy/ 的 RoboTwin 根(评测遮蔽 &lt;root&gt;/policy;自动只打 policy/,~2MB)</span>
-python submit/submit.py <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-lift_pot/&lt;config&gt;-&lt;num&gt;
-python submit/submit.py <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_two/&lt;config&gt;-&lt;num&gt;
-python submit/submit.py <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_three/&lt;config&gt;-&lt;num&gt;</div>
+python submit/submit.py <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-grab_roller/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
+python submit/submit.py <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_two/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
+python submit/submit.py <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_three/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</div>
+    <p class="note"><code>--ckpt</code> 直接指向你要交的那个 checkpoint 文件;CLI 自动附带同目录的 <code>dataset_stats.pkl</code>、并作为评测加载名 <code>policy_last.ckpt</code> 上传——<b>交哪个就评哪个,无需手动改名</b>。训练会同时存 <code>policy_best.ckpt</code>(验证集最优)与 <code>policy_last.ckpt</code>(末轮);<b>建议交 <code>policy_best.ckpt</code></b>(早停,实测显著高于末轮)。</p>
 
     <table class="dtable" style="margin-top:1.2rem">
       <thead><tr><th style="width:8rem">机制</th><th>说明</th></tr></thead>
@@ -221,6 +239,16 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
         <tr><td class="lvl">演示视频</td><td>≤ 3 分钟,屏幕录制 + 画中画(摄像头):本人出镜讲解,现场 Demo 运行。</td></tr>
       </tbody>
     </table>
+
+    <div style="margin-top:1.4rem;padding:1rem 1.3rem;border-left:3px solid var(--accent);background:var(--panel);border-radius:8px">
+      <p style="margin:0 0 .55rem"><b>演示视频提交(邮箱通道)</b> —— 请于 <b>7 月 15 日 24:00</b> 前,将最终讲解及演示视频提交至邮箱 <a href="mailto:troncamp@limxdynamics.com" style="color:var(--accent)"><b>troncamp@limxdynamics.com</b></a>,该视频将作为线上赛最终计分的依据。</p>
+      <ul style="margin:.2rem 0 0;padding-left:1.25rem;color:var(--muted);line-height:1.85">
+        <li>完整展示代码思路及实机 / 仿真演示过程</li>
+        <li>建议配合画外音讲解,便于主办方理解方案亮点</li>
+        <li>整体时长请控制在 3 分钟以内</li>
+        <li>邮件命名格式:<code>姓名-专属提交码-赛道名称</code>(示例:张三-ABC123-Mani)</li>
+      </ul>
+    </div>
   </div>
 </section>
 

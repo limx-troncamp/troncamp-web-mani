@@ -69,8 +69,8 @@ cd detr &amp;&amp; pip install -e . &amp;&amp; cd ..</div>
     </div>
     <div class="code"><span class="c"># 先 bash setup/install.sh(解析路径占位,curobo 规划器才能起)</span>
 <span class="c"># bash collect_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;gpu_id&gt;  —— 打 Tron2 自碰撞 patch 后采集</span>
-bash collect_data.sh lift_pot lift_pot_clean 0
-<span class="c"># 采完用 process_data 转 ACT 16-D 格式(见下节)</span></div>
+bash collect_data.sh grab_roller grab_roller_collect 0
+<span class="c"># 采完用 process_data 转 ACT 16-D(见下节);collect / process_data / train 用同一 config 名(grab_roller_collect)串起来</span></div>
     <p class="note">想采更多 / 更优数据 → 改 <code>task_config</code> 的集数与域随机化,或直接改进 <code>envs/&lt;task&gt;.py</code> 的专家。改动随提交的代码包生效。</p>
   </div>
 </section>
@@ -88,7 +88,7 @@ bash process_data.sh adjust_bottle adjust_bottle_200ep 200</div>
     <table class="dtable" style="margin-top:1.2rem">
       <thead><tr><th style="width:11rem">参数</th><th>含义</th></tr></thead>
       <tbody>
-        <tr><td><code>task_name</code></td><td>任务名,如 <code>adjust_bottle</code> / <code>lift_pot</code> / <code>stack_bowls_two</code> / <code>stack_bowls_three</code></td></tr>
+        <tr><td><code>task_name</code></td><td>任务名,如 <code>adjust_bottle</code> / <code>grab_roller</code> / <code>stack_bowls_two</code> / <code>stack_bowls_three</code></td></tr>
         <tr><td><code>task_config</code></td><td>配置名(数据采集设定),如 <code>adjust_bottle_200ep</code></td></tr>
         <tr><td><code>expert_data_num</code></td><td>用于训练的专家轨迹数,如 <code>200</code></td></tr>
       </tbody>
@@ -111,7 +111,7 @@ bash train.sh adjust_bottle adjust_bottle_200ep 200 0 0
       <thead><tr><th style="width:4rem">题号</th><th>训练命令</th></tr></thead>
       <tbody>
         <tr><td class="lvl">T1</td><td><code>bash train.sh adjust_bottle adjust_bottle_200ep 200 0 0</code></td></tr>
-        <tr><td class="lvl">T2</td><td><code>bash train.sh lift_pot lift_pot_mixed300 300 0 0</code></td></tr>
+        <tr><td class="lvl">T2</td><td><code>bash train.sh grab_roller grab_roller_200ep 200 0 0</code></td></tr>
         <tr><td class="lvl">T3</td><td><code>bash train.sh stack_bowls_two stack_bowls_two_200ep 200 0 0</code></td></tr>
         <tr><td class="lvl">T4</td><td><code>bash train.sh stack_bowls_three stack_bowls_three_200ep 200 0 0</code></td></tr>
       </tbody>
@@ -167,7 +167,7 @@ python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">-
       <thead><tr><th style="width:4rem">题号</th><th>数据键(task_name)</th><th>train.sh 三元组</th></tr></thead>
       <tbody>
         <tr><td class="lvl">T1</td><td><code>sim-adjust_bottle-adjust_bottle_200ep-200</code></td><td>adjust_bottle&nbsp;adjust_bottle_200ep&nbsp;200</td></tr>
-        <tr><td class="lvl">T2</td><td><code>sim-lift_pot-lift_pot_mixed300-300</code></td><td>lift_pot&nbsp;lift_pot_mixed300&nbsp;300</td></tr>
+        <tr><td class="lvl">T2</td><td><code>sim-grab_roller-grab_roller_200ep-200</code></td><td>grab_roller&nbsp;grab_roller_200ep&nbsp;200</td></tr>
         <tr><td class="lvl">T3</td><td><code>sim-stack_bowls_two-stack_bowls_two_200ep-200</code></td><td>stack_bowls_two&nbsp;stack_bowls_two_200ep&nbsp;200</td></tr>
         <tr><td class="lvl">T4</td><td><code>sim-stack_bowls_three-stack_bowls_three_200ep-200</code></td><td>stack_bowls_three&nbsp;stack_bowls_three_200ep&nbsp;200</td></tr>
       </tbody>
