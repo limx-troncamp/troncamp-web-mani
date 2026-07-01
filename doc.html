@@ -69,8 +69,8 @@ cd detr &amp;&amp; pip install -e . &amp;&amp; cd ..</div>
     </div>
     <div class="code"><span class="c"># 先 bash setup/install.sh(解析路径占位,curobo 规划器才能起)</span>
 <span class="c"># bash collect_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;gpu_id&gt;  —— 打 Tron2 自碰撞 patch 后采集</span>
-bash collect_data.sh grab_roller grab_roller_collect 0
-<span class="c"># 采完用 process_data 转 ACT 16-D(见下节);collect / process_data / train 用同一 config 名(grab_roller_collect)串起来</span></div>
+bash collect_data.sh grab_roller grab_roller_200ep 0
+<span class="c"># 采完用 process_data 转 ACT 16-D(见下节);collect / process_data / train 用同一 config 名(grab_roller_200ep)串起来</span></div>
     <p class="note">想采更多 / 更优数据 → 改 <code>task_config</code> 的集数与域随机化,或直接改进 <code>envs/&lt;task&gt;.py</code> 的专家。改动随提交的代码包生效。</p>
   </div>
 </section>
@@ -152,6 +152,7 @@ bash eval.sh adjust_bottle adjust_bottle_dr adjust_bottle_200ep 200 0 0</div>
     <p>比赛自测用选手包的 <code>starter/eval_local.py</code> 包装:跑的就是 dev 榜同一套 harness、只换种子,<b>本地分 = dev 榜分</b>。</p>
     <div class="code"><span class="c"># --ckpt-dir 指向训练产出的 act_ckpt 目录</span>
 python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200</div>
+    <p class="note">达标阈值(同一弱随机评测环境的成功率口径):<b>T1 SR ≥ 0.60 / T2 SR ≥ 0.60 / T3 SR ≥ 0.50</b> —— 达标即顺序解锁(T1→T2→T3→T4),T1–T3 本身不计分;<b>T4</b> 是主榜分数(末态 graded /100,三个碗各占 1/3)。提交用 <code>submit/submit.py --track &lt;Tn&gt; --ckpt &lt;policy_best.ckpt&gt;</code>(T2–T4 另加 <code>--code-dir external/robotwin_local</code> 打整库代码包)。</p>
   </div>
 </section>
 

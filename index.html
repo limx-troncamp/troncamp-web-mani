@@ -145,14 +145,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td class="lvl">T1</td><td>adjust_bottle<br><span class="th-sub">单臂抓取,极易</span></td><td>入门:用下发的专家自采 + <b>给定 turnkey 训练 config</b>,照跑训练 ACT</td><td>仅权重</td><td>SR ≥ τ₁(松)→ 解锁</td></tr>
-        <tr><td class="lvl">T2</td><td>grab_roller<br><span class="th-sub">双臂抓擀面杖</span></td><td>用下发的专家自采 + <b>自己写训练 config</b></td><td>权重 + 代码</td><td>SR ≥ τ₂(须过 T1)</td></tr>
-        <tr><td class="lvl">T3</td><td>stack_bowls_two<br><span class="th-sub">双臂叠 2 碗</span></td><td>用下发的专家自采 + 自己写训练 config</td><td>权重 + 代码</td><td>SR ≥ τ₃(须过 T2)</td></tr>
+        <tr><td class="lvl">T1</td><td>adjust_bottle<br><span class="th-sub">单臂抓取,极易</span></td><td>入门:用下发的专家自采 + <b>给定 turnkey 训练 config</b>,照跑训练 ACT</td><td>仅权重</td><td>SR ≥ <b>τ₁ = 0.60</b> → 解锁</td></tr>
+        <tr><td class="lvl">T2</td><td>grab_roller<br><span class="th-sub">双臂抓擀面杖</span></td><td>用下发的专家自采 + <b>自己写训练 config</b></td><td>权重 + 代码</td><td>SR ≥ <b>τ₂ = 0.60</b>(须过 T1)</td></tr>
+        <tr><td class="lvl">T3</td><td>stack_bowls_two<br><span class="th-sub">双臂叠 2 碗</span></td><td>用下发的专家自采 + 自己写训练 config</td><td>权重 + 代码</td><td>SR ≥ <b>τ₃ = 0.50</b>(须过 T2)</td></tr>
         <tr><td class="lvl">T4</td><td>stack_bowls_three<br><span class="th-sub">双臂叠 3 碗 · 主榜</span></td><td>用下发的专家自采 + 自己写训练 config,训更好的策略</td><td>权重 + 代码</td><td><b>T4 得分,满分 100</b>(须过 T3)</td></tr>
       </tbody>
     </table>
 
-    <div class="formula" style="margin-top:1.2rem">T1–T3 达标条件:<span class="accent"> 成功率SR ≥ τ</span><span class="dim">　达标即解锁,本身不计分</span></div>
+    <div class="formula" style="margin-top:1.2rem"><b>T2 / T3 / T4 主攻技能(自由发挥,不设上限)</b>:① 基于下发的专家策略<b>自行提高</b> → ② <b>自行做数据采集与处理</b> → ③ <b>数据增强</b> → ④ <b>自己实现网络结构进行训练</b>。<span class="dim">T1 只需跑通给定 turnkey config;T2 起以上全部放开,难度只来自任务本身。</span></div>
+
+    <div class="formula" style="margin-top:0.8rem">T1–T3 达标条件:<span class="accent"> 成功率 SR ≥ τ　(τ₁ = 0.60 / τ₂ = 0.60 / τ₃ = 0.50)</span><span class="dim">　达标即解锁,本身不计分</span></div>
     <div class="formula">T4排行榜分数: <span class="accent">T4 得分 /100</span> 降序<span class="dim">　三个碗摆对位置各得 1/3、叠满得分 100</span></div>
   </div>
 </section>
@@ -272,9 +274,9 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
         <tr class="grp">
           <th class="c-rank">#</th>
           <th class="c-team">Token <span class="th-sub">尾 6 位</span></th>
-          <th class="c-gate">T1 <span class="th-sub">达标</span></th>
-          <th class="c-gate">T2 <span class="th-sub">达标</span></th>
-          <th class="c-gate">T3 <span class="th-sub">达标</span></th>
+          <th class="c-gate">T1 <span class="th-sub">达标 SR≥0.60</span></th>
+          <th class="c-gate">T2 <span class="th-sub">达标 SR≥0.60</span></th>
+          <th class="c-gate">T3 <span class="th-sub">达标 SR≥0.50</span></th>
           <th class="c-t3">T4 得分 /100 <span class="th-sub">主榜 · 按 T4 得分降序(须先顺序过 T1/T2/T3,无成绩留空)</span></th>
         </tr>
       </thead>
