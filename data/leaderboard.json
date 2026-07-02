@@ -1,7 +1,7 @@
 {
-  "_comment": "占位示例榜(上线前;数字与公示阈值一致)。后端发布真实榜后由持续同步覆盖:真实条目优先,示例仅在无同名真实条目时保留。",
-  "generated_at": "2026-07-02T00:00:00Z",
-  "deadline": null,
+  "_comment": "后端真实榜 + 占位示例自动合并(board_sync)。真实条目优先;示例仅在无同名真实条目时保留。",
+  "generated_at": "2026-07-02T04:08:08Z",
+  "deadline": "2026-07-16T00:00:00+08:00",
   "final_unlocked": false,
   "dev": [
     {
@@ -18,13 +18,13 @@
         "pass": true,
         "success_rate": 0.55
       },
-      "progress": {
-        "track": "T3",
-        "success_rate": 0.55
-      },
       "t4": {
         "submitted_at": "2026-06-24 21:10",
         "graded": 0.512
+      },
+      "progress": {
+        "track": "T3",
+        "success_rate": 0.55
       }
     },
     {
@@ -41,13 +41,13 @@
         "pass": true,
         "success_rate": 0.52
       },
-      "progress": {
-        "track": "T3",
-        "success_rate": 0.52
-      },
       "t4": {
         "submitted_at": "2026-06-24 19:02",
         "graded": 0.474
+      },
+      "progress": {
+        "track": "T3",
+        "success_rate": 0.52
       }
     },
     {
@@ -64,11 +64,11 @@
         "pass": true,
         "success_rate": 0.51
       },
+      "t4": null,
       "progress": {
         "track": "T3",
         "success_rate": 0.51
-      },
-      "t4": null
+      }
     },
     {
       "token_suffix": "Wp7vXa",
@@ -84,11 +84,11 @@
         "pass": false,
         "success_rate": 0.42
       },
+      "t4": null,
       "progress": {
         "track": "T2",
         "success_rate": 0.61
-      },
-      "t4": null
+      }
     },
     {
       "token_suffix": "qZ0Nde",
@@ -101,11 +101,11 @@
         "success_rate": 0.55
       },
       "t3": null,
+      "t4": null,
       "progress": {
         "track": "T1",
         "success_rate": 0.62
-      },
-      "t4": null
+      }
     },
     {
       "token_suffix": "Jb4tYc",
@@ -115,8 +115,8 @@
       },
       "t2": null,
       "t3": null,
-      "progress": null,
-      "t4": null
+      "t4": null,
+      "progress": null
     }
   ],
   "final": []
