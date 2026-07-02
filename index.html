@@ -120,7 +120,7 @@
       <tbody>
         <tr><td><b>模型</b></td><td><b>ACT</b>(Action Chunking Transformer,~80M,PyTorch,RoboTwin自带实现)</td></tr>
         <tr><td><b>难度</b></td><td>由易到难:T1 单臂调瓶 → T2 双臂抓举 → T3 叠 2 碗 → T4 叠 3 碗;全程 easy 环境,<b>不叠加额外扰动</b>,难度只来自任务本身。</td></tr>
-        <tr><td><b>数据</b></td><td><b>四题全部自采</b> —— 主办方下发<b>调好的专家 + 采集管线</b>,选手跑"采集 → process_data → 训练";T1 额外给 turnkey 训练 config(照跑),T2 起自己写 config。</td></tr>
+        <tr><td><b>数据</b></td><td><b>四题全部自采,不下发成品数据集。</b>主办方只给两样:① <b>调好的专家策略</b>(能采出成功轨迹)、② <b>现成的采集脚本</b>(一条命令就能跑)。选手用它们跑完整三步 —— <b>采集</b>(专家自动演示,存成轨迹)→ <b>process_data</b>(转成 ACT 训练格式)→ <b>训练</b>(得到策略权重)。区别只在训练 config:<b>T1</b> 连 config 也一起给(turnkey,直接照跑),<b>T2 起</b>训练 config 自己写。</td></tr>
       </tbody>
     </table>
   </div>
@@ -216,7 +216,7 @@
       <figcaption>本地 clone → 用给定数据训练 ACT → 公开种子自评 → submit.py 带 token 提交 → 官方私有种子评测 → 匿名榜上榜;看榜改进、重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
     </figure>
 
-    <p style="margin-top:1.6rem;color:var(--muted)">数据:<b>四题全部自采</b> —— 主办方下发调好的专家 + 采集管线,选手跑"采集 → process_data → 训练"(T1 额外给 turnkey config)。安装 / 采集 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交用 <code>submit.py</code>(唯一通道,带 token):</p>
+    <p style="margin-top:1.6rem;color:var(--muted)">数据:<b>四题全部自采</b> —— 主办方下发调好的专家 + 现成的采集脚本,选手跑"采集 → process_data → 训练"(T1 额外给 turnkey config)。安装 / 采集 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交用 <code>submit.py</code>(唯一通道,带 token):</p>
     <div class="code"><span class="c"># T1:只交权重(turnkey 题,评测机跑官方 config)</span>
 python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
 <span class="c"># T2 / T3 / T4:权重 + 代码包。--code-dir 指含 policy/ 的 RoboTwin 根(评测遮蔽 &lt;root&gt;/policy;自动只打 policy/,~2MB)</span>
