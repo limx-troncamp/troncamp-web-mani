@@ -119,7 +119,7 @@
       <thead><tr><th style="width:9rem">项</th><th>说明</th></tr></thead>
       <tbody>
         <tr><td><b>模型</b></td><td><b>ACT</b>(Action Chunking Transformer,~80M,PyTorch,RoboTwin自带实现)</td></tr>
-        <tr><td><b>难度</b></td><td>四题<b>难度只来自任务本身</b>(单臂抓瓶 → 双臂叠 3 碗),不额外叠自由度。前档达标解锁后档。</td></tr>
+        <tr><td><b>难度</b></td><td>由易到难:T1 单臂调瓶 → T2 双臂抓举 → T3 叠 2 碗 → T4 叠 3 碗;全程 easy 环境,<b>不叠加额外扰动</b>,难度只来自任务本身。</td></tr>
         <tr><td><b>数据</b></td><td><b>四题全部自采</b> —— 主办方下发<b>调好的专家 + 采集管线</b>,选手跑"采集 → process_data → 训练";T1 额外给 turnkey 训练 config(照跑),T2 起自己写 config。</td></tr>
       </tbody>
     </table>
@@ -132,7 +132,7 @@
     <div class="sec-head">
       <span class="sec-num">02 / 赛制</span>
       <h2>T1–T4 四任务,顺序解锁</h2>
-      <p>四个任务难度递增(<b>难度只来自任务本身,不叠自由度</b>)。四题全部自采训练;T1 给 turnkey config 照跑,T2 起自己写 config。前档达标才能交后档;各档各交各的模型、各自评测。<b>前三题通关后进入 T4 比拼最终得分</b>,T1/T2/T3 按成功率阈值判达标解锁。</p>
+      <p>四个任务由易到难,共用同一条「自采数据 → 训练 → 评测」流水线:T1 照跑给定的 turnkey 训练 config,T2 起自己写 config。<b>顺序解锁</b>:前档达标(SR 过阈值)才能提交后档,各档独立提交模型、独立评测。T1/T2/T3 只判达标不计分,<b>通关后进入 T4 比拼最终得分</b>。</p>
     </div>
     <table class="dtable">
       <thead>
@@ -152,7 +152,7 @@
       </tbody>
     </table>
 
-    <div class="formula" style="margin-top:1.2rem"><b>T2 / T3 / T4 主攻技能(自由发挥,不设上限)</b>:① 基于下发的专家策略<b>自行提高</b> → ② <b>自行做数据采集与处理</b> → ③ <b>数据增强</b> → ④ <b>自己实现网络结构进行训练</b>。<span class="dim">T1 只需跑通给定 turnkey config;T2 起以上全部放开,难度只来自任务本身。</span></div>
+    <div class="formula" style="margin-top:1.2rem"><b>T2 / T3 / T4 主攻技能(自由发挥,不设上限)</b>:① 基于下发的专家策略<b>自行提高</b> → ② <b>自行做数据采集与处理</b> → ③ <b>数据增强</b> → ④ <b>自己实现网络结构进行训练</b>。<span class="dim">T1 只需跑通给定 turnkey config;T2 起以上全部放开。</span></div>
 
     <div class="formula" style="margin-top:0.8rem">T1–T3 达标条件:<span class="accent"> 成功率 SR ≥ τ　(τ₁ = 0.60 / τ₂ = 0.60 / τ₃ = 0.50)</span><span class="dim">　达标即解锁,本身不计分</span></div>
     <div class="formula">T4排行榜分数: <span class="accent">T4 得分 /100</span> 降序<span class="dim">　三个碗摆对位置各得 1/3、叠满得分 100</span></div>
@@ -237,7 +237,7 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
     <h3 style="margin-top:1.4rem;font-size:1.1rem;font-weight:700">最终交付物</h3>
     <table class="dtable">
       <tbody>
-        <tr><td class="lvl" style="width:10rem">开源代码 + 文档</td><td>完整代码开源到 GitHub,附技术设计文档,须可复现。</td></tr>
+        <tr><td class="lvl" style="width:10rem">开源代码 + 文档</td><td>完整代码开源到 GitHub,附技术设计文档,须可复现。<b>⚠️ 提交截止(7 月 15 日 24:00)前请保持仓库 private,截止后再设为 public</b>,避免方案提前外泄影响比赛公平。</td></tr>
         <tr><td class="lvl">演示视频</td><td>≤ 3 分钟,完整展示代码思路及实机 / 仿真演示过程。</td></tr>
       </tbody>
     </table>
