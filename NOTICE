@@ -12,9 +12,9 @@ third-party source code. For attribution completeness:
   License (OFL). See https://fonts.google.com/attribution.
 
 - The demonstration videos under assets/videos/ are rendered from the RoboTwin 2.0
-  simulation running the LimX Tron2 robot. RoboTwin 2.0 is MIT-licensed
+  simulation running the LimX TRON 2 robot. RoboTwin 2.0 is MIT-licensed
   (Copyright (c) 2025 Tianxing Chen; https://github.com/RoboTwin-Platform/RoboTwin);
-  the Tron2 robot model is proprietary to LimX Dynamics. The rendered videos are
+  the TRON 2 robot model is proprietary to LimX Dynamics. The rendered videos are
   (c) 2026 LimX Dynamics.
 
 - The leaderboard data under data/ (leaderboard.json, examples.json) is placeholder

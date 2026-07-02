@@ -65,10 +65,10 @@ cd detr &amp;&amp; pip install -e . &amp;&amp; cd ..</div>
     <div class="sec-head">
       <span class="sec-num">02 / 采集</span>
       <h2>数据采集 collect(四题全部自采)</h2>
-      <p><b>四题都自采</b> —— 用下发的调好专家在 Tron2 上跑 RoboTwin 采集,只留成功 episode。专家 = <code>external/robotwin_local/envs/&lt;task_name&gt;.py</code> 的 <code>play_once()</code>,可直接改进。采集集数 / 域随机化 / 场景在 <code>task_config</code> 里调。数据经 JPEG 压缩,~12M/集(不炸盘)。</p>
+      <p><b>四题都自采</b> —— 用下发的调好专家在 TRON 2 上跑 RoboTwin 采集,只留成功 episode。专家 = <code>external/robotwin_local/envs/&lt;task_name&gt;.py</code> 的 <code>play_once()</code>,可直接改进。采集集数 / 域随机化 / 场景在 <code>task_config</code> 里调。数据经 JPEG 压缩,~12M/集(不炸盘)。</p>
     </div>
     <div class="code"><span class="c"># 先 bash setup/install.sh(解析路径占位,curobo 规划器才能起)</span>
-<span class="c"># bash collect_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;gpu_id&gt;  —— 打 Tron2 自碰撞 patch 后采集</span>
+<span class="c"># bash collect_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;gpu_id&gt;  —— 打 TRON 2 自碰撞 patch 后采集</span>
 bash collect_data.sh grab_roller grab_roller_200ep 0
 <span class="c"># 采完用 process_data 转 ACT 16-D(见下节);collect / process_data / train 用同一 config 名(grab_roller_200ep)串起来</span></div>
     <p class="note">想采更多 / 更优数据 → 改 <code>task_config</code> 的集数与域随机化,或直接改进 <code>envs/&lt;task&gt;.py</code> 的专家。改动随提交的代码包生效。</p>
@@ -211,7 +211,7 @@ python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">-
         <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics ↗</a>
       </div>
     </div>
-    <p class="foot-note">TronCamp 线上黑客松 · Tron2 双臂操作赛道 · 单模型 ACT 单卡可训。本页为参赛文档,结构参照 <a href="https://robotwin-platform.github.io/doc/usage/" target="_blank" rel="noopener">RoboTwin 官方文档</a>。<br>评测平台基于 <a href="https://robotwin-platform.github.io/doc/usage/" target="_blank" rel="noopener">RoboTwin 2.0</a> 构建;机器人 Tron2 由 <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics</a> 提供。</p>
+    <p class="foot-note">TronCamp 线上黑客松 · TRON 2 双臂操作赛道 · 单模型 ACT 单卡可训。本页为参赛文档,结构参照 <a href="https://robotwin-platform.github.io/doc/usage/" target="_blank" rel="noopener">RoboTwin 官方文档</a>。<br>评测平台基于 <a href="https://robotwin-platform.github.io/doc/usage/" target="_blank" rel="noopener">RoboTwin 2.0</a> 构建;机器人 TRON 2 由 <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics</a> 提供。</p>
   </div>
 </footer>
 

@@ -2,7 +2,7 @@
 
 **TronCamp ACT 四任务套餐黑客松** 官网(单页静态站,GitHub Pages)。
 
-Tron2 双臂机器人 + RoboTwin 仿真,单卡训 ACT(Action Chunking Transformer,~80M)完成四个难度递增的操作任务:
+TRON 2 双臂机器人 + RoboTwin 仿真,单卡训 ACT(Action Chunking Transformer,~80M)完成四个难度递增的操作任务:
 T1 `adjust_bottle` / T2 `grab_roller` / T3 `stack_bowls_two` / T4 `stack_bowls_three`。
 赛制是**四任务难度递增**(难度只来自任务本身):四题全部自采(下发调好专家),T1 给 turnkey 训练 config 照跑、T2 起自己写 config;只有 T4 计分。
 T1–T4 **顺序解锁,只有 T4 计分**(末态 graded /100,三碗各 1/3),主榜按 T4 得分降序;线上榜占总评 70%。
