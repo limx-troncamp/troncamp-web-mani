@@ -152,7 +152,7 @@ bash eval.sh adjust_bottle adjust_bottle_dr adjust_bottle_200ep 200 0 0</div>
     <p>比赛自测用选手包的 <code>starter/eval_local.py</code> 包装:跑的就是官方评测同一套 harness,<b>同内核、同分布、只换种子</b>(官方用私有 seed + <code>--repeats 5</code>,本地分是官方分的无偏估计,不保证逐分相等)。</p>
     <div class="code"><span class="c"># --ckpt-dir 指向训练产出的 act_ckpt 目录</span>
 python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200</div>
-    <p class="note">达标阈值(同一弱随机评测环境的成功率口径):<b>T1 SR ≥ 0.60 / T2 SR ≥ 0.60 / T3 SR ≥ 0.50</b> —— 达标即顺序解锁(T1→T2→T3→T4),T1–T3 本身不计分;<b>T4</b> 是主榜分数(末态 graded /100,三个碗各占 1/3)。提交用 <code>submit/submit.py --server &lt;主办方公布地址&gt; --track &lt;Tn&gt; --ckpt &lt;policy_best.ckpt&gt;</code>(T2–T4 另加 <code>--code-dir external/robotwin_local</code> 打整库代码包)。</p>
+    <p class="note">达标阈值(同一弱随机评测环境的成功率口径):<b>T1 SR ≥ 0.50 / T2 SR ≥ 0.60 / T3 SR ≥ 0.50</b> —— 达标即顺序解锁(T1→T2→T3→T4),T1–T3 本身不计分;<b>T4</b> 是主榜分数(末态 graded /100,三个碗各占 1/3)。提交用 <code>submit/submit.py --server &lt;主办方公布地址&gt; --track &lt;Tn&gt; --ckpt &lt;policy_best.ckpt&gt;</code>(T2–T4 另加 <code>--code-dir external/robotwin_local</code> 打整库代码包)。</p>
   </div>
 </section>
 
