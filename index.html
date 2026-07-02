@@ -195,7 +195,7 @@
       <tbody>
         <tr><td style="width:9rem"><b>进程内 ACT</b></td><td>评测为 <b>in-process</b>:加载选手 ACT 权重(torch)→ 同进程内跑 sim rollout → 末态算分。单卡、单一 RoboTwin 环境,无跨进程桥接。</td></tr>
         <tr><td><b>取均值</b></td><td>同一 policy 重复 rollout 取均值(EVAL_REPEATS 默认 5),消 ACT 采样噪声。</td></tr>
-        <tr><td><b>公开 / 私有 seed</b></td><td>公开 seed 随脚手架下发供本地自测(<b>本地分 = dev 榜分</b>);私有 100 seed 只在主办方评测机,与公开互不重叠(防过拟合)。</td></tr>
+        <tr><td><b>公开 / 私有 seed</b></td><td>公开 seed 随脚手架下发供本地自测(<b>与官方评测同内核、同分布,只换种子</b>;<code>--repeats 5</code> 可逼近官方口径);官方榜用私有 100 seed,只在主办方评测机、与公开互不重叠(防过拟合)。</td></tr>
         <tr><td><b>选手代码生效</b></td><td>T2/T3/T4 的代码包在评测进程内 <b>shadow</b> 官方 ACT —— 你自己写的训练 config / 数据处理真实生效。</td></tr>
       </tbody>
     </table>
@@ -218,11 +218,11 @@
 
     <p style="margin-top:1.6rem;color:var(--muted)">数据:<b>四题全部自采</b> —— 主办方下发调好的专家 + 采集管线,选手跑"采集 → process_data → 训练"(T1 额外给 turnkey config)。安装 / 采集 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交用 <code>submit.py</code>(唯一通道,带 token):</p>
     <div class="code"><span class="c"># T1:只交权重(turnkey 题,评测机跑官方 config)</span>
-python submit/submit.py <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
+python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
 <span class="c"># T2 / T3 / T4:权重 + 代码包。--code-dir 指含 policy/ 的 RoboTwin 根(评测遮蔽 &lt;root&gt;/policy;自动只打 policy/,~2MB)</span>
-python submit/submit.py <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-grab_roller/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
-python submit/submit.py <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_two/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
-python submit/submit.py <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_three/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</div>
+python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-grab_roller/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
+python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_two/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
+python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_three/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</div>
     <p class="note"><code>--ckpt</code> 直接指向你要交的那个 checkpoint 文件;CLI 自动附带同目录的 <code>dataset_stats.pkl</code>、并作为评测加载名 <code>policy_last.ckpt</code> 上传——<b>交哪个就评哪个,无需手动改名</b>。训练会同时存 <code>policy_best.ckpt</code>(验证集最优)与 <code>policy_last.ckpt</code>(末轮);<b>建议交 <code>policy_best.ckpt</code></b>(早停,实测显著高于末轮)。</p>
 
     <table class="dtable" style="margin-top:1.2rem">
@@ -230,7 +230,7 @@ python submit/submit.py <span class="a">--track</span> T4 <span class="a">--toke
       <tbody>
         <tr><td><b>token 鉴权</b></td><td>提交带 token,后端校验;<b>每日 3 次</b>正式提交(本地自测不限次)。无报名、无队名。</td></tr>
         <tr><td><b>顺序解锁</b></td><td>过 T1 才能交 T2,依此类推到 T4;T1/T2/T3 过了即锁定。</td></tr>
-        <tr><td><b>安全</b></td><td>解包做 zip-slip / symlink 防护;ckpt 备案 SHA256;评测子进程降权 + 沙箱无网络出口,选手代码读不到私有 seed。</td></tr>
+        <tr><td><b>安全</b></td><td>解包做 zip-slip / symlink 防护;ckpt 备案 SHA256;评测子进程降权 + 沙箱无网络出口(私有 seed 不出评测机);赛末对头部成绩受控复评后定名次。</td></tr>
       </tbody>
     </table>
 
