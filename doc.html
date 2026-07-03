@@ -38,7 +38,7 @@
       <a href="https://robotwin-platform.github.io/doc/usage/" class="btn" target="_blank" rel="noopener">RoboTwin 官方文档 ↗</a>
       <a href="./index.html#board" class="btn">排行榜</a>
     </div>
-    <p class="note" style="margin-top:1rem">下文命令均在 ACT 训练栈目录执行:<code>cd external/robotwin_local/policy/ACT</code>。任务参数三元组 <code>&lt;task_name&gt; &lt;task_config&gt; &lt;expert_data_num&gt;</code> 拼成数据键 <code>sim-&lt;task_name&gt;-&lt;task_config&gt;-&lt;expert_data_num&gt;</code>(见 <a href="#config">§05 配置</a>)。</p>
+    <p class="note" style="margin-top:1rem">命令的执行目录分两处:<b>采集(§02)、本地自评与提交(§05)在选手包根目录执行</b>;<b>数据处理(§03)、训练(§04)、<code>eval.sh</code>(§05)在 <code>external/robotwin_local/policy/ACT</code> 下执行</b>——下文这三步用 <code>( cd external/robotwin_local/policy/ACT &amp;&amp; bash … )</code> 子 shell 写法,可从根目录直接复制运行。任务参数三元组 <code>&lt;task_name&gt; &lt;task_config&gt; &lt;expert_data_num&gt;</code> 拼成数据键 <code>sim-&lt;task_name&gt;-&lt;task_config&gt;-&lt;expert_data_num&gt;</code>(见 <a href="#config">§06 配置</a>)。</p>
   </div>
 </header>
 
@@ -67,10 +67,11 @@ cd detr &amp;&amp; pip install -e . &amp;&amp; cd ..</div>
       <h2>数据采集 collect(四题全部自采)</h2>
       <p><b>四题都自采</b> —— 用下发的调好专家在 TRON 2 上跑 RoboTwin 采集,只留成功 episode。专家 = <code>external/robotwin_local/envs/&lt;task_name&gt;.py</code> 的 <code>play_once()</code>,可直接改进。采集集数 / 域随机化 / 场景在 <code>task_config</code> 里调。数据经 JPEG 压缩,~12M/集(不炸盘)。</p>
     </div>
-    <div class="code"><span class="c"># 先 bash setup/install.sh(解析路径占位,curobo 规划器才能起)</span>
+    <div class="code"><span class="c"># 在选手包根目录执行;先 bash setup/install.sh(解析路径占位,curobo 规划器才能起)</span>
 <span class="c"># bash collect_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;gpu_id&gt;  —— 打 TRON 2 自碰撞 patch 后采集</span>
-bash collect_data.sh grab_roller grab_roller_200ep 0
-<span class="c"># 采完用 process_data 转 ACT 16-D(见下节);collect / process_data / train 用同一 config 名(grab_roller_200ep)串起来</span></div>
+bash collect_data.sh adjust_bottle adjust_bottle_200ep 0
+<span class="c"># 采完用 process_data 转 ACT 16-D(见下节);collect / process_data / train 用同一 config 名(adjust_bottle_200ep)串起来</span></div>
+    <p class="note"><b>只有 T1 的采集 config <code>adjust_bottle_200ep.yml</code> 随包下发</b>(turnkey);评测用的 <code>&lt;task&gt;_clean.yml</code> 也随包下发但<b>勿改</b>。<b>T2–T4 的采集 / 训练 config 不随包下发</b>,自己建:把 <code>external/robotwin_local/task_config/adjust_bottle_200ep.yml</code> 拷贝改名成 <code>&lt;task&gt;_200ep.yml</code>,调 <code>episode_num</code> / 场景后,把三步命令里的 <code>adjust_bottle</code> 换成对应任务名即可。</p>
     <p class="note">想采更多 / 更优数据 → 改 <code>task_config</code> 的集数与域随机化,或直接改进 <code>envs/&lt;task&gt;.py</code> 的专家。改动随提交的代码包生效。</p>
   </div>
 </section>
@@ -83,8 +84,8 @@ bash collect_data.sh grab_roller grab_roller_200ep 0
       <h2>数据处理 process_data</h2>
       <p>把 RoboTwin 采集的轨迹转成 ACT 训练格式,产物落在 <code>processed_data/sim-&lt;task&gt;/&lt;config&gt;-&lt;num&gt;/</code>(RoboTwin 官方两级目录约定)。<b>四题自采(上一步)后都用本步转 16-D 格式</b>再训练(JPEG 压缩存储)。</p>
     </div>
-    <div class="code"><span class="c"># bash process_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;expert_data_num&gt;</span>
-bash process_data.sh adjust_bottle adjust_bottle_200ep 200</div>
+    <div class="code"><span class="c"># bash process_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;expert_data_num&gt;  —— 在 external/robotwin_local/policy/ACT 下执行</span>
+( cd external/robotwin_local/policy/ACT &amp;&amp; bash process_data.sh adjust_bottle adjust_bottle_200ep 200 )</div>
     <table class="dtable" style="margin-top:1.2rem">
       <thead><tr><th style="width:11rem">参数</th><th>含义</th></tr></thead>
       <tbody>
@@ -102,10 +103,10 @@ bash process_data.sh adjust_bottle adjust_bottle_200ep 200</div>
     <div class="sec-head">
       <span class="sec-num">04 / 训练</span>
       <h2>训练 train</h2>
-      <p>训练脚本 <code>train.sh</code> 内部已设好 ACT 标准超参(kl_weight 10 / chunk_size 50 / hidden_dim 512 / dim_feedforward 3200 / batch_size 8 / lr 1e-5 / state_dim 16),默认 <b>6000 步</b>,单卡可训。ckpt 落在 <code>act_ckpt/act-&lt;task_name&gt;/&lt;task_config&gt;-&lt;expert_data_num&gt;/</code>。</p>
+      <p>训练脚本 <code>train.sh</code> 内部已设好 ACT 标准超参(kl_weight 10 / chunk_size 50 / hidden_dim 512 / dim_feedforward 3200 / batch_size 8 / lr 1e-5 / state_dim 16),默认 <b>num_epochs=6000</b>,单卡可训。ckpt 落在 <code>act_ckpt/act-&lt;task_name&gt;/&lt;task_config&gt;-&lt;expert_data_num&gt;/</code>。</p>
     </div>
-    <div class="code"><span class="c"># bash train.sh &lt;task_name&gt; &lt;task_config&gt; &lt;expert_data_num&gt; &lt;seed&gt; &lt;gpu_id&gt;</span>
-bash train.sh adjust_bottle adjust_bottle_200ep 200 0 0
+    <div class="code"><span class="c"># bash train.sh &lt;task_name&gt; &lt;task_config&gt; &lt;expert_data_num&gt; &lt;seed&gt; &lt;gpu_id&gt;  —— 在 external/robotwin_local/policy/ACT 下执行</span>
+( cd external/robotwin_local/policy/ACT &amp;&amp; bash train.sh adjust_bottle adjust_bottle_200ep 200 0 0 )
 <span class="c"># 产出 ckpt → act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200/</span></div>
     <table class="dtable" style="margin-top:1.2rem">
       <thead><tr><th style="width:4rem">题号</th><th>训练命令</th></tr></thead>
@@ -116,6 +117,7 @@ bash train.sh adjust_bottle adjust_bottle_200ep 200 0 0
         <tr><td class="lvl">T4</td><td><code>bash train.sh stack_bowls_three stack_bowls_three_200ep 200 0 0</code></td></tr>
       </tbody>
     </table>
+    <p class="note">表中训练命令同上方示例,都在 <code>external/robotwin_local/policy/ACT</code> 下执行(从根目录跑就套页头的 <code>( cd … &amp;&amp; bash … )</code> 子 shell 写法)。T2–T4 的 <code>&lt;task&gt;_200ep</code> 是你在 <a href="#collect">§02</a> 自建的 config 名(拷 <code>adjust_bottle_200ep.yml</code> 改名而来),不随包下发;只有 T1 的 <code>adjust_bottle_200ep</code> 是 turnkey 下发的。</p>
     <table class="dtable" style="margin-top:0.8rem">
       <thead><tr><th style="width:11rem">参数</th><th>含义</th></tr></thead>
       <tbody>
@@ -135,11 +137,11 @@ bash train.sh adjust_bottle adjust_bottle_200ep 200 0 0
       <h2>评测与部署 eval</h2>
       <p>评测脚本 <code>eval.sh</code> 加载 <code>deploy_policy.yml</code> 配置(<code>temporal_agg=true</code> 推理时闭环),跑 sim rollout,结果(含视频)落在工程根的 <code>eval_result/</code>。<code>ckpt_setting</code> 选 <code>act_ckpt</code> 下的 ckpt 目录,可与评测环境 <code>task_config</code> 不同(跨设定泛化测试)。</p>
     </div>
-    <div class="code"><span class="c"># bash eval.sh &lt;task_name&gt; &lt;task_config&gt; &lt;ckpt_setting&gt; &lt;expert_data_num&gt; &lt;seed&gt; &lt;gpu_id&gt;</span>
+    <div class="code"><span class="c"># bash eval.sh &lt;task_name&gt; &lt;task_config&gt; &lt;ckpt_setting&gt; &lt;expert_data_num&gt; &lt;seed&gt; &lt;gpu_id&gt;  —— 在 external/robotwin_local/policy/ACT 下执行</span>
 <span class="c"># 同设定评测(评测环境 = 训练设定)</span>
-bash eval.sh adjust_bottle adjust_bottle_200ep adjust_bottle_200ep 200 0 0
-<span class="c"># 跨设定评测(评测环境 ≠ 训练设定,测泛化)</span>
-bash eval.sh adjust_bottle adjust_bottle_dr adjust_bottle_200ep 200 0 0</div>
+( cd external/robotwin_local/policy/ACT &amp;&amp; bash eval.sh adjust_bottle adjust_bottle_200ep adjust_bottle_200ep 200 0 0 )
+<span class="c"># 跨设定评测(用官方评测同款 clean 设定测泛化)</span>
+( cd external/robotwin_local/policy/ACT &amp;&amp; bash eval.sh adjust_bottle adjust_bottle_clean adjust_bottle_200ep 200 0 0 )</div>
     <table class="dtable" style="margin-top:1.2rem">
       <thead><tr><th style="width:11rem">参数</th><th>含义</th></tr></thead>
       <tbody>
@@ -150,9 +152,9 @@ bash eval.sh adjust_bottle adjust_bottle_dr adjust_bottle_200ep 200 0 0</div>
     </table>
     <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">本地自评(榜单同套内核)</h3>
     <p>比赛自测用选手包的 <code>starter/eval_local.py</code> 包装:跑的就是官方评测同一套 harness,<b>同内核、同分布、只换种子</b>(官方用私有 seed + <code>--repeats 5</code>,本地分是官方分的无偏估计,不保证逐分相等)。</p>
-    <div class="code"><span class="c"># --ckpt-dir 指向训练产出的 act_ckpt 目录</span>
+    <div class="code"><span class="c"># 在选手包根目录执行;--ckpt-dir 指向训练产出的 act_ckpt 目录</span>
 python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200</div>
-    <p class="note">达标阈值(同一弱随机评测环境的成功率口径):<b>T1 SR ≥ 0.50 / T2 SR ≥ 0.60 / T3 SR ≥ 0.50</b> —— 达标即顺序解锁(T1→T2→T3→T4),T1–T3 本身不计分;<b>T4</b> 是主榜分数(末态 graded /100,三个碗各占 1/3)。提交用 <code>submit/submit.py --server &lt;主办方公布地址&gt; --track &lt;Tn&gt; --ckpt &lt;policy_best.ckpt&gt;</code>(T2–T4 另加 <code>--code-dir external/robotwin_local</code> 打整库代码包)。</p>
+    <p class="note">达标阈值(同一 easy/clean 官方评测环境的成功率口径):<b>T1 SR ≥ 0.50 / T2 SR ≥ 0.60 / T3 SR ≥ 0.50</b> —— 达标即顺序解锁(T1→T2→T3→T4),T1–T3 本身不计分;<b>T4</b> 是主榜分数(末态 graded /100,三个碗各占 1/3)。提交用 <code>submit/submit.py --server &lt;主办方公布地址&gt; --track &lt;Tn&gt; --token &lt;你的令牌&gt; --ckpt &lt;policy_best.ckpt&gt;</code>(令牌也可用 env <code>TRONCAMP_TOKEN</code> 提供;T2–T4 另加 <code>--code-dir external/robotwin_local</code> 打整库代码包)。</p>
   </div>
 </section>
 
@@ -173,6 +175,7 @@ python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">-
         <tr><td class="lvl">T4</td><td><code>sim-stack_bowls_three-stack_bowls_three_200ep-200</code></td><td>stack_bowls_three&nbsp;stack_bowls_three_200ep&nbsp;200</td></tr>
       </tbody>
     </table>
+    <p class="note">表中 T2–T4 的 <code>&lt;task&gt;_200ep</code> 为你自建的 config 名(见 <a href="#collect">§02</a>,拷 <code>adjust_bottle_200ep.yml</code> 改名);只有 T1 的 <code>adjust_bottle_200ep</code> 随包下发。</p>
 
     <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">policy/ACT 关键文件</h3>
     <div class="code">policy/ACT/
