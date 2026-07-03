@@ -73,6 +73,7 @@ bash collect_data.sh adjust_bottle adjust_bottle_200ep 0
 <span class="c"># 采完用 process_data 转 ACT 16-D(见下节);collect / process_data / train 用同一 config 名(adjust_bottle_200ep)串起来</span></div>
     <p class="note"><b>只有 T1 的采集 config <code>adjust_bottle_200ep.yml</code> 随包下发</b>(turnkey);评测用的 <code>&lt;task&gt;_clean.yml</code> 也随包下发但<b>勿改</b>。<b>T2–T4 的采集 / 训练 config 不随包下发</b>,自己建:把 <code>external/robotwin_local/task_config/adjust_bottle_200ep.yml</code> 拷贝改名成 <code>&lt;task&gt;_200ep.yml</code>,调 <code>episode_num</code> / 场景后,把三步命令里的 <code>adjust_bottle</code> 换成对应任务名即可。</p>
     <p class="note">想采更多 / 更优数据 → 改 <code>task_config</code> 的集数与域随机化,或直接改进 <code>envs/&lt;task&gt;.py</code> 的专家。改动随提交的代码包生效。</p>
+    <p class="note"><b>(可选)想直观查看采集</b>:把 <code>task_config/&lt;config&gt;.yml</code> 的 <code>render_freq</code> 从 <code>0</code> 改成 &gt;0(如 <code>20</code>)会弹出 SAPIEN 仿真窗口 —— <b>仅在种子搜索阶段显示</b>(正式落盘阶段固定关闭),且<b>需带显示器 / 图形环境的机器</b>(无头服务器 / SSH 无 X 会报错)。<b>评测(§05)不支持可视化。</b>纯调试便利,不影响成绩。</p>
   </div>
 </section>
 
@@ -151,7 +152,7 @@ bash collect_data.sh adjust_bottle adjust_bottle_200ep 0
       </tbody>
     </table>
     <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">本地自评(榜单同套内核)</h3>
-    <p>比赛自测用选手包的 <code>starter/eval_local.py</code> 包装:跑的就是官方评测同一套 harness,<b>同内核、同分布、只换种子</b>(官方用私有 seed + <code>--repeats 5</code>,本地分是官方分的无偏估计,不保证逐分相等)。</p>
+    <p>比赛自测用选手包的 <code>starter/eval_local.py</code> 包装:跑的就是官方评测同一套 harness,<b>同内核、同分布、只换种子</b>(官方用私有 seed,与本地同为 <code>--repeats 1</code>,本地分是官方分的估计,不保证逐分相等)。</p>
     <div class="code"><span class="c"># 在选手包根目录执行;--ckpt-dir 指向训练产出的 act_ckpt 目录</span>
 python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200</div>
     <p class="note">达标阈值(同一 easy/clean 官方评测环境的成功率口径):<b>T1 SR ≥ 0.50 / T2 SR ≥ 0.60 / T3 SR ≥ 0.50</b> —— 达标即顺序解锁(T1→T2→T3→T4),T1–T3 本身不计分;<b>T4</b> 是主榜分数(末态 graded /100,三个碗各占 1/3)。提交用 <code>submit/submit.py --server &lt;主办方公布地址&gt; --track &lt;Tn&gt; --token &lt;你的令牌&gt; --ckpt &lt;policy_best.ckpt&gt;</code>(令牌也可用 env <code>TRONCAMP_TOKEN</code> 提供;T2–T4 另加 <code>--code-dir external/robotwin_local</code> 打整库代码包)。</p>
