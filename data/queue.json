@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-07-04T04:42:40Z",
+  "counts": {
+    "queued": 0,
+    "running": 0,
+    "done_recent": 3,
+    "failed_recent": 2
+  },
+  "items": [
+    {
+      "team": "rZwGQg",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-04T03:32:44Z",
+      "reason": null
+    },
+    {
+      "team": "FUnjxQ",
+      "track": "T2",
+      "status": "done",
+      "created_at": "2026-07-03T19:09:19Z",
+      "reason": null
+    },
+    {
+      "team": "FUnjxQ",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-03T18:57:56Z",
+      "reason": null
+    },
+    {
+      "team": "FUnjxQ",
+      "track": "T1",
+      "status": "failed",
+      "created_at": "2026-07-03T18:40:14Z",
+      "reason": "评测中断(主办方侧),可重新提交"
+    },
+    {
+      "team": "FUnjxQ",
+      "track": "T1",
+      "status": "failed",
+      "created_at": "2026-07-03T16:18:36Z",
+      "reason": "评测超时"
+    }
+  ]
+}
