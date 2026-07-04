@@ -19,7 +19,7 @@
   <!-- ① clone -->
   <rect class="node" x="30" y="66" width="130" height="58" rx="8"/>
   <text x="95" y="100" text-anchor="middle" class="t">clone + 装环境</text>
-  <text x="95" y="117" text-anchor="middle" class="s">一键 setup</text>
+  <text x="95" y="117" text-anchor="middle" class="s">分步 setup</text>
 
   <!-- ② 训练 -->
   <rect class="node" x="184" y="66" width="130" height="58" rx="8"/>

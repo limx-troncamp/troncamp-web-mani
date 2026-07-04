@@ -197,7 +197,7 @@
         <tr><td style="width:9rem"><b>进程内 ACT</b></td><td>评测为 <b>in-process</b>:加载选手 ACT 权重(torch)→ 同进程内跑 sim rollout → 末态算分。单卡、单一 RoboTwin 环境,无跨进程桥接。</td></tr>
         <tr><td><b>评测口径</b></td><td>每个提交对私有 seed 各跑 <b>1 次</b> rollout(EVAL_REPEATS=1);为评测吞吐不再重复取均值,单次结果即计分。</td></tr>
         <tr><td><b>公开 / 私有 seed</b></td><td>公开 seed 随脚手架下发供本地自测(<b>与官方评测同内核、同分布,只换种子</b>;官方与本地均 <code>--repeats 1</code> 同口径);官方榜用私有 100 seed,只在主办方评测机、与公开互不重叠(防过拟合)。</td></tr>
-        <tr><td><b>选手代码生效</b></td><td>T2/T3/T4 的代码包在评测进程内 <b>shadow</b> 官方 ACT —— 你自己写的训练 config / 数据处理真实生效。</td></tr>
+        <tr><td><b>选手代码生效</b></td><td>T2/T3/T4 的代码包在评测进程内 <b>shadow</b> 官方 ACT —— 评测生效的是你提交的 ckpt + <code>policy/ACT</code> 代码与推理配置;训练 config / 数据处理 / <code>envs/</code> 专家只在你训练 / 自采时用,不参与官方评测。</td></tr>
       </tbody>
     </table>
   </div>
@@ -209,7 +209,7 @@
     <div class="sec-head">
       <span class="sec-num">04 / 流程</span>
       <h2>从 clone 到上榜</h2>
-      <p>clone 公开仓,一键装环境;本地自评跑的就是主办方评测的同一套 harness,只换种子(评测细节见上节)。</p>
+      <p>clone 公开仓,按文档分步装环境;本地自评跑的就是主办方评测的同一套 harness,只换种子(评测细节见上节)。</p>
     </div>
 
     <figure class="fig-wide" style="margin-top:1.6rem">
@@ -217,14 +217,8 @@
       <figcaption>本地 clone → 用给定数据训练 ACT → 公开种子自评 → submit.py 带 token 提交 → 官方私有种子评测 → 匿名榜上榜;看榜改进、重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
     </figure>
 
-    <p style="margin-top:1.6rem;color:var(--muted)">数据:<b>四题全部自采</b> —— 主办方下发调好的专家 + 现成的采集脚本,选手跑"采集 → process_data → 训练"(T1 额外给 turnkey config)。安装 / 采集 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交用 <code>submit.py</code>(唯一通道,带 token):</p>
-    <div class="code"><span class="c"># T1:只交权重(turnkey 题,评测机跑官方 config)</span>
-python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--track</span> T1 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
-<span class="c"># T2 / T3 / T4:权重 + 代码包。--code-dir 指含 policy/ 的 RoboTwin 根(评测遮蔽 &lt;root&gt;/policy;自动只打 policy/,~2MB)</span>
-python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--track</span> T2 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-grab_roller/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
-python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--track</span> T3 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_two/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt
-python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--track</span> T4 <span class="a">--token</span> &lt;你的令牌&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-stack_bowls_three/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</div>
-    <p class="note"><code>--ckpt</code> 直接指向你要交的那个 checkpoint 文件;CLI 自动附带同目录的 <code>dataset_stats.pkl</code>、并作为评测加载名 <code>policy_last.ckpt</code> 上传——<b>交哪个就评哪个,无需手动改名</b>。训练会同时存 <code>policy_best.ckpt</code>(验证集最优)与 <code>policy_last.ckpt</code>(末轮);<b>建议交 <code>policy_best.ckpt</code></b>(早停,实测显著高于末轮)。</p>
+    <p style="margin-top:1.6rem;color:var(--muted)">数据:<b>四题全部自采</b> —— 主办方下发调好的专家 + 现成的采集脚本,选手跑"采集 → process_data → 训练"(T1 额外给 turnkey config)。安装 / 采集 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交经 <code>submit.py</code> 唯一通道(带 token,本地自测不限次、正式提交每日 1 次)。</p>
+    <p style="color:var(--muted)">提交命令(T1–T4 完整示例、token 用法、顺序解锁与每日限额)见参赛文档 <a href="./doc.html#submit">§提交</a>。</p>
 
     <table class="dtable" style="margin-top:1.2rem">
       <thead><tr><th style="width:8rem">机制</th><th>说明</th></tr></thead>

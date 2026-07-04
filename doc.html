@@ -20,6 +20,7 @@
       <a href="#train">训练</a>
       <a href="#eval">评测</a>
       <a href="#config">配置</a>
+      <a href="#submit">提交</a>
       <a href="https://github.com/limx-troncamp/troncamp-mani" class="cta" target="_blank" rel="noopener">Starter ↗</a>
     </span>
   </div>
@@ -47,12 +48,40 @@
   <div class="wrap reveal">
     <div class="sec-head">
       <span class="sec-num">01 / 安装</span>
-      <h2>安装</h2>
-      <p>选手包根目录一键脚本会创建 conda 环境,并把 RoboTwin / SAPIEN / Curobo 与 ACT 的<b>全部依赖一次装好——无需任何手动 <code>pip install</code></b>。</p>
+      <h2>安装(全透明分步)</h2>
+      <p>在选手包根目录按 <b>0 – 8</b> 步依次执行,每步都是一条可复制的命令:建隔离 conda 环境 → 装 RoboTwin / SAPIEN / cuRobo 与 ACT 依赖 → 还原打包占位路径 → 自检。安装逻辑完全透明,可逐步核对;<b>首次安装建议逐段核对输出</b>(RoboTwin 本体较重)。</p>
     </div>
-    <div class="code"><span class="c"># 选手包一键装环境(唯一步骤):conda 环境 + RoboTwin / SAPIEN / Curobo + ACT 依赖全部装好</span>
-bash setup/install.sh</div>
-    <p class="note"><code>setup/install.sh</code> 已自动装好 ACT 运行所需的全部子依赖,<b>不需要再手动跑任何 pip 命令</b>;装完即可直接进入 <a href="#collect">§02 采集</a>。</p>
+
+    <p class="note"><b>0. 前提</b>:已装 conda(未装见 <a href="https://docs.conda.io/projects/miniconda/en/latest/" target="_blank" rel="noopener">Miniconda 官方安装 ↗</a>);NVIDIA 驱动支持 <b>CUDA 12.x</b>(cuRobo 0.8.0 走 cuda-core NVRTC 运行时 JIT + torch cu124,均为 CUDA 12 工具链)。HF / pip 有墙时按需设代理。</p>
+
+    <div class="code"><span class="c"># 1. 建并激活 conda 环境(python 3.10)</span>
+conda create <span class="a">-y</span> <span class="a">-n</span> "${TRONCAMP_ENV:-RoboTwin}" python=3.10 &amp;&amp; conda activate "${TRONCAMP_ENV:-RoboTwin}"</div>
+    <p class="note">环境名默认 <code>RoboTwin</code>,命令已直接消费 <code>TRONCAMP_ENV</code>——要用别名只需装环境前 <code>export TRONCAMP_ENV=&lt;别名&gt;</code> 再照跑上面的命令即可。<b>若你已按 RoboTwin 官方教程装过同名 <code>RoboTwin</code> 环境,务必改名隔离</b>,否则会复用它并与本包依赖相互污染。</p>
+
+    <div class="code"><span class="c"># 2. 锁 setuptools&lt;81(sapien 3.0.0b1 依赖 pkg_resources,setuptools≥82 已移除之)</span>
+pip install "setuptools&lt;81"</div>
+
+    <div class="code"><span class="c"># 3. 装 RoboTwin 本体(其自带安装脚本:requirements + pytorch3d + sapien/mplib 补丁)</span>
+( cd external/robotwin_local &amp;&amp; bash script/_install.sh )</div>
+
+    <div class="code"><span class="c"># 4. 装 ACT 训练栈 + cuRobo runtime 依赖</span>
+pip install <span class="a">-r</span> setup/requirements.txt</div>
+    <p class="note">离线环境(无外网):先把 wheels 镜像到本地目录,再改用 <code>pip install --no-index --find-links=&lt;wheels 目录&gt; -r setup/requirements.txt</code>。</p>
+
+    <div class="code"><span class="c"># 5. 装 cuRobo 0.8.0(纯源码 editable;去 .git,靠 SETUPTOOLS_SCM_PRETEND_VERSION 兜底版本探测)</span>
+SETUPTOOLS_SCM_PRETEND_VERSION=0.8.0 pip install <span class="a">-e</span> external/robotwin_local/envs/curobo <span class="a">--no-build-isolation</span></div>
+
+    <div class="code"><span class="c"># 6.【关键】把打包占位符 __KIT_ROOT__ 还原为你的实际路径</span>
+grep <span class="a">-rl</span> __KIT_ROOT__ . | xargs <span class="a">-r</span> sed <span class="a">-i</span> "s#__KIT_ROOT__#$(pwd)#g"</div>
+    <p class="note"><b>这步绝不能漏</b>:选手包打包时把机器绝对路径换成了占位符 <code>__KIT_ROOT__</code>,不还原成本仓实际路径,<b>cuRobo 规划器起不来</b>(采集 / 评测会失败)。须在选手包根目录执行。</p>
+
+    <div class="code"><span class="c"># 7. ffmpeg 兜底(无系统 ffmpeg 时用 imageio-ffmpeg 静态二进制;已有系统 ffmpeg 可跳过)</span>
+ffmpeg <span class="a">-version</span> &gt;/dev/null 2&gt;&amp;1 || { pip install imageio-ffmpeg; ln <span class="a">-sf</span> "$(python -c 'import imageio_ffmpeg,os;print(imageio_ffmpeg.get_ffmpeg_exe())')" "$CONDA_PREFIX/bin/ffmpeg"; }</div>
+    <p class="note">采集保存视频会 subprocess 调 <code>ffmpeg</code> 二进制;<b>缺它时成功集会静默保存失败、采集计数卡 0</b>。</p>
+
+    <div class="code"><span class="c"># 8. 环境自检(断言 curobo==0.8.0 / sapien / mplib / ffmpeg 就位)</span>
+python setup/env_check.py</div>
+    <p class="note">自检全绿即安装完成,可进入 <a href="#collect">§02 采集</a>。任一步失败请按 <code>env_check.py</code> 的中文提示定位:缺 curobo 元数据 → 复查第 5 步;<code>import sapien</code> 失败 → 复查第 2 步 <code>setuptools&lt;81</code>;ffmpeg 缺失 → 复查第 7 步。</p>
   </div>
 </section>
 
@@ -64,12 +93,12 @@ bash setup/install.sh</div>
       <h2>数据采集 collect(四题全部自采)</h2>
       <p><b>四题都自采</b> —— 用下发的调好专家在 TRON 2 上跑 RoboTwin 采集,只留成功 episode。专家 = <code>external/robotwin_local/envs/&lt;task_name&gt;.py</code> 的 <code>play_once()</code>,可直接改进。采集集数 / 域随机化 / 场景在 <code>task_config</code> 里调。数据经 JPEG 压缩,~12M/集(不炸盘)。</p>
     </div>
-    <div class="code"><span class="c"># 在选手包根目录执行;先 bash setup/install.sh(解析路径占位,curobo 规划器才能起)</span>
+    <div class="code"><span class="c"># 在选手包根目录执行;先按 §01 完成安装(含第 6 步 __KIT_ROOT__ 占位还原,curobo 规划器才能起)</span>
 <span class="c"># bash collect_data.sh &lt;task_name&gt; &lt;task_config&gt; &lt;gpu_id&gt;  —— 打 TRON 2 自碰撞 patch 后采集</span>
 bash collect_data.sh adjust_bottle adjust_bottle_200ep 0
 <span class="c"># 采完用 process_data 转 ACT 16-D(见下节);collect / process_data / train 用同一 config 名(adjust_bottle_200ep)串起来</span></div>
     <p class="note"><b>只有 T1 的采集 config <code>adjust_bottle_200ep.yml</code> 随包下发</b>(turnkey);评测用的 <code>&lt;task&gt;_clean.yml</code> 也随包下发但<b>勿改</b>。<b>T2–T4 的采集 / 训练 config 不随包下发</b>,自己建:把 <code>external/robotwin_local/task_config/adjust_bottle_200ep.yml</code> 拷贝改名成 <code>&lt;task&gt;_200ep.yml</code>,调 <code>episode_num</code> / 场景后,把三步命令里的 <code>adjust_bottle</code> 换成对应任务名即可。</p>
-    <p class="note">想采更多 / 更优数据 → 改 <code>task_config</code> 的集数与域随机化,或直接改进 <code>envs/&lt;task&gt;.py</code> 的专家。改动随提交的代码包生效。</p>
+    <p class="note">想采更多 / 更优数据 → 改 <code>task_config</code> 的集数与域随机化,或直接改进 <code>envs/&lt;task&gt;.py</code> 的专家。<b>这类改动只影响你自采的数据</b>(进而影响你训出的 ckpt);<b>官方评测生效的是你提交的 ckpt + <code>policy/ACT</code> 代码与推理配置</b>,不加载 <code>envs/</code> 专家。</p>
     <p class="note"><b>(可选)想直观查看采集</b>:把 <code>task_config/&lt;config&gt;.yml</code> 的 <code>render_freq</code> 从 <code>0</code> 改成 &gt;0(如 <code>20</code>)会弹出 SAPIEN 仿真窗口 —— <b>仅在种子搜索阶段显示</b>(正式落盘阶段固定关闭),且<b>需带显示器 / 图形环境的机器</b>(无头服务器 / SSH 无 X 会报错)。<b>评测(§05)不支持可视化。</b>纯调试便利,不影响成绩。</p>
   </div>
 </section>
@@ -123,7 +152,7 @@ bash collect_data.sh adjust_bottle adjust_bottle_200ep 0
         <tr><td><code>gpu_id</code></td><td>GPU 设备号,如 <code>0</code>(脚本内 <code>export CUDA_VISIBLE_DEVICES</code>)</td></tr>
       </tbody>
     </table>
-    <p class="note">需改步数 / 超参时直接编辑 <code>train.sh</code> 或底层 <code>imitate_episodes.py</code> 的参数;T2/T3/T4 的工程改动随提交的代码包在评测进程内生效。</p>
+    <p class="note">需改步数 / 超参时直接编辑 <code>train.sh</code> 或底层 <code>imitate_episodes.py</code> 的参数(<b>训练时生效,决定你训出的 ckpt</b>)。官方评测生效的是你提交的 ckpt + <code>policy/ACT</code> 代码与推理配置(<code>deploy_policy.yml</code>);代码包里的 <code>policy/</code> 会 shadow 官方版,<code>envs/</code> 不参与评测。</p>
 
     <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">参考耗时(单题全流程)</h3>
     <table class="dtable" style="margin-top:0.6rem">
@@ -164,7 +193,12 @@ bash collect_data.sh adjust_bottle adjust_bottle_200ep 0
     <p>比赛自测用选手包的 <code>starter/eval_local.py</code> 包装:跑的就是官方评测同一套 harness,<b>同内核、同分布、只换种子</b>(官方用私有 seed,与本地同为 <code>--repeats 1</code>,本地分是官方分的估计,不保证逐分相等)。</p>
     <div class="code"><span class="c"># 在选手包根目录执行;--ckpt-dir 指向训练产出的 act_ckpt 目录</span>
 python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200</div>
-    <p class="note">达标阈值(同一 easy/clean 官方评测环境的成功率口径):<b>T1 SR ≥ 0.50 / T2 SR ≥ 0.60 / T3 SR ≥ 0.50</b> —— 达标即顺序解锁(T1→T2→T3→T4),T1–T3 本身不计分;<b>T4</b> 是主榜分数(末态 graded /100,三个碗各占 1/3)。提交用 <code>submit/submit.py --server &lt;主办方公布地址&gt; --track &lt;Tn&gt; --token &lt;你的令牌&gt; --ckpt &lt;policy_best.ckpt&gt;</code>(令牌也可用 env <code>TRONCAMP_TOKEN</code> 提供;T2–T4 另加 <code>--code-dir external/robotwin_local</code> 打整库代码包)。</p>
+    <p class="note">达标阈值(同一 easy/clean 官方评测环境的成功率口径):<b>T1 SR ≥ 0.50 / T2 SR ≥ 0.60 / T3 SR ≥ 0.50</b> —— 达标即顺序解锁(T1→T2→T3→T4),T1–T3 本身不计分;<b>T4</b> 是主榜分数(末态 graded /100,三个碗各占 1/3)。提交命令与 token 用法见 <a href="#submit">§07 提交</a>。</p>
+
+    <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">单 seed 数值核查 watch_rollout</h3>
+    <p>想快速核查某条 seed 的行为是否合理,用 <code>starter/watch_rollout.py</code> 跑<b>单条 episode</b>(与官方评测同一内核),打印该 episode 末态 <code>sr</code> / <code>graded</code> 数值(不渲染视频,纯数值核查)。</p>
+    <div class="code"><span class="c"># 在选手包根目录执行;--ckpt-dir 指训练产出的 act_ckpt 目录,--seed 选单个 episode</span>
+python starter/watch_rollout.py <span class="a">--track</span> T1 <span class="a">--ckpt-dir</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/adjust_bottle_200ep-200 <span class="a">--seed</span> 0</div>
   </div>
 </section>
 
@@ -198,6 +232,51 @@ python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">-
   </div>
 </section>
 
+<!-- ───────── 07 提交 ───────── -->
+<section id="submit">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">07 / 提交</span>
+      <h2>提交 submit</h2>
+      <p><code>submit/submit.py</code> 是<b>唯一提交通道</b>:把 ckpt(T2/T3/T4 另加整库代码包)+ token 上传后端评测队列。<b>T1 只交权重;T2/T3/T4 交权重 + 代码包</b>。顺序解锁 T1→T2→T3→T4,过一档才能交下一档。命令在选手包根目录执行。</p>
+    </div>
+
+    <div class="code"><span class="c"># T1:只交权重(turnkey 题,评测机跑官方 config)</span>
+python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--token-file</span> &lt;你的 token 文件&gt; <span class="a">--track</span> T1 <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</div>
+
+    <div class="code"><span class="c"># T2 / T3 / T4:权重 + 代码包(--code-dir 指含 policy/ 的 RoboTwin 根 = external/robotwin_local)</span>
+python submit/submit.py <span class="a">--server</span> &lt;主办方公布地址&gt; <span class="a">--token-file</span> &lt;你的 token 文件&gt; <span class="a">--track</span> &lt;T2|T3|T4&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-&lt;task&gt;/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</div>
+    <p class="note">ckpt 路径规律:<code>act_ckpt/act-&lt;task&gt;/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</code>,其中 <code>&lt;task&gt;</code> 见 <a href="#config">§06 配置</a> 的任务键表(T2 <code>grab_roller</code> / T3 <code>stack_bowls_two</code> / T4 <code>stack_bowls_three</code>)。</p>
+
+    <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">ckpt 与代码包</h3>
+    <table class="dtable" style="margin-top:0.6rem">
+      <thead><tr><th style="width:8rem">参数</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td><code>--ckpt</code></td><td>指向<b>单个</b> checkpoint 文件;CLI 自动附带同目录的 <code>dataset_stats.pkl</code>、并作为评测加载名 <code>policy_last.ckpt</code> 上传——<b>交哪个就评哪个,无需改名</b>。训练同时存 <code>policy_best.ckpt</code>(验证集最优)与 <code>policy_last.ckpt</code>(末轮);<b>建议交 <code>policy_best.ckpt</code></b>(早停,实测显著高于末轮)。</td></tr>
+        <tr><td><code>--code-dir</code></td><td>T2/T3/T4 必填,指 <code>external/robotwin_local</code>(含 <code>policy/</code>);worker 评测遮蔽 <code>&lt;root&gt;/policy</code>,<b>你在 <code>policy/ACT</code> 下的模型 / 推理代码与 <code>deploy_policy.yml</code> 才在评测进程内生效</b>。重型平台目录(assets/envs/description)自动排除,代码包 ~8.5MB;<b><code>envs/</code> 专家不入包、不参与官方评测</b>。<b>传 <code>.</code> 会评测失败</b>(根下无 <code>policy/ACT</code>,run_act_eval fail-loud);T1 不需要。</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">token 与限额</h3>
+    <p class="note"><b>token 不要裸传明文</b>:优先 <code>--token-file &lt;文件&gt;</code> 或环境变量 <code>TRONCAMP_TOKEN</code>;裸 <code>--token -abc</code>(以 <code>-</code> 开头的 token)会被解析成 flag 而失败,必要时用等号形式 <code>--token=VALUE</code>。<code>--server</code> 也可用环境变量 <code>TRONCAMP_SERVER</code> 提供。<b>正式提交每日 1 次</b>(本地自评不限次);无报名、无队名,榜上只显示 token 尾 6 位。</p>
+
+    <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">后端拒绝提示</h3>
+    <p>被后端拒绝时,<code>submit.py</code> 会打印<b>友好中文提示</b>并非零退出(不再抛原始 traceback):</p>
+    <table class="dtable" style="margin-top:0.6rem">
+      <thead><tr><th style="width:5rem">HTTP</th><th>含义</th></tr></thead>
+      <tbody>
+        <tr><td><code>400</code></td><td>请求不合法:字段 / 参数有误,检查 <code>--track</code> / <code>--ckpt</code> / <code>--code-dir</code> 或更新选手包。</td></tr>
+        <tr><td><code>401</code></td><td>令牌无效:检查 <code>--token</code> / <code>TRONCAMP_TOKEN</code> / <code>--token-file</code>。</td></tr>
+        <tr><td><code>403</code></td><td>赛道未解锁:需按 T1→T2→T3→T4 顺序,先过上一档(如交 T2 前须先过 T1)。</td></tr>
+        <tr><td><code>404</code></td><td>地址不对:检查 <code>--server</code> 是否为主办方公布的提交地址。</td></tr>
+        <tr><td><code>409</code></td><td>赛道已锁定:该赛道已达标锁定,不能重复提交。</td></tr>
+        <tr><td><code>413</code></td><td>文件过大:ckpt / 代码包超出后端上限。</td></tr>
+        <tr><td><code>429</code></td><td>过于频繁:提交有频率限制(每日 1 次),请稍后再试。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <!-- ───────── Footer ───────── -->
 <footer>
   <div class="wrap">
@@ -210,6 +289,7 @@ python starter/eval_local.py <span class="a">--track</span> T1 <span class="a">-
         <a href="#train">训练</a>
         <a href="#eval">评测</a>
         <a href="#config">配置</a>
+        <a href="#submit">提交</a>
       </div>
       <div class="foot-col">
         <h5>赛事</h5>

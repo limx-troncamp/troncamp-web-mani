@@ -2,6 +2,28 @@
 
 TronCamp 赛题官网(单页静态站)的版本级变更。
 
+## [1.0.5] — 安装文档透明分步 + 代码操作收敛 (2026-07-04)
+
+- `doc.html`:
+  - §01 安装重写为**全透明分步**(0–8 步,每步一条可复制命令 + 说明):conda 环境(可 `TRONCAMP_ENV` 覆盖)
+    → `setuptools<81` → RoboTwin 本体 `script/_install.sh` → `setup/requirements.txt` → curobo 0.8.0
+    editable → **`__KIT_ROOT__` 占位还原(关键步)** → ffmpeg 兜底 → `env_check.py` 自检;含离线
+    `--find-links` 说明。取代原「一键 `bash setup/install.sh`」块(选手包已删该脚本)。
+  - 新增 **§07 提交**(`#submit`):`submit.py` 的 T1–T4 完整示例、token 用法(`--token-file`/env,不裸传)、
+    顺序解锁与每日限额、后端拒绝的中文提示(400/401/403/404/409/413/429);§05 评测补 `watch_rollout.py`
+    单 seed 数值核查命令。导航 / 页脚加「提交」入口。
+- `index.html`:
+  - §04 流程删除 `submit.py` 四条命令,改为一句摘要 + 链接指向文档 §提交(单一出处,去重)。
+
+## [1.0.4] — 榜单新增匿名评测队列弹窗 (2026-07-04)
+
+- `index.html` / `queue.js`(新) / `style.css` / `config.js`:榜单区新增「查看评测队列」按钮 →
+  原生 `<dialog>` 弹窗,读 `data/queue.json`(后端 board_sync 每 2min 导出)展示评测队列:token 尾6 +
+  赛道 + 状态徽章(排队中 / 评测中 / 已完成 / 失败)+ 相对时间 + failed 脱敏原因;打开时 30s 轮询、关闭即停。
+- 安全:status 白名单化(防 class 属性注入)、team 前端截尾6、reason 仅 failed 展示、全文本经转义;
+  原生 `<dialog>`(showModal + backdrop + ESC + 点遮罩关闭)。
+- 数据源:后端新增 `boardpub/queue_pub.py` 导出脱敏匿名 `queue.json`,随 board_sync 推送(cron 5→2min)。
+
 ## [1.0.3] — 参赛者体检轮·文档与榜单前端校正 (2026-07-04)
 
 - `index.html`：
