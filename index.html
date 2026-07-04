@@ -121,7 +121,7 @@
       <tbody>
         <tr><td><b>模型</b></td><td><b>ACT</b>(Action Chunking Transformer,~80M,PyTorch,RoboTwin自带实现)</td></tr>
         <tr><td><b>难度</b></td><td>由易到难:T1 单臂调瓶 → T2 双臂抓举 → T3 叠 2 碗 → T4 叠 3 碗;全程 easy 环境,<b>不叠加额外扰动</b>,难度只来自任务本身。</td></tr>
-        <tr><td><b>数据</b></td><td><b>四题全部自采,不下发成品数据集。</b>主办方只给两样:① <b>调好的专家策略</b>(能采出成功轨迹)、② <b>现成的采集脚本</b>(一条命令就能跑)。选手用它们跑完整三步 —— <b>采集</b>(专家自动演示,存成轨迹)→ <b>process_data</b>(转成 ACT 训练格式)→ <b>训练</b>(得到策略权重)。区别只在训练 config:<b>T1</b> 连 config 也一起给(turnkey,直接照跑),<b>T2 起</b>训练 config 自己写。</td></tr>
+        <tr><td><b>数据</b></td><td><b>四题全部自采,不下发成品数据集。</b>主办方只给两样:① <b>调好的专家策略</b>(能采出成功轨迹)、② <b>现成的采集脚本</b>(一条命令就能跑)。选手用它们跑完整三步 —— <b>采集</b>(专家自动演示,存成轨迹)→ <b>process_data</b>(转成 ACT 训练格式)→ <b>训练</b>(得到策略权重)。区别只在训练 config:<b>T1</b> 连 config 也一起给(直接照跑),<b>T2 起</b>训练 config 自己写。</td></tr>
       </tbody>
     </table>
   </div>
@@ -133,7 +133,7 @@
     <div class="sec-head">
       <span class="sec-num">02 / 赛制</span>
       <h2>T1–T4 四任务,顺序解锁</h2>
-      <p>四个任务由易到难,共用同一条「自采数据 → 训练 → 评测」流水线:T1 照跑给定的 turnkey 训练 config,T2 起自己写 config。<b>顺序解锁</b>:前档达标(SR 过阈值)才能提交后档,各档独立提交模型、独立评测。T1/T2/T3 只判达标不计分,<b>通关后进入 T4 比拼最终得分</b>。</p>
+      <p>四个任务由易到难,共用同一条「自采数据 → 训练 → 评测」流水线:T1 照跑给定的训练 config,T2 起自己写 config。<b>顺序解锁</b>:前档成功率(SR)达标才能提交后档,各档独立提交模型、独立评测。T1/T2/T3 只判达标不计分,<b>通关后进入 T4 比拼最终得分</b>。</p>
     </div>
     <table class="dtable">
       <thead>
@@ -146,16 +146,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td class="lvl">T1</td><td>adjust_bottle<br><span class="th-sub">单臂抓取,极易</span></td><td>入门:用下发的专家自采 + <b>给定 turnkey 训练 config</b>,照跑训练 ACT</td><td>仅权重</td><td>SR ≥ <b>τ₁ = 0.50</b> → 解锁</td></tr>
-        <tr><td class="lvl">T2</td><td>grab_roller<br><span class="th-sub">双臂抓擀面杖</span></td><td>用下发的专家自采 + <b>自己写训练 config</b></td><td>权重 + 代码</td><td>SR ≥ <b>τ₂ = 0.60</b>(须过 T1)</td></tr>
-        <tr><td class="lvl">T3</td><td>stack_bowls_two<br><span class="th-sub">双臂叠 2 碗</span></td><td>用下发的专家自采 + 自己写训练 config</td><td>权重 + 代码</td><td>SR ≥ <b>τ₃ = 0.50</b>(须过 T2)</td></tr>
+        <tr><td class="lvl">T1</td><td>adjust_bottle<br><span class="th-sub">单臂抓取,极易</span></td><td>入门:用下发的专家自采 + <b>给定训练 config</b>,照跑训练 ACT</td><td>仅权重</td><td>成功率 ≥ <b>τ₁ = 0.50</b> → 解锁</td></tr>
+        <tr><td class="lvl">T2</td><td>grab_roller<br><span class="th-sub">双臂抓擀面杖</span></td><td>用下发的专家自采 + <b>自己写训练 config</b></td><td>权重 + 代码</td><td>成功率 ≥ <b>τ₂ = 0.60</b>(须过 T1)</td></tr>
+        <tr><td class="lvl">T3</td><td>stack_bowls_two<br><span class="th-sub">双臂叠 2 碗</span></td><td>用下发的专家自采 + 自己写训练 config</td><td>权重 + 代码</td><td>成功率 ≥ <b>τ₃ = 0.50</b>(须过 T2)</td></tr>
         <tr><td class="lvl">T4</td><td>stack_bowls_three<br><span class="th-sub">双臂叠 3 碗 · 主榜</span></td><td>用下发的专家自采 + 自己写训练 config,训更好的策略</td><td>权重 + 代码</td><td><b>T4 得分,满分 100</b>(须过 T3)</td></tr>
       </tbody>
     </table>
 
-    <div class="formula" style="margin-top:1.2rem"><b>T2 / T3 / T4 主攻技能(自由发挥,不设上限)</b>:① 基于下发的专家策略<b>自行提高</b> → ② <b>自行做数据采集与处理</b> → ③ <b>数据增强</b> → ④ <b>自己实现网络结构进行训练</b>。<span class="dim">T1 只需跑通给定 turnkey config;T2 起以上全部放开。</span></div>
+    <div class="formula" style="margin-top:1.2rem"><b>T2 / T3 / T4 主攻技能(自由发挥,不设上限)</b>:① 基于下发的专家策略<b>自行提高</b> → ② <b>自行做数据采集与处理</b> → ③ <b>数据增强</b> → ④ <b>自己实现网络结构进行训练</b>。<span class="dim">T1 只需跑通给定 config;T2 起以上全部放开。</span></div>
 
-    <div class="formula" style="margin-top:0.8rem">T1–T3 达标条件:<span class="accent"> 成功率 SR ≥ τ　(τ₁ = 0.50 / τ₂ = 0.60 / τ₃ = 0.50)</span><span class="dim">　达标即解锁,本身不计分</span></div>
+    <div class="formula" style="margin-top:0.8rem">T1–T3 达标条件:<span class="accent"> 成功率 ≥ 阈值 τ　(τ₁ = 0.50 / τ₂ = 0.60 / τ₃ = 0.50)</span><span class="dim">　达标即解锁,本身不计分</span></div>
     <div class="formula">T4排行榜分数: <span class="accent">T4 得分 /100</span> 降序<span class="dim">　三个碗摆对位置各得 1/3、叠满得分 100</span></div>
   </div>
 </section>
@@ -181,23 +181,21 @@
     <table class="dtable">
       <thead><tr><th style="width:7rem">T4 得分 /100</th><th>判据</th></tr></thead>
       <tbody>
-        <tr><td class="lvl">100(满分)</td><td>三个碗全部叠好,每层都落在锚点 <b>C = [0, −0.1]</b> 的 xy ±4cm 内。</td></tr>
+        <tr><td class="lvl">100(满分)</td><td>三个碗全部叠好,每个碗都叠到正确位置(居中对齐)。</td></tr>
         <tr><td class="lvl">66.7</td><td>叠到第二层(两个碗稳定就位)。</td></tr>
         <tr><td class="lvl">33.3</td><td>叠到第一层(第一个碗就位)。</td></tr>
         <tr><td class="lvl">0</td><td>未完成第一层。</td></tr>
       </tbody>
     </table>
-    <p class="note" style="margin-top:1rem">三层各占 <b>1/3</b>、逐层相加,叠满 = 100(<b>不做平均</b>)。队伍 T4 分 = 私有 100 个 seed episode 的得分均值,在 <b>episode 末态单独算一次</b>(不写进逐步调用的 check_success),由评测内核从末态位姿重算,选手自报无效。</p>
+    <p class="note" style="margin-top:1rem">T4 分 = 私有 100 个测试场景末态得分的均值,三个碗各占 <b>1/3</b>、逐层相加,叠满 100。</p>
 
     <div class="sec-head" style="margin-top:2rem;margin-bottom:0.6rem">
       <h2 style="font-size:1.2rem">评测机制</h2>
     </div>
     <table class="dtable">
       <tbody>
-        <tr><td style="width:9rem"><b>进程内 ACT</b></td><td>评测为 <b>in-process</b>:加载选手 ACT 权重(torch)→ 同进程内跑 sim rollout → 末态算分。单卡、单一 RoboTwin 环境,无跨进程桥接。</td></tr>
-        <tr><td><b>评测口径</b></td><td>每个提交对私有 seed 各跑 <b>1 次</b> rollout(EVAL_REPEATS=1);为评测吞吐不再重复取均值,单次结果即计分。</td></tr>
-        <tr><td><b>公开 / 私有 seed</b></td><td>公开 seed 随脚手架下发供本地自测(<b>与官方评测同内核、同分布,只换种子</b>;官方与本地均 <code>--repeats 1</code> 同口径);官方榜用私有 100 seed,只在主办方评测机、与公开互不重叠(防过拟合)。</td></tr>
-        <tr><td><b>选手代码生效</b></td><td>T2/T3/T4 的代码包在评测进程内 <b>shadow</b> 官方 ACT —— 评测生效的是你提交的 ckpt + <code>policy/ACT</code> 代码与推理配置;训练 config / 数据处理 / <code>envs/</code> 专家只在你训练 / 自采时用,不参与官方评测。</td></tr>
+        <tr><td style="width:9rem"><b>怎么评</b></td><td>每个提交在主办方私有的 100 个测试场景上各跑一次,取 T4 得分;本地自测用的是同一套评测,只换成公开测试场景。</td></tr>
+        <tr><td><b>交什么生效</b></td><td>T2/T3/T4 要连模型代码一起交——你 <code>policy/ACT</code> 里的模型与推理代码会替换官方同名代码参与评测;训练用的数据处理 / 训练配置只在你自己训练时用,不参与官方评测。</td></tr>
       </tbody>
     </table>
   </div>
@@ -209,7 +207,7 @@
     <div class="sec-head">
       <span class="sec-num">04 / 流程</span>
       <h2>从 clone 到上榜</h2>
-      <p>clone 公开仓,按文档分步装环境;本地自评跑的就是主办方评测的同一套 harness,只换种子(评测细节见上节)。</p>
+      <p>clone 公开仓,按文档分步装环境;本地自测用的就是主办方评测的同一套流程,只换种子(评测细节见上节)。</p>
     </div>
 
     <figure class="fig-wide" style="margin-top:1.6rem">
@@ -217,7 +215,7 @@
       <figcaption>本地 clone → 用给定数据训练 ACT → 公开种子自评 → submit.py 带 token 提交 → 官方私有种子评测 → 匿名榜上榜;看榜改进、重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
     </figure>
 
-    <p style="margin-top:1.6rem;color:var(--muted)">数据:<b>四题全部自采</b> —— 主办方下发调好的专家 + 现成的采集脚本,选手跑"采集 → process_data → 训练"(T1 额外给 turnkey config)。安装 / 采集 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交经 <code>submit.py</code> 唯一通道(带 token,本地自测不限次、正式提交每日 1 次)。</p>
+    <p style="margin-top:1.6rem;color:var(--muted)">数据:<b>四题全部自采</b> —— 主办方下发调好的专家 + 现成的采集脚本,选手跑"采集 → process_data → 训练"(T1 额外给现成 config)。安装 / 采集 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交经 <code>submit.py</code> 唯一通道(带 token,本地自测不限次、正式提交每日 1 次)。</p>
     <p style="color:var(--muted)">提交命令(T1–T4 完整示例、token 用法、顺序解锁与每日限额)见参赛文档 <a href="./doc.html#submit">§提交</a>。</p>
 
     <table class="dtable" style="margin-top:1.2rem">
@@ -225,7 +223,7 @@
       <tbody>
         <tr><td><b>token 鉴权</b></td><td>提交带 token,后端校验;<b>每日 1 次</b>正式提交(本地自测不限次)。无报名、无队名。</td></tr>
         <tr><td><b>顺序解锁</b></td><td>过 T1 才能交 T2,依此类推到 T4;T1/T2/T3 过了即锁定。</td></tr>
-        <tr><td><b>安全</b></td><td>解包做 zip-slip / symlink 防护;ckpt 备案 SHA256;评测子进程降权 + 沙箱无网络出口(私有 seed 不出评测机);赛末对头部成绩受控复评后定名次。</td></tr>
+        <tr><td><b>安全</b></td><td>提交会经安全校验;赛末对头部成绩复评后定最终名次。</td></tr>
       </tbody>
     </table>
 
@@ -270,9 +268,9 @@
         <tr class="grp">
           <th class="c-rank">#</th>
           <th class="c-team">Token <span class="th-sub">尾 6 位</span></th>
-          <th class="c-gate">T1 <span class="th-sub">达标 SR≥0.50</span></th>
-          <th class="c-gate">T2 <span class="th-sub">达标 SR≥0.60</span></th>
-          <th class="c-gate">T3 <span class="th-sub">达标 SR≥0.50</span></th>
+          <th class="c-gate">T1 <span class="th-sub">达标 成功率≥0.50</span></th>
+          <th class="c-gate">T2 <span class="th-sub">达标 成功率≥0.60</span></th>
+          <th class="c-gate">T3 <span class="th-sub">达标 成功率≥0.50</span></th>
           <th class="c-t3">T4 得分 /100 <span class="th-sub">主榜 · 按 T4 得分降序(须先顺序过 T1/T2/T3,无成绩留空)</span></th>
         </tr>
       </thead>
