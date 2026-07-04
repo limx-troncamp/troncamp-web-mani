@@ -48,14 +48,11 @@
     <div class="sec-head">
       <span class="sec-num">01 / 安装</span>
       <h2>安装</h2>
-      <p>选手包根目录一键脚本会创建 conda 环境并装好 ACT 全部依赖。若要单独装 ACT 子依赖(脚本已包含),命令如下。</p>
+      <p>选手包根目录一键脚本会创建 conda 环境,并把 RoboTwin / SAPIEN / Curobo 与 ACT 的<b>全部依赖一次装好——无需任何手动 <code>pip install</code></b>。</p>
     </div>
-    <div class="code"><span class="c"># 选手包一键装环境(推荐):conda 环境 + RoboTwin / SAPIEN / Curobo + ACT 依赖</span>
+    <div class="code"><span class="c"># 选手包一键装环境(唯一步骤):conda 环境 + RoboTwin / SAPIEN / Curobo + ACT 依赖全部装好</span>
 bash setup/install.sh</div>
-    <div class="code" style="margin-top:0.8rem"><span class="c"># 或:单独装 ACT 子依赖(在 policy/ACT 目录)</span>
-cd external/robotwin_local/policy/ACT
-pip install pyquaternion pyyaml rospkg pexpect mujoco==2.3.7 dm_control==1.0.14 opencv-python matplotlib einops packaging h5py ipython
-cd detr &amp;&amp; pip install -e . &amp;&amp; cd ..</div>
+    <p class="note"><code>setup/install.sh</code> 已自动装好 ACT 运行所需的全部子依赖,<b>不需要再手动跑任何 pip 命令</b>;装完即可直接进入 <a href="#collect">§02 采集</a>。</p>
   </div>
 </section>
 
@@ -127,6 +124,18 @@ bash collect_data.sh adjust_bottle adjust_bottle_200ep 0
       </tbody>
     </table>
     <p class="note">需改步数 / 超参时直接编辑 <code>train.sh</code> 或底层 <code>imitate_episodes.py</code> 的参数;T2/T3/T4 的工程改动随提交的代码包在评测进程内生效。</p>
+
+    <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">参考耗时(单题全流程)</h3>
+    <table class="dtable" style="margin-top:0.6rem">
+      <thead><tr><th style="width:13rem">步骤</th><th style="width:8rem">参考耗时</th><th>条件</th></tr></thead>
+      <tbody>
+        <tr><td><b>采集 collect</b>(§02)</td><td>~1 h 55 min</td><td>单卡 4090;搜 ~500 seed 采够 200 条成功轨迹</td></tr>
+        <tr><td><b>数据处理 process_data</b>(§03)</td><td>~1.5 min</td><td>200 条轨迹转 ACT 16-D 格式</td></tr>
+        <tr><td><b>训练 train</b>(§04)</td><td>~9 h</td><td>单卡 4090;<code>num_epochs=6000</code></td></tr>
+        <tr><td><b>单题全套</b></td><td><b>~11 h</b></td><td>采集 + 处理 + 训练合计(不含评测与调参迭代)</td></tr>
+      </tbody>
+    </table>
+    <p class="note"><b>主办方实测参考(单卡 4090),实际因机器 / 配置 / 数据量而异。</b>赛期约 12 天、每日 1 次正式提交(本地自测不限次),单题全套约 11 h——请据此规划机时与迭代轮次。</p>
   </div>
 </section>
 

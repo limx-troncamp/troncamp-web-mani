@@ -1,15 +1,16 @@
 // troncamp LeaderBoard 表格渲染。沿用 TronCamp-Board 原版视觉结构与类名
 // (.c-rank/.c-team/.c-gate/.c-t3/.t3wrap/.t3num/.t3sub/.t3bar/.gate-*/.top*),
 // 仅替换为 troncamp 榜单逻辑:
-//   · 匿名:c-team 列显示 token 尾号(token_suffix),永不显示队名。
+//   · 匿名:c-team 列显示 token 尾号(字段名 team,值为 token 尾 6 位、非队名),永不显示队名。
 //   · 主榜次序由后端给定:JSON 已排好,前端按 JSON 原顺序渲染,不前端重排。
 //     后端次序 = 有 T4 成绩者在前(T4 SR 降序),其后无 T4 者按答题进度
 //     (passed-T3 > passed-T2 > passed-T1 > none,同档以该档 SR 降序)。
-//   · 分数列(.c-t3):有 T4 显 T4 得分(graded×100,三层各 1/3 相加);无 T4 显答题进度。
+//   · 分数列(.c-t3):有 T4 显 T4 得分(graded×100,三层各 1/3 相加);无 T4 留空(进度见左侧 T1–T3 门列)。
 // 契约:leaderboard.json { generated_at, deadline, final_unlocked, dev:[...], final:[...] }
-//   每行 { token_suffix, t1/t2/t3:{pass,success_rate},
-//          progress:{track:"T3"|"T2"|"T1"|null, success_rate}|null,
+//   每行 { team, t1/t2/t3:{pass,success_rate},
+//          progress:{track:"T3"|"T2"|"T1"|null, success_rate}|null,  ← 仅后端排序用,前端不渲染(rowHtml 不消费)
 //          t4:{graded,submitted_at}|null }   ← 主榜分=分级分 graded(见 organizer boardpub/publish.py)
+//   team = token 尾 6 位(匿名号,非队名;c-team 列永不显示队名);旧字段名 token_suffix 仅作兼容回退。
 (function () {
   'use strict';
 
@@ -54,7 +55,7 @@
     var cls = rank <= 3 ? ' top top' + rank : '';
     return '<tr class="brow' + cls + '">' +
       '<td class="c-rank">' + rank + '</td>' +
-      '<td class="c-team"><span class="tprefix">…</span>' + esc(r.token_suffix || r.team || '------') + '</td>' +
+      '<td class="c-team"><span class="tprefix">…</span>' + esc(r.team || r.token_suffix || '------') + '</td>' +
       '<td class="c-gate">' + gate(r.t1) + '</td>' +
       '<td class="c-gate">' + gate(r.t2) + '</td>' +
       '<td class="c-gate">' + gate(r.t3) + '</td>' +
