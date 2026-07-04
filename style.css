@@ -383,3 +383,44 @@ footer { border-top: 1px solid var(--line); padding: 3rem 0; color: var(--dim); 
     section .wrap.reveal { animation: reveal-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 40%; }
   }
 }
+
+/* ───────── 评测队列 dialog(匿名只读) ───────── */
+.btn-queue { padding: 0.35rem 1rem; font-size: 0.82rem; }
+.qdlg {
+  border: 1px solid var(--line); background: var(--panel); color: var(--text);
+  border-radius: 8px; max-width: min(760px, 92vw); width: 760px; padding: 0;
+  margin: auto; /* 覆盖全局 *{margin:0},恢复 dialog:modal 居中 */
+  font-family: var(--body); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.qdlg::backdrop { background: rgba(3, 5, 8, 0.72); }
+.qdlg-head {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--line);
+}
+.qdlg-head strong { font-family: var(--display); letter-spacing: 0.04em; color: var(--accent); }
+.qdlg-head .spacer { flex: 1; margin: 0; }
+.q-counts { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+#q-updated { font-family: var(--mono); font-size: 0.76rem; color: var(--dim); }
+.qdlg-body { max-height: 62vh; overflow: auto; }
+.qtable { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.qtable th {
+  text-align: left; padding: 0.6rem 1.1rem; color: var(--dim); font-weight: 500;
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+  position: sticky; top: 0; background: var(--panel-2); border-bottom: 1px solid var(--line);
+}
+.qtable td { padding: 0.6rem 1.1rem; border-bottom: 1px solid var(--line-soft); }
+.qtable tr:last-child td { border-bottom: none; }
+.q-team { font-family: var(--mono); color: var(--text); }
+.q-team .tprefix { color: var(--dim); }
+.q-track { font-family: var(--mono); color: var(--muted); }
+.q-time { color: var(--dim); font-size: 0.82rem; white-space: nowrap; }
+.qbadge {
+  display: inline-block; padding: 0.05rem 0.6rem; border-radius: 11px;
+  font-size: 0.78rem; font-family: var(--mono); line-height: 1.55; white-space: nowrap;
+}
+.q-queued, .q-unknown { color: var(--muted); border: 1px solid var(--line); }
+.q-running { color: var(--accent); border: 1px solid var(--accent-dim); background: rgba(56, 225, 212, 0.08); }
+.q-done { color: #6bd39a; border: 1px solid #2e6e4f; background: rgba(107, 211, 154, 0.08); }
+.q-failed { color: var(--bad); border: 1px solid #6e2e2e; background: rgba(240, 140, 140, 0.08); }
+.qreason { color: var(--warn); font-size: 0.82rem; }
+#q-empty { padding: 1.5rem 1.1rem; color: var(--dim); text-align: center; }

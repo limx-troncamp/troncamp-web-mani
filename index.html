@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="./style.css">
 <script src="./config.js"></script>
 <script src="./board.js" defer></script>
+<script src="./queue.js" defer></script>
 </head>
 <body>
 
@@ -265,6 +266,7 @@ python submit/submit.py <span class="a">--server</span> &lt;主办方公布地�
 
     <div class="board-head">
       <span class="upd" id="updated">加载中…</span>
+      <button id="queue-open" class="btn btn-queue" type="button">查看评测队列</button>
       <span class="spacer"></span>
       <span id="countdown" style="font-family:var(--mono);font-size:0.85rem;color:var(--dim)"></span>
     </div>
@@ -312,6 +314,23 @@ python submit/submit.py <span class="a">--server</span> &lt;主办方公布地�
     <p class="foot-note">TronCamp 线上黑客松 · TRON 2 双臂操作赛道 · 单模型 ACT 单卡可训,只有 T4 计分。量化成绩由评测集群自动产出。<br>评测平台基于 <a href="https://robotwin-platform.github.io/doc/usage/" target="_blank" rel="noopener">RoboTwin 2.0</a> 双臂操作仿真基准构建;机器人 TRON 2 由 <a href="https://github.com/limxdynamics" target="_blank" rel="noopener">LimX Dynamics</a> 提供。</p>
   </div>
 </footer>
+
+<dialog id="queue-dialog" class="qdlg">
+  <div class="qdlg-head">
+    <strong>评测队列</strong>
+    <span id="q-counts" class="q-counts"></span>
+    <span class="spacer"></span>
+    <span id="q-updated" class="upd"></span>
+    <button id="queue-close" class="btn" type="button">关闭</button>
+  </div>
+  <div class="qdlg-body">
+    <table class="qtable">
+      <thead><tr><th>队伍</th><th>赛道</th><th>状态</th><th>提交</th><th>备注</th></tr></thead>
+      <tbody id="q-body"></tbody>
+    </table>
+    <p id="q-empty" hidden>当前队列为空</p>
+  </div>
+</dialog>
 
 </body>
 </html>

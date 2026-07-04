@@ -5,4 +5,7 @@
 window.BOARD_CONFIG = {
   BOARD_DATA_URL: "./data/leaderboard.json",
   REFRESH_SECONDS: 60,
+  // 评测队列(匿名只读):board_sync 每 2min 从后端导出 data/queue.json;弹窗打开时按此间隔轮询。
+  QUEUE_DATA_URL: "./data/queue.json",
+  QUEUE_REFRESH_SECONDS: 30,
 };
