@@ -242,10 +242,10 @@ python starter/watch_rollout.py <span class="a">--track</span> T1 <span class="a
     </div>
 
     <div class="code"><span class="c"># T1:只交权重(直接照跑的题,评测机跑官方 config)</span>
-python submit/submit.py <span class="a">--server</span> https://submit.troncamp-mani.limxdynamics.com <span class="a">--token-file</span> &lt;你的 token 文件&gt; <span class="a">--track</span> T1 <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</div>
+python submit/submit.py <span class="a">--server</span> https://submit.troncamp-mani.limxdynamics.com <span class="a">--token=</span>&lt;你的 token&gt; <span class="a">--track</span> T1 <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-adjust_bottle/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</div>
 
     <div class="code"><span class="c"># T2 / T3 / T4:权重 + 代码包(--code-dir 指含 policy/ 的 RoboTwin 根 = external/robotwin_local)</span>
-python submit/submit.py <span class="a">--server</span> https://submit.troncamp-mani.limxdynamics.com <span class="a">--token-file</span> &lt;你的 token 文件&gt; <span class="a">--track</span> &lt;T2|T3|T4&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-&lt;task&gt;/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</div>
+python submit/submit.py <span class="a">--server</span> https://submit.troncamp-mani.limxdynamics.com <span class="a">--token=</span>&lt;你的 token&gt; <span class="a">--track</span> &lt;T2|T3|T4&gt; <span class="a">--code-dir</span> external/robotwin_local <span class="a">--ckpt</span> external/robotwin_local/policy/ACT/act_ckpt/act-&lt;task&gt;/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</div>
     <p class="note">ckpt 路径规律:<code>act_ckpt/act-&lt;task&gt;/&lt;config&gt;-&lt;num&gt;/policy_best.ckpt</code>,其中 <code>&lt;task&gt;</code> 见 <a href="#config">§06 配置</a> 的任务键表(T2 <code>grab_roller</code> / T3 <code>stack_bowls_two</code> / T4 <code>stack_bowls_three</code>)。</p>
 
     <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">ckpt 与代码包</h3>
@@ -257,8 +257,18 @@ python submit/submit.py <span class="a">--server</span> https://submit.troncamp-
       </tbody>
     </table>
 
-    <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">token 与限额</h3>
-    <p class="note"><b>token 不要裸传明文</b>:优先 <code>--token-file &lt;文件&gt;</code> 或环境变量 <code>TRONCAMP_TOKEN</code>;裸 <code>--token -abc</code>(以 <code>-</code> 开头的 token)会被解析成 flag 而失败,必要时用等号形式 <code>--token=VALUE</code>。<code>--server</code> 已内置官方默认地址(<code>https://submit.troncamp-mani.limxdynamics.com</code>),一般可省略;也可用 <code>--server</code> 或环境变量 <code>TRONCAMP_SERVER</code> 覆盖。<b>正式提交每日 1 次</b>(本地自评不限次);无报名、无队名,榜上只显示 token 尾 6 位。</p>
+    <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">token 三种传法</h3>
+    <p class="note">任选一种(优先级 <code>--token-file</code> &gt; env <code>TRONCAMP_TOKEN</code> &gt; <code>--token</code>);多数队<b>直接贴字符串</b>即可,不必建文件。</p>
+    <table class="dtable" style="margin-top:0.6rem">
+      <thead><tr><th style="width:11rem">方式</th><th>用法</th></tr></thead>
+      <tbody>
+        <tr><td><b>直接贴字符串</b></td><td><code>--token=&lt;你的 token&gt;</code> —— <b>必须带等号</b>。别用空格形式的裸 <code>--token &lt;串&gt;</code>:token 若以 <code>-</code> 开头会被当成参数报错(url-safe token 常以 <code>-</code>/<code>_</code> 起头)。</td></tr>
+        <tr><td>环境变量</td><td><code>export TRONCAMP_TOKEN=&lt;你的 token&gt;</code> 后照常跑;好处是不落 shell 历史 / 进程列表。</td></tr>
+        <tr><td>文件</td><td><code>--token-file &lt;文件&gt;</code>,文件里就一行 token(<code>echo "你的token" &gt; token.txt</code>,结尾换行会被自动去掉)。</td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">限额与地址</h3>
+    <p class="note"><b>正式提交每日 1 次</b>(本地自评不限次);无报名、无队名,榜上只显示 token 尾 6 位。<code>--server</code> 已内置官方默认地址(<code>https://submit.troncamp-mani.limxdynamics.com</code>),一般可省略;可用 <code>--server</code> 或环境变量 <code>TRONCAMP_SERVER</code> 覆盖。</p>
 
     <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">后端拒绝提示</h3>
     <p>被后端拒绝时,<code>submit.py</code> 会打印<b>友好中文提示</b>并非零退出(不再抛原始 traceback):</p>
