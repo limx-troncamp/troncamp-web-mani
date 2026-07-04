@@ -2,6 +2,13 @@
 
 TronCamp 赛题官网(单页静态站)的版本级变更。
 
+## [1.0.8] — 安装 conda 环境名改独立固定名 troncamp_env(去参数展开) (2026-07-04)
+
+- `doc.html` §01 第 1 步:conda 环境名由 `${TRONCAMP_ENV:-RoboTwin}` 改为独立固定名 `troncamp_env`。
+  原设计默认撞名 RoboTwin 官方教程环境、再用 `TRONCAMP_ENV` 变量兜底改名,属"自造撞名再兜底"的多余复杂;
+  独立命名后天然隔离、无复用污染,删掉变量兜底,想换名直接改命令。附近说明段同步精简(去掉 TRONCAMP_ENV
+  概念)。所有下发脚本不指名 conda env(跑激活的当前环境),改名零功能影响。与选手包 kit 1.0.5 同步。
+
 ## [1.0.7] — 安装第 6 步占位还原修复(限定 yml)+ doc 品牌 logo 对齐 (2026-07-04)
 
 - `doc.html` §01 第 6 步:`__KIT_ROOT__` 占位还原命令加 `--include='*.yml'`。原全树

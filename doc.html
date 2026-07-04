@@ -55,8 +55,8 @@
     <p class="note"><b>0. 前提</b>:已装 conda(未装见 <a href="https://docs.conda.io/projects/miniconda/en/latest/" target="_blank" rel="noopener">Miniconda 官方安装 ↗</a>);NVIDIA 驱动支持 <b>CUDA 12.x</b>(cuRobo、torch 需要)。HF / pip 有墙时按需设代理。</p>
 
     <div class="code"><span class="c"># 1. 建并激活 conda 环境(python 3.10)</span>
-conda create <span class="a">-y</span> <span class="a">-n</span> "${TRONCAMP_ENV:-RoboTwin}" python=3.10 &amp;&amp; conda activate "${TRONCAMP_ENV:-RoboTwin}"</div>
-    <p class="note">环境名默认 <code>RoboTwin</code>,命令已直接消费 <code>TRONCAMP_ENV</code>——要用别名只需装环境前 <code>export TRONCAMP_ENV=&lt;别名&gt;</code> 再照跑上面的命令即可。<b>若你已按 RoboTwin 官方教程装过同名 <code>RoboTwin</code> 环境,务必改名隔离</b>,否则会复用它并与本包依赖相互污染。</p>
+conda create <span class="a">-y</span> <span class="a">-n</span> troncamp_env python=3.10 &amp;&amp; conda activate troncamp_env</div>
+    <p class="note">环境名用本赛事独立的 <code>troncamp_env</code>,与 RoboTwin 官方教程默认的 <code>RoboTwin</code> 环境天然隔离——不会复用或污染你已有的环境。想换别的名字,把这条命令里两处 <code>troncamp_env</code> 一并替换即可。</p>
 
     <div class="code"><span class="c"># 2. 锁 setuptools&lt;81(新版 setuptools 会让 sapien 装不上,锁旧版)</span>
 pip install "setuptools&lt;81"</div>
