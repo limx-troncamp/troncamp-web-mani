@@ -2,6 +2,15 @@
 
 TronCamp 赛题官网(单页静态站)的版本级变更。
 
+## [1.0.9] — 提交入口换 HTTPS 域名(nginx 反代)+ 明文 IP 下线 (2026-07-04)
+
+- `doc.html` §07:submit 命令 `--server` 由裸 `http://118.196.31.68:8080` 换为
+  `https://submit.troncamp-mani.limxdynamics.com`(服务器 nginx 443 反代到后端,token 全程 TLS 加密;
+  证书 Aliyun/DigiCert DV;未知 SNI/Host 一律 444 拒绝)。token 说明补一句:选手包 `submit.py` 已内置
+  该默认地址,一般可省略 `--server`。
+- 与选手包 kit 同步(`submit.py` 默认 `--server` = 该 HTTPS 地址)。旧 `http://118.196.31.68:8080` 仅存于
+  历史变更记录。
+
 ## [1.0.8] — 安装 conda 环境名改独立固定名 troncamp_env(去参数展开) (2026-07-04)
 
 - `doc.html` §01 第 1 步:conda 环境名由 `${TRONCAMP_ENV:-RoboTwin}` 改为独立固定名 `troncamp_env`。
