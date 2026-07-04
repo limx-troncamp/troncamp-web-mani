@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>参赛文档 · TronCamp</title>
+<title>参赛文档 · TRONCamp</title>
 <meta name="description" content="TronCamp 选手包参赛文档(ACT 工作流):安装、数据处理 process_data.sh、训练 train.sh、评测与部署 eval.sh、配置文件。沿用 RoboTwin 第一方 policy/ACT 脚本,命令复制即用。">
 <link rel="stylesheet" href="./style.css">
 </head>
@@ -11,7 +11,7 @@
 
 <nav class="nav">
   <div class="wrap">
-    <a href="./index.html#top" class="brand">Tron<span class="accent">Camp</span> · Mani</a>
+    <a href="./index.html#top" class="brand">TRONCamp · <span class="accent">Mani</span></a>
     <span class="nav-links">
       <a href="./index.html">主页</a>
       <a href="#install">安装</a>
@@ -72,8 +72,8 @@ pip install <span class="a">-r</span> setup/requirements.txt</div>
 SETUPTOOLS_SCM_PRETEND_VERSION=0.8.0 pip install <span class="a">-e</span> external/robotwin_local/envs/curobo <span class="a">--no-build-isolation</span></div>
 
     <div class="code"><span class="c"># 6.【关键】把打包占位符 __KIT_ROOT__ 还原为你的实际路径</span>
-grep <span class="a">-rl</span> __KIT_ROOT__ . | xargs <span class="a">-r</span> sed <span class="a">-i</span> "s#__KIT_ROOT__#$(pwd)#g"</div>
-    <p class="note"><b>这步绝不能漏</b>:打包时把绝对路径换成了占位符 <code>__KIT_ROOT__</code>,不还原成你的实际路径,<b>cuRobo 规划器起不来</b>(采集 / 评测会失败)。须在选手包根目录执行。</p>
+grep <span class="a">-rl</span> <span class="a">--include='*.yml'</span> __KIT_ROOT__ . | xargs <span class="a">-r</span> sed <span class="a">-i</span> "s#__KIT_ROOT__#$(pwd)#g"</div>
+    <p class="note"><b>这步绝不能漏</b>:打包时把绝对路径换成了占位符 <code>__KIT_ROOT__</code>,不还原成你的实际路径,<b>cuRobo 规划器起不来</b>(采集 / 评测会失败)。须在选手包根目录执行;占位只存在于 cuRobo 的 <code>.yml</code> 配置,故命令用 <code>--include='*.yml'</code> 精确还原,避免误伤代码 / 文档里对占位符名的说明性引用。</p>
 
     <div class="code"><span class="c"># 7. ffmpeg 兜底(无系统 ffmpeg 时用 imageio-ffmpeg 静态二进制;已有系统 ffmpeg 可跳过)</span>
 ffmpeg <span class="a">-version</span> &gt;/dev/null 2&gt;&amp;1 || { pip install imageio-ffmpeg; ln <span class="a">-sf</span> "$(python -c 'import imageio_ffmpeg,os;print(imageio_ffmpeg.get_ffmpeg_exe())')" "$CONDA_PREFIX/bin/ffmpeg"; }</div>

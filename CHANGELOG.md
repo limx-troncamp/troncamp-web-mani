@@ -2,6 +2,16 @@
 
 TronCamp 赛题官网(单页静态站)的版本级变更。
 
+## [1.0.7] — 安装第 6 步占位还原修复(限定 yml)+ doc 品牌 logo 对齐 (2026-07-04)
+
+- `doc.html` §01 第 6 步:`__KIT_ROOT__` 占位还原命令加 `--include='*.yml'`。原全树
+  `grep -rl __KIT_ROOT__ . | xargs sed` 会误伤源码含占位符名字面量的 `setup/env_check.py` 等文件,
+  致使安装第 8 步自检 `env_check.py` **必然假失败**(把已还原的 yml 误判为未还原)。占位只存在于 cuRobo
+  `.yml` 配置,限定 yml 后精确还原、不误伤代码 / 文档里对占位符名的说明性引用;§01 说明补一句点明原因。
+  与选手包 kit 1.0.4 同步。
+- `doc.html` 页眉品牌 logo 修正:由高亮「Camp」、且 TRON 误写成「Tron」的旧写法,统一为首页基准
+  `TRONCamp · <span class="accent">Mani</span>`(TRON 全大写、高亮「Mani」);`<title>` 同步 TronCamp → TRONCamp。
+
 ## [1.0.6] — 参赛者可读性精简·去黑话 + 提交地址填充 (2026-07-04)
 
 - 去黑话精简(index/doc):§03 评测机制表 4 行→2 行白话、T4 判据删内部坐标(±4cm)/防作弊细节、
