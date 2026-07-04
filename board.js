@@ -25,6 +25,16 @@
     return d.innerHTML;
   }
 
+  // ISO UTC(...Z)→ 北京时间(UTC+8)可读串 "YYYY-MM-DD HH:MM:SS"。解析失败则原样返回。
+  function fmtTime(iso) {
+    var t = Date.parse(iso);
+    if (isNaN(t)) return String(iso == null ? '' : iso);
+    var d = new Date(t + 8 * 3600 * 1000);
+    function p(n) { return (n < 10 ? '0' : '') + n; }
+    return d.getUTCFullYear() + '-' + p(d.getUTCMonth() + 1) + '-' + p(d.getUTCDate()) +
+      ' ' + p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + ':' + p(d.getUTCSeconds());
+  }
+
   // T1/T2/T3 达标门:达标=绿勾,未达标=空圈(hover 看成功率),未提交=点。
   function gate(g) {
     if (!g) return '<span class="gate gate-none" title="未提交">·</span>';
@@ -42,7 +52,7 @@
     var t4 = r.t4;
     if (t4 && t4.graded != null) {
       var w = Math.max(2, Math.min(100, t4.graded * 100));
-      var sub = t4.submitted_at ? '<span class="t3sub">' + esc(t4.submitted_at) + '</span>' : '';
+      var sub = t4.submitted_at ? '<span class="t3sub">' + esc(fmtTime(t4.submitted_at)) + '</span>' : '';
       return '<td class="c-t3"><div class="t3wrap">' +
         '<span class="t3num">' + (t4.graded * 100).toFixed(1) + '</span>' + sub +
         '<span class="t3bar"><i style="width:' + w + '%"></i></span></div></td>';
@@ -91,7 +101,9 @@
 
   function render(data) {
     var updated = document.getElementById('updated');
-    if (updated) updated.textContent = '更新于 ' + (data.generated_at || '—');
+    if (updated) updated.textContent = data.generated_at
+      ? ('更新于 ' + fmtTime(data.generated_at) + ' (北京时间)')
+      : '更新于 —';
     var over = renderCountdown(data.deadline);
 
     var locked = document.getElementById('locked');

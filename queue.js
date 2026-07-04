@@ -21,6 +21,16 @@
     return d.innerHTML;
   }
 
+  // ISO UTC(...Z)→ 北京时间(UTC+8)可读串 "YYYY-MM-DD HH:MM:SS"。解析失败则原样返回(交 textContent 呈现,安全)。
+  function fmtTime(iso) {
+    var t = Date.parse(iso);
+    if (isNaN(t)) return String(iso == null ? '' : iso);
+    var d = new Date(t + 8 * 3600 * 1000);
+    function p(n) { return (n < 10 ? '0' : '') + n; }
+    return d.getUTCFullYear() + '-' + p(d.getUTCMonth() + 1) + '-' + p(d.getUTCDate()) +
+      ' ' + p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + ':' + p(d.getUTCSeconds());
+  }
+
   // 状态白名单:LABEL 的键即合法 status,class 只用白名单值(杜绝属性注入)。
   var LABEL = { queued: '排队中', running: '评测中', done: '已完成', failed: '失败' };
 
@@ -71,7 +81,7 @@
         ' · 近24h 完成 ' + (c.done_recent || 0) + ' / 失败 ' + (c.failed_recent || 0);
     }
     var uEl = document.getElementById('q-updated');
-    if (uEl) uEl.textContent = (data && data.generated_at) ? ('更新于 ' + esc(data.generated_at)) : '';
+    if (uEl) uEl.textContent = (data && data.generated_at) ? ('更新于 ' + fmtTime(data.generated_at) + ' (北京时间)') : '';
 
     var items = (data && data.items) || [];
     if (!items.length) { setEmpty('当前队列为空'); return; }
