@@ -1,12 +1,19 @@
 {
-  "generated_at": "2026-07-05T12:50:03Z",
+  "generated_at": "2026-07-05T16:50:03Z",
   "counts": {
     "queued": 0,
-    "running": 0,
+    "running": 1,
     "done_recent": 5,
     "failed_recent": 0
   },
   "items": [
+    {
+      "team": "UpnC2w",
+      "track": "T1",
+      "status": "running",
+      "created_at": "2026-07-05T16:43:06Z",
+      "reason": null
+    },
     {
       "team": "WaX_Jw",
       "track": "T1",
