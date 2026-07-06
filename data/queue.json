@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-07-06T21:20:03Z",
+  "generated_at": "2026-07-06T21:50:19Z",
   "counts": {
     "queued": 0,
-    "running": 1,
-    "done_recent": 14,
+    "running": 0,
+    "done_recent": 15,
     "failed_recent": 1
   },
   "items": [
     {
       "team": "YvTt5g",
       "track": "T2",
-      "status": "running",
+      "status": "done",
       "created_at": "2026-07-06T20:43:43Z",
       "reason": null
     },
