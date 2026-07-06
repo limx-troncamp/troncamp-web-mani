@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-07-06T05:30:03Z",
+  "generated_at": "2026-07-06T05:40:03Z",
   "counts": {
     "queued": 0,
-    "running": 2,
-    "done_recent": 7,
+    "running": 1,
+    "done_recent": 8,
     "failed_recent": 0
   },
   "items": [
-    {
-      "team": "1JJO-A",
-      "track": "T2",
-      "status": "running",
-      "created_at": "2026-07-06T04:36:43Z",
-      "reason": null
-    },
     {
       "team": "AhXfgg",
       "track": "T1",
       "status": "running",
       "created_at": "2026-07-06T04:54:58Z",
+      "reason": null
+    },
+    {
+      "team": "1JJO-A",
+      "track": "T2",
+      "status": "done",
+      "created_at": "2026-07-06T04:36:43Z",
       "reason": null
     },
     {
