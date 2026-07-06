@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-06T11:50:03Z",
+  "generated_at": "2026-07-06T12:00:04Z",
   "counts": {
     "queued": 0,
     "running": 0,
-    "done_recent": 10,
+    "done_recent": 9,
     "failed_recent": 0
   },
   "items": [
@@ -68,13 +68,6 @@
       "track": "T1",
       "status": "done",
       "created_at": "2026-07-05T16:43:06Z",
-      "reason": null
-    },
-    {
-      "team": "WaX_Jw",
-      "track": "T1",
-      "status": "done",
-      "created_at": "2026-07-05T11:56:03Z",
       "reason": null
     }
   ]
