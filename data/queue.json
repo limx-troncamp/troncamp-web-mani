@@ -1,12 +1,19 @@
 {
-  "generated_at": "2026-07-06T04:30:03Z",
+  "generated_at": "2026-07-06T04:40:03Z",
   "counts": {
     "queued": 0,
-    "running": 0,
+    "running": 1,
     "done_recent": 7,
     "failed_recent": 0
   },
   "items": [
+    {
+      "team": "1JJO-A",
+      "track": "T2",
+      "status": "running",
+      "created_at": "2026-07-06T04:36:43Z",
+      "reason": null
+    },
     {
       "team": "-QIalg",
       "track": "T1",
