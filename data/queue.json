@@ -1,12 +1,26 @@
 {
-  "generated_at": "2026-07-06T06:50:03Z",
+  "generated_at": "2026-07-06T07:00:04Z",
   "counts": {
     "queued": 0,
-    "running": 0,
+    "running": 2,
     "done_recent": 9,
     "failed_recent": 0
   },
   "items": [
+    {
+      "team": "IBY_ng",
+      "track": "T1",
+      "status": "running",
+      "created_at": "2026-07-06T06:50:25Z",
+      "reason": null
+    },
+    {
+      "team": "C0PlEA",
+      "track": "T1",
+      "status": "running",
+      "created_at": "2026-07-06T06:50:42Z",
+      "reason": null
+    },
     {
       "team": "AhXfgg",
       "track": "T1",
