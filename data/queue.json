@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-06T12:40:03Z",
+  "generated_at": "2026-07-06T13:10:03Z",
   "counts": {
     "queued": 0,
-    "running": 1,
+    "running": 2,
     "done_recent": 9,
     "failed_recent": 0
   },
@@ -12,6 +12,13 @@
       "track": "T1",
       "status": "running",
       "created_at": "2026-07-06T12:39:15Z",
+      "reason": null
+    },
+    {
+      "team": "03qiTA",
+      "track": "T1",
+      "status": "running",
+      "created_at": "2026-07-06T13:03:17Z",
       "reason": null
     },
     {
