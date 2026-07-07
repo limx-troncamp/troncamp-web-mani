@@ -164,7 +164,7 @@ bash collect_data.sh adjust_bottle adjust_bottle_200ep 0
         <tr><td><b>单题全套</b></td><td><b>~11 h</b></td><td>采集 + 处理 + 训练合计(不含评测与调参迭代)</td></tr>
       </tbody>
     </table>
-    <p class="note"><b>主办方实测参考(单卡 4090),实际因机器 / 配置 / 数据量而异。</b>赛期约 12 天、每日 1 次正式提交(本地自测不限次),单题全套约 11 h——请据此规划机时与迭代轮次。</p>
+    <p class="note"><b>主办方实测参考(单卡 4090),实际因机器 / 配置 / 数据量而异。</b>赛期约 12 天、每日 2 次正式提交(本地自测不限次),单题全套约 11 h——请据此规划机时与迭代轮次。</p>
   </div>
 </section>
 
@@ -268,7 +268,7 @@ python submit/submit.py <span class="a">--server</span> https://submit.troncamp-
       </tbody>
     </table>
     <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">限额与地址</h3>
-    <p class="note"><b>正式提交每日 1 次</b>(本地自评不限次);无报名、无队名,榜上只显示 token 尾 6 位。<code>--server</code> 已内置官方默认地址(<code>https://submit.troncamp-mani.limxdynamics.com</code>),一般可省略;可用 <code>--server</code> 或环境变量 <code>TRONCAMP_SERVER</code> 覆盖。</p>
+    <p class="note"><b>正式提交每日 2 次</b>(本地自评不限次);无报名、无队名,榜上只显示 token 尾 6 位。<code>--server</code> 已内置官方默认地址(<code>https://submit.troncamp-mani.limxdynamics.com</code>),一般可省略;可用 <code>--server</code> 或环境变量 <code>TRONCAMP_SERVER</code> 覆盖。</p>
 
     <h3 style="margin-top:1.6rem;font-size:1.05rem;font-weight:700">后端拒绝提示</h3>
     <p>被后端拒绝时,<code>submit.py</code> 会打印<b>友好中文提示</b>并非零退出(不再抛原始 traceback):</p>
@@ -281,7 +281,7 @@ python submit/submit.py <span class="a">--server</span> https://submit.troncamp-
         <tr><td><code>404</code></td><td>地址不对:检查 <code>--server</code> 是否为主办方公布的提交地址。</td></tr>
         <tr><td><code>409</code></td><td>赛道已锁定:该赛道已达标锁定,不能重复提交。</td></tr>
         <tr><td><code>413</code></td><td>文件过大:ckpt / 代码包超出后端上限。</td></tr>
-        <tr><td><code>429</code></td><td>过于频繁:提交有频率限制(每日 1 次),请稍后再试。</td></tr>
+        <tr><td><code>429</code></td><td>过于频繁:提交有频率限制(每日 2 次),请稍后再试。</td></tr>
       </tbody>
     </table>
   </div>

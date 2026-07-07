@@ -215,13 +215,13 @@
       <figcaption>本地 clone → 用给定数据训练 ACT → 公开种子自评 → submit.py 带 token 提交 → 官方私有种子评测 → 匿名榜上榜;看榜改进、重新提交,T1 → T2 → T3 → T4 顺序解锁。</figcaption>
     </figure>
 
-    <p style="margin-top:1.6rem;color:var(--muted)">数据:<b>四题全部自采</b> —— 主办方下发调好的专家 + 现成的采集脚本,选手跑"采集 → process_data → 训练"(T1 额外给现成 config)。安装 / 采集 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交经 <code>submit.py</code> 唯一通道(带 token,本地自测不限次、正式提交每日 1 次)。</p>
+    <p style="margin-top:1.6rem;color:var(--muted)">数据:<b>四题全部自采</b> —— 主办方下发调好的专家 + 现成的采集脚本,选手跑"采集 → process_data → 训练"(T1 额外给现成 config)。安装 / 采集 / 数据处理 / 训练 / 评测的 ACT 代码命令见 <a href="./doc.html"><b>参赛文档 →</b></a>。提交经 <code>submit.py</code> 唯一通道(带 token,本地自测不限次、正式提交每日 2 次)。</p>
     <p style="color:var(--muted)">提交命令(T1–T4 完整示例、token 用法、顺序解锁与每日限额)见参赛文档 <a href="./doc.html#submit">§提交</a>。</p>
 
     <table class="dtable" style="margin-top:1.2rem">
       <thead><tr><th style="width:8rem">机制</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td><b>token 鉴权</b></td><td>提交带 token,后端校验;<b>每日 1 次</b>正式提交(本地自测不限次)。无报名、无队名。</td></tr>
+        <tr><td><b>token 鉴权</b></td><td>提交带 token,后端校验;<b>每日 2 次</b>正式提交(本地自测不限次)。无报名、无队名。</td></tr>
         <tr><td><b>顺序解锁</b></td><td>过 T1 才能交 T2,依此类推到 T4;T1/T2/T3 过了即锁定。</td></tr>
         <tr><td><b>安全</b></td><td>提交会经安全校验;赛末对头部成绩复评后定最终名次。</td></tr>
       </tbody>
