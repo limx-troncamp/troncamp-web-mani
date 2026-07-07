@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-07T15:40:03Z",
+  "generated_at": "2026-07-07T15:50:03Z",
   "counts": {
     "queued": 0,
     "running": 3,
     "done_recent": 20,
-    "failed_recent": 2
+    "failed_recent": 3
   },
   "items": [
     {
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-07T14:22:08Z",
       "reason": null,
-      "progress": "36/100"
+      "progress": "41/100"
     },
     {
       "team": "Xy0oKA",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-07T15:01:18Z",
       "reason": null,
-      "progress": "47/100"
+      "progress": "61/100"
     },
     {
       "team": "x-a1VA",
@@ -29,7 +29,15 @@
       "status": "running",
       "created_at": "2026-07-07T15:03:14Z",
       "reason": null,
-      "progress": "65/100"
+      "progress": "83/100"
+    },
+    {
+      "team": "Wz_lPA",
+      "track": "T4",
+      "status": "failed",
+      "created_at": "2026-07-07T15:41:34Z",
+      "reason": "checkpoint 读取失败(文件损坏,或缺少 dataset_stats.pkl)",
+      "progress": null
     },
     {
       "team": "Wz_lPA",
