@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T11:40:03Z",
+  "generated_at": "2026-07-07T11:50:03Z",
   "counts": {
     "queued": 0,
     "running": 1,
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-07T11:23:10Z",
       "reason": null,
-      "progress": "30/100"
+      "progress": "46/100"
     },
     {
       "team": "Ba5V5A",
