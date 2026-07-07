@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-07-07T10:00:04Z",
+  "generated_at": "2026-07-07T10:10:03Z",
   "counts": {
     "queued": 0,
-    "running": 2,
-    "done_recent": 20,
+    "running": 1,
+    "done_recent": 21,
     "failed_recent": 0
   },
   "items": [
-    {
-      "team": "Tm3x0Q",
-      "track": "T1",
-      "status": "running",
-      "created_at": "2026-07-07T09:14:41Z",
-      "reason": null,
-      "progress": "76/100"
-    },
     {
       "team": "Ba5V5A",
       "track": "T1",
       "status": "running",
       "created_at": "2026-07-07T09:39:49Z",
       "reason": null,
-      "progress": "30/100"
+      "progress": "48/100"
+    },
+    {
+      "team": "Tm3x0Q",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-07T09:14:41Z",
+      "reason": null,
+      "progress": null
     },
     {
       "team": "o-pz7A",
