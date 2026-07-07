@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-07T00:40:03Z",
+  "generated_at": "2026-07-07T01:00:19Z",
   "counts": {
     "queued": 0,
     "running": 1,
     "done_recent": 16,
-    "failed_recent": 1
+    "failed_recent": 2
   },
   "items": [
     {
@@ -13,6 +13,13 @@
       "status": "running",
       "created_at": "2026-07-07T00:34:37Z",
       "reason": null
+    },
+    {
+      "team": "AhXfgg",
+      "track": "T2",
+      "status": "failed",
+      "created_at": "2026-07-07T00:52:56Z",
+      "reason": "评测报错"
     },
     {
       "team": "S8hmJg",
