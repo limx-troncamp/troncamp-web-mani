@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T14:40:03Z",
+  "generated_at": "2026-07-07T14:50:03Z",
   "counts": {
     "queued": 0,
     "running": 2,
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-07T14:13:12Z",
       "reason": null,
-      "progress": "39/100"
+      "progress": "57/100"
     },
     {
       "team": "UpnC2w",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-07T14:22:08Z",
       "reason": null,
-      "progress": "9/100"
+      "progress": "14/100"
     },
     {
       "team": "IBY_ng",
