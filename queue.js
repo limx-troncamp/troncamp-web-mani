@@ -3,7 +3,8 @@
 // 契约(见 organizer boardpub/queue_pub.py):
 //   { generated_at, counts:{queued,running,done_recent,failed_recent},
 //     items:[{team:"尾6", track:"T1", status:"queued|running|done|failed",
-//             created_at:"...Z"(ISO UTC), reason:null|"脱敏类别"}] }
+//             created_at:"...Z"(ISO UTC), reason:null|"脱敏类别",
+//             progress:null|"45/100"(仅 running:评测中 episode 进度)}] }
 // 安全:前端不信任 json——status 走白名单(不拼原始值进 class 属性)、team 再截尾6、
 // reason 仅 failed 展示、所有文本经 esc() 转义。
 (function () {
@@ -54,15 +55,30 @@
     var label = known ? LABEL[st] : (esc(st) || '—');    // 文本:未知状态转义兜底
     var team = String((it && it.team) || '').slice(-6);  // 纵深防御:前端也只出尾6
     var badge = '<span class="qbadge ' + cls + '">' + label + '</span>';
-    // reason 仅 failed 展示(非 failed 即便后端残留备注也不外显)
-    var reason = (st === 'failed' && it && it.reason)
-      ? '<span class="qreason">' + esc(it.reason) + '</span>' : '';
+    // 状态列:running 时在徽章下加一条进度条(按 progress "i/total" 算宽度;解析不出则不画)。
+    var statusCell = badge;
+    if (st === 'running' && it && it.progress) {
+      var pm = /^(\d+)\s*\/\s*(\d+)$/.exec(String(it.progress));
+      if (pm) {
+        var frac = parseInt(pm[1], 10) / Math.max(1, parseInt(pm[2], 10));
+        frac = Math.max(0, Math.min(1, frac));
+        statusCell += '<div class="qbar" title="' + esc(it.progress) + '">' +
+          '<div class="qbar-fill" style="width:' + (frac * 100).toFixed(0) + '%"></div></div>';
+      }
+    }
+    // 备注列:failed 展示脱敏原因;running 展示评测进度(xx/100)。其余状态留空。
+    var note = '';
+    if (st === 'failed' && it && it.reason) {
+      note = '<span class="qreason">' + esc(it.reason) + '</span>';
+    } else if (st === 'running' && it && it.progress) {
+      note = '<span class="qprogress">' + esc(it.progress) + '</span>';
+    }
     return '<tr>' +
       '<td class="q-team"><span class="tprefix">…</span>' + esc(team) + '</td>' +
       '<td class="q-track">' + esc((it && it.track) || '') + '</td>' +
-      '<td>' + badge + '</td>' +
+      '<td>' + statusCell + '</td>' +
       '<td class="q-time">' + rel(it && it.created_at) + '</td>' +
-      '<td>' + reason + '</td>' +
+      '<td>' + note + '</td>' +
       '</tr>';
   }
 
