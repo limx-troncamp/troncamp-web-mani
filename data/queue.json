@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T09:20:03Z",
+  "generated_at": "2026-07-07T09:30:04Z",
   "counts": {
     "queued": 0,
     "running": 2,
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-07T09:04:40Z",
       "reason": null,
-      "progress": "25/100"
+      "progress": "44/100"
     },
     {
       "team": "Tm3x0Q",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-07T09:14:41Z",
       "reason": null,
-      "progress": "7/100"
+      "progress": "23/100"
     },
     {
       "team": "8mGebw",
