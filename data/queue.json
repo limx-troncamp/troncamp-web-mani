@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-07-07T00:10:03Z",
+  "generated_at": "2026-07-07T00:30:04Z",
   "counts": {
     "queued": 0,
-    "running": 1,
-    "done_recent": 15,
+    "running": 0,
+    "done_recent": 16,
     "failed_recent": 1
   },
   "items": [
     {
       "team": "S8hmJg",
       "track": "T1",
-      "status": "running",
+      "status": "done",
       "created_at": "2026-07-06T23:39:12Z",
       "reason": null
     },
