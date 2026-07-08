@@ -42,13 +42,13 @@
       <a href="#board" class="btn">排行榜</a>
     </div>
     <div class="countdown" style="margin-top:1.6rem;font-size:1.05rem;color:var(--muted)">
-      距提交截止(北京时间 7 月 15 日 24:00)&nbsp; <b id="cdTime" class="accent" style="font-variant-numeric:tabular-nums">—</b>
+      距提交截止(北京时间 7 月 20 日 24:00)&nbsp; <b id="cdTime" class="accent" style="font-variant-numeric:tabular-nums">—</b>
     </div>
   </div>
 </header>
 <script>
 (function(){
-  var deadline = new Date('2026-07-16T00:00:00+08:00').getTime();
+  var deadline = new Date('2026-07-21T00:00:00+08:00').getTime();
   function tick(){
     var el = document.getElementById('cdTime'); if(!el) return;
     var d = deadline - Date.now();
@@ -230,13 +230,13 @@
     <h3 style="margin-top:1.4rem;font-size:1.1rem;font-weight:700">最终交付物</h3>
     <table class="dtable">
       <tbody>
-        <tr><td class="lvl" style="width:10rem">开源代码 + 文档</td><td>完整代码开源到 GitHub,附技术设计文档,须可复现。<b>⚠️ 提交截止(7 月 15 日 24:00)前请保持仓库 private,截止后再设为 public</b>,避免方案提前外泄影响比赛公平。</td></tr>
+        <tr><td class="lvl" style="width:10rem">开源代码 + 文档</td><td>完整代码开源到 GitHub,附技术设计文档,须可复现。<b>⚠️ 提交截止(7 月 20 日 24:00)前请保持仓库 private,截止后再设为 public</b>,避免方案提前外泄影响比赛公平。</td></tr>
         <tr><td class="lvl">演示视频</td><td>≤ 3 分钟,完整展示代码思路及实机 / 仿真演示过程。</td></tr>
       </tbody>
     </table>
 
     <div style="margin-top:1.4rem;padding:1rem 1.3rem;border-left:3px solid var(--accent);background:var(--panel);border-radius:8px">
-      <p style="margin:0 0 .55rem"><b>演示视频提交(邮箱通道)</b> —— 请于 <b>7 月 15 日 24:00</b> 前,将最终讲解及演示视频提交至邮箱 <a href="mailto:troncamp@limxdynamics.com" style="color:var(--accent)"><b>troncamp@limxdynamics.com</b></a>,该视频将作为<b>完赛材料评审(占总评 30%)</b>计分的依据(线上排行榜 70% 由自动评测 T4 得分单独产出,与本视频无关)。</p>
+      <p style="margin:0 0 .55rem"><b>演示视频提交(邮箱通道)</b> —— 请于 <b>7 月 20 日 24:00</b> 前,将最终讲解及演示视频提交至邮箱 <a href="mailto:troncamp@limxdynamics.com" style="color:var(--accent)"><b>troncamp@limxdynamics.com</b></a>,该视频将作为<b>完赛材料评审(占总评 30%)</b>计分的依据(线上排行榜 70% 由自动评测 T4 得分单独产出,与本视频无关)。</p>
       <ul style="margin:.2rem 0 0;padding-left:1.25rem;color:var(--muted);line-height:1.85">
         <li>完整展示代码思路及实机 / 仿真演示过程</li>
         <li>建议配合画外音讲解,便于主办方理解方案亮点</li>
