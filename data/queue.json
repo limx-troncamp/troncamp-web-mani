@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-08T15:10:03Z",
+  "generated_at": "2026-07-08T15:15:10Z",
   "counts": {
     "queued": 0,
-    "running": 7,
-    "done_recent": 38,
+    "running": 6,
+    "done_recent": 40,
     "failed_recent": 8
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-08T12:02:04Z",
       "reason": null,
-      "progress": "87/100"
+      "progress": "89/100"
     },
     {
       "team": "1JJO-A",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-08T12:47:43Z",
       "reason": null,
-      "progress": "55/100"
+      "progress": "56/100"
     },
     {
       "team": "1JJO-A",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-08T12:48:39Z",
       "reason": null,
-      "progress": "54/100"
+      "progress": "56/100"
     },
     {
       "team": "AhXfgg",
@@ -37,23 +37,7 @@
       "status": "running",
       "created_at": "2026-07-08T13:28:15Z",
       "reason": null,
-      "progress": "38/100"
-    },
-    {
-      "team": "xiqpmA",
-      "track": "T2",
-      "status": "running",
-      "created_at": "2026-07-08T14:10:58Z",
-      "reason": null,
-      "progress": "99/100"
-    },
-    {
-      "team": "24ZlhA",
-      "track": "T1",
-      "status": "running",
-      "created_at": "2026-07-08T14:25:47Z",
-      "reason": null,
-      "progress": "78/100"
+      "progress": "41/100"
     },
     {
       "team": "Wz_lPA",
@@ -61,14 +45,38 @@
       "status": "running",
       "created_at": "2026-07-08T14:51:34Z",
       "reason": null,
-      "progress": "7/100"
+      "progress": "9/100"
+    },
+    {
+      "team": "Tm3x0Q",
+      "track": "T2",
+      "status": "running",
+      "created_at": "2026-07-08T15:13:29Z",
+      "reason": null,
+      "progress": "2/100"
     },
     {
       "team": "UpnC2w",
       "track": "T4",
       "status": "failed",
       "created_at": "2026-07-08T15:05:38Z",
-      "reason": "评测失败",
+      "reason": "代码包内含符号链接/硬链接,评测解包出于安全会拒绝(常见于随包打进了 wandb 运行目录、备份目录、软链的数据/权重等)。请在打包前排除这些软链/备份目录,或用 submit.py 只打包必要的 policy 目录后重新提交",
+      "progress": null
+    },
+    {
+      "team": "24ZlhA",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-08T14:25:47Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "xiqpmA",
+      "track": "T2",
+      "status": "done",
+      "created_at": "2026-07-08T14:10:58Z",
+      "reason": null,
       "progress": null
     },
     {
