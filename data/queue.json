@@ -1,43 +1,19 @@
 {
-  "generated_at": "2026-07-08T10:00:04Z",
+  "generated_at": "2026-07-08T10:10:03Z",
   "counts": {
     "queued": 0,
-    "running": 6,
-    "done_recent": 31,
+    "running": 4,
+    "done_recent": 34,
     "failed_recent": 8
   },
   "items": [
-    {
-      "team": "-QIalg",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-08T07:10:30Z",
-      "reason": null,
-      "progress": "97/100"
-    },
     {
       "team": "x-a1VA",
       "track": "T3",
       "status": "running",
       "created_at": "2026-07-08T07:16:20Z",
       "reason": null,
-      "progress": "81/100"
-    },
-    {
-      "team": "Ba5V5A",
-      "track": "T2",
-      "status": "running",
-      "created_at": "2026-07-08T09:10:33Z",
-      "reason": null,
-      "progress": "93/100"
-    },
-    {
-      "team": "fEzvSw",
-      "track": "T1",
-      "status": "running",
-      "created_at": "2026-07-08T09:11:22Z",
-      "reason": null,
-      "progress": "77/100"
+      "progress": "86/100"
     },
     {
       "team": "fEzvSw",
@@ -45,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-08T09:30:26Z",
       "reason": null,
-      "progress": "42/100"
+      "progress": "55/100"
     },
     {
       "team": "Wz_lPA",
@@ -53,7 +29,31 @@
       "status": "running",
       "created_at": "2026-07-08T09:34:12Z",
       "reason": null,
-      "progress": "8/100"
+      "progress": "11/100"
+    },
+    {
+      "team": "YIqOkA",
+      "track": "T2",
+      "status": "running",
+      "created_at": "2026-07-08T10:06:34Z",
+      "reason": null,
+      "progress": "5/100"
+    },
+    {
+      "team": "fEzvSw",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-08T09:11:22Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "Ba5V5A",
+      "track": "T2",
+      "status": "done",
+      "created_at": "2026-07-08T09:10:33Z",
+      "reason": null,
+      "progress": null
     },
     {
       "team": "Mgks8Q",
@@ -84,6 +84,14 @@
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-08T07:45:43Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "-QIalg",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-08T07:10:30Z",
       "reason": null,
       "progress": null
     },
