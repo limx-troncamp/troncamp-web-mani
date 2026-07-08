@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-08T15:50:03Z",
+  "generated_at": "2026-07-08T16:00:04Z",
   "counts": {
-    "queued": 0,
-    "running": 7,
+    "queued": 1,
+    "running": 8,
     "done_recent": 41,
-    "failed_recent": 7
+    "failed_recent": 6
   },
   "items": [
     {
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-08T12:47:43Z",
       "reason": null,
-      "progress": "68/100"
+      "progress": "72/100"
     },
     {
       "team": "1JJO-A",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-08T12:48:39Z",
       "reason": null,
-      "progress": "68/100"
+      "progress": "72/100"
     },
     {
       "team": "AhXfgg",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-08T13:28:15Z",
       "reason": null,
-      "progress": "54/100"
+      "progress": "58/100"
     },
     {
       "team": "Wz_lPA",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-08T14:51:34Z",
       "reason": null,
-      "progress": "21/100"
+      "progress": "25/100"
     },
     {
       "team": "Tm3x0Q",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-08T15:13:29Z",
       "reason": null,
-      "progress": "60/100"
+      "progress": "77/100"
     },
     {
       "team": "nCNuPA",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-08T15:36:24Z",
       "reason": null,
-      "progress": "19/100"
+      "progress": "32/100"
     },
     {
       "team": "UpnC2w",
@@ -61,7 +61,23 @@
       "status": "running",
       "created_at": "2026-07-08T15:44:36Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "5/100"
+    },
+    {
+      "team": "YvTt5g",
+      "track": "T2",
+      "status": "running",
+      "created_at": "2026-07-08T15:55:43Z",
+      "reason": null,
+      "progress": "5/100"
+    },
+    {
+      "team": "xOtO9g",
+      "track": "T2",
+      "status": "queued",
+      "created_at": "2026-07-08T15:56:54Z",
+      "reason": null,
+      "progress": null
     },
     {
       "team": "UpnC2w",
@@ -437,14 +453,6 @@
       "status": "done",
       "created_at": "2026-07-07T16:04:10Z",
       "reason": null,
-      "progress": null
-    },
-    {
-      "team": "Wz_lPA",
-      "track": "T4",
-      "status": "failed",
-      "created_at": "2026-07-07T15:54:38Z",
-      "reason": "模型前向阶段张量维度不匹配。请核对模型输入与线上评测观测契约是否一致:线上仅提供 RGB 三相机图像 + qpos(不含点云 / 深度)。建议以代码包中的 eval 脚本及配置为准,自测通过后再提交",
       "progress": null
     }
   ]
