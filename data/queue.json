@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T17:30:03Z",
+  "generated_at": "2026-07-09T17:40:03Z",
   "counts": {
-    "queued": 1,
+    "queued": 0,
     "running": 8,
-    "done_recent": 39,
+    "done_recent": 40,
     "failed_recent": 1
   },
   "items": [
@@ -11,17 +11,9 @@
       "team": "1JJO-A",
       "track": "T4",
       "status": "running",
-      "created_at": "2026-07-09T13:00:38Z",
-      "reason": null,
-      "progress": "98/100"
-    },
-    {
-      "team": "1JJO-A",
-      "track": "T4",
-      "status": "running",
       "created_at": "2026-07-09T13:05:12Z",
       "reason": null,
-      "progress": "95/100"
+      "progress": "99/100"
     },
     {
       "team": "xOtO9g",
@@ -29,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-09T14:49:07Z",
       "reason": null,
-      "progress": "58/100"
+      "progress": "63/100"
     },
     {
       "team": "Xy0oKA",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-09T15:12:17Z",
       "reason": null,
-      "progress": "47/100"
+      "progress": "52/100"
     },
     {
       "team": "YIqOkA",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-09T15:26:47Z",
       "reason": null,
-      "progress": "72/100"
+      "progress": "85/100"
     },
     {
       "team": "xiqpmA",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-09T15:59:03Z",
       "reason": null,
-      "progress": "19/100"
+      "progress": "24/100"
     },
     {
       "team": "nCNuPA",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-09T16:02:10Z",
       "reason": null,
-      "progress": "35/100"
+      "progress": "49/100"
     },
     {
       "team": "DTCE8Q",
@@ -69,15 +61,15 @@
       "status": "running",
       "created_at": "2026-07-09T16:10:29Z",
       "reason": null,
-      "progress": "5/100"
+      "progress": "8/100"
     },
     {
       "team": "6RLYiw",
       "track": "T1",
-      "status": "queued",
+      "status": "running",
       "created_at": "2026-07-09T16:43:54Z",
       "reason": null,
-      "progress": null
+      "progress": "3/100"
     },
     {
       "team": "YvTt5g",
@@ -117,6 +109,14 @@
       "status": "failed",
       "created_at": "2026-07-09T13:11:48Z",
       "reason": "模型结构与训练配置不匹配,checkpoint 未能加载:请确认提交包内 policy/ACT/deploy_policy.yml 的结构(hidden_dim / chunk_size / dim_feedforward 等)与训练时一致",
+      "progress": null
+    },
+    {
+      "team": "1JJO-A",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-09T13:00:38Z",
+      "reason": null,
       "progress": null
     },
     {
