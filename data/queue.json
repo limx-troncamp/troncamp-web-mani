@@ -1,27 +1,19 @@
 {
-  "generated_at": "2026-07-09T18:50:03Z",
+  "generated_at": "2026-07-09T19:00:04Z",
   "counts": {
     "queued": 0,
-    "running": 6,
-    "done_recent": 43,
+    "running": 3,
+    "done_recent": 46,
     "failed_recent": 1
   },
   "items": [
-    {
-      "team": "xOtO9g",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-09T14:49:07Z",
-      "reason": null,
-      "progress": "96/100"
-    },
     {
       "team": "Xy0oKA",
       "track": "T3",
       "status": "running",
       "created_at": "2026-07-09T15:12:17Z",
       "reason": null,
-      "progress": "84/100"
+      "progress": "88/100"
     },
     {
       "team": "xiqpmA",
@@ -29,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-09T15:59:03Z",
       "reason": null,
-      "progress": "58/100"
+      "progress": "62/100"
     },
     {
       "team": "DTCE8Q",
@@ -37,23 +29,23 @@
       "status": "running",
       "created_at": "2026-07-09T16:10:29Z",
       "reason": null,
-      "progress": "29/100"
-    },
-    {
-      "team": "6RLYiw",
-      "track": "T1",
-      "status": "running",
-      "created_at": "2026-07-09T16:43:54Z",
-      "reason": null,
-      "progress": "80/100"
+      "progress": "32/100"
     },
     {
       "team": "o-pz7A",
       "track": "T2",
-      "status": "running",
+      "status": "done",
       "created_at": "2026-07-09T17:55:30Z",
       "reason": null,
-      "progress": "94/100"
+      "progress": null
+    },
+    {
+      "team": "6RLYiw",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-09T16:43:54Z",
+      "reason": null,
+      "progress": null
     },
     {
       "team": "nCNuPA",
@@ -92,6 +84,14 @@
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-09T15:07:06Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "xOtO9g",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-09T14:49:07Z",
       "reason": null,
       "progress": null
     },
