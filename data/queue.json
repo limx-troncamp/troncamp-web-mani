@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-09T01:20:03Z",
+  "generated_at": "2026-07-09T01:30:03Z",
   "counts": {
     "queued": 0,
     "running": 1,
-    "done_recent": 49,
+    "done_recent": 48,
     "failed_recent": 6
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-09T00:27:16Z",
       "reason": null,
-      "progress": "27/100"
+      "progress": "31/100"
     },
     {
       "team": "dfQYbw",
