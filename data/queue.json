@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-09T10:10:03Z",
+  "generated_at": "2026-07-09T10:20:03Z",
   "counts": {
     "queued": 0,
-    "running": 6,
+    "running": 5,
     "done_recent": 41,
     "failed_recent": 2
   },
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-09T02:31:00Z",
       "reason": null,
-      "progress": "48/100"
+      "progress": "51/100"
     },
     {
       "team": "-QIalg",
@@ -21,15 +21,7 @@
       "status": "running",
       "created_at": "2026-07-09T07:06:44Z",
       "reason": null,
-      "progress": "49/100"
-    },
-    {
-      "team": "8mGebw",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-09T07:40:30Z",
-      "reason": null,
-      "progress": "96/100"
+      "progress": "52/100"
     },
     {
       "team": "S8hmJg",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-09T09:05:33Z",
       "reason": null,
-      "progress": "32/100"
+      "progress": "36/100"
     },
     {
       "team": "l_eI0Q",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-09T09:40:17Z",
       "reason": null,
-      "progress": "14/100"
+      "progress": "18/100"
     },
     {
       "team": "tNgCOA",
@@ -53,13 +45,21 @@
       "status": "running",
       "created_at": "2026-07-09T10:09:44Z",
       "reason": null,
-      "progress": null
+      "progress": "5/100"
     },
     {
       "team": "nCNuPA",
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-09T07:44:39Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "8mGebw",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-09T07:40:30Z",
       "reason": null,
       "progress": null
     },
@@ -388,14 +388,6 @@
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-08T10:52:03Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "DTCE8Q",
-      "track": "T2",
-      "status": "done",
-      "created_at": "2026-07-08T10:13:40Z",
       "reason": null,
       "progress": null
     }
