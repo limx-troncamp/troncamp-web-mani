@@ -1,27 +1,19 @@
 {
-  "generated_at": "2026-07-09T15:20:04Z",
+  "generated_at": "2026-07-09T15:30:03Z",
   "counts": {
-    "queued": 3,
+    "queued": 5,
     "running": 8,
-    "done_recent": 36,
-    "failed_recent": 2
+    "done_recent": 37,
+    "failed_recent": 1
   },
   "items": [
-    {
-      "team": "xiqpmA",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-09T12:03:11Z",
-      "reason": null,
-      "progress": "96/100"
-    },
     {
       "team": "Wz_lPA",
       "track": "T4",
       "status": "running",
       "created_at": "2026-07-09T12:37:09Z",
       "reason": null,
-      "progress": "60/100"
+      "progress": "63/100"
     },
     {
       "team": "IBY_ng",
@@ -29,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-09T12:47:43Z",
       "reason": null,
-      "progress": "86/100"
+      "progress": "92/100"
     },
     {
       "team": "IBY_ng",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-09T12:49:01Z",
       "reason": null,
-      "progress": "81/100"
+      "progress": "87/100"
     },
     {
       "team": "tNgCOA",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-09T12:52:49Z",
       "reason": null,
-      "progress": "79/100"
+      "progress": "83/100"
     },
     {
       "team": "1JJO-A",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-09T13:00:38Z",
       "reason": null,
-      "progress": "47/100"
+      "progress": "51/100"
     },
     {
       "team": "1JJO-A",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-09T13:05:12Z",
       "reason": null,
-      "progress": "43/100"
+      "progress": "47/100"
     },
     {
       "team": "WaX_Jw",
@@ -69,12 +61,12 @@
       "status": "running",
       "created_at": "2026-07-09T14:08:53Z",
       "reason": null,
-      "progress": "33/100"
+      "progress": "48/100"
     },
     {
       "team": "xOtO9g",
       "track": "T3",
-      "status": "queued",
+      "status": "running",
       "created_at": "2026-07-09T14:49:07Z",
       "reason": null,
       "progress": null
@@ -96,6 +88,30 @@
       "progress": null
     },
     {
+      "team": "Tm3x0Q",
+      "track": "T2",
+      "status": "queued",
+      "created_at": "2026-07-09T15:22:31Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "YvTt5g",
+      "track": "T2",
+      "status": "queued",
+      "created_at": "2026-07-09T15:26:04Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "YIqOkA",
+      "track": "T2",
+      "status": "queued",
+      "created_at": "2026-07-09T15:26:47Z",
+      "reason": null,
+      "progress": null
+    },
+    {
       "team": "YIqOkA",
       "track": "T2",
       "status": "failed",
@@ -108,6 +124,14 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-09T12:07:09Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "xiqpmA",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-09T12:03:11Z",
       "reason": null,
       "progress": null
     },
@@ -389,14 +413,6 @@
       "status": "done",
       "created_at": "2026-07-08T15:36:24Z",
       "reason": null,
-      "progress": null
-    },
-    {
-      "team": "UpnC2w",
-      "track": "T4",
-      "status": "failed",
-      "created_at": "2026-07-08T15:22:52Z",
-      "reason": "评测环境仅含官方 ACT 所需依赖,你的代码 import 了环境中没有的 Python 包(ModuleNotFoundError),无法加载。线上是固定的官方 ACT 环境、不能额外安装依赖——请改用官方 policy/ACT(DP / DP3 / VLA 等非 ACT 策略需 hydra / diffusers / pytorch3d 等额外依赖,线上不支持)",
       "progress": null
     }
   ]
