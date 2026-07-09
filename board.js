@@ -51,11 +51,15 @@
   function scoreCell(r) {
     var t4 = r.t4;
     if (t4 && t4.graded != null) {
-      var w = Math.max(2, Math.min(100, t4.graded * 100));
+      var g = Math.max(0, Math.min(1, t4.graded));
+      var w = Math.max(2, g * 100);
+      // 青金渐变锚定到 0–100 轨道(background-size 放大到满轨):分数越高 → 填充越延伸到金端,
+      // 越靠近 100 颜色越深;低分只露青端。
+      var bg = Math.round(100 / Math.max(g, 0.02));
       var sub = t4.submitted_at ? '<span class="t3sub">' + esc(fmtTime(t4.submitted_at)) + '</span>' : '';
       return '<td class="c-t3"><div class="t3wrap">' +
         '<span class="t3num">' + (t4.graded * 100).toFixed(1) + '</span>' + sub +
-        '<span class="t3bar"><i style="width:' + w + '%"></i></span></div></td>';
+        '<span class="t3bar"><i style="width:' + w + '%;background-size:' + bg + '% 100%"></i></span></div></td>';
     }
     return '<td class="c-t3"></td>';
   }
