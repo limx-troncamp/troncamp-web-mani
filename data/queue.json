@@ -1,27 +1,19 @@
 {
-  "generated_at": "2026-07-09T07:00:03Z",
+  "generated_at": "2026-07-09T07:10:03Z",
   "counts": {
     "queued": 0,
-    "running": 3,
-    "done_recent": 48,
-    "failed_recent": 3
+    "running": 2,
+    "done_recent": 49,
+    "failed_recent": 4
   },
   "items": [
-    {
-      "team": "UpnC2w",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-09T03:33:50Z",
-      "reason": null,
-      "progress": "98/100"
-    },
     {
       "team": "dfQYbw",
       "track": "T3",
       "status": "running",
       "created_at": "2026-07-09T04:40:25Z",
       "reason": null,
-      "progress": "84/100"
+      "progress": "90/100"
     },
     {
       "team": "1o3mhg",
@@ -29,7 +21,15 @@
       "status": "running",
       "created_at": "2026-07-09T06:15:21Z",
       "reason": null,
-      "progress": "81/100"
+      "progress": "95/100"
+    },
+    {
+      "team": "-QIalg",
+      "track": "T4",
+      "status": "failed",
+      "created_at": "2026-07-09T07:06:44Z",
+      "reason": "评测报错(未匹配到已知原因):可先用公开 kit 的 clean 配置 + 公开种子(starter/eval_local.py)本地复现自查;若本地通过、线上仍失败,请联系主办方",
+      "progress": null
     },
     {
       "team": "YIqOkA",
@@ -84,6 +84,14 @@
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-09T03:39:48Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "UpnC2w",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-09T03:33:50Z",
       "reason": null,
       "progress": null
     },
@@ -412,22 +420,6 @@
       "track": "T1",
       "status": "done",
       "created_at": "2026-07-08T08:32:11Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "YIqOkA",
-      "track": "T2",
-      "status": "done",
-      "created_at": "2026-07-08T07:45:43Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "x-a1VA",
-      "track": "T3",
-      "status": "done",
-      "created_at": "2026-07-08T07:16:20Z",
       "reason": null,
       "progress": null
     }
