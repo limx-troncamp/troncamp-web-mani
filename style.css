@@ -267,7 +267,7 @@ table.board-strip td.c-team { text-align: left; padding-left: 1.1rem; font-famil
 .t3num { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--accent); line-height: 1; }
 .t3sub { font-family: var(--mono); font-size: 0.66rem; color: var(--dim); }
 .t3bar { display: block; width: 100%; height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }
-.t3bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), #ffd76a); background-repeat: no-repeat; }
+.t3bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), #ffd76a, #ff8c42); background-repeat: no-repeat; }
 
 #empty, .locked { text-align: center; color: var(--dim); padding: 4rem 0; font-size: 1.3rem; letter-spacing: 0.12em; }
 .locked .big { display: block; color: var(--accent); font-family: var(--display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 1rem; letter-spacing: 0.2em; }
