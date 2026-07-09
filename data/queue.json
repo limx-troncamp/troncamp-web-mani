@@ -1,19 +1,43 @@
 {
-  "generated_at": "2026-07-09T07:40:03Z",
+  "generated_at": "2026-07-09T07:50:04Z",
   "counts": {
     "queued": 0,
-    "running": 1,
-    "done_recent": 49,
-    "failed_recent": 3
+    "running": 4,
+    "done_recent": 48,
+    "failed_recent": 2
   },
   "items": [
     {
       "team": "-QIalg",
       "track": "T4",
       "status": "running",
+      "created_at": "2026-07-09T02:31:00Z",
+      "reason": null,
+      "progress": "2/100"
+    },
+    {
+      "team": "-QIalg",
+      "track": "T4",
+      "status": "running",
       "created_at": "2026-07-09T07:06:44Z",
       "reason": null,
-      "progress": null
+      "progress": "4/100"
+    },
+    {
+      "team": "8mGebw",
+      "track": "T3",
+      "status": "running",
+      "created_at": "2026-07-09T07:40:30Z",
+      "reason": null,
+      "progress": "6/100"
+    },
+    {
+      "team": "nCNuPA",
+      "track": "T2",
+      "status": "running",
+      "created_at": "2026-07-09T07:44:39Z",
+      "reason": null,
+      "progress": "7/100"
     },
     {
       "team": "1o3mhg",
@@ -117,14 +141,6 @@
       "status": "done",
       "created_at": "2026-07-09T02:35:01Z",
       "reason": null,
-      "progress": null
-    },
-    {
-      "team": "-QIalg",
-      "track": "T4",
-      "status": "failed",
-      "created_at": "2026-07-09T02:31:00Z",
-      "reason": "评测报错(未匹配到已知原因):可先用公开 kit 的 clean 配置 + 公开种子(starter/eval_local.py)本地复现自查;若本地通过、线上仍失败,请联系主办方",
       "progress": null
     },
     {
@@ -412,6 +428,14 @@
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-08T08:43:22Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "X0P8Wg",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-08T08:32:11Z",
       "reason": null,
       "progress": null
     }
