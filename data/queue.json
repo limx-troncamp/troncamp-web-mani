@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-10T07:00:04Z",
+  "generated_at": "2026-07-10T07:10:03Z",
   "counts": {
     "queued": 0,
-    "running": 7,
+    "running": 6,
     "done_recent": 34,
     "failed_recent": 5
   },
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-10T02:46:45Z",
       "reason": null,
-      "progress": "83/100"
+      "progress": "86/100"
     },
     {
       "team": "-QIalg",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-10T02:54:12Z",
       "reason": null,
-      "progress": "78/100"
+      "progress": "81/100"
     },
     {
       "team": "Wz_lPA",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-10T02:58:59Z",
       "reason": null,
-      "progress": "86/100"
+      "progress": "89/100"
     },
     {
       "team": "xiqpmA",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-10T03:50:24Z",
       "reason": null,
-      "progress": "89/100"
+      "progress": "93/100"
     },
     {
       "team": "YIqOkA",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-10T04:16:46Z",
       "reason": null,
-      "progress": "54/100"
+      "progress": "59/100"
     },
     {
       "team": "S8hmJg",
@@ -53,15 +53,7 @@
       "status": "running",
       "created_at": "2026-07-10T04:21:51Z",
       "reason": null,
-      "progress": "61/100"
-    },
-    {
-      "team": "fEzvSw",
-      "track": "T2",
-      "status": "running",
-      "created_at": "2026-07-10T05:30:12Z",
-      "reason": null,
-      "progress": "86/100"
+      "progress": "66/100"
     },
     {
       "team": "c2tSbw",
@@ -93,6 +85,14 @@
       "status": "failed",
       "created_at": "2026-07-10T06:21:26Z",
       "reason": "评测报错(未匹配到已知原因):可先用公开 kit 的 clean 配置 + 公开种子(starter/eval_local.py)本地复现自查;若本地通过、线上仍失败,请联系主办方",
+      "progress": null
+    },
+    {
+      "team": "fEzvSw",
+      "track": "T2",
+      "status": "done",
+      "created_at": "2026-07-10T05:30:12Z",
+      "reason": null,
       "progress": null
     },
     {
@@ -364,14 +364,6 @@
       "track": "T3",
       "status": "done",
       "created_at": "2026-07-09T07:40:30Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "-QIalg",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-09T07:06:44Z",
       "reason": null,
       "progress": null
     }
