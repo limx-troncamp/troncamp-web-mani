@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T02:00:03Z",
+  "generated_at": "2026-07-10T02:10:03Z",
   "counts": {
     "queued": 0,
     "running": 2,
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-10T01:34:08Z",
       "reason": null,
-      "progress": "9/100"
+      "progress": "13/100"
     },
     {
       "team": "Mgks8Q",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-10T01:52:44Z",
       "reason": null,
-      "progress": "4/100"
+      "progress": "8/100"
     },
     {
       "team": "tNgCOA",
