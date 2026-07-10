@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T08:30:04Z",
+  "generated_at": "2026-07-10T08:40:03Z",
   "counts": {
     "queued": 0,
     "running": 2,
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-10T04:16:46Z",
       "reason": null,
-      "progress": "95/100"
+      "progress": "99/100"
     },
     {
       "team": "x-a1VA",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-10T08:27:17Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "7/100"
     },
     {
       "team": "c2tSbw",
