@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T09:00:04Z",
+  "generated_at": "2026-07-11T09:10:03Z",
   "counts": {
     "queued": 0,
     "running": 7,
-    "done_recent": 32,
+    "done_recent": 31,
     "failed_recent": 4
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-11T05:30:20Z",
       "reason": null,
-      "progress": "75/100"
+      "progress": "79/100"
     },
     {
       "team": "Mgks8Q",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-11T05:38:45Z",
       "reason": null,
-      "progress": "60/100"
+      "progress": "64/100"
     },
     {
       "team": "24ZlhA",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-11T06:12:54Z",
       "reason": null,
-      "progress": "85/100"
+      "progress": "92/100"
     },
     {
       "team": "Mgks8Q",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-11T07:14:50Z",
       "reason": null,
-      "progress": "40/100"
+      "progress": "44/100"
     },
     {
       "team": "Xy0oKA",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-11T07:29:42Z",
       "reason": null,
-      "progress": "34/100"
+      "progress": "37/100"
     },
     {
       "team": "YvTt5g",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-11T07:53:12Z",
       "reason": null,
-      "progress": "32/100"
+      "progress": "36/100"
     },
     {
       "team": "AhXfgg",
@@ -61,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-11T08:23:55Z",
       "reason": null,
-      "progress": "13/100"
+      "progress": "16/100"
     },
     {
       "team": "l_eI0Q",
@@ -340,14 +340,6 @@
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-10T09:34:03Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "Xy0oKA",
-      "track": "T3",
-      "status": "done",
-      "created_at": "2026-07-10T09:08:26Z",
       "reason": null,
       "progress": null
     }
