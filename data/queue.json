@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T21:00:04Z",
+  "generated_at": "2026-07-11T21:10:03Z",
   "counts": {
     "queued": 0,
     "running": 2,
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-11T18:55:16Z",
       "reason": null,
-      "progress": "43/100"
+      "progress": "46/100"
     },
     {
       "team": "YvTt5g",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-11T19:23:41Z",
       "reason": null,
-      "progress": "43/100"
+      "progress": "47/100"
     },
     {
       "team": "OJuvBg",
