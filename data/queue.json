@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-11T09:10:03Z",
+  "generated_at": "2026-07-11T09:20:03Z",
   "counts": {
     "queued": 0,
     "running": 7,
     "done_recent": 31,
-    "failed_recent": 4
+    "failed_recent": 5
   },
   "items": [
     {
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-11T05:30:20Z",
       "reason": null,
-      "progress": "79/100"
+      "progress": "84/100"
     },
     {
       "team": "Mgks8Q",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-11T05:38:45Z",
       "reason": null,
-      "progress": "64/100"
+      "progress": "67/100"
     },
     {
       "team": "24ZlhA",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-11T06:12:54Z",
       "reason": null,
-      "progress": "92/100"
+      "progress": "100/100"
     },
     {
       "team": "Mgks8Q",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-11T07:14:50Z",
       "reason": null,
-      "progress": "44/100"
+      "progress": "47/100"
     },
     {
       "team": "Xy0oKA",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-11T07:29:42Z",
       "reason": null,
-      "progress": "37/100"
+      "progress": "40/100"
     },
     {
       "team": "YvTt5g",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-11T07:53:12Z",
       "reason": null,
-      "progress": "36/100"
+      "progress": "41/100"
     },
     {
       "team": "AhXfgg",
@@ -61,7 +61,15 @@
       "status": "running",
       "created_at": "2026-07-11T08:23:55Z",
       "reason": null,
-      "progress": "16/100"
+      "progress": "20/100"
+    },
+    {
+      "team": "l_eI0Q",
+      "track": "T3",
+      "status": "failed",
+      "created_at": "2026-07-11T09:19:24Z",
+      "reason": "评测报错(未匹配到已知原因):可先用公开 kit 的 clean 配置 + 公开种子(starter/eval_local.py)本地复现自查;若本地通过、线上仍失败,请联系主办方",
+      "progress": null
     },
     {
       "team": "l_eI0Q",
