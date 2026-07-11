@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T11:30:03Z",
+  "generated_at": "2026-07-11T11:40:04Z",
   "counts": {
     "queued": 0,
     "running": 7,
-    "done_recent": 31,
+    "done_recent": 30,
     "failed_recent": 5
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-11T07:14:50Z",
       "reason": null,
-      "progress": "97/100"
+      "progress": "100/100"
     },
     {
       "team": "Xy0oKA",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-11T07:29:42Z",
       "reason": null,
-      "progress": "87/100"
+      "progress": "91/100"
     },
     {
       "team": "AhXfgg",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-11T08:23:55Z",
       "reason": null,
-      "progress": "70/100"
+      "progress": "73/100"
     },
     {
       "team": "tNgCOA",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-11T10:23:21Z",
       "reason": null,
-      "progress": "23/100"
+      "progress": "28/100"
     },
     {
       "team": "l_eI0Q",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-11T10:25:06Z",
       "reason": null,
-      "progress": "34/100"
+      "progress": "39/100"
     },
     {
       "team": "M0B97Q",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-11T11:07:37Z",
       "reason": null,
-      "progress": "8/100"
+      "progress": "11/100"
     },
     {
       "team": "YIqOkA",
@@ -61,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-11T11:15:20Z",
       "reason": null,
-      "progress": "11/100"
+      "progress": "17/100"
     },
     {
       "team": "_C9udw",
@@ -341,14 +341,6 @@
       "status": "failed",
       "created_at": "2026-07-10T12:14:37Z",
       "reason": "模型结构与训练配置不匹配,checkpoint 未能加载:请确认提交包内 policy/ACT/deploy_policy.yml 的结构(hidden_dim / chunk_size / dim_feedforward 等)与训练时一致",
-      "progress": null
-    },
-    {
-      "team": "tNgCOA",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-10T11:37:14Z",
-      "reason": null,
       "progress": null
     }
   ]
