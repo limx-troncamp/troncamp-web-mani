@@ -1,27 +1,19 @@
 {
-  "generated_at": "2026-07-11T11:40:04Z",
+  "generated_at": "2026-07-11T11:50:04Z",
   "counts": {
     "queued": 0,
-    "running": 7,
-    "done_recent": 30,
+    "running": 6,
+    "done_recent": 31,
     "failed_recent": 5
   },
   "items": [
-    {
-      "team": "Mgks8Q",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-11T07:14:50Z",
-      "reason": null,
-      "progress": "100/100"
-    },
     {
       "team": "Xy0oKA",
       "track": "T4",
       "status": "running",
       "created_at": "2026-07-11T07:29:42Z",
       "reason": null,
-      "progress": "91/100"
+      "progress": "95/100"
     },
     {
       "team": "AhXfgg",
@@ -29,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-11T08:23:55Z",
       "reason": null,
-      "progress": "73/100"
+      "progress": "77/100"
     },
     {
       "team": "tNgCOA",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-11T10:23:21Z",
       "reason": null,
-      "progress": "28/100"
+      "progress": "31/100"
     },
     {
       "team": "l_eI0Q",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-11T10:25:06Z",
       "reason": null,
-      "progress": "39/100"
+      "progress": "44/100"
     },
     {
       "team": "M0B97Q",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-11T11:07:37Z",
       "reason": null,
-      "progress": "11/100"
+      "progress": "13/100"
     },
     {
       "team": "YIqOkA",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-11T11:15:20Z",
       "reason": null,
-      "progress": "17/100"
+      "progress": "24/100"
     },
     {
       "team": "_C9udw",
@@ -92,6 +84,14 @@
       "track": "T3",
       "status": "done",
       "created_at": "2026-07-11T07:53:12Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "Mgks8Q",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-11T07:14:50Z",
       "reason": null,
       "progress": null
     },
