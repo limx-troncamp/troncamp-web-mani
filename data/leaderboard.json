@@ -1,6 +1,6 @@
 {
   "_comment": "后端真实榜 + 占位示例自动合并(board_sync)。真实条目优先;示例仅在无同名真实条目时保留。",
-  "generated_at": "2026-07-11T19:37:14Z",
+  "generated_at": "2026-07-11T20:04:04Z",
   "deadline": "2026-07-21T00:00:00+08:00",
   "final_unlocked": false,
   "dev": [
@@ -249,7 +249,7 @@
         "success_rate": 0.64
       },
       "t4": {
-        "graded": 0.30999999999999994
+        "graded": 0.3633333333333333
       },
       "progress": {
         "level": 3,
