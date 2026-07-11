@@ -1,6 +1,6 @@
 {
   "_comment": "后端真实榜 + 占位示例自动合并(board_sync)。真实条目优先;示例仅在无同名真实条目时保留。",
-  "generated_at": "2026-07-11T06:21:34Z",
+  "generated_at": "2026-07-11T06:55:29Z",
   "deadline": "2026-07-21T00:00:00+08:00",
   "final_unlocked": false,
   "dev": [
@@ -203,7 +203,7 @@
         "success_rate": 0.56
       },
       "t4": {
-        "graded": 0.19000000000000006
+        "graded": 0.2700000000000001
       },
       "progress": {
         "level": 3,
@@ -351,6 +351,24 @@
         "pass": false,
         "success_rate": 0.22
       },
+      "t4": null,
+      "progress": {
+        "level": 2,
+        "track": "T2",
+        "success_rate": 0.92
+      }
+    },
+    {
+      "token_suffix": "ECw09A",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.55
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.92
+      },
+      "t3": null,
       "t4": null,
       "progress": {
         "level": 2,
@@ -825,21 +843,6 @@
     },
     {
       "token_suffix": "X0P8Wg",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.55
-      },
-      "t2": null,
-      "t3": null,
-      "t4": null,
-      "progress": {
-        "level": 1,
-        "track": "T1",
-        "success_rate": 0.55
-      }
-    },
-    {
-      "token_suffix": "ECw09A",
       "t1": {
         "pass": true,
         "success_rate": 0.55
