@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-12T17:30:03Z",
+  "generated_at": "2026-07-12T17:40:03Z",
   "counts": {
-    "queued": 2,
+    "queued": 3,
     "running": 8,
     "done_recent": 31,
     "failed_recent": 3
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-12T13:28:17Z",
       "reason": null,
-      "progress": "91/100"
+      "progress": "95/100"
     },
     {
       "team": "bvxmcQ",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-12T14:48:05Z",
       "reason": null,
-      "progress": "56/100"
+      "progress": "59/100"
     },
     {
       "team": "_C9udw",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-12T15:47:14Z",
       "reason": null,
-      "progress": "50/100"
+      "progress": "55/100"
     },
     {
       "team": "6RLYiw",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-12T15:47:36Z",
       "reason": null,
-      "progress": "50/100"
+      "progress": "55/100"
     },
     {
       "team": "a40Cbw",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-12T15:47:36Z",
       "reason": null,
-      "progress": "48/100"
+      "progress": "53/100"
     },
     {
       "team": "WYSADw",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-12T15:47:36Z",
       "reason": null,
-      "progress": "41/100"
+      "progress": "45/100"
     },
     {
       "team": "OJuvBg",
@@ -61,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-12T15:54:24Z",
       "reason": null,
-      "progress": "83/100"
+      "progress": "96/100"
     },
     {
       "team": "Xy0oKA",
@@ -69,7 +69,7 @@
       "status": "running",
       "created_at": "2026-07-12T16:05:41Z",
       "reason": null,
-      "progress": "3/100"
+      "progress": "7/100"
     },
     {
       "team": "C0PlEA",
@@ -84,6 +84,14 @@
       "track": "T3",
       "status": "queued",
       "created_at": "2026-07-12T17:10:03Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "dfQYbw",
+      "track": "T4",
+      "status": "queued",
+      "created_at": "2026-07-12T17:36:25Z",
       "reason": null,
       "progress": null
     },
