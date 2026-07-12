@@ -1,27 +1,19 @@
 {
-  "generated_at": "2026-07-12T15:10:03Z",
+  "generated_at": "2026-07-12T15:20:04Z",
   "counts": {
     "queued": 0,
-    "running": 5,
-    "done_recent": 31,
-    "failed_recent": 2
+    "running": 4,
+    "done_recent": 30,
+    "failed_recent": 3
   },
   "items": [
-    {
-      "team": "Wz_lPA",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-12T09:12:01Z",
-      "reason": null,
-      "progress": "99/100"
-    },
     {
       "team": "M0B97Q",
       "track": "T4",
       "status": "running",
       "created_at": "2026-07-12T10:15:04Z",
       "reason": null,
-      "progress": "83/100"
+      "progress": "87/100"
     },
     {
       "team": "bvxmcQ",
@@ -29,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-12T10:46:27Z",
       "reason": null,
-      "progress": "61/100"
+      "progress": "64/100"
     },
     {
       "team": "Mgks8Q",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-12T13:28:17Z",
       "reason": null,
-      "progress": "39/100"
+      "progress": "42/100"
     },
     {
       "team": "bvxmcQ",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-12T14:48:05Z",
       "reason": null,
-      "progress": "8/100"
+      "progress": "11/100"
     },
     {
       "team": "Mgks8Q",
@@ -93,6 +85,14 @@
       "status": "done",
       "created_at": "2026-07-12T09:20:43Z",
       "reason": null,
+      "progress": null
+    },
+    {
+      "team": "Wz_lPA",
+      "track": "T4",
+      "status": "failed",
+      "created_at": "2026-07-12T09:12:01Z",
+      "reason": "评测失败",
       "progress": null
     },
     {
@@ -300,14 +300,6 @@
       "track": "T3",
       "status": "done",
       "created_at": "2026-07-11T16:22:02Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "g7MGaA",
-      "track": "T1",
-      "status": "done",
-      "created_at": "2026-07-11T15:17:03Z",
       "reason": null,
       "progress": null
     }
