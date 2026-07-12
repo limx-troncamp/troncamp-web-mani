@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T15:00:03Z",
+  "generated_at": "2026-07-12T15:10:03Z",
   "counts": {
     "queued": 0,
-    "running": 6,
-    "done_recent": 32,
+    "running": 5,
+    "done_recent": 31,
     "failed_recent": 2
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-12T09:12:01Z",
       "reason": null,
-      "progress": "96/100"
+      "progress": "99/100"
     },
     {
       "team": "M0B97Q",
@@ -21,15 +21,7 @@
       "status": "running",
       "created_at": "2026-07-12T10:15:04Z",
       "reason": null,
-      "progress": "80/100"
-    },
-    {
-      "team": "YvTt5g",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-12T10:17:45Z",
-      "reason": null,
-      "progress": "97/100"
+      "progress": "83/100"
     },
     {
       "team": "bvxmcQ",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-12T10:46:27Z",
       "reason": null,
-      "progress": "58/100"
+      "progress": "61/100"
     },
     {
       "team": "Mgks8Q",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-12T13:28:17Z",
       "reason": null,
-      "progress": "35/100"
+      "progress": "39/100"
     },
     {
       "team": "bvxmcQ",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-12T14:48:05Z",
       "reason": null,
-      "progress": "4/100"
+      "progress": "8/100"
     },
     {
       "team": "Mgks8Q",
@@ -61,6 +53,14 @@
       "status": "failed",
       "created_at": "2026-07-12T10:18:32Z",
       "reason": "代码包内含符号链接/硬链接,评测解包出于安全会拒绝(常见于随包打进了 wandb 运行目录、备份目录、软链的数据/权重等)。请在打包前排除这些软链/备份目录,或用 submit.py 只打包必要的 policy 目录后重新提交",
+      "progress": null
+    },
+    {
+      "team": "YvTt5g",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-12T10:17:45Z",
+      "reason": null,
       "progress": null
     },
     {
@@ -308,22 +308,6 @@
       "track": "T1",
       "status": "done",
       "created_at": "2026-07-11T15:17:03Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "YvTt5g",
-      "track": "T3",
-      "status": "done",
-      "created_at": "2026-07-11T15:05:32Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "Wz_lPA",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-11T15:01:17Z",
       "reason": null,
       "progress": null
     }
