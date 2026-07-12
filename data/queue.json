@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-12T06:00:03Z",
+  "generated_at": "2026-07-12T06:10:04Z",
   "counts": {
     "queued": 0,
-    "running": 5,
+    "running": 7,
     "done_recent": 31,
     "failed_recent": 5
   },
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-12T01:43:12Z",
       "reason": null,
-      "progress": "94/100"
+      "progress": "98/100"
     },
     {
       "team": "-QIalg",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-12T02:02:49Z",
       "reason": null,
-      "progress": "87/100"
+      "progress": "90/100"
     },
     {
       "team": "S8hmJg",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-12T02:31:11Z",
       "reason": null,
-      "progress": "78/100"
+      "progress": "83/100"
     },
     {
       "team": "ECw09A",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-12T03:54:45Z",
       "reason": null,
-      "progress": "78/100"
+      "progress": "84/100"
     },
     {
       "team": "l_eI0Q",
@@ -45,7 +45,23 @@
       "status": "running",
       "created_at": "2026-07-12T04:05:09Z",
       "reason": null,
-      "progress": "51/100"
+      "progress": "57/100"
+    },
+    {
+      "team": "YIqOkA",
+      "track": "T4",
+      "status": "running",
+      "created_at": "2026-07-12T06:02:22Z",
+      "reason": null,
+      "progress": "3/100"
+    },
+    {
+      "team": "xumAfg",
+      "track": "T1",
+      "status": "running",
+      "created_at": "2026-07-12T06:02:38Z",
+      "reason": null,
+      "progress": "9/100"
     },
     {
       "team": "zROfyg",
