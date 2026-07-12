@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-12T13:00:03Z",
+  "generated_at": "2026-07-12T13:10:03Z",
   "counts": {
     "queued": 0,
-    "running": 8,
-    "done_recent": 31,
+    "running": 7,
+    "done_recent": 32,
     "failed_recent": 2
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-12T09:12:01Z",
       "reason": null,
-      "progress": "63/100"
+      "progress": "66/100"
     },
     {
       "team": "AhXfgg",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-12T09:20:43Z",
       "reason": null,
-      "progress": "84/100"
+      "progress": "87/100"
     },
     {
       "team": "-QIalg",
@@ -29,15 +29,7 @@
       "status": "running",
       "created_at": "2026-07-12T09:38:38Z",
       "reason": null,
-      "progress": "70/100"
-    },
-    {
-      "team": "WaX_Jw",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-12T09:43:09Z",
-      "reason": null,
-      "progress": "98/100"
+      "progress": "74/100"
     },
     {
       "team": "tNgCOA",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-12T10:11:24Z",
       "reason": null,
-      "progress": "63/100"
+      "progress": "67/100"
     },
     {
       "team": "M0B97Q",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-12T10:15:04Z",
       "reason": null,
-      "progress": "38/100"
+      "progress": "42/100"
     },
     {
       "team": "YvTt5g",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-12T10:17:45Z",
       "reason": null,
-      "progress": "43/100"
+      "progress": "47/100"
     },
     {
       "team": "bvxmcQ",
@@ -69,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-12T10:46:27Z",
       "reason": null,
-      "progress": "23/100"
+      "progress": "26/100"
     },
     {
       "team": "Mgks8Q",
@@ -77,6 +69,14 @@
       "status": "failed",
       "created_at": "2026-07-12T10:18:32Z",
       "reason": "代码包内含符号链接/硬链接,评测解包出于安全会拒绝(常见于随包打进了 wandb 运行目录、备份目录、软链的数据/权重等)。请在打包前排除这些软链/备份目录,或用 submit.py 只打包必要的 policy 目录后重新提交",
+      "progress": null
+    },
+    {
+      "team": "WaX_Jw",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-12T09:43:09Z",
+      "reason": null,
       "progress": null
     },
     {
