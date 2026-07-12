@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-12T04:30:03Z",
+  "generated_at": "2026-07-12T04:40:04Z",
   "counts": {
     "queued": 0,
-    "running": 8,
-    "done_recent": 32,
-    "failed_recent": 6
+    "running": 7,
+    "done_recent": 33,
+    "failed_recent": 5
   },
   "items": [
     {
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-11T23:59:43Z",
       "reason": null,
-      "progress": "89/100"
+      "progress": "93/100"
     },
     {
       "team": "8mGebw",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-12T01:43:12Z",
       "reason": null,
-      "progress": "62/100"
+      "progress": "65/100"
     },
     {
       "team": "fEzvSw",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-12T01:50:04Z",
       "reason": null,
-      "progress": "92/100"
+      "progress": "98/100"
     },
     {
       "team": "-QIalg",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-12T02:02:49Z",
       "reason": null,
-      "progress": "54/100"
+      "progress": "57/100"
     },
     {
       "team": "S8hmJg",
@@ -45,15 +45,7 @@
       "status": "running",
       "created_at": "2026-07-12T02:31:11Z",
       "reason": null,
-      "progress": "37/100"
-    },
-    {
-      "team": "zROfyg",
-      "track": "T2",
-      "status": "running",
-      "created_at": "2026-07-12T03:51:09Z",
-      "reason": null,
-      "progress": "89/100"
+      "progress": "42/100"
     },
     {
       "team": "ECw09A",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-12T03:54:45Z",
       "reason": null,
-      "progress": "22/100"
+      "progress": "28/100"
     },
     {
       "team": "l_eI0Q",
@@ -69,7 +61,15 @@
       "status": "running",
       "created_at": "2026-07-12T04:05:09Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "8/100"
+    },
+    {
+      "team": "zROfyg",
+      "track": "T2",
+      "status": "done",
+      "created_at": "2026-07-12T03:51:09Z",
+      "reason": null,
+      "progress": null
     },
     {
       "team": "DTaTDQ",
@@ -365,14 +365,6 @@
       "status": "done",
       "created_at": "2026-07-11T04:45:51Z",
       "reason": null,
-      "progress": null
-    },
-    {
-      "team": "l_eI0Q",
-      "track": "T3",
-      "status": "failed",
-      "created_at": "2026-07-11T04:38:57Z",
-      "reason": "评测报错(未匹配到已知原因):可先用公开 kit 的 clean 配置 + 公开种子(starter/eval_local.py)本地复现自查;若本地通过、线上仍失败,请联系主办方",
       "progress": null
     }
   ]
