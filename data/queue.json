@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-12T23:20:04Z",
+  "generated_at": "2026-07-12T23:30:04Z",
   "counts": {
     "queued": 0,
-    "running": 1,
-    "done_recent": 36,
+    "running": 0,
+    "done_recent": 37,
     "failed_recent": 3
   },
   "items": [
     {
       "team": "dfQYbw",
       "track": "T4",
-      "status": "running",
+      "status": "done",
       "created_at": "2026-07-12T17:36:25Z",
       "reason": null,
-      "progress": "100/100"
+      "progress": null
     },
     {
       "team": "S8hmJg",
