@@ -1,6 +1,6 @@
 {
   "_comment": "后端真实榜 + 占位示例自动合并(board_sync)。真实条目优先;示例仅在无同名真实条目时保留。",
-  "generated_at": "2026-07-12T06:18:38Z",
+  "generated_at": "2026-07-12T06:36:23Z",
   "deadline": "2026-07-21T00:00:00+08:00",
   "final_unlocked": false,
   "dev": [
@@ -212,6 +212,29 @@
       }
     },
     {
+      "token_suffix": "-QIalg",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.58
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.61
+      },
+      "t3": {
+        "pass": true,
+        "success_rate": 0.56
+      },
+      "t4": {
+        "graded": 0.5099999999999999
+      },
+      "progress": {
+        "level": 3,
+        "track": "T3",
+        "success_rate": 0.56
+      }
+    },
+    {
       "token_suffix": "Mgks8Q",
       "t1": {
         "pass": true,
@@ -258,29 +281,6 @@
       }
     },
     {
-      "token_suffix": "-QIalg",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.58
-      },
-      "t2": {
-        "pass": true,
-        "success_rate": 0.61
-      },
-      "t3": {
-        "pass": true,
-        "success_rate": 0.56
-      },
-      "t4": {
-        "graded": 0.2700000000000001
-      },
-      "progress": {
-        "level": 3,
-        "track": "T3",
-        "success_rate": 0.56
-      }
-    },
-    {
       "token_suffix": "YIqOkA",
       "t1": {
         "pass": true,
@@ -320,6 +320,27 @@
         "level": 3,
         "track": "T3",
         "success_rate": 0.76
+      }
+    },
+    {
+      "token_suffix": "ECw09A",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.55
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.92
+      },
+      "t3": {
+        "pass": true,
+        "success_rate": 0.71
+      },
+      "t4": null,
+      "progress": {
+        "level": 3,
+        "track": "T3",
+        "success_rate": 0.71
       }
     },
     {
@@ -462,24 +483,6 @@
         "pass": false,
         "success_rate": 0.22
       },
-      "t4": null,
-      "progress": {
-        "level": 2,
-        "track": "T2",
-        "success_rate": 0.92
-      }
-    },
-    {
-      "token_suffix": "ECw09A",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.55
-      },
-      "t2": {
-        "pass": true,
-        "success_rate": 0.92
-      },
-      "t3": null,
       "t4": null,
       "progress": {
         "level": 2,
