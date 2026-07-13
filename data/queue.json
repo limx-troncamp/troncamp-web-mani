@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T18:00:03Z",
+  "generated_at": "2026-07-13T18:10:03Z",
   "counts": {
-    "queued": 4,
+    "queued": 3,
     "running": 8,
-    "done_recent": 26,
+    "done_recent": 27,
     "failed_recent": 1
   },
   "items": [
@@ -11,17 +11,9 @@
       "team": "tNgCOA",
       "track": "T4",
       "status": "running",
-      "created_at": "2026-07-13T13:28:27Z",
-      "reason": null,
-      "progress": "100/100"
-    },
-    {
-      "team": "tNgCOA",
-      "track": "T4",
-      "status": "running",
       "created_at": "2026-07-13T13:29:46Z",
       "reason": null,
-      "progress": "86/100"
+      "progress": "90/100"
     },
     {
       "team": "Wz_lPA",
@@ -29,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-13T13:52:12Z",
       "reason": null,
-      "progress": "67/100"
+      "progress": "70/100"
     },
     {
       "team": "zROfyg",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-13T14:01:42Z",
       "reason": null,
-      "progress": "91/100"
+      "progress": "97/100"
     },
     {
       "team": "Wz_lPA",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-13T14:03:06Z",
       "reason": null,
-      "progress": "52/100"
+      "progress": "55/100"
     },
     {
       "team": "YIqOkA",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-13T14:05:35Z",
       "reason": null,
-      "progress": "31/100"
+      "progress": "34/100"
     },
     {
       "team": "DTaTDQ",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-13T14:53:18Z",
       "reason": null,
-      "progress": "77/100"
+      "progress": "92/100"
     },
     {
       "team": "l_eI0Q",
@@ -69,15 +61,15 @@
       "status": "running",
       "created_at": "2026-07-13T15:51:04Z",
       "reason": null,
-      "progress": "6/100"
+      "progress": "9/100"
     },
     {
       "team": "xOtO9g",
       "track": "T3",
-      "status": "queued",
+      "status": "running",
       "created_at": "2026-07-13T16:35:41Z",
       "reason": null,
-      "progress": null
+      "progress": "5/100"
     },
     {
       "team": "1o3mhg",
@@ -100,6 +92,14 @@
       "track": "T2",
       "status": "queued",
       "created_at": "2026-07-13T17:19:46Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "tNgCOA",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-13T13:28:27Z",
       "reason": null,
       "progress": null
     },
