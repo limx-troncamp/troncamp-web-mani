@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T01:00:03Z",
+  "generated_at": "2026-07-14T01:10:03Z",
   "counts": {
     "queued": 0,
     "running": 2,
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-13T23:33:25Z",
       "reason": null,
-      "progress": "35/100"
+      "progress": "39/100"
     },
     {
       "team": "C0PlEA",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-14T00:36:23Z",
       "reason": null,
-      "progress": "11/100"
+      "progress": "15/100"
     },
     {
       "team": "zROfyg",
