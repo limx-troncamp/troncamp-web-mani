@@ -1,35 +1,19 @@
 {
-  "generated_at": "2026-07-14T09:40:03Z",
+  "generated_at": "2026-07-14T09:50:03Z",
   "counts": {
     "queued": 0,
-    "running": 7,
-    "done_recent": 36,
+    "running": 5,
+    "done_recent": 38,
     "failed_recent": 0
   },
   "items": [
-    {
-      "team": "xumAfg",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-14T05:22:03Z",
-      "reason": null,
-      "progress": "100/100"
-    },
-    {
-      "team": "03qiTA",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-14T06:21:03Z",
-      "reason": null,
-      "progress": "100/100"
-    },
     {
       "team": "-QIalg",
       "track": "T4",
       "status": "running",
       "created_at": "2026-07-14T06:57:26Z",
       "reason": null,
-      "progress": "41/100"
+      "progress": "44/100"
     },
     {
       "team": "8mGebw",
@@ -37,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-14T07:46:40Z",
       "reason": null,
-      "progress": "43/100"
+      "progress": "47/100"
     },
     {
       "team": "xOtO9g",
@@ -45,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-14T08:43:55Z",
       "reason": null,
-      "progress": "43/100"
+      "progress": "49/100"
     },
     {
       "team": "o-pz7A",
@@ -53,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-14T08:45:30Z",
       "reason": null,
-      "progress": "18/100"
+      "progress": "21/100"
     },
     {
       "team": "fEzvSw",
@@ -61,13 +45,29 @@
       "status": "running",
       "created_at": "2026-07-14T08:50:36Z",
       "reason": null,
-      "progress": "16/100"
+      "progress": "19/100"
     },
     {
       "team": "JKNUSQ",
       "track": "T1",
       "status": "done",
       "created_at": "2026-07-14T06:30:53Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "03qiTA",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-14T06:21:03Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "xumAfg",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-14T05:22:03Z",
       "reason": null,
       "progress": null
     },
