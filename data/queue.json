@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T22:20:04Z",
+  "generated_at": "2026-07-14T22:30:03Z",
   "counts": {
     "queued": 0,
-    "running": 8,
-    "done_recent": 38,
+    "running": 7,
+    "done_recent": 39,
     "failed_recent": 4
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-14T13:35:24Z",
       "reason": null,
-      "progress": "94/100"
+      "progress": "97/100"
     },
     {
       "team": "bvxmcQ",
@@ -21,15 +21,7 @@
       "status": "running",
       "created_at": "2026-07-14T14:20:16Z",
       "reason": null,
-      "progress": "88/100"
-    },
-    {
-      "team": "24ZlhA",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-14T14:29:13Z",
-      "reason": null,
-      "progress": "98/100"
+      "progress": "92/100"
     },
     {
       "team": "l_eI0Q",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-14T15:54:03Z",
       "reason": null,
-      "progress": "80/100"
+      "progress": "83/100"
     },
     {
       "team": "Xy0oKA",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-14T16:15:23Z",
       "reason": null,
-      "progress": "58/100"
+      "progress": "61/100"
     },
     {
       "team": "1JJO-A",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-14T16:17:45Z",
       "reason": null,
-      "progress": "67/100"
+      "progress": "70/100"
     },
     {
       "team": "-QIalg",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-14T17:00:29Z",
       "reason": null,
-      "progress": "48/100"
+      "progress": "51/100"
     },
     {
       "team": "DTCE8Q",
@@ -69,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-14T17:20:49Z",
       "reason": null,
-      "progress": "20/100"
+      "progress": "24/100"
     },
     {
       "team": "sdbPFw",
@@ -109,6 +101,14 @@
       "status": "failed",
       "created_at": "2026-07-14T14:40:02Z",
       "reason": "模型结构与训练配置不匹配,checkpoint 未能加载:请确认提交包内 policy/ACT/deploy_policy.yml 的结构(hidden_dim / chunk_size / dim_feedforward 等)与训练时一致",
+      "progress": null
+    },
+    {
+      "team": "24ZlhA",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-14T14:29:13Z",
+      "reason": null,
       "progress": null
     },
     {
