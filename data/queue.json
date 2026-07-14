@@ -1,27 +1,19 @@
 {
-  "generated_at": "2026-07-14T08:00:03Z",
+  "generated_at": "2026-07-14T08:10:03Z",
   "counts": {
     "queued": 0,
-    "running": 7,
-    "done_recent": 38,
+    "running": 6,
+    "done_recent": 39,
     "failed_recent": 0
   },
   "items": [
-    {
-      "team": "pIM0vw",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-14T03:02:12Z",
-      "reason": null,
-      "progress": "99/100"
-    },
     {
       "team": "a40Cbw",
       "track": "T3",
       "status": "running",
       "created_at": "2026-07-14T03:44:50Z",
       "reason": null,
-      "progress": "86/100"
+      "progress": "93/100"
     },
     {
       "team": "o-pz7A",
@@ -29,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-14T04:24:51Z",
       "reason": null,
-      "progress": "88/100"
+      "progress": "96/100"
     },
     {
       "team": "xumAfg",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-14T05:22:03Z",
       "reason": null,
-      "progress": "47/100"
+      "progress": "52/100"
     },
     {
       "team": "03qiTA",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-14T06:21:03Z",
       "reason": null,
-      "progress": "45/100"
+      "progress": "50/100"
     },
     {
       "team": "-QIalg",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-14T06:57:26Z",
       "reason": null,
-      "progress": "9/100"
+      "progress": "12/100"
     },
     {
       "team": "8mGebw",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-14T07:46:40Z",
       "reason": null,
-      "progress": "5/100"
+      "progress": "9/100"
     },
     {
       "team": "JKNUSQ",
@@ -84,6 +76,14 @@
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-14T03:39:40Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "pIM0vw",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-14T03:02:12Z",
       "reason": null,
       "progress": null
     },
