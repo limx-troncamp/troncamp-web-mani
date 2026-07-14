@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T11:30:03Z",
+  "generated_at": "2026-07-14T11:40:04Z",
   "counts": {
     "queued": 0,
     "running": 7,
-    "done_recent": 37,
+    "done_recent": 36,
     "failed_recent": 1
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-14T06:57:26Z",
       "reason": null,
-      "progress": "77/100"
+      "progress": "80/100"
     },
     {
       "team": "8mGebw",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-14T07:46:40Z",
       "reason": null,
-      "progress": "84/100"
+      "progress": "89/100"
     },
     {
       "team": "o-pz7A",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-14T08:45:30Z",
       "reason": null,
-      "progress": "52/100"
+      "progress": "55/100"
     },
     {
       "team": "fEzvSw",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-14T08:50:36Z",
       "reason": null,
-      "progress": "49/100"
+      "progress": "52/100"
     },
     {
       "team": "sdbPFw",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-14T11:05:14Z",
       "reason": null,
-      "progress": "35/100"
+      "progress": "52/100"
     },
     {
       "team": "-QIalg",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-14T11:07:03Z",
       "reason": null,
-      "progress": "8/100"
+      "progress": "11/100"
     },
     {
       "team": "F4UaYw",
@@ -61,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-14T11:27:39Z",
       "reason": null,
-      "progress": "1/100"
+      "progress": "4/100"
     },
     {
       "team": "S8hmJg",
@@ -356,14 +356,6 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-13T12:14:34Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "F4UaYw",
-      "track": "T3",
-      "status": "done",
-      "created_at": "2026-07-13T11:30:17Z",
       "reason": null,
       "progress": null
     }
