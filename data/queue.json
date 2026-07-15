@@ -1,35 +1,19 @@
 {
-  "generated_at": "2026-07-15T07:50:04Z",
+  "generated_at": "2026-07-15T08:00:03Z",
   "counts": {
     "queued": 0,
-    "running": 6,
-    "done_recent": 33,
+    "running": 3,
+    "done_recent": 36,
     "failed_recent": 5
   },
   "items": [
-    {
-      "team": "IBY_ng",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-15T03:04:06Z",
-      "reason": null,
-      "progress": "98/100"
-    },
-    {
-      "team": "IBY_ng",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-15T03:04:51Z",
-      "reason": null,
-      "progress": "100/100"
-    },
     {
       "team": "24ZlhA",
       "track": "T4",
       "status": "running",
       "created_at": "2026-07-15T04:15:33Z",
       "reason": null,
-      "progress": "84/100"
+      "progress": "88/100"
     },
     {
       "team": "C0PlEA",
@@ -37,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-15T06:08:18Z",
       "reason": null,
-      "progress": "46/100"
+      "progress": "51/100"
     },
     {
       "team": "zROfyg",
@@ -45,15 +29,15 @@
       "status": "running",
       "created_at": "2026-07-15T06:30:22Z",
       "reason": null,
-      "progress": "42/100"
+      "progress": "49/100"
     },
     {
       "team": "iaKZ-w",
       "track": "T2",
-      "status": "running",
+      "status": "done",
       "created_at": "2026-07-15T06:51:53Z",
       "reason": null,
-      "progress": "90/100"
+      "progress": null
     },
     {
       "team": "YOXVtw",
@@ -84,6 +68,22 @@
       "track": "T1",
       "status": "done",
       "created_at": "2026-07-15T03:07:17Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "IBY_ng",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-15T03:04:51Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "IBY_ng",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-15T03:04:06Z",
       "reason": null,
       "progress": null
     },
