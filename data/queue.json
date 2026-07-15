@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-15T08:40:03Z",
+  "generated_at": "2026-07-15T08:50:03Z",
   "counts": {
     "queued": 0,
-    "running": 4,
-    "done_recent": 37,
+    "running": 7,
+    "done_recent": 35,
     "failed_recent": 5
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-15T06:08:18Z",
       "reason": null,
-      "progress": "71/100"
+      "progress": "76/100"
     },
     {
       "team": "zROfyg",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-15T06:30:22Z",
       "reason": null,
-      "progress": "72/100"
+      "progress": "77/100"
     },
     {
       "team": "1JJO-A",
@@ -29,13 +29,37 @@
       "status": "running",
       "created_at": "2026-07-15T08:23:40Z",
       "reason": null,
-      "progress": "7/100"
+      "progress": "11/100"
     },
     {
       "team": "yDwNjQ",
       "track": "T2",
       "status": "running",
       "created_at": "2026-07-15T08:39:22Z",
+      "reason": null,
+      "progress": "17/100"
+    },
+    {
+      "team": "iaKZ-w",
+      "track": "T2",
+      "status": "running",
+      "created_at": "2026-07-15T08:42:04Z",
+      "reason": null,
+      "progress": "13/100"
+    },
+    {
+      "team": "F4UaYw",
+      "track": "T4",
+      "status": "running",
+      "created_at": "2026-07-15T08:43:54Z",
+      "reason": null,
+      "progress": "2/100"
+    },
+    {
+      "team": "S8hmJg",
+      "track": "T4",
+      "status": "running",
+      "created_at": "2026-07-15T08:46:10Z",
       "reason": null,
       "progress": "1/100"
     },
@@ -356,22 +380,6 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-14T08:50:36Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "o-pz7A",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-14T08:45:30Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "xOtO9g",
-      "track": "T3",
-      "status": "done",
-      "created_at": "2026-07-14T08:43:55Z",
       "reason": null,
       "progress": null
     }
