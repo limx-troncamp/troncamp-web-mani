@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-15T14:20:04Z",
+  "generated_at": "2026-07-15T14:30:03Z",
   "counts": {
     "queued": 0,
     "running": 6,
-    "done_recent": 29,
+    "done_recent": 27,
     "failed_recent": 4
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-15T11:17:17Z",
       "reason": null,
-      "progress": "87/100"
+      "progress": "93/100"
     },
     {
       "team": "l_eI0Q",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-15T11:39:54Z",
       "reason": null,
-      "progress": "58/100"
+      "progress": "62/100"
     },
     {
       "team": "DTaTDQ",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-15T11:47:07Z",
       "reason": null,
-      "progress": "46/100"
+      "progress": "50/100"
     },
     {
       "team": "Xy0oKA",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-15T12:23:15Z",
       "reason": null,
-      "progress": "36/100"
+      "progress": "39/100"
     },
     {
       "team": "1o3mhg",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-15T13:56:24Z",
       "reason": null,
-      "progress": "9/100"
+      "progress": "12/100"
     },
     {
       "team": "dTPehA",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-15T14:00:38Z",
       "reason": null,
-      "progress": "28/100"
+      "progress": "37/100"
     },
     {
       "team": "jr257g",
@@ -301,22 +301,6 @@
       "status": "failed",
       "created_at": "2026-07-14T14:40:02Z",
       "reason": "模型结构与训练配置不匹配,checkpoint 未能加载:请确认提交包内 policy/ACT/deploy_policy.yml 的结构(hidden_dim / chunk_size / dim_feedforward 等)与训练时一致",
-      "progress": null
-    },
-    {
-      "team": "24ZlhA",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-14T14:29:13Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "bvxmcQ",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-14T14:20:16Z",
-      "reason": null,
       "progress": null
     }
   ]
