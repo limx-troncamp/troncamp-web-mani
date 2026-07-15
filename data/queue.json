@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-15T06:20:03Z",
+  "generated_at": "2026-07-15T06:30:03Z",
   "counts": {
     "queued": 0,
-    "running": 6,
+    "running": 5,
     "done_recent": 35,
     "failed_recent": 5
   },
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-15T02:36:29Z",
       "reason": null,
-      "progress": "85/100"
+      "progress": "88/100"
     },
     {
       "team": "IBY_ng",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-15T03:04:06Z",
       "reason": null,
-      "progress": "67/100"
+      "progress": "70/100"
     },
     {
       "team": "IBY_ng",
@@ -29,15 +29,7 @@
       "status": "running",
       "created_at": "2026-07-15T03:04:51Z",
       "reason": null,
-      "progress": "69/100"
-    },
-    {
-      "team": "c2tSbw",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-15T03:56:22Z",
-      "reason": null,
-      "progress": "97/100"
+      "progress": "72/100"
     },
     {
       "team": "24ZlhA",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-15T04:15:33Z",
       "reason": null,
-      "progress": "48/100"
+      "progress": "52/100"
     },
     {
       "team": "C0PlEA",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-15T06:08:18Z",
       "reason": null,
-      "progress": "6/100"
+      "progress": "11/100"
     },
     {
       "team": "YOXVtw",
@@ -68,6 +60,14 @@
       "track": "T1",
       "status": "done",
       "created_at": "2026-07-15T04:06:36Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "c2tSbw",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-15T03:56:22Z",
       "reason": null,
       "progress": null
     },
@@ -364,14 +364,6 @@
       "track": "T1",
       "status": "done",
       "created_at": "2026-07-14T06:30:53Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "03qiTA",
-      "track": "T3",
-      "status": "done",
-      "created_at": "2026-07-14T06:21:03Z",
       "reason": null,
       "progress": null
     }
