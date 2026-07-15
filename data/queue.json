@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-15T23:10:03Z",
+  "generated_at": "2026-07-15T23:20:04Z",
   "counts": {
     "queued": 0,
-    "running": 1,
-    "done_recent": 36,
+    "running": 0,
+    "done_recent": 37,
     "failed_recent": 1
   },
   "items": [
     {
       "team": "zjZC8g",
       "track": "T1",
-      "status": "running",
+      "status": "done",
       "created_at": "2026-07-15T22:27:57Z",
       "reason": null,
-      "progress": "70/100"
+      "progress": null
     },
     {
       "team": "z9-Byg",
