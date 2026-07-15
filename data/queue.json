@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-15T14:50:03Z",
+  "generated_at": "2026-07-15T15:00:03Z",
   "counts": {
     "queued": 0,
     "running": 7,
     "done_recent": 28,
-    "failed_recent": 2
+    "failed_recent": 1
   },
   "items": [
     {
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-15T11:39:54Z",
       "reason": null,
-      "progress": "68/100"
+      "progress": "72/100"
     },
     {
       "team": "DTaTDQ",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-15T11:47:07Z",
       "reason": null,
-      "progress": "57/100"
+      "progress": "60/100"
     },
     {
       "team": "Xy0oKA",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-15T12:23:15Z",
       "reason": null,
-      "progress": "46/100"
+      "progress": "49/100"
     },
     {
       "team": "1o3mhg",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-15T13:56:24Z",
       "reason": null,
-      "progress": "19/100"
+      "progress": "23/100"
     },
     {
       "team": "dTPehA",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-15T14:00:38Z",
       "reason": null,
-      "progress": "69/100"
+      "progress": "81/100"
     },
     {
       "team": "zROfyg",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-15T14:37:44Z",
       "reason": null,
-      "progress": "6/100"
+      "progress": "10/100"
     },
     {
       "team": "DTCE8Q",
@@ -61,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-15T14:42:47Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "6/100"
     },
     {
       "team": "jr257g",
@@ -293,14 +293,6 @@
       "status": "done",
       "created_at": "2026-07-14T15:34:02Z",
       "reason": null,
-      "progress": null
-    },
-    {
-      "team": "fEzvSw",
-      "track": "T4",
-      "status": "failed",
-      "created_at": "2026-07-14T14:52:49Z",
-      "reason": "评测报错(未匹配到已知原因):可先用公开 kit 的 clean 配置 + 公开种子(starter/eval_local.py)本地复现自查;若本地通过、线上仍失败,请联系主办方",
       "progress": null
     }
   ]
