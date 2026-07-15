@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-15T12:10:04Z",
+  "generated_at": "2026-07-15T12:20:03Z",
   "counts": {
-    "queued": 1,
-    "running": 8,
-    "done_recent": 31,
+    "queued": 0,
+    "running": 7,
+    "done_recent": 32,
     "failed_recent": 4
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-15T08:23:40Z",
       "reason": null,
-      "progress": "90/100"
+      "progress": "94/100"
     },
     {
       "team": "F4UaYw",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-15T08:43:54Z",
       "reason": null,
-      "progress": "69/100"
+      "progress": "72/100"
     },
     {
       "team": "S8hmJg",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-15T08:46:10Z",
       "reason": null,
-      "progress": "72/100"
+      "progress": "75/100"
     },
     {
       "team": "DTaTDQ",
@@ -37,15 +37,7 @@
       "status": "running",
       "created_at": "2026-07-15T09:07:55Z",
       "reason": null,
-      "progress": "71/100"
-    },
-    {
-      "team": "jr257g",
-      "track": "T2",
-      "status": "running",
-      "created_at": "2026-07-15T11:15:02Z",
-      "reason": null,
-      "progress": "99/100"
+      "progress": "75/100"
     },
     {
       "team": "a40Cbw",
@@ -53,15 +45,7 @@
       "status": "running",
       "created_at": "2026-07-15T11:17:17Z",
       "reason": null,
-      "progress": "25/100"
-    },
-    {
-      "team": "jr257g",
-      "track": "T2",
-      "status": "running",
-      "created_at": "2026-07-15T11:25:09Z",
-      "reason": null,
-      "progress": "88/100"
+      "progress": "29/100"
     },
     {
       "team": "l_eI0Q",
@@ -69,13 +53,29 @@
       "status": "running",
       "created_at": "2026-07-15T11:39:54Z",
       "reason": null,
-      "progress": "11/100"
+      "progress": "14/100"
     },
     {
       "team": "DTaTDQ",
       "track": "T4",
-      "status": "queued",
+      "status": "running",
       "created_at": "2026-07-15T11:47:07Z",
+      "reason": null,
+      "progress": "4/100"
+    },
+    {
+      "team": "jr257g",
+      "track": "T2",
+      "status": "done",
+      "created_at": "2026-07-15T11:25:09Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "jr257g",
+      "track": "T2",
+      "status": "done",
+      "created_at": "2026-07-15T11:15:02Z",
       "reason": null,
       "progress": null
     },
@@ -348,14 +348,6 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-14T12:42:53Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "1o3mhg",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-14T12:18:33Z",
       "reason": null,
       "progress": null
     }
