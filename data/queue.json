@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-15T17:20:03Z",
+  "generated_at": "2026-07-15T17:30:03Z",
   "counts": {
-    "queued": 3,
+    "queued": 4,
     "running": 8,
-    "done_recent": 25,
+    "done_recent": 24,
     "failed_recent": 1
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-15T12:23:15Z",
       "reason": null,
-      "progress": "90/100"
+      "progress": "93/100"
     },
     {
       "team": "1o3mhg",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-15T13:56:24Z",
       "reason": null,
-      "progress": "73/100"
+      "progress": "77/100"
     },
     {
       "team": "zROfyg",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-15T14:37:44Z",
       "reason": null,
-      "progress": "81/100"
+      "progress": "86/100"
     },
     {
       "team": "DTCE8Q",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-15T14:42:47Z",
       "reason": null,
-      "progress": "49/100"
+      "progress": "52/100"
     },
     {
       "team": "tNgCOA",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-15T15:02:38Z",
       "reason": null,
-      "progress": "54/100"
+      "progress": "57/100"
     },
     {
       "team": "tNgCOA",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-15T15:03:36Z",
       "reason": null,
-      "progress": "48/100"
+      "progress": "52/100"
     },
     {
       "team": "C0PlEA",
@@ -61,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-15T15:49:07Z",
       "reason": null,
-      "progress": "24/100"
+      "progress": "28/100"
     },
     {
       "team": "dTPehA",
@@ -69,7 +69,7 @@
       "status": "running",
       "created_at": "2026-07-15T15:50:57Z",
       "reason": null,
-      "progress": "33/100"
+      "progress": "45/100"
     },
     {
       "team": "xOtO9g",
@@ -92,6 +92,14 @@
       "track": "T4",
       "status": "queued",
       "created_at": "2026-07-15T16:40:37Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "z9-Byg",
+      "track": "T1",
+      "status": "queued",
+      "created_at": "2026-07-15T17:26:43Z",
       "reason": null,
       "progress": null
     },
@@ -292,14 +300,6 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-15T02:36:29Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "DTCE8Q",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-14T17:20:49Z",
       "reason": null,
       "progress": null
     }
