@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T22:30:03Z",
+  "generated_at": "2026-07-15T22:40:03Z",
   "counts": {
     "queued": 0,
     "running": 2,
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-15T16:40:37Z",
       "reason": null,
-      "progress": "90/100"
+      "progress": "94/100"
     },
     {
       "team": "zjZC8g",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-15T22:27:57Z",
       "reason": null,
-      "progress": "3/100"
+      "progress": "17/100"
     },
     {
       "team": "z9-Byg",
