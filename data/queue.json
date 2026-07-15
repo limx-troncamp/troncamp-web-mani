@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-15T06:50:03Z",
+  "generated_at": "2026-07-15T07:00:04Z",
   "counts": {
     "queued": 0,
-    "running": 6,
-    "done_recent": 34,
+    "running": 7,
+    "done_recent": 33,
     "failed_recent": 5
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-15T02:36:29Z",
       "reason": null,
-      "progress": "96/100"
+      "progress": "99/100"
     },
     {
       "team": "IBY_ng",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-15T03:04:06Z",
       "reason": null,
-      "progress": "77/100"
+      "progress": "80/100"
     },
     {
       "team": "IBY_ng",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-15T03:04:51Z",
       "reason": null,
-      "progress": "79/100"
+      "progress": "82/100"
     },
     {
       "team": "24ZlhA",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-15T04:15:33Z",
       "reason": null,
-      "progress": "60/100"
+      "progress": "64/100"
     },
     {
       "team": "C0PlEA",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-15T06:08:18Z",
       "reason": null,
-      "progress": "19/100"
+      "progress": "23/100"
     },
     {
       "team": "zROfyg",
@@ -53,7 +53,15 @@
       "status": "running",
       "created_at": "2026-07-15T06:30:22Z",
       "reason": null,
-      "progress": "10/100"
+      "progress": "15/100"
+    },
+    {
+      "team": "iaKZ-w",
+      "track": "T2",
+      "status": "running",
+      "created_at": "2026-07-15T06:51:53Z",
+      "reason": null,
+      "progress": "13/100"
     },
     {
       "team": "YOXVtw",
@@ -356,14 +364,6 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-14T07:46:40Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "-QIalg",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-14T06:57:26Z",
       "reason": null,
       "progress": null
     }
