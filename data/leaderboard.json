@@ -1,6 +1,6 @@
 {
   "_comment": "后端真实榜 + 占位示例自动合并(board_sync)。真实条目优先;示例仅在无同名真实条目时保留。",
-  "generated_at": "2026-07-16T18:57:39Z",
+  "generated_at": "2026-07-16T19:19:48Z",
   "deadline": "2026-07-21T00:00:00+08:00",
   "final_unlocked": false,
   "dev": [
@@ -117,6 +117,29 @@
         "level": 3,
         "track": "T3",
         "success_rate": 0.56
+      }
+    },
+    {
+      "token_suffix": "l_eI0Q",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.63
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.61
+      },
+      "t3": {
+        "pass": true,
+        "success_rate": 0.5
+      },
+      "t4": {
+        "graded": 0.6899999999999998
+      },
+      "progress": {
+        "level": 3,
+        "track": "T3",
+        "success_rate": 0.5
       }
     },
     {
@@ -278,29 +301,6 @@
         "level": 3,
         "track": "T3",
         "success_rate": 0.74
-      }
-    },
-    {
-      "token_suffix": "l_eI0Q",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.63
-      },
-      "t2": {
-        "pass": true,
-        "success_rate": 0.61
-      },
-      "t3": {
-        "pass": true,
-        "success_rate": 0.5
-      },
-      "t4": {
-        "graded": 0.6433333333333334
-      },
-      "progress": {
-        "level": 3,
-        "track": "T3",
-        "success_rate": 0.5
       }
     },
     {
@@ -1379,6 +1379,21 @@
         "level": 1,
         "track": "T1",
         "success_rate": 0.52
+      }
+    },
+    {
+      "token_suffix": "OT5PMQ",
+      "t1": {
+        "pass": false,
+        "success_rate": 0.47
+      },
+      "t2": null,
+      "t3": null,
+      "t4": null,
+      "progress": {
+        "level": 0,
+        "track": null,
+        "success_rate": null
       }
     }
   ],
