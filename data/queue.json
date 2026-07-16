@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-16T19:40:03Z",
+  "generated_at": "2026-07-16T19:50:03Z",
   "counts": {
-    "queued": 1,
+    "queued": 0,
     "running": 8,
-    "done_recent": 44,
+    "done_recent": 45,
     "failed_recent": 4
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-16T13:42:15Z",
       "reason": null,
-      "progress": "74/100"
+      "progress": "77/100"
     },
     {
       "team": "bvxmcQ",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-16T15:04:16Z",
       "reason": null,
-      "progress": "29/100"
+      "progress": "30/100"
     },
     {
       "team": "C0PlEA",
@@ -29,15 +29,7 @@
       "status": "running",
       "created_at": "2026-07-16T15:12:42Z",
       "reason": null,
-      "progress": "69/100"
-    },
-    {
-      "team": "4jnxhQ",
-      "track": "T1",
-      "status": "running",
-      "created_at": "2026-07-16T15:33:58Z",
-      "reason": null,
-      "progress": "75/100"
+      "progress": "74/100"
     },
     {
       "team": "Xy0oKA",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-16T15:40:34Z",
       "reason": null,
-      "progress": "10/100"
+      "progress": "13/100"
     },
     {
       "team": "dTPehA",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-16T15:59:00Z",
       "reason": null,
-      "progress": "33/100"
+      "progress": "51/100"
     },
     {
       "team": "9Pm7SQ",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-16T16:24:58Z",
       "reason": null,
-      "progress": "4/100"
+      "progress": "9/100"
     },
     {
       "team": "Wz_lPA",
@@ -69,13 +61,21 @@
       "status": "running",
       "created_at": "2026-07-16T16:46:24Z",
       "reason": null,
-      "progress": "3/100"
+      "progress": "6/100"
     },
     {
       "team": "zROfyg",
       "track": "T3",
-      "status": "queued",
+      "status": "running",
       "created_at": "2026-07-16T17:47:02Z",
+      "reason": null,
+      "progress": "3/100"
+    },
+    {
+      "team": "4jnxhQ",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-16T15:33:58Z",
       "reason": null,
       "progress": null
     },
