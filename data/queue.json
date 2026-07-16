@@ -1,20 +1,12 @@
 {
-  "generated_at": "2026-07-16T01:00:03Z",
+  "generated_at": "2026-07-16T01:10:03Z",
   "counts": {
     "queued": 0,
-    "running": 1,
-    "done_recent": 37,
+    "running": 0,
+    "done_recent": 38,
     "failed_recent": 3
   },
   "items": [
-    {
-      "team": "5q8akA",
-      "track": "T1",
-      "status": "running",
-      "created_at": "2026-07-16T00:11:34Z",
-      "reason": null,
-      "progress": "85/100"
-    },
     {
       "team": "03qiTA",
       "track": "T3",
@@ -29,6 +21,14 @@
       "status": "failed",
       "created_at": "2026-07-16T00:52:19Z",
       "reason": "模型结构与训练配置不匹配,checkpoint 未能加载:请确认提交包内 policy/ACT/deploy_policy.yml 的结构(hidden_dim / chunk_size / dim_feedforward 等)与训练时一致",
+      "progress": null
+    },
+    {
+      "team": "5q8akA",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-16T00:11:34Z",
+      "reason": null,
       "progress": null
     },
     {
