@@ -1,6 +1,6 @@
 {
   "_comment": "后端真实榜 + 占位示例自动合并(board_sync)。真实条目优先;示例仅在无同名真实条目时保留。",
-  "generated_at": "2026-07-16T17:14:29Z",
+  "generated_at": "2026-07-16T18:14:38Z",
   "deadline": "2026-07-21T00:00:00+08:00",
   "final_unlocked": false,
   "dev": [
@@ -488,6 +488,29 @@
       }
     },
     {
+      "token_suffix": "DTaTDQ",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.57
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.66
+      },
+      "t3": {
+        "pass": true,
+        "success_rate": 0.63
+      },
+      "t4": {
+        "graded": 0.5333333333333335
+      },
+      "progress": {
+        "level": 3,
+        "track": "T3",
+        "success_rate": 0.63
+      }
+    },
+    {
       "token_suffix": "Mgks8Q",
       "t1": {
         "pass": true,
@@ -531,29 +554,6 @@
         "level": 3,
         "track": "T3",
         "success_rate": 0.65
-      }
-    },
-    {
-      "token_suffix": "DTaTDQ",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.57
-      },
-      "t2": {
-        "pass": true,
-        "success_rate": 0.66
-      },
-      "t3": {
-        "pass": true,
-        "success_rate": 0.63
-      },
-      "t4": {
-        "graded": 0.4000000000000001
-      },
-      "progress": {
-        "level": 3,
-        "track": "T3",
-        "success_rate": 0.63
       }
     },
     {
@@ -1046,6 +1046,24 @@
       }
     },
     {
+      "token_suffix": "dTPehA",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.62
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.62
+      },
+      "t3": null,
+      "t4": null,
+      "progress": {
+        "level": 2,
+        "track": "T2",
+        "success_rate": 0.62
+      }
+    },
+    {
       "token_suffix": "rwqAeQ",
       "t1": {
         "pass": true,
@@ -1217,24 +1235,6 @@
         "level": 1,
         "track": "T1",
         "success_rate": 0.63
-      }
-    },
-    {
-      "token_suffix": "dTPehA",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.62
-      },
-      "t2": {
-        "pass": false,
-        "success_rate": 0.47
-      },
-      "t3": null,
-      "t4": null,
-      "progress": {
-        "level": 1,
-        "track": "T1",
-        "success_rate": 0.62
       }
     },
     {
