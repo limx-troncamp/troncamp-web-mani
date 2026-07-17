@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T06:10:04Z",
+  "generated_at": "2026-07-17T06:20:03Z",
   "counts": {
     "queued": 2,
     "running": 8,
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-17T02:07:23Z",
       "reason": null,
-      "progress": "93/100"
+      "progress": "97/100"
     },
     {
       "team": "8MvGIw",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-17T03:20:23Z",
       "reason": null,
-      "progress": "73/100"
+      "progress": "78/100"
     },
     {
       "team": "Xy0oKA",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-17T03:57:22Z",
       "reason": null,
-      "progress": "53/100"
+      "progress": "57/100"
     },
     {
       "team": "Ew8w5w",
@@ -37,15 +37,7 @@
       "status": "running",
       "created_at": "2026-07-17T05:11:42Z",
       "reason": null,
-      "progress": "35/100"
-    },
-    {
-      "team": "X1M7_g",
-      "track": "T1",
-      "status": "running",
-      "created_at": "2026-07-17T05:20:09Z",
-      "reason": null,
-      "progress": "82/100"
+      "progress": "40/100"
     },
     {
       "team": "1o3mhg",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-17T05:21:11Z",
       "reason": null,
-      "progress": "16/100"
+      "progress": "19/100"
     },
     {
       "team": "DTCE8Q",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-17T05:44:11Z",
       "reason": null,
-      "progress": "4/100"
+      "progress": "7/100"
     },
     {
       "team": "rwqAeQ",
@@ -69,15 +61,15 @@
       "status": "running",
       "created_at": "2026-07-17T05:52:30Z",
       "reason": null,
-      "progress": "4/100"
+      "progress": "10/100"
     },
     {
       "team": "DTaTDQ",
       "track": "T4",
-      "status": "queued",
+      "status": "running",
       "created_at": "2026-07-17T05:54:29Z",
       "reason": null,
-      "progress": null
+      "progress": "3/100"
     },
     {
       "team": "g7MGaA",
@@ -90,9 +82,25 @@
     {
       "team": "YIqOkA",
       "track": "T4",
+      "status": "queued",
+      "created_at": "2026-07-17T06:13:52Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "YIqOkA",
+      "track": "T4",
       "status": "failed",
       "created_at": "2026-07-17T05:33:50Z",
       "reason": "模型结构与训练配置不匹配,checkpoint 未能加载:请确认提交包内 policy/ACT/deploy_policy.yml 的结构(hidden_dim / chunk_size / dim_feedforward 等)与训练时一致",
+      "progress": null
+    },
+    {
+      "team": "X1M7_g",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-17T05:20:09Z",
+      "reason": null,
       "progress": null
     },
     {
@@ -452,14 +460,6 @@
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-16T06:26:05Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "-QIalg",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-16T06:17:41Z",
       "reason": null,
       "progress": null
     }
