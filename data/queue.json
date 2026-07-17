@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-17T02:50:03Z",
+  "generated_at": "2026-07-17T03:00:03Z",
   "counts": {
     "queued": 0,
     "running": 6,
-    "done_recent": 39,
+    "done_recent": 40,
     "failed_recent": 5
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-17T01:17:40Z",
       "reason": null,
-      "progress": "46/100"
+      "progress": "51/100"
     },
     {
       "team": "l_eI0Q",
@@ -21,15 +21,7 @@
       "status": "running",
       "created_at": "2026-07-17T01:41:40Z",
       "reason": null,
-      "progress": "27/100"
-    },
-    {
-      "team": "ggtekQ",
-      "track": "T1",
-      "status": "running",
-      "created_at": "2026-07-17T02:06:06Z",
-      "reason": null,
-      "progress": "76/100"
+      "progress": "31/100"
     },
     {
       "team": "YOXVtw",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-17T02:07:23Z",
       "reason": null,
-      "progress": "17/100"
+      "progress": "21/100"
     },
     {
       "team": "jW1Fzw",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-17T02:21:19Z",
       "reason": null,
-      "progress": "17/100"
+      "progress": "22/100"
     },
     {
       "team": "rwqAeQ",
@@ -53,7 +45,15 @@
       "status": "running",
       "created_at": "2026-07-17T02:25:11Z",
       "reason": null,
-      "progress": "15/100"
+      "progress": "22/100"
+    },
+    {
+      "team": "iaKZ-w",
+      "track": "T2",
+      "status": "running",
+      "created_at": "2026-07-17T02:57:21Z",
+      "reason": null,
+      "progress": "5/100"
     },
     {
       "team": "iaKZ-w",
@@ -61,6 +61,14 @@
       "status": "failed",
       "created_at": "2026-07-17T02:30:49Z",
       "reason": "模型结构与训练配置不匹配,checkpoint 未能加载:请确认提交包内 policy/ACT/deploy_policy.yml 的结构(hidden_dim / chunk_size / dim_feedforward 等)与训练时一致",
+      "progress": null
+    },
+    {
+      "team": "ggtekQ",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-17T02:06:06Z",
+      "reason": null,
       "progress": null
     },
     {
