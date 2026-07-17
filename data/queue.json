@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-17T05:30:04Z",
+  "generated_at": "2026-07-17T05:40:03Z",
   "counts": {
-    "queued": 0,
+    "queued": 1,
     "running": 8,
     "done_recent": 39,
     "failed_recent": 5
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-17T01:41:40Z",
       "reason": null,
-      "progress": "88/100"
+      "progress": "91/100"
     },
     {
       "team": "YOXVtw",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-17T02:07:23Z",
       "reason": null,
-      "progress": "77/100"
+      "progress": "81/100"
     },
     {
       "team": "8MvGIw",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-17T03:20:23Z",
       "reason": null,
-      "progress": "55/100"
+      "progress": "59/100"
     },
     {
       "team": "Xy0oKA",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-17T03:57:22Z",
       "reason": null,
-      "progress": "36/100"
+      "progress": "40/100"
     },
     {
       "team": "eAxlPg",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-17T05:03:41Z",
       "reason": null,
-      "progress": "54/100"
+      "progress": "72/100"
     },
     {
       "team": "Ew8w5w",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-17T05:11:42Z",
       "reason": null,
-      "progress": "11/100"
+      "progress": "18/100"
     },
     {
       "team": "X1M7_g",
@@ -61,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-17T05:20:09Z",
       "reason": null,
-      "progress": "15/100"
+      "progress": "30/100"
     },
     {
       "team": "1o3mhg",
@@ -69,7 +69,15 @@
       "status": "running",
       "created_at": "2026-07-17T05:21:11Z",
       "reason": null,
-      "progress": "3/100"
+      "progress": "6/100"
+    },
+    {
+      "team": "YIqOkA",
+      "track": "T4",
+      "status": "queued",
+      "created_at": "2026-07-17T05:33:50Z",
+      "reason": null,
+      "progress": null
     },
     {
       "team": "CnNECg",
