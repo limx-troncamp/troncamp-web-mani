@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-17T04:50:03Z",
+  "generated_at": "2026-07-17T05:00:03Z",
   "counts": {
     "queued": 0,
-    "running": 7,
+    "running": 6,
     "done_recent": 37,
     "failed_recent": 5
   },
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-17T01:41:40Z",
       "reason": null,
-      "progress": "73/100"
+      "progress": "76/100"
     },
     {
       "team": "YOXVtw",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-17T02:07:23Z",
       "reason": null,
-      "progress": "63/100"
+      "progress": "67/100"
     },
     {
       "team": "jW1Fzw",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-17T02:21:19Z",
       "reason": null,
-      "progress": "83/100"
+      "progress": "89/100"
     },
     {
       "team": "rwqAeQ",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-17T02:25:11Z",
       "reason": null,
-      "progress": "89/100"
+      "progress": "95/100"
     },
     {
       "team": "8MvGIw",
@@ -45,15 +45,7 @@
       "status": "running",
       "created_at": "2026-07-17T03:20:23Z",
       "reason": null,
-      "progress": "38/100"
-    },
-    {
-      "team": "CnNECg",
-      "track": "T2",
-      "status": "running",
-      "created_at": "2026-07-17T03:46:31Z",
-      "reason": null,
-      "progress": "88/100"
+      "progress": "43/100"
     },
     {
       "team": "Xy0oKA",
@@ -61,7 +53,15 @@
       "status": "running",
       "created_at": "2026-07-17T03:57:22Z",
       "reason": null,
-      "progress": "20/100"
+      "progress": "24/100"
+    },
+    {
+      "team": "CnNECg",
+      "track": "T2",
+      "status": "done",
+      "created_at": "2026-07-17T03:46:31Z",
+      "reason": null,
+      "progress": null
     },
     {
       "team": "7lK5bw",
@@ -388,14 +388,6 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-16T06:17:41Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "8MvGIw",
-      "track": "T2",
-      "status": "done",
-      "created_at": "2026-07-16T04:53:19Z",
       "reason": null,
       "progress": null
     }
