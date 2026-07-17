@@ -1,27 +1,19 @@
 {
-  "generated_at": "2026-07-17T12:50:03Z",
+  "generated_at": "2026-07-17T13:00:04Z",
   "counts": {
-    "queued": 11,
+    "queued": 9,
     "running": 8,
-    "done_recent": 41,
-    "failed_recent": 7
+    "done_recent": 42,
+    "failed_recent": 8
   },
   "items": [
-    {
-      "team": "JKNUSQ",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-17T06:24:56Z",
-      "reason": null,
-      "progress": "100/100"
-    },
     {
       "team": "8mGebw",
       "track": "T4",
       "status": "running",
       "created_at": "2026-07-17T07:10:37Z",
       "reason": null,
-      "progress": "76/100"
+      "progress": "80/100"
     },
     {
       "team": "F4UaYw",
@@ -29,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-17T07:13:20Z",
       "reason": null,
-      "progress": "63/100"
+      "progress": "66/100"
     },
     {
       "team": "c2tSbw",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-17T08:04:13Z",
       "reason": null,
-      "progress": "59/100"
+      "progress": "62/100"
     },
     {
       "team": "-QIalg",
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-17T08:43:59Z",
       "reason": null,
-      "progress": "58/100"
+      "progress": "62/100"
     },
     {
       "team": "iaKZ-w",
@@ -53,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-17T08:49:05Z",
       "reason": null,
-      "progress": "69/100"
+      "progress": "76/100"
     },
     {
       "team": "24ZlhA",
@@ -61,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-17T09:16:23Z",
       "reason": null,
-      "progress": "3/100"
+      "progress": "6/100"
     },
     {
       "team": "OT5PMQ",
@@ -69,23 +61,15 @@
       "status": "running",
       "created_at": "2026-07-17T09:18:18Z",
       "reason": null,
-      "progress": "1/100"
-    },
-    {
-      "team": "Wz_lPA",
-      "track": "T4",
-      "status": "queued",
-      "created_at": "2026-07-17T10:03:36Z",
-      "reason": null,
-      "progress": null
+      "progress": "17/100"
     },
     {
       "team": "s5oklg",
       "track": "T3",
-      "status": "queued",
+      "status": "running",
       "created_at": "2026-07-17T10:06:04Z",
       "reason": null,
-      "progress": null
+      "progress": "3/100"
     },
     {
       "team": "fEzvSw",
@@ -160,6 +144,14 @@
       "progress": null
     },
     {
+      "team": "Wz_lPA",
+      "track": "T4",
+      "status": "failed",
+      "created_at": "2026-07-17T10:03:36Z",
+      "reason": "评测报错(未匹配到已知原因):可先用公开 kit 的 clean 配置 + 公开种子(starter/eval_local.py)本地复现自查;若本地通过、线上仍失败,请联系主办方",
+      "progress": null
+    },
+    {
       "team": "H8gNlQ",
       "track": "T1",
       "status": "done",
@@ -188,6 +180,14 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-17T06:36:54Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "JKNUSQ",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-17T06:24:56Z",
       "reason": null,
       "progress": null
     },
