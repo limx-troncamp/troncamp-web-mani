@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-17T05:00:03Z",
+  "generated_at": "2026-07-17T05:10:03Z",
   "counts": {
     "queued": 0,
     "running": 6,
-    "done_recent": 37,
+    "done_recent": 38,
     "failed_recent": 5
   },
   "items": [
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-17T01:41:40Z",
       "reason": null,
-      "progress": "76/100"
+      "progress": "80/100"
     },
     {
       "team": "YOXVtw",
@@ -21,21 +21,13 @@
       "status": "running",
       "created_at": "2026-07-17T02:07:23Z",
       "reason": null,
-      "progress": "67/100"
+      "progress": "70/100"
     },
     {
       "team": "jW1Fzw",
       "track": "T3",
       "status": "running",
       "created_at": "2026-07-17T02:21:19Z",
-      "reason": null,
-      "progress": "89/100"
-    },
-    {
-      "team": "rwqAeQ",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-17T02:25:11Z",
       "reason": null,
       "progress": "95/100"
     },
@@ -45,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-17T03:20:23Z",
       "reason": null,
-      "progress": "43/100"
+      "progress": "47/100"
     },
     {
       "team": "Xy0oKA",
@@ -53,7 +45,15 @@
       "status": "running",
       "created_at": "2026-07-17T03:57:22Z",
       "reason": null,
-      "progress": "24/100"
+      "progress": "28/100"
+    },
+    {
+      "team": "eAxlPg",
+      "track": "T2",
+      "status": "running",
+      "created_at": "2026-07-17T05:03:41Z",
+      "reason": null,
+      "progress": "12/100"
     },
     {
       "team": "CnNECg",
@@ -85,6 +85,14 @@
       "status": "failed",
       "created_at": "2026-07-17T02:30:49Z",
       "reason": "模型结构与训练配置不匹配,checkpoint 未能加载:请确认提交包内 policy/ACT/deploy_policy.yml 的结构(hidden_dim / chunk_size / dim_feedforward 等)与训练时一致",
+      "progress": null
+    },
+    {
+      "team": "rwqAeQ",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-17T02:25:11Z",
+      "reason": null,
       "progress": null
     },
     {
