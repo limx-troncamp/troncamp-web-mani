@@ -1,27 +1,19 @@
 {
-  "generated_at": "2026-07-17T01:50:03Z",
+  "generated_at": "2026-07-17T02:00:04Z",
   "counts": {
     "queued": 0,
-    "running": 3,
-    "done_recent": 49,
-    "failed_recent": 3
+    "running": 2,
+    "done_recent": 48,
+    "failed_recent": 4
   },
   "items": [
-    {
-      "team": "dudGTA",
-      "track": "T1",
-      "status": "running",
-      "created_at": "2026-07-17T01:04:52Z",
-      "reason": null,
-      "progress": "82/100"
-    },
     {
       "team": "9Pm7SQ",
       "track": "T4",
       "status": "running",
       "created_at": "2026-07-17T01:17:40Z",
       "reason": null,
-      "progress": "16/100"
+      "progress": "21/100"
     },
     {
       "team": "l_eI0Q",
@@ -29,7 +21,23 @@
       "status": "running",
       "created_at": "2026-07-17T01:41:40Z",
       "reason": null,
-      "progress": "4/100"
+      "progress": "8/100"
+    },
+    {
+      "team": "M0B97Q",
+      "track": "T4",
+      "status": "failed",
+      "created_at": "2026-07-17T01:53:20Z",
+      "reason": "模型结构与训练配置不匹配,checkpoint 未能加载:请确认提交包内 policy/ACT/deploy_policy.yml 的结构(hidden_dim / chunk_size / dim_feedforward 等)与训练时一致",
+      "progress": null
+    },
+    {
+      "team": "dudGTA",
+      "track": "T1",
+      "status": "done",
+      "created_at": "2026-07-17T01:04:52Z",
+      "reason": null,
+      "progress": null
     },
     {
       "team": "5q8akA",
@@ -412,22 +420,6 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-16T02:12:12Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "C0PlEA",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-16T02:11:34Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "YIqOkA",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-16T02:02:16Z",
       "reason": null,
       "progress": null
     }
