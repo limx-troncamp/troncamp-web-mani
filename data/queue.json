@@ -1,12 +1,20 @@
 {
-  "generated_at": "2026-07-17T01:00:03Z",
+  "generated_at": "2026-07-17T01:10:04Z",
   "counts": {
     "queued": 0,
-    "running": 0,
+    "running": 1,
     "done_recent": 51,
     "failed_recent": 3
   },
   "items": [
+    {
+      "team": "dudGTA",
+      "track": "T1",
+      "status": "running",
+      "created_at": "2026-07-17T01:04:52Z",
+      "reason": null,
+      "progress": "7/100"
+    },
     {
       "team": "5q8akA",
       "track": "T2",
