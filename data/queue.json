@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T07:56:33Z",
+  "generated_at": "2026-07-18T08:00:04Z",
   "counts": {
     "queued": 13,
     "running": 16,
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-18T03:27:27Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "3/100"
     },
     {
       "team": "24ZlhA",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-18T04:32:24Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "3/100"
     },
     {
       "team": "fEzvSw",
@@ -69,7 +69,7 @@
       "status": "running",
       "created_at": "2026-07-18T05:16:51Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "3/100"
     },
     {
       "team": "Wz_lPA",
@@ -85,7 +85,7 @@
       "status": "running",
       "created_at": "2026-07-18T05:49:01Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "3/100"
     },
     {
       "team": "dfQYbw",
@@ -93,7 +93,7 @@
       "status": "running",
       "created_at": "2026-07-18T05:59:06Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "3/100"
     },
     {
       "team": "03qiTA",
@@ -101,7 +101,7 @@
       "status": "running",
       "created_at": "2026-07-18T06:38:00Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "3/100"
     },
     {
       "team": "5uVT7w",
@@ -109,7 +109,7 @@
       "status": "running",
       "created_at": "2026-07-18T07:13:22Z",
       "reason": null,
-      "progress": "7/100"
+      "progress": "13/100"
     },
     {
       "team": "c2tSbw",
@@ -117,7 +117,7 @@
       "status": "running",
       "created_at": "2026-07-18T07:16:08Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "3/100"
     },
     {
       "team": "c3kdQg",
@@ -125,7 +125,7 @@
       "status": "running",
       "created_at": "2026-07-18T07:38:42Z",
       "reason": null,
-      "progress": "7/100"
+      "progress": "9/100"
     },
     {
       "team": "u01A0A",
@@ -133,7 +133,7 @@
       "status": "running",
       "created_at": "2026-07-18T07:45:54Z",
       "reason": null,
-      "progress": "7/100"
+      "progress": "9/100"
     },
     {
       "team": "fEzvSw",
