@@ -1,27 +1,19 @@
 {
-  "generated_at": "2026-07-18T02:00:03Z",
+  "generated_at": "2026-07-18T02:10:04Z",
   "counts": {
     "queued": 0,
-    "running": 5,
-    "done_recent": 45,
-    "failed_recent": 12
+    "running": 4,
+    "done_recent": 43,
+    "failed_recent": 13
   },
   "items": [
-    {
-      "team": "fEzvSw",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-17T20:08:59Z",
-      "reason": null,
-      "progress": "87/100"
-    },
     {
       "team": "d6fEdQ",
       "track": "T4",
       "status": "running",
       "created_at": "2026-07-17T23:04:17Z",
       "reason": null,
-      "progress": "54/100"
+      "progress": "57/100"
     },
     {
       "team": "24ZlhA",
@@ -29,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-18T00:51:27Z",
       "reason": null,
-      "progress": "18/100"
+      "progress": "20/100"
     },
     {
       "team": "o-pz7A",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-18T01:33:42Z",
       "reason": null,
-      "progress": "8/100"
+      "progress": "12/100"
     },
     {
       "team": "03qiTA",
@@ -45,7 +37,15 @@
       "status": "running",
       "created_at": "2026-07-18T01:51:56Z",
       "reason": null,
-      "progress": "3/100"
+      "progress": "7/100"
+    },
+    {
+      "team": "fEzvSw",
+      "track": "T4",
+      "status": "failed",
+      "created_at": "2026-07-17T20:08:59Z",
+      "reason": "评测失败",
+      "progress": null
     },
     {
       "team": "dudGTA",
@@ -436,14 +436,6 @@
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-17T03:46:31Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "8MvGIw",
-      "track": "T3",
-      "status": "done",
-      "created_at": "2026-07-17T03:20:23Z",
       "reason": null,
       "progress": null
     }
