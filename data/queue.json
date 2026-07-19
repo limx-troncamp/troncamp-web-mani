@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-19T15:10:04Z",
+  "generated_at": "2026-07-19T15:20:03Z",
   "counts": {
-    "queued": 19,
+    "queued": 18,
     "running": 24,
     "done_recent": 25,
     "failed_recent": 7
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-16T15:04:16Z",
       "reason": null,
-      "progress": "94/100"
+      "progress": "95/100"
     },
     {
       "team": "JKNUSQ",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-19T01:12:43Z",
       "reason": null,
-      "progress": "97/100"
+      "progress": "98/100"
     },
     {
       "team": "M0B97Q",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-19T01:59:36Z",
       "reason": null,
-      "progress": "87/100"
+      "progress": "89/100"
     },
     {
       "team": "M0B97Q",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-19T02:01:06Z",
       "reason": null,
-      "progress": "83/100"
+      "progress": "84/100"
     },
     {
       "team": "7lK5bw",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-19T02:17:34Z",
       "reason": null,
-      "progress": "72/100"
+      "progress": "73/100"
     },
     {
       "team": "dfQYbw",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-19T03:17:13Z",
       "reason": null,
-      "progress": "85/100"
+      "progress": "87/100"
     },
     {
       "team": "zROfyg",
@@ -61,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-19T03:25:37Z",
       "reason": null,
-      "progress": "59/100"
+      "progress": "60/100"
     },
     {
       "team": "03qiTA",
@@ -69,7 +69,7 @@
       "status": "running",
       "created_at": "2026-07-19T03:27:17Z",
       "reason": null,
-      "progress": "66/100"
+      "progress": "67/100"
     },
     {
       "team": "xOtO9g",
@@ -77,7 +77,7 @@
       "status": "running",
       "created_at": "2026-07-19T03:52:28Z",
       "reason": null,
-      "progress": "64/100"
+      "progress": "65/100"
     },
     {
       "team": "xOtO9g",
@@ -85,7 +85,7 @@
       "status": "running",
       "created_at": "2026-07-19T03:54:35Z",
       "reason": null,
-      "progress": "61/100"
+      "progress": "63/100"
     },
     {
       "team": "rwqAeQ",
@@ -93,7 +93,7 @@
       "status": "running",
       "created_at": "2026-07-19T04:08:07Z",
       "reason": null,
-      "progress": "85/100"
+      "progress": "87/100"
     },
     {
       "team": "1o3mhg",
@@ -101,7 +101,7 @@
       "status": "running",
       "created_at": "2026-07-19T05:38:52Z",
       "reason": null,
-      "progress": "52/100"
+      "progress": "54/100"
     },
     {
       "team": "-QIalg",
@@ -109,7 +109,7 @@
       "status": "running",
       "created_at": "2026-07-19T06:45:24Z",
       "reason": null,
-      "progress": "54/100"
+      "progress": "56/100"
     },
     {
       "team": "zROfyg",
@@ -117,7 +117,7 @@
       "status": "running",
       "created_at": "2026-07-19T07:04:39Z",
       "reason": null,
-      "progress": "35/100"
+      "progress": "37/100"
     },
     {
       "team": "H8gNlQ",
@@ -125,7 +125,7 @@
       "status": "running",
       "created_at": "2026-07-19T07:10:32Z",
       "reason": null,
-      "progress": "46/100"
+      "progress": "49/100"
     },
     {
       "team": "jW1Fzw",
@@ -133,7 +133,7 @@
       "status": "running",
       "created_at": "2026-07-19T07:14:36Z",
       "reason": null,
-      "progress": "48/100"
+      "progress": "50/100"
     },
     {
       "team": "c2tSbw",
@@ -141,7 +141,7 @@
       "status": "running",
       "created_at": "2026-07-19T07:41:32Z",
       "reason": null,
-      "progress": "54/100"
+      "progress": "56/100"
     },
     {
       "team": "g7MGaA",
@@ -149,7 +149,7 @@
       "status": "running",
       "created_at": "2026-07-19T07:47:38Z",
       "reason": null,
-      "progress": "38/100"
+      "progress": "40/100"
     },
     {
       "team": "fEzvSw",
@@ -157,7 +157,7 @@
       "status": "running",
       "created_at": "2026-07-19T08:35:11Z",
       "reason": null,
-      "progress": "22/100"
+      "progress": "23/100"
     },
     {
       "team": "1o3mhg",
@@ -165,15 +165,7 @@
       "status": "running",
       "created_at": "2026-07-19T08:35:24Z",
       "reason": null,
-      "progress": "24/100"
-    },
-    {
-      "team": "EWjSzQ",
-      "track": "T2",
-      "status": "running",
-      "created_at": "2026-07-19T09:36:53Z",
-      "reason": null,
-      "progress": "95/100"
+      "progress": "25/100"
     },
     {
       "team": "8MvGIw",
@@ -181,7 +173,7 @@
       "status": "running",
       "created_at": "2026-07-19T10:37:54Z",
       "reason": null,
-      "progress": "14/100"
+      "progress": "16/100"
     },
     {
       "team": "EiU16A",
@@ -189,7 +181,7 @@
       "status": "running",
       "created_at": "2026-07-19T10:40:37Z",
       "reason": null,
-      "progress": "12/100"
+      "progress": "15/100"
     },
     {
       "team": "Wz_lPA",
@@ -197,12 +189,12 @@
       "status": "running",
       "created_at": "2026-07-19T11:28:34Z",
       "reason": null,
-      "progress": "2/100"
+      "progress": "3/100"
     },
     {
       "team": "YIqOkA",
       "track": "T4",
-      "status": "queued",
+      "status": "running",
       "created_at": "2026-07-19T11:30:09Z",
       "reason": null,
       "progress": null
@@ -357,6 +349,14 @@
       "status": "failed",
       "created_at": "2026-07-19T10:04:28Z",
       "reason": "找不到指定的 checkpoint 文件:评测按你的配置加载 ckpt,但目标文件不存在。请确认提交的 ckpt 与配置中指定的文件名正确后重新提交",
+      "progress": null
+    },
+    {
+      "team": "EWjSzQ",
+      "track": "T2",
+      "status": "done",
+      "created_at": "2026-07-19T09:36:53Z",
+      "reason": null,
       "progress": null
     },
     {
@@ -596,14 +596,6 @@
       "track": "T3",
       "status": "done",
       "created_at": "2026-07-18T15:21:30Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "OT5PMQ",
-      "track": "T3",
-      "status": "done",
-      "created_at": "2026-07-18T15:14:49Z",
       "reason": null,
       "progress": null
     }
