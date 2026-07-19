@@ -1,6 +1,6 @@
 {
   "_comment": "后端真实榜 + 占位示例自动合并(board_sync)。真实条目优先;示例仅在无同名真实条目时保留。",
-  "generated_at": "2026-07-19T00:18:20Z",
+  "generated_at": "2026-07-19T00:46:59Z",
   "deadline": "2026-07-21T00:00:00+08:00",
   "final_unlocked": false,
   "dev": [
@@ -74,6 +74,29 @@
       }
     },
     {
+      "token_suffix": "fEzvSw",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.57
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.85
+      },
+      "t3": {
+        "pass": true,
+        "success_rate": 0.64
+      },
+      "t4": {
+        "graded": 0.7300000000000001
+      },
+      "progress": {
+        "level": 3,
+        "track": "T3",
+        "success_rate": 0.64
+      }
+    },
+    {
       "token_suffix": "DTCE8Q",
       "t1": {
         "pass": true,
@@ -143,29 +166,6 @@
       }
     },
     {
-      "token_suffix": "fEzvSw",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.57
-      },
-      "t2": {
-        "pass": true,
-        "success_rate": 0.85
-      },
-      "t3": {
-        "pass": true,
-        "success_rate": 0.64
-      },
-      "t4": {
-        "graded": 0.7233333333333334
-      },
-      "progress": {
-        "level": 3,
-        "track": "T3",
-        "success_rate": 0.64
-      }
-    },
-    {
       "token_suffix": "dfQYbw",
       "t1": {
         "pass": true,
@@ -186,6 +186,29 @@
         "level": 3,
         "track": "T3",
         "success_rate": 0.56
+      }
+    },
+    {
+      "token_suffix": "Xy0oKA",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.53
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.87
+      },
+      "t3": {
+        "pass": true,
+        "success_rate": 0.65
+      },
+      "t4": {
+        "graded": 0.6966666666666668
+      },
+      "progress": {
+        "level": 3,
+        "track": "T3",
+        "success_rate": 0.65
       }
     },
     {
@@ -232,29 +255,6 @@
         "level": 3,
         "track": "T3",
         "success_rate": 0.6
-      }
-    },
-    {
-      "token_suffix": "Xy0oKA",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.53
-      },
-      "t2": {
-        "pass": true,
-        "success_rate": 0.87
-      },
-      "t3": {
-        "pass": true,
-        "success_rate": 0.65
-      },
-      "t4": {
-        "graded": 0.67
-      },
-      "progress": {
-        "level": 3,
-        "track": "T3",
-        "success_rate": 0.65
       }
     },
     {
@@ -1108,7 +1108,10 @@
         "pass": true,
         "success_rate": 0.66
       },
-      "t3": null,
+      "t3": {
+        "pass": false,
+        "success_rate": 0.47
+      },
       "t4": null,
       "progress": {
         "level": 2,
