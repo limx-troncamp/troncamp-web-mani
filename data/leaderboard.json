@@ -1,6 +1,6 @@
 {
   "_comment": "后端真实榜 + 占位示例自动合并(board_sync)。真实条目优先;示例仅在无同名真实条目时保留。",
-  "generated_at": "2026-07-19T19:19:50Z",
+  "generated_at": "2026-07-19T19:40:01Z",
   "deadline": "2026-07-21T00:00:00+08:00",
   "final_unlocked": false,
   "dev": [
@@ -166,6 +166,29 @@
       }
     },
     {
+      "token_suffix": "-QIalg",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.58
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.61
+      },
+      "t3": {
+        "pass": true,
+        "success_rate": 0.56
+      },
+      "t4": {
+        "graded": 0.7233333333333333
+      },
+      "progress": {
+        "level": 3,
+        "track": "T3",
+        "success_rate": 0.56
+      }
+    },
+    {
       "token_suffix": "dfQYbw",
       "t1": {
         "pass": true,
@@ -255,29 +278,6 @@
         "level": 3,
         "track": "T3",
         "success_rate": 0.6
-      }
-    },
-    {
-      "token_suffix": "-QIalg",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.58
-      },
-      "t2": {
-        "pass": true,
-        "success_rate": 0.61
-      },
-      "t3": {
-        "pass": true,
-        "success_rate": 0.56
-      },
-      "t4": {
-        "graded": 0.6733333333333331
-      },
-      "progress": {
-        "level": 3,
-        "track": "T3",
-        "success_rate": 0.56
       }
     },
     {
@@ -1469,7 +1469,10 @@
         "pass": true,
         "success_rate": 0.61
       },
-      "t3": null,
+      "t3": {
+        "pass": false,
+        "success_rate": 0.33
+      },
       "t4": null,
       "progress": {
         "level": 2,
