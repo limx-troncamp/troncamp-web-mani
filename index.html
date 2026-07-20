@@ -52,7 +52,7 @@
   function tick(){
     var el = document.getElementById('cdTime'); if(!el) return;
     var d = deadline - Date.now();
-    if(d <= 0){ el.textContent = '已截止'; return; }
+    if(d <= 0){ el.textContent = '提交已截止 · 排队评测继续'; return; }
     var day=Math.floor(d/864e5), h=Math.floor(d%864e5/36e5), m=Math.floor(d%36e5/6e4), s=Math.floor(d%6e4/1e3);
     el.textContent = day+' 天 '+h+' 时 '+m+' 分 '+s+' 秒';
     setTimeout(tick, 1000);
@@ -260,7 +260,18 @@
       <p style="margin:0 0 .95rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;color:var(--accent)">公告 NOTICE</p>
 
       <div style="display:flex;gap:.7rem;align-items:baseline;margin:0 0 .45rem">
-        <span style="flex:none;font-family:var(--mono);font-size:.72rem;color:var(--accent);border:1px solid var(--accent-dim);border-radius:5px;padding:.1rem .45rem">7·18</span>
+        <span style="flex:none;font-family:var(--mono);font-size:.72rem;color:var(--accent);border:1px solid var(--accent-dim);border-radius:5px;padding:.1rem .45rem">7·20</span>
+        <span style="font-weight:700">提交截止 · 存量评测继续结算</span>
+      </div>
+      <ul style="margin:0 0 0 .1rem;padding-left:1.3rem;color:var(--muted);line-height:1.85">
+        <li>北京时间 <b>7 月 20 日 24:00</b> 准时关闭 checkpoint / 代码包上传及新增评测提交。截止口径以 <code>/api/submit</code> 在截止前成功返回「已排队」为准,仅上传文件不视为完成提交。</li>
+        <li>截止前已经<b>排队或正在评测</b>的提交全部保留,系统将继续评测直至完成;成绩产出后仍会更新该队个人最佳成绩及排行榜。无需抢在截止前等到评测结果,也无需重复提交。</li>
+      </ul>
+
+      <hr style="border:0;border-top:1px solid var(--line);margin:1rem 0">
+
+      <div style="display:flex;gap:.7rem;align-items:baseline;margin:0 0 .45rem">
+        <span style="flex:none;font-family:var(--mono);font-size:.72rem;color:var(--dim);border:1px solid var(--line);border-radius:5px;padding:.1rem .45rem">7·18</span>
         <span style="font-weight:700">评测超时误判 · 致歉与修复</span>
       </div>
       <ul style="margin:0 0 0 .1rem;padding-left:1.3rem;color:var(--muted);line-height:1.85">

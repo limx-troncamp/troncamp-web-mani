@@ -87,7 +87,7 @@
     function tick() {
       var ms = end - Date.now();
       if (ms <= 0) {
-        el.textContent = '已截止 · 榜单已冻结为最终成绩';
+        el.textContent = '提交已截止 · 排队评测继续，成绩持续更新';
         el.classList.add('over');
         return;
       }
