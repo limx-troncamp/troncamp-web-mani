@@ -1,6 +1,6 @@
 {
   "_comment": "后端真实榜 + 占位示例自动合并(board_sync)。真实条目优先;示例仅在无同名真实条目时保留。",
-  "generated_at": "2026-07-20T01:58:32Z",
+  "generated_at": "2026-07-20T02:24:24Z",
   "deadline": "2026-07-21T00:00:00+08:00",
   "final_unlocked": false,
   "dev": [
@@ -465,6 +465,29 @@
       }
     },
     {
+      "token_suffix": "DTaTDQ",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.57
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.66
+      },
+      "t3": {
+        "pass": true,
+        "success_rate": 0.63
+      },
+      "t4": {
+        "graded": 0.6366666666666666
+      },
+      "progress": {
+        "level": 3,
+        "track": "T3",
+        "success_rate": 0.63
+      }
+    },
+    {
       "token_suffix": "YOXVtw",
       "t1": {
         "pass": true,
@@ -600,29 +623,6 @@
         "level": 3,
         "track": "T3",
         "success_rate": 0.66
-      }
-    },
-    {
-      "token_suffix": "DTaTDQ",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.57
-      },
-      "t2": {
-        "pass": true,
-        "success_rate": 0.66
-      },
-      "t3": {
-        "pass": true,
-        "success_rate": 0.63
-      },
-      "t4": {
-        "graded": 0.5433333333333334
-      },
-      "progress": {
-        "level": 3,
-        "track": "T3",
-        "success_rate": 0.63
       }
     },
     {
@@ -916,6 +916,27 @@
         "level": 3,
         "track": "T3",
         "success_rate": 0.67
+      }
+    },
+    {
+      "token_suffix": "RXvfmw",
+      "t1": {
+        "pass": true,
+        "success_rate": 0.59
+      },
+      "t2": {
+        "pass": true,
+        "success_rate": 0.64
+      },
+      "t3": {
+        "pass": true,
+        "success_rate": 0.57
+      },
+      "t4": null,
+      "progress": {
+        "level": 3,
+        "track": "T3",
+        "success_rate": 0.57
       }
     },
     {
@@ -1325,24 +1346,6 @@
         "pass": false,
         "success_rate": 0.2
       },
-      "t4": null,
-      "progress": {
-        "level": 2,
-        "track": "T2",
-        "success_rate": 0.64
-      }
-    },
-    {
-      "token_suffix": "RXvfmw",
-      "t1": {
-        "pass": true,
-        "success_rate": 0.59
-      },
-      "t2": {
-        "pass": true,
-        "success_rate": 0.64
-      },
-      "t3": null,
       "t4": null,
       "progress": {
         "level": 2,
