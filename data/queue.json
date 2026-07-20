@@ -1,27 +1,19 @@
 {
-  "generated_at": "2026-07-20T03:40:03Z",
+  "generated_at": "2026-07-20T03:50:06Z",
   "counts": {
-    "queued": 3,
+    "queued": 0,
     "running": 24,
-    "done_recent": 32,
-    "failed_recent": 7
+    "done_recent": 34,
+    "failed_recent": 8
   },
   "items": [
-    {
-      "team": "Ew8w5w",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-19T11:49:45Z",
-      "reason": null,
-      "progress": "100/100"
-    },
     {
       "team": "9Pm7SQ",
       "track": "T4",
       "status": "running",
       "created_at": "2026-07-19T12:24:31Z",
       "reason": null,
-      "progress": "91/100"
+      "progress": "93/100"
     },
     {
       "team": "-QIalg",
@@ -29,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-19T13:57:59Z",
       "reason": null,
-      "progress": "82/100"
+      "progress": "84/100"
     },
     {
       "team": "g7MGaA",
@@ -37,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-19T14:33:26Z",
       "reason": null,
-      "progress": "87/100"
+      "progress": "89/100"
     },
     {
       "team": "jr257g",
@@ -45,15 +37,7 @@
       "status": "running",
       "created_at": "2026-07-19T14:54:01Z",
       "reason": null,
-      "progress": "68/100"
-    },
-    {
-      "team": "dTPehA",
-      "track": "T3",
-      "status": "running",
-      "created_at": "2026-07-19T14:54:19Z",
-      "reason": null,
-      "progress": "99/100"
+      "progress": "69/100"
     },
     {
       "team": "xiqpmA",
@@ -61,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-19T15:35:33Z",
       "reason": null,
-      "progress": "64/100"
+      "progress": "65/100"
     },
     {
       "team": "8MvGIw",
@@ -69,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-19T15:38:51Z",
       "reason": null,
-      "progress": "79/100"
+      "progress": "81/100"
     },
     {
       "team": "5uVT7w",
@@ -77,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-19T15:40:03Z",
       "reason": null,
-      "progress": "66/100"
+      "progress": "68/100"
     },
     {
       "team": "tNgCOA",
@@ -85,7 +69,7 @@
       "status": "running",
       "created_at": "2026-07-19T15:52:16Z",
       "reason": null,
-      "progress": "53/100"
+      "progress": "54/100"
     },
     {
       "team": "EWjSzQ",
@@ -93,7 +77,7 @@
       "status": "running",
       "created_at": "2026-07-19T15:54:34Z",
       "reason": null,
-      "progress": "63/100"
+      "progress": "65/100"
     },
     {
       "team": "DTaTDQ",
@@ -101,7 +85,7 @@
       "status": "running",
       "created_at": "2026-07-19T15:55:05Z",
       "reason": null,
-      "progress": "45/100"
+      "progress": "46/100"
     },
     {
       "team": "03qiTA",
@@ -109,7 +93,7 @@
       "status": "running",
       "created_at": "2026-07-19T16:02:35Z",
       "reason": null,
-      "progress": "35/100"
+      "progress": "37/100"
     },
     {
       "team": "bvxmcQ",
@@ -117,7 +101,7 @@
       "status": "running",
       "created_at": "2026-07-19T16:03:57Z",
       "reason": null,
-      "progress": "27/100"
+      "progress": "28/100"
     },
     {
       "team": "1o3mhg",
@@ -125,7 +109,7 @@
       "status": "running",
       "created_at": "2026-07-19T16:06:06Z",
       "reason": null,
-      "progress": "27/100"
+      "progress": "29/100"
     },
     {
       "team": "Xy0oKA",
@@ -133,7 +117,7 @@
       "status": "running",
       "created_at": "2026-07-19T16:11:19Z",
       "reason": null,
-      "progress": "26/100"
+      "progress": "27/100"
     },
     {
       "team": "u01A0A",
@@ -141,7 +125,7 @@
       "status": "running",
       "created_at": "2026-07-19T17:13:22Z",
       "reason": null,
-      "progress": "89/100"
+      "progress": "95/100"
     },
     {
       "team": "Wz_lPA",
@@ -149,7 +133,7 @@
       "status": "running",
       "created_at": "2026-07-19T21:52:27Z",
       "reason": null,
-      "progress": "14/100"
+      "progress": "15/100"
     },
     {
       "team": "-QIalg",
@@ -157,7 +141,7 @@
       "status": "running",
       "created_at": "2026-07-19T23:16:49Z",
       "reason": null,
-      "progress": "13/100"
+      "progress": "15/100"
     },
     {
       "team": "YQs2Yg",
@@ -165,7 +149,7 @@
       "status": "running",
       "created_at": "2026-07-19T23:18:47Z",
       "reason": null,
-      "progress": "18/100"
+      "progress": "21/100"
     },
     {
       "team": "fEzvSw",
@@ -173,7 +157,7 @@
       "status": "running",
       "created_at": "2026-07-20T01:12:42Z",
       "reason": null,
-      "progress": "6/100"
+      "progress": "7/100"
     },
     {
       "team": "fEzvSw",
@@ -181,7 +165,7 @@
       "status": "running",
       "created_at": "2026-07-20T01:14:28Z",
       "reason": null,
-      "progress": "3/100"
+      "progress": "5/100"
     },
     {
       "team": "l_eI0Q",
@@ -189,7 +173,7 @@
       "status": "running",
       "created_at": "2026-07-20T01:32:15Z",
       "reason": null,
-      "progress": "3/100"
+      "progress": "4/100"
     },
     {
       "team": "SCzG-g",
@@ -197,30 +181,30 @@
       "status": "running",
       "created_at": "2026-07-20T01:42:59Z",
       "reason": null,
-      "progress": "2/100"
-    },
-    {
-      "team": "YOXVtw",
-      "track": "T4",
-      "status": "queued",
-      "created_at": "2026-07-20T02:11:22Z",
-      "reason": null,
-      "progress": null
+      "progress": "9/100"
     },
     {
       "team": "03qiTA",
       "track": "T4",
-      "status": "queued",
+      "status": "running",
       "created_at": "2026-07-20T03:01:05Z",
       "reason": null,
-      "progress": null
+      "progress": "2/100"
     },
     {
       "team": "8EQUAw",
       "track": "T4",
-      "status": "queued",
+      "status": "running",
       "created_at": "2026-07-20T03:28:48Z",
       "reason": null,
+      "progress": null
+    },
+    {
+      "team": "YOXVtw",
+      "track": "T4",
+      "status": "failed",
+      "created_at": "2026-07-20T02:11:22Z",
+      "reason": "找不到指定的 checkpoint 文件:评测按你的配置加载 ckpt,但目标文件不存在。请确认提交的 ckpt 与配置中指定的文件名正确后重新提交",
       "progress": null
     },
     {
@@ -244,6 +228,14 @@
       "track": "T2",
       "status": "done",
       "created_at": "2026-07-19T15:02:47Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "dTPehA",
+      "track": "T3",
+      "status": "done",
+      "created_at": "2026-07-19T14:54:19Z",
       "reason": null,
       "progress": null
     },
@@ -308,6 +300,14 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-19T11:56:03Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "Ew8w5w",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-19T11:49:45Z",
       "reason": null,
       "progress": null
     },
