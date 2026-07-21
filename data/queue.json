@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-21T11:10:07Z",
+  "generated_at": "2026-07-21T11:40:04Z",
   "counts": {
     "queued": 0,
     "running": 0,
     "done_recent": 19,
-    "failed_recent": 1
+    "failed_recent": 0
   },
   "items": [
     {
@@ -157,14 +157,6 @@
       "status": "done",
       "created_at": "2026-07-20T12:48:48Z",
       "reason": null,
-      "progress": null
-    },
-    {
-      "team": "mSIL4Q",
-      "track": "T3",
-      "status": "failed",
-      "created_at": "2026-07-20T11:34:20Z",
-      "reason": "评测环境仅含官方 ACT 所需依赖,你的代码 import 了环境中没有的 Python 包(ModuleNotFoundError),无法加载。线上是固定的官方 ACT 环境、不能额外安装依赖——请改用官方 policy/ACT(DP / DP3 / VLA 等非 ACT 策略需 hydra / diffusers / pytorch3d 等额外依赖,线上不支持)",
       "progress": null
     }
   ]
