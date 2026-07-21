@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T06:00:04Z",
+  "generated_at": "2026-07-21T06:10:08Z",
   "counts": {
     "queued": 0,
     "running": 10,
@@ -13,7 +13,7 @@
       "status": "running",
       "created_at": "2026-07-20T13:34:31Z",
       "reason": null,
-      "progress": "92/100"
+      "progress": "93/100"
     },
     {
       "team": "CnNECg",
@@ -21,7 +21,7 @@
       "status": "running",
       "created_at": "2026-07-20T13:36:59Z",
       "reason": null,
-      "progress": "95/100"
+      "progress": "98/100"
     },
     {
       "team": "Mgks8Q",
@@ -29,7 +29,7 @@
       "status": "running",
       "created_at": "2026-07-20T15:12:05Z",
       "reason": null,
-      "progress": "72/100"
+      "progress": "74/100"
     },
     {
       "team": "OMC-sA",
@@ -37,7 +37,7 @@
       "status": "running",
       "created_at": "2026-07-20T15:24:15Z",
       "reason": null,
-      "progress": "93/100"
+      "progress": "96/100"
     },
     {
       "team": "OMC-sA",
@@ -45,7 +45,7 @@
       "status": "running",
       "created_at": "2026-07-20T15:24:59Z",
       "reason": null,
-      "progress": "89/100"
+      "progress": "91/100"
     },
     {
       "team": "4jnxhQ",
@@ -53,7 +53,7 @@
       "status": "running",
       "created_at": "2026-07-20T15:27:26Z",
       "reason": null,
-      "progress": "79/100"
+      "progress": "81/100"
     },
     {
       "team": "OT5PMQ",
@@ -61,7 +61,7 @@
       "status": "running",
       "created_at": "2026-07-20T15:28:11Z",
       "reason": null,
-      "progress": "57/100"
+      "progress": "60/100"
     },
     {
       "team": "5uVT7w",
@@ -69,7 +69,7 @@
       "status": "running",
       "created_at": "2026-07-20T15:42:19Z",
       "reason": null,
-      "progress": "65/100"
+      "progress": "67/100"
     },
     {
       "team": "DTaTDQ",
@@ -77,7 +77,7 @@
       "status": "running",
       "created_at": "2026-07-20T15:44:55Z",
       "reason": null,
-      "progress": "44/100"
+      "progress": "45/100"
     },
     {
       "team": "a40Cbw",
@@ -85,7 +85,7 @@
       "status": "running",
       "created_at": "2026-07-20T15:45:01Z",
       "reason": null,
-      "progress": "43/100"
+      "progress": "45/100"
     },
     {
       "team": "kb3z_A",
