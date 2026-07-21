@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-21T08:50:06Z",
+  "generated_at": "2026-07-21T09:10:40Z",
   "counts": {
     "queued": 0,
-    "running": 2,
-    "done_recent": 34,
+    "running": 1,
+    "done_recent": 32,
     "failed_recent": 1
   },
   "items": [
@@ -13,21 +13,21 @@
       "status": "running",
       "created_at": "2026-07-20T15:44:55Z",
       "reason": null,
-      "progress": "76/100"
-    },
-    {
-      "team": "a40Cbw",
-      "track": "T4",
-      "status": "running",
-      "created_at": "2026-07-20T15:45:01Z",
-      "reason": null,
-      "progress": "98/100"
+      "progress": "84/100"
     },
     {
       "team": "kb3z_A",
       "track": "T1",
       "status": "done",
       "created_at": "2026-07-20T15:58:12Z",
+      "reason": null,
+      "progress": null
+    },
+    {
+      "team": "a40Cbw",
+      "track": "T4",
+      "status": "done",
+      "created_at": "2026-07-20T15:45:01Z",
       "reason": null,
       "progress": null
     },
@@ -276,30 +276,6 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-20T09:12:07Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "g7MGaA",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-20T09:08:27Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "Wz_lPA",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-20T09:00:07Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "YIqOkA",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-20T08:58:41Z",
       "reason": null,
       "progress": null
     }
