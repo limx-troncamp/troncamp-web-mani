@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-21T10:40:06Z",
+  "generated_at": "2026-07-21T10:50:09Z",
   "counts": {
     "queued": 0,
     "running": 0,
-    "done_recent": 21,
+    "done_recent": 20,
     "failed_recent": 1
   },
   "items": [
@@ -172,14 +172,6 @@
       "track": "T4",
       "status": "done",
       "created_at": "2026-07-20T10:53:29Z",
-      "reason": null,
-      "progress": null
-    },
-    {
-      "team": "rwqAeQ",
-      "track": "T4",
-      "status": "done",
-      "created_at": "2026-07-20T10:49:00Z",
       "reason": null,
       "progress": null
     }
