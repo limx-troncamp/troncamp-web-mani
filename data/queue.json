@@ -1,19 +1,10 @@
 {
-  "generated_at": "2026-07-21T15:50:06Z",
+  "generated_at": "2026-07-21T16:00:07Z",
   "counts": {
     "queued": 0,
     "running": 0,
-    "done_recent": 1,
+    "done_recent": 0,
     "failed_recent": 0
   },
-  "items": [
-    {
-      "team": "kb3z_A",
-      "track": "T1",
-      "status": "done",
-      "created_at": "2026-07-20T15:58:12Z",
-      "reason": null,
-      "progress": null
-    }
-  ]
+  "items": []
 }
